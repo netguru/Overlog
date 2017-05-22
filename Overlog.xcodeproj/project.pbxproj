@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
+		3A88CEE61ED333B600557CFA /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88CEE41ED333A900557CFA /* SwiftCheckSupport.swift */; };
+		3A88CEE81ED3478F00557CFA /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88CEE71ED3478F00557CFA /* Foo.swift */; };
+		3A88CEF11ED35B9500557CFA /* FooSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88CEF01ED35B9500557CFA /* FooSpec.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A88CEBD1ED32D4D00557CFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A88CEA91ED32D4D00557CFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A88CEB11ED32D4D00557CFA;
+			remoteInfo = Overlog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A88CEB21ED32D4D00557CFA /* Overlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Overlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Overlog Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A88CED11ED32EF600557CFA /* Framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Framework-Info.plist"; sourceTree = "<group>"; };
+		3A88CED21ED32EF600557CFA /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		3A88CED41ED32F2A00557CFA /* Common-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Base.xcconfig"; sourceTree = "<group>"; };
+		3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Debug.xcconfig"; sourceTree = "<group>"; };
+		3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Release.xcconfig"; sourceTree = "<group>"; };
+		3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Base.xcconfig"; sourceTree = "<group>"; };
+		3A88CEDA1ED32FE100557CFA /* Framework-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-iOS.xcconfig"; sourceTree = "<group>"; };
+		3A88CEDC1ED3301B00557CFA /* Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Base.xcconfig"; sourceTree = "<group>"; };
+		3A88CEDD1ED3304100557CFA /* Tests-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-iOS.xcconfig"; sourceTree = "<group>"; };
+		3A88CEE41ED333A900557CFA /* SwiftCheckSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCheckSupport.swift; sourceTree = "<group>"; };
+		3A88CEE71ED3478F00557CFA /* Foo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
+		3A88CEF01ED35B9500557CFA /* FooSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooSpec.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A88CEAE1ED32D4D00557CFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A88CEB81ED32D4D00557CFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A88CEA81ED32D4D00557CFA = {
+			isa = PBXGroup;
+			children = (
+				3A88CECC1ED32EEA00557CFA /* Sources */,
+				3A88CECD1ED32EF200557CFA /* Tests */,
+				3A88CED01ED32EF600557CFA /* Resources */,
+				3A88CED31ED32EFD00557CFA /* Configurations */,
+				3A88CEB31ED32D4D00557CFA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A88CEB31ED32D4D00557CFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CEB21ED32D4D00557CFA /* Overlog.framework */,
+				3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A88CECC1ED32EEA00557CFA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CEE71ED3478F00557CFA /* Foo.swift */,
+			);
+			name = Sources;
+			path = Overlog/Sources;
+			sourceTree = "<group>";
+		};
+		3A88CECD1ED32EF200557CFA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CEEF1ED35B9500557CFA /* Specs */,
+				3A88CEE11ED3333B00557CFA /* Additions */,
+			);
+			name = Tests;
+			path = Overlog/Tests;
+			sourceTree = "<group>";
+		};
+		3A88CED01ED32EF600557CFA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CED11ED32EF600557CFA /* Framework-Info.plist */,
+				3A88CED21ED32EF600557CFA /* Tests-Info.plist */,
+			);
+			name = Resources;
+			path = Overlog/Resources;
+			sourceTree = "<group>";
+		};
+		3A88CED31ED32EFD00557CFA /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CED81ED32F9A00557CFA /* Common */,
+				3A88CED91ED32FA200557CFA /* Framework */,
+				3A88CEDB1ED3300F00557CFA /* Tests */,
+			);
+			name = Configurations;
+			path = Overlog/Configurations;
+			sourceTree = "<group>";
+		};
+		3A88CED81ED32F9A00557CFA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CED41ED32F2A00557CFA /* Common-Base.xcconfig */,
+				3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */,
+				3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		3A88CED91ED32FA200557CFA /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */,
+				3A88CEDA1ED32FE100557CFA /* Framework-iOS.xcconfig */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		3A88CEDB1ED3300F00557CFA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CEDC1ED3301B00557CFA /* Tests-Base.xcconfig */,
+				3A88CEDD1ED3304100557CFA /* Tests-iOS.xcconfig */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		3A88CEE11ED3333B00557CFA /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CEE31ED3337400557CFA /* Matchers */,
+				3A88CEE21ED3336C00557CFA /* Generators */,
+				3A88CEE41ED333A900557CFA /* SwiftCheckSupport.swift */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		3A88CEE21ED3336C00557CFA /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generators;
+			sourceTree = "<group>";
+		};
+		3A88CEE31ED3337400557CFA /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Matchers;
+			sourceTree = "<group>";
+		};
+		3A88CEEF1ED35B9500557CFA /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CEF01ED35B9500557CFA /* FooSpec.swift */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A88CEB11ED32D4D00557CFA /* Overlog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A88CEC61ED32D4D00557CFA /* Build configuration list for PBXNativeTarget "Overlog" */;
+			buildPhases = (
+				3A88CEAD1ED32D4D00557CFA /* Sources */,
+				3A88CEAE1ED32D4D00557CFA /* Frameworks */,
+				3A88CEB01ED32D4D00557CFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Overlog;
+			productName = Overlog;
+			productReference = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3A88CEBA1ED32D4D00557CFA /* Overlog Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A88CEC91ED32D4D00557CFA /* Build configuration list for PBXNativeTarget "Overlog Tests" */;
+			buildPhases = (
+				3A88CEB71ED32D4D00557CFA /* Sources */,
+				3A88CEB81ED32D4D00557CFA /* Frameworks */,
+				3A88CEB91ED32D4D00557CFA /* Resources */,
+				3A88CEE91ED34ABB00557CFA /* Carthage Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A88CEBE1ED32D4D00557CFA /* PBXTargetDependency */,
+			);
+			name = "Overlog Tests";
+			productName = OverlogTests;
+			productReference = 3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A88CEA91ED32D4D00557CFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Netguru Sp. z o.o.";
+				TargetAttributes = {
+					3A88CEB11ED32D4D00557CFA = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Manual;
+					};
+					3A88CEBA1ED32D4D00557CFA = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3A88CEAC1ED32D4D00557CFA /* Build configuration list for PBXProject "Overlog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+			);
+			mainGroup = 3A88CEA81ED32D4D00557CFA;
+			productRefGroup = 3A88CEB31ED32D4D00557CFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A88CEB11ED32D4D00557CFA /* Overlog */,
+				3A88CEBA1ED32D4D00557CFA /* Overlog Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A88CEB01ED32D4D00557CFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A88CEB91ED32D4D00557CFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A88CEE91ED34ABB00557CFA /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(_CARTHAGE_BUILD_PATH)/Nimble.framework",
+				"$(_CARTHAGE_BUILD_PATH)/Quick.framework",
+				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
+				"$(_CARTHAGE_BUILD_PATH)/SwiftCheck.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A88CEAD1ED32D4D00557CFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A88CEE81ED3478F00557CFA /* Foo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A88CEB71ED32D4D00557CFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A88CEE61ED333B600557CFA /* SwiftCheckSupport.swift in Sources */,
+				3A88CEF11ED35B9500557CFA /* FooSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A88CEBE1ED32D4D00557CFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A88CEB11ED32D4D00557CFA /* Overlog */;
+			targetProxy = 3A88CEBD1ED32D4D00557CFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3A88CEC41ED32D4D00557CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3A88CEC51ED32D4D00557CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		3A88CEC71ED32D4D00557CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CEDA1ED32FE100557CFA /* Framework-iOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3A88CEC81ED32D4D00557CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CEDA1ED32FE100557CFA /* Framework-iOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		3A88CECA1ED32D4D00557CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CEDD1ED3304100557CFA /* Tests-iOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3A88CECB1ED32D4D00557CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CEDD1ED3304100557CFA /* Tests-iOS.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A88CEAC1ED32D4D00557CFA /* Build configuration list for PBXProject "Overlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A88CEC41ED32D4D00557CFA /* Debug */,
+				3A88CEC51ED32D4D00557CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A88CEC61ED32D4D00557CFA /* Build configuration list for PBXNativeTarget "Overlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A88CEC71ED32D4D00557CFA /* Debug */,
+				3A88CEC81ED32D4D00557CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A88CEC91ED32D4D00557CFA /* Build configuration list for PBXNativeTarget "Overlog Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A88CECA1ED32D4D00557CFA /* Debug */,
+				3A88CECB1ED32D4D00557CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A88CEA91ED32D4D00557CFA /* Project object */;
+}

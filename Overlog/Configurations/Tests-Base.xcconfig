@@ -1,0 +1,16 @@
+//
+// Tests-Base.xcconfig
+//
+// Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+// Licensed under the MIT License.
+//
+
+// MARK: Imports
+
+#include "../../Carthage/Checkouts/xcconfigs/Targets/Tests.xcconfig"
+
+// MARK: Bundle
+
+_BUNDLE_NAME = Overlog Tests
+_BUNDLE_IDENTIFIER = co.netguru.lib.overlog.tests
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Resources/Tests-Info.plist
