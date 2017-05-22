@@ -1,0 +1,110 @@
+#
+# bitrise.yml
+#
+# Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+# Licensed under the MIT License.
+#
+
+# CLI metadata.
+
+format_version: 1.3.1
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+# Workflow trigger map.
+
+trigger_map:
+
+  - push_branch: develop
+    workflow: build-staging
+
+  - pull_request_target_branch: develop
+    workflow: build-pull-request
+
+# Environment configuration.
+
+app:
+  envs:
+    - XCODEBUILD_PROJECT: ./Overlog.xcodeproj
+    - XCODEBUILD_OPTIONS: _BUILD_NUMBER=$BITRISE_BUILD_NUMBER
+    - XCODEBUILD_SCHEME: Overlog
+
+# Workflow declarations.
+
+workflows:
+
+  # Build and test a release configuration.
+
+  build-staging:
+    before_run:
+      - cache-pull
+      - bootstrap-carthage
+      - test-xcode-ios
+    after_run:
+      - cache-push
+      - deploy-bitriseio
+      - notify-slack
+
+  # Build and test a staging configuration.
+
+  build-pull-request:
+    before_run:
+      - cache-pull
+      - bootstrap-carthage
+      - test-xcode-ios
+    after_run:
+      - cache-push
+      - deploy-bitriseio
+      - notify-slack
+
+  # Pull previously cached directories.
+
+  cache-pull:
+    steps:
+      - cache-pull: {}
+
+  # Push cached directories.
+
+  cache-push:
+    steps:
+      - cache-push:
+          inputs:
+            - cache_paths: ./Carthage
+
+  # Bootstrap dependencies using Carthage package manager.
+
+  bootstrap-carthage:
+    steps:
+      - carthage:
+          inputs:
+            - carthage_command: bootstrap
+            - carthage_options: --platform iOS --cache-builds
+
+  # Build and test an app using `xcodebuild` command.
+
+  test-xcode-ios:
+    steps:
+      - xcode-test:
+          inputs:
+            - project_path: $XCODEBUILD_PROJECT
+            - scheme: $XCODEBUILD_SCHEME
+            - xcodebuild_test_options: $XCODEBUILD_OPTIONS
+            - generate_code_coverage_files: 'yes'
+
+  # Deploy build artifacts to bitrise.io.
+
+  deploy-bitriseio:
+    steps:
+      - deploy-to-bitrise-io:
+          inputs:
+            - notify_user_groups: none
+            - is_enable_public_page: false
+
+  # Notify about build on Slack.
+
+  notify-slack:
+    steps:
+      - git::https://github.com/netguru/bitrise-step-slack.git@master:
+          title: slack
+          inputs:
+            - webhook_url: $SLACK_WEBHOOK_URL
+            - channel: $SLACK_CHANNEL
