@@ -15,10 +15,10 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 trigger_map:
 
   - push_branch: develop
-    workflow: build-staging
+    workflow: build-and-test
 
   - pull_request_target_branch: develop
-    workflow: build-pull-request
+    workflow: build-and-test
 
 # Environment configuration.
 
@@ -34,19 +34,7 @@ workflows:
 
   # Build and test a release configuration.
 
-  build-staging:
-    before_run:
-      - cache-pull
-      - bootstrap-carthage
-      - test-xcode-ios
-    after_run:
-      - cache-push
-      - deploy-bitriseio
-      - notify-slack
-
-  # Build and test a staging configuration.
-
-  build-pull-request:
+  build-and-test:
     before_run:
       - cache-pull
       - bootstrap-carthage
