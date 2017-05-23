@@ -40,7 +40,6 @@ workflows:
       - cache-pull
       - bootstrap-carthage
       - test-framework
-      - test-application
     after_run:
       - cache-push
       - deploy-bitriseio
@@ -53,7 +52,6 @@ workflows:
       - cache-pull
       - bootstrap-carthage
       - test-framework
-      - test-application
     after_run:
       - cache-push
       - deploy-bitriseio
@@ -93,15 +91,6 @@ workflows:
             - scheme: $XCODEBUILD_SCHEME_FRAMEWORK
             - xcodebuild_test_options: $XCODEBUILD_OPTIONS
             - generate_code_coverage_files: 'yes'
-
-  # Build and analyze the application.
-
-  test-application:
-    steps:
-      - script:
-          title: xcode-build-application
-          inputs:
-            - content: xcrun xcodebuild -project "$XCODEBUILD_PROJECT" -scheme "$XCODEBUILD_SCHEME_APPLICATION" build -destination "platform=iOS Simulator,name= iPhone 6s Plus,OS=latest"
 
   # Build and archive the application.
 
