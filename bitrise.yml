@@ -15,10 +15,10 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 trigger_map:
 
   - push_branch: develop
-    workflow: build-and-test
+    workflow: build-staging
 
   - pull_request_target_branch: develop
-    workflow: build-and-test
+    workflow: build-pull-request
 
 # Environment configuration.
 
@@ -26,19 +26,34 @@ app:
   envs:
     - XCODEBUILD_PROJECT: ./Overlog.xcodeproj
     - XCODEBUILD_OPTIONS: _BUILD_NUMBER=$BITRISE_BUILD_NUMBER
-    - XCODEBUILD_SCHEME: Overlog
+    - XCODEBUILD_SCHEME_FRAMEWORK: Framework
+    - XCODEBUILD_SCHEME_APPLICATION: Demo
 
 # Workflow declarations.
 
 workflows:
 
-  # Build and test a release configuration.
+  # Perform a pull request build.
 
-  build-and-test:
+  build-pull-request:
     before_run:
       - cache-pull
       - bootstrap-carthage
-      - test-xcode-ios
+      - test-framework
+      - test-application
+    after_run:
+      - cache-push
+      - deploy-bitriseio
+      - notify-slack
+
+  # Perform a staging build.
+
+  build-staging:
+    before_run:
+      - cache-pull
+      - bootstrap-carthage
+      - test-framework
+      - test-application
     after_run:
       - cache-push
       - deploy-bitriseio
@@ -58,7 +73,7 @@ workflows:
           inputs:
             - cache_paths: ./Carthage
 
-  # Bootstrap dependencies using Carthage package manager.
+  # Bootstrap dependencies using Carthage.
 
   bootstrap-carthage:
     steps:
@@ -67,18 +82,49 @@ workflows:
             - carthage_command: bootstrap
             - carthage_options: --platform iOS --cache-builds
 
-  # Build and test an app using `xcodebuild` command.
+  # Build and test the framework.
 
-  test-xcode-ios:
+  test-framework:
     steps:
       - xcode-test:
           inputs:
             - project_path: $XCODEBUILD_PROJECT
-            - scheme: $XCODEBUILD_SCHEME
+            - scheme: $XCODEBUILD_SCHEME_FRAMEWORK
             - xcodebuild_test_options: $XCODEBUILD_OPTIONS
             - generate_code_coverage_files: 'yes'
 
-  # Deploy build artifacts to bitrise.io.
+  # Build the application.
+
+  test-application:
+    steps:
+      - xcode-test:
+          inputs:
+            - project_path: $XCODEBUILD_PROJECT
+            - scheme: $XCODEBUILD_SCHEME_APPLICATION
+            - xcodebuild_test_options: $XCODEBUILD_OPTIONS
+            - generate_code_coverage_files: 'yes'
+
+  # Build and archive the application.
+
+  archive-application:
+    steps:
+      - xcode-archive:
+          inputs:
+            - project_path: $XCODEBUILD_PROJECT
+            - scheme: $XCODEBUILD_SCHEME_APPLICATION
+            - xcodebuild_options: $XCODEBUILD_OPTIONS
+
+  # Deploy built app to HockeyApp.
+
+  deploy-hockeyapp:
+    steps:
+      - hockeyapp-deploy:
+          inputs:
+            - api_token: $HOCKEYAPP_API_TOKEN
+            - app_id: $HOCKEYAPP_APP_ID
+            - notify: 0
+
+  # Deploy build artifacts to Bitrise.
 
   deploy-bitriseio:
     steps:
