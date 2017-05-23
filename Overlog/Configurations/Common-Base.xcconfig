@@ -1,0 +1,19 @@
+//
+// Common-Base.xcconfig
+//
+// Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+// Licensed under the MIT License.
+//
+
+// MARK: Imports
+
+#include "../../Carthage/Checkouts/xcconfigs/Common/Common.xcconfig"
+#include "../../Carthage/Checkouts/xcconfigs/Common/Carthage.xcconfig"
+
+// MARK: Build
+
+_BUILD_VERSION = 0.1
+
+// MARK: Deployment
+
+_DEPLOYMENT_TARGET_IOS = 8.0
