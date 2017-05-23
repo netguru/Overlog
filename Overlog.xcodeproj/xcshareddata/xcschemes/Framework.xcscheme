@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3A88CEB11ED32D4D00557CFA"
-               BuildableName = ".framework"
+               BuildableName = "Overlog.framework"
                BlueprintName = "Overlog"
                ReferencedContainer = "container:Overlog.xcodeproj">
             </BuildableReference>
@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3A88CEBA1ED32D4D00557CFA"
-               BuildableName = ".xctest"
+               BuildableName = "Overlog Tests.xctest"
                BlueprintName = "Overlog Tests"
                ReferencedContainer = "container:Overlog.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3A88CEBA1ED32D4D00557CFA"
-               BuildableName = ".xctest"
+               BuildableName = "Overlog Tests.xctest"
                BlueprintName = "Overlog Tests"
                ReferencedContainer = "container:Overlog.xcodeproj">
             </BuildableReference>
@@ -58,7 +58,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A88CEB11ED32D4D00557CFA"
-            BuildableName = ".framework"
+            BuildableName = "Overlog.framework"
             BlueprintName = "Overlog"
             ReferencedContainer = "container:Overlog.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A88CEB11ED32D4D00557CFA"
-            BuildableName = ".framework"
+            BuildableName = "Overlog.framework"
             BlueprintName = "Overlog"
             ReferencedContainer = "container:Overlog.xcodeproj">
          </BuildableReference>
@@ -98,7 +98,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A88CEB11ED32D4D00557CFA"
-            BuildableName = ".framework"
+            BuildableName = "Overlog.framework"
             BlueprintName = "Overlog"
             ReferencedContainer = "container:Overlog.xcodeproj">
          </BuildableReference>
