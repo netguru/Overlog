@@ -87,28 +87,29 @@ workflows:
   test-framework:
     steps:
       - xcode-test:
+          title: xcode-test-framework
           inputs:
             - project_path: $XCODEBUILD_PROJECT
             - scheme: $XCODEBUILD_SCHEME_FRAMEWORK
             - xcodebuild_test_options: $XCODEBUILD_OPTIONS
             - generate_code_coverage_files: 'yes'
 
-  # Build the application.
+  # Build and analyze the application.
 
   test-application:
     steps:
-      - xcode-test:
+      - xcode-analyze:
+          title: xcode-analyze-application
           inputs:
             - project_path: $XCODEBUILD_PROJECT
             - scheme: $XCODEBUILD_SCHEME_APPLICATION
-            - xcodebuild_test_options: $XCODEBUILD_OPTIONS
-            - generate_code_coverage_files: 'yes'
 
   # Build and archive the application.
 
   archive-application:
     steps:
       - xcode-archive:
+          title: xcode-archive-application
           inputs:
             - project_path: $XCODEBUILD_PROJECT
             - scheme: $XCODEBUILD_SCHEME_APPLICATION

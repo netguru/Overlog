@@ -12,10 +12,6 @@
 
 // MARK: Bundle
 
-_BUNDLE_NAME = Overlog Demo Tests
-_BUNDLE_IDENTIFIER = co.netguru.lib.overlog.demo.tests
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Demo/Resources/Demo-Tests-Info.plist
-
-// MARK: Test Host
-
-TEST_HOST = $(BUILT_PRODUCTS_DIR)/Overlog Demo.app/Overlog Demo
+_BUNDLE_NAME = Overlog Tests
+_BUNDLE_IDENTIFIER = co.netguru.lib.overlog.tests
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Resources/Tests-Info.plist
