@@ -5,7 +5,6 @@
 // Licensed under the MIT License.
 //
 
-import Overlog
 import UIKit
 
 /// Entry point for the application.
@@ -20,7 +19,6 @@ import UIKit
 
 	/// - SeeAlso: UIApplicationDelegate.application(_:didFinishLaunchingWithOptions:)
 	fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		window!.rootViewController = UIViewController()
 		window!.makeKeyAndVisible()
 		return true
 	}
