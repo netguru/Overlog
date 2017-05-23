@@ -1,0 +1,21 @@
+//
+// Tests-Base.xcconfig
+//
+// Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+// Licensed under the MIT License.
+//
+
+// MARK: Imports
+
+#include "../../Carthage/Checkouts/xcconfigs/Targets/Tests.xcconfig"
+#include "../../Carthage/Checkouts/xcconfigs/Platforms/iOS.xcconfig"
+
+// MARK: Bundle
+
+_BUNDLE_NAME = Overlog Demo Tests
+_BUNDLE_IDENTIFIER = co.netguru.lib.overlog.demo.tests
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Demo/Resources/Demo-Tests-Info.plist
+
+// MARK: Test Host
+
+TEST_HOST = $(BUILT_PRODUCTS_DIR)/Overlog Demo.app/Overlog Demo

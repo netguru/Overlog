@@ -8,9 +8,10 @@
 // MARK: Imports
 
 #include "../../Carthage/Checkouts/xcconfigs/Targets/Tests.xcconfig"
+#include "../../Carthage/Checkouts/xcconfigs/Platforms/iOS.xcconfig"
 
 // MARK: Bundle
 
 _BUNDLE_NAME = Overlog Tests
 _BUNDLE_IDENTIFIER = co.netguru.lib.overlog.tests
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Resources/Tests-Info.plist
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Framework/Resources/Framework-Tests-Info.plist
