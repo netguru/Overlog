@@ -10,12 +10,21 @@
 		3A2204021ED42F5F0048F6A7 /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 		3A2204311ED440440048F6A7 /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204291ED440390048F6A7 /* Foo.swift */; };
 		3A2204321ED440470048F6A7 /* FooSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204301ED440390048F6A7 /* FooSpec.swift */; };
+		3A22043D1ED4416E0048F6A7 /* DummySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22043B1ED441230048F6A7 /* DummySpec.swift */; };
 		3A22043F1ED442990048F6A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2204361ED440590048F6A7 /* Images.xcassets */; };
+		3A2204401ED442A60048F6A7 /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 		3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A22041C1ED43D0F0048F6A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A88CEA91ED32D4D00557CFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A2203EB1ED42EA30048F6A7;
+			remoteInfo = "Overlog Demo";
+		};
 		3A88CEBD1ED32D4D00557CFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A88CEA91ED32D4D00557CFA /* Project object */;
@@ -28,15 +37,19 @@
 /* Begin PBXFileReference section */
 		3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Overlog Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Demo-Base.xcconfig"; sourceTree = "<group>"; };
-		3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Base.xcconfig"; sourceTree = "<group>"; };
+		3A2204171ED43D0F0048F6A7 /* Overlog Demo Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Overlog Demo Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A2204221ED43FB90048F6A7 /* Demo-Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Demo-Tests-Base.xcconfig"; sourceTree = "<group>"; };
+		3A2204231ED43FB90048F6A7 /* Framework-Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Tests-Base.xcconfig"; sourceTree = "<group>"; };
 		3A2204261ED440390048F6A7 /* Framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Framework-Info.plist"; sourceTree = "<group>"; };
-		3A2204271ED440390048F6A7 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		3A2204271ED440390048F6A7 /* Framework-Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Framework-Tests-Info.plist"; sourceTree = "<group>"; };
 		3A2204291ED440390048F6A7 /* Foo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
 		3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCheckSupport.swift; sourceTree = "<group>"; };
 		3A2204301ED440390048F6A7 /* FooSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooSpec.swift; sourceTree = "<group>"; };
 		3A2204351ED440590048F6A7 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
 		3A2204361ED440590048F6A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
+		3A22043A1ED440870048F6A7 /* Demo-Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Tests-Info.plist"; sourceTree = "<group>"; };
+		3A22043B1ED441230048F6A7 /* DummySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySpec.swift; sourceTree = "<group>"; };
 		3A88CEB21ED32D4D00557CFA /* Overlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Overlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Overlog Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A88CED41ED32F2A00557CFA /* Common-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Base.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +64,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2204021ED42F5F0048F6A7 /* Overlog.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A2204141ED43D0F0048F6A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A2204401ED442A60048F6A7 /* Overlog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,14 +93,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A2204241ED440390048F6A7 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204281ED440390048F6A7 /* Sources */,
+				3A22042A1ED440390048F6A7 /* Tests */,
+				3A2204251ED440390048F6A7 /* Resources */,
+			);
+			name = Framework;
+			path = Overlog/Framework;
+			sourceTree = "<group>";
+		};
 		3A2204251ED440390048F6A7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				3A2204261ED440390048F6A7 /* Framework-Info.plist */,
-				3A2204271ED440390048F6A7 /* Tests-Info.plist */,
+				3A2204271ED440390048F6A7 /* Framework-Tests-Info.plist */,
 			);
-			name = Resources;
-			path = Overlog/Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		3A2204281ED440390048F6A7 /* Sources */ = {
@@ -87,8 +118,7 @@
 			children = (
 				3A2204291ED440390048F6A7 /* Foo.swift */,
 			);
-			name = Sources;
-			path = Overlog/Sources;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		3A22042A1ED440390048F6A7 /* Tests */ = {
@@ -97,8 +127,7 @@
 				3A22042F1ED440390048F6A7 /* Specs */,
 				3A22042B1ED440390048F6A7 /* Additions */,
 			);
-			name = Tests;
-			path = Overlog/Tests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		3A22042B1ED440390048F6A7 /* Additions */ = {
@@ -123,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2204371ED440590048F6A7 /* Sources */,
+				3A2204391ED440590048F6A7 /* Tests */,
 				3A2204341ED440590048F6A7 /* Resources */,
 			);
 			name = Demo;
@@ -133,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2204351ED440590048F6A7 /* Demo-Info.plist */,
+				3A22043A1ED440870048F6A7 /* Demo-Tests-Info.plist */,
 				3A2204361ED440590048F6A7 /* Images.xcassets */,
 			);
 			path = Resources;
@@ -144,6 +175,14 @@
 				3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		3A2204391ED440590048F6A7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3A22043B1ED441230048F6A7 /* DummySpec.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		3A2204421ED442E90048F6A7 /* Generators */ = {
@@ -163,10 +202,8 @@
 		3A88CEA81ED32D4D00557CFA = {
 			isa = PBXGroup;
 			children = (
-				3A2204281ED440390048F6A7 /* Sources */,
-				3A22042A1ED440390048F6A7 /* Tests */,
+				3A2204241ED440390048F6A7 /* Framework */,
 				3A2204331ED440590048F6A7 /* Demo */,
-				3A2204251ED440390048F6A7 /* Resources */,
 				3A88CED31ED32EFD00557CFA /* Configurations */,
 				3A88CEB31ED32D4D00557CFA /* Products */,
 			);
@@ -178,6 +215,7 @@
 				3A88CEB21ED32D4D00557CFA /* Overlog.framework */,
 				3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */,
 				3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */,
+				3A2204171ED43D0F0048F6A7 /* Overlog Demo Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,8 +244,9 @@
 			isa = PBXGroup;
 			children = (
 				3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */,
-				3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */,
+				3A2204231ED43FB90048F6A7 /* Framework-Tests-Base.xcconfig */,
 				3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */,
+				3A2204221ED43FB90048F6A7 /* Demo-Tests-Base.xcconfig */,
 			);
 			name = Targets;
 			sourceTree = "<group>";
@@ -232,6 +271,25 @@
 			productName = "Overlog Demo";
 			productReference = 3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3A2204161ED43D0F0048F6A7 /* Overlog Demo Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A22041E1ED43D0F0048F6A7 /* Build configuration list for PBXNativeTarget "Overlog Demo Tests" */;
+			buildPhases = (
+				3A2204131ED43D0F0048F6A7 /* Sources */,
+				3A2204141ED43D0F0048F6A7 /* Frameworks */,
+				3A2204151ED43D0F0048F6A7 /* Resources */,
+				3A22043E1ED4425D0048F6A7 /* Carthage Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A22041D1ED43D0F0048F6A7 /* PBXTargetDependency */,
+			);
+			name = "Overlog Demo Tests";
+			productName = "Demo Tests";
+			productReference = 3A2204171ED43D0F0048F6A7 /* Overlog Demo Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		3A88CEB11ED32D4D00557CFA /* Overlog */ = {
 			isa = PBXNativeTarget;
@@ -284,6 +342,11 @@
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
+					3A2204161ED43D0F0048F6A7 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3A2203EB1ED42EA30048F6A7;
+					};
 					3A88CEB11ED32D4D00557CFA = {
 						CreatedOnToolsVersion = 8.3.2;
 						LastSwiftMigration = 0830;
@@ -311,6 +374,7 @@
 				3A88CEB11ED32D4D00557CFA /* Overlog */,
 				3A88CEBA1ED32D4D00557CFA /* Overlog Tests */,
 				3A2203EB1ED42EA30048F6A7 /* Overlog Demo */,
+				3A2204161ED43D0F0048F6A7 /* Overlog Demo Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -321,6 +385,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A22043F1ED442990048F6A7 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A2204151ED43D0F0048F6A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +419,24 @@
 			);
 			inputPaths = (
 				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
+		3A22043E1ED4425D0048F6A7 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(_CARTHAGE_BUILD_PATH)/Nimble.framework",
+				"$(_CARTHAGE_BUILD_PATH)/Quick.framework",
+				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
+				"$(_CARTHAGE_BUILD_PATH)/SwiftCheck.framework",
 			);
 			name = "Carthage Copy Frameworks";
 			outputPaths = (
@@ -384,6 +473,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3A2204131ED43D0F0048F6A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A22043D1ED4416E0048F6A7 /* DummySpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A88CEAD1ED32D4D00557CFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,6 +501,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3A22041D1ED43D0F0048F6A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A2203EB1ED42EA30048F6A7 /* Overlog Demo */;
+			targetProxy = 3A22041C1ED43D0F0048F6A7 /* PBXContainerItemProxy */;
+		};
 		3A88CEBE1ED32D4D00557CFA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3A88CEB11ED32D4D00557CFA /* Overlog */;
@@ -422,6 +524,20 @@
 		3A2203FC1ED42EA30048F6A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		3A22041F1ED43D0F0048F6A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A2204221ED43FB90048F6A7 /* Demo-Tests-Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3A2204201ED43D0F0048F6A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A2204221ED43FB90048F6A7 /* Demo-Tests-Base.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -456,7 +572,7 @@
 		};
 		3A88CECA1ED32D4D00557CFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */;
+			baseConfigurationReference = 3A2204231ED43FB90048F6A7 /* Framework-Tests-Base.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 			};
@@ -464,7 +580,7 @@
 		};
 		3A88CECB1ED32D4D00557CFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */;
+			baseConfigurationReference = 3A2204231ED43FB90048F6A7 /* Framework-Tests-Base.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 			};
@@ -478,6 +594,14 @@
 			buildConfigurations = (
 				3A2203FB1ED42EA30048F6A7 /* Debug */,
 				3A2203FC1ED42EA30048F6A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3A22041E1ED43D0F0048F6A7 /* Build configuration list for PBXNativeTarget "Overlog Demo Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A22041F1ED43D0F0048F6A7 /* Debug */,
+				3A2204201ED43D0F0048F6A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
