@@ -12,11 +12,19 @@
 		3A2204321ED440470048F6A7 /* FooSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204301ED440390048F6A7 /* FooSpec.swift */; };
 		3A22043F1ED442990048F6A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2204361ED440590048F6A7 /* Images.xcassets */; };
 		3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */; };
+		3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		3A88CEBD1ED32D4D00557CFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A88CEA91ED32D4D00557CFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A88CEB11ED32D4D00557CFA;
+			remoteInfo = Overlog;
+		};
+		3ADF07BE1ED48FE4004E8C7E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A88CEA91ED32D4D00557CFA /* Project object */;
 			proxyType = 1;
@@ -227,6 +235,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3ADF07BF1ED48FE4004E8C7E /* PBXTargetDependency */,
 			);
 			name = "Overlog Demo";
 			productName = "Overlog Demo";
@@ -381,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +418,11 @@
 			isa = PBXTargetDependency;
 			target = 3A88CEB11ED32D4D00557CFA /* Overlog */;
 			targetProxy = 3A88CEBD1ED32D4D00557CFA /* PBXContainerItemProxy */;
+		};
+		3ADF07BF1ED48FE4004E8C7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A88CEB11ED32D4D00557CFA /* Overlog */;
+			targetProxy = 3ADF07BE1ED48FE4004E8C7E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -458,7 +473,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 			};
 			name = Debug;
 		};
@@ -466,7 +480,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 			};
 			name = Release;
 		};
