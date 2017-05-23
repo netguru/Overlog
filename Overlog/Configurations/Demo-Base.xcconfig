@@ -1,0 +1,21 @@
+//
+// Demo-Base.xcconfig
+//
+// Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+// Licensed under the MIT License.
+//
+
+// MARK: Imports
+
+#include "../../Carthage/Checkouts/xcconfigs/Targets/Application.xcconfig"
+
+// MARK: Bundle
+
+_BUNDLE_NAME = Overlog Demo
+_BUNDLE_IDENTIFIER = co.netguru.lib.overlog.demo
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Resources/Demo-Info.plist
+
+// MARK: Assets
+
+_ASSET_ICON = app-icon
+_ASSET_LAUNCHIMAGE = app-launch-image

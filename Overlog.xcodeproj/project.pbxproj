@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2204021ED42F5F0048F6A7 /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
+		3A22040D1ED430E00048F6A7 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22040C1ED430E00048F6A7 /* ApplicationDelegate.swift */; };
+		3A22040F1ED4328D0048F6A7 /* Demo-Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A22040E1ED4328D0048F6A7 /* Demo-Assets.xcassets */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 		3A88CEE61ED333B600557CFA /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88CEE41ED333A900557CFA /* SwiftCheckSupport.swift */; };
 		3A88CEE81ED3478F00557CFA /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88CEE71ED3478F00557CFA /* Foo.swift */; };
@@ -24,6 +27,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Overlog Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Demo-Base.xcconfig"; sourceTree = "<group>"; };
+		3A2204001ED42EFB0048F6A7 /* Demo-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Demo-iOS.xcconfig"; sourceTree = "<group>"; };
+		3A2204031ED42FD40048F6A7 /* Demo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
+		3A22040C1ED430E00048F6A7 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
+		3A22040E1ED4328D0048F6A7 /* Demo-Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Demo-Assets.xcassets"; sourceTree = "<group>"; };
 		3A88CEB21ED32D4D00557CFA /* Overlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Overlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Overlog Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A88CED11ED32EF600557CFA /* Framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Framework-Info.plist"; sourceTree = "<group>"; };
@@ -41,6 +50,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A2203E91ED42EA30048F6A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A2204021ED42F5F0048F6A7 /* Overlog.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A88CEAE1ED32D4D00557CFA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,11 +76,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A2203FE1ED42ECA0048F6A7 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */,
+				3A2204001ED42EFB0048F6A7 /* Demo-iOS.xcconfig */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+		3A2204051ED4302D0048F6A7 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				3A22040C1ED430E00048F6A7 /* ApplicationDelegate.swift */,
+			);
+			name = Demo;
+			path = Overlog/Demo;
+			sourceTree = "<group>";
+		};
+		3A2204081ED430A10048F6A7 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Generators;
+			sourceTree = "<group>";
+		};
+		3A2204091ED430A70048F6A7 /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Matchers;
+			sourceTree = "<group>";
+		};
+		3A2204101ED433290048F6A7 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CED11ED32EF600557CFA /* Framework-Info.plist */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		3A2204111ED4332F0048F6A7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CED21ED32EF600557CFA /* Tests-Info.plist */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		3A2204121ED433350048F6A7 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204031ED42FD40048F6A7 /* Demo-Info.plist */,
+				3A22040E1ED4328D0048F6A7 /* Demo-Assets.xcassets */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
 		3A88CEA81ED32D4D00557CFA = {
 			isa = PBXGroup;
 			children = (
 				3A88CECC1ED32EEA00557CFA /* Sources */,
 				3A88CECD1ED32EF200557CFA /* Tests */,
+				3A2204051ED4302D0048F6A7 /* Demo */,
 				3A88CED01ED32EF600557CFA /* Resources */,
 				3A88CED31ED32EFD00557CFA /* Configurations */,
 				3A88CEB31ED32D4D00557CFA /* Products */,
@@ -75,6 +150,7 @@
 			children = (
 				3A88CEB21ED32D4D00557CFA /* Overlog.framework */,
 				3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */,
+				3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,8 +177,9 @@
 		3A88CED01ED32EF600557CFA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3A88CED11ED32EF600557CFA /* Framework-Info.plist */,
-				3A88CED21ED32EF600557CFA /* Tests-Info.plist */,
+				3A2204101ED433290048F6A7 /* Framework */,
+				3A2204111ED4332F0048F6A7 /* Tests */,
+				3A2204121ED433350048F6A7 /* Demo */,
 			);
 			name = Resources;
 			path = Overlog/Resources;
@@ -114,6 +191,7 @@
 				3A88CED81ED32F9A00557CFA /* Common */,
 				3A88CED91ED32FA200557CFA /* Framework */,
 				3A88CEDB1ED3300F00557CFA /* Tests */,
+				3A2203FE1ED42ECA0048F6A7 /* Demo */,
 			);
 			name = Configurations;
 			path = Overlog/Configurations;
@@ -150,25 +228,11 @@
 		3A88CEE11ED3333B00557CFA /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				3A88CEE31ED3337400557CFA /* Matchers */,
-				3A88CEE21ED3336C00557CFA /* Generators */,
+				3A2204081ED430A10048F6A7 /* Generators */,
+				3A2204091ED430A70048F6A7 /* Matchers */,
 				3A88CEE41ED333A900557CFA /* SwiftCheckSupport.swift */,
 			);
 			path = Additions;
-			sourceTree = "<group>";
-		};
-		3A88CEE21ED3336C00557CFA /* Generators */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Generators;
-			sourceTree = "<group>";
-		};
-		3A88CEE31ED3337400557CFA /* Matchers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Matchers;
 			sourceTree = "<group>";
 		};
 		3A88CEEF1ED35B9500557CFA /* Specs */ = {
@@ -182,6 +246,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3A2203EB1ED42EA30048F6A7 /* Overlog Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A2203FD1ED42EA30048F6A7 /* Build configuration list for PBXNativeTarget "Overlog Demo" */;
+			buildPhases = (
+				3A2203E81ED42EA30048F6A7 /* Sources */,
+				3A2203E91ED42EA30048F6A7 /* Frameworks */,
+				3A2203EA1ED42EA30048F6A7 /* Resources */,
+				3A2204011ED42F440048F6A7 /* Carthage Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Overlog Demo";
+			productName = "Overlog Demo";
+			productReference = 3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		3A88CEB11ED32D4D00557CFA /* Overlog */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A88CEC61ED32D4D00557CFA /* Build configuration list for PBXNativeTarget "Overlog" */;
@@ -228,6 +310,11 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Netguru Sp. z o.o.";
 				TargetAttributes = {
+					3A2203EB1ED42EA30048F6A7 = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Manual;
+					};
 					3A88CEB11ED32D4D00557CFA = {
 						CreatedOnToolsVersion = 8.3.2;
 						LastSwiftMigration = 0830;
@@ -244,6 +331,8 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
+				Base,
 			);
 			mainGroup = 3A88CEA81ED32D4D00557CFA;
 			productRefGroup = 3A88CEB31ED32D4D00557CFA /* Products */;
@@ -252,11 +341,20 @@
 			targets = (
 				3A88CEB11ED32D4D00557CFA /* Overlog */,
 				3A88CEBA1ED32D4D00557CFA /* Overlog Tests */,
+				3A2203EB1ED42EA30048F6A7 /* Overlog Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3A2203EA1ED42EA30048F6A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A22040F1ED4328D0048F6A7 /* Demo-Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A88CEB01ED32D4D00557CFA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +372,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3A2204011ED42F440048F6A7 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
 		3A88CEE91ED34ABB00557CFA /* Carthage Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,6 +408,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3A2203E81ED42EA30048F6A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A22040D1ED430E00048F6A7 /* ApplicationDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A88CEAD1ED32D4D00557CFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +444,27 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3A2203FB1ED42EA30048F6A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A2204001ED42EFB0048F6A7 /* Demo-iOS.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3A2203FC1ED42EA30048F6A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A2204001ED42EFB0048F6A7 /* Demo-iOS.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		3A88CEC41ED32D4D00557CFA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */;
@@ -368,6 +510,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3A2203FD1ED42EA30048F6A7 /* Build configuration list for PBXNativeTarget "Overlog Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A2203FB1ED42EA30048F6A7 /* Debug */,
+				3A2203FC1ED42EA30048F6A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3A88CEAC1ED32D4D00557CFA /* Build configuration list for PBXProject "Overlog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
