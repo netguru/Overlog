@@ -98,11 +98,10 @@ workflows:
 
   test-application:
     steps:
-      - xcode-analyze:
-          title: xcode-analyze-application
+      - script:
+          title: xcode-build-application
           inputs:
-            - project_path: $XCODEBUILD_PROJECT
-            - scheme: $XCODEBUILD_SCHEME_APPLICATION
+            - content: xcrun xcodebuild -project "$XCODEBUILD_PROJECT" -scheme "$XCODEBUILD_SCHEME_APPLICATION" build -destination "platform=iOS Simulator,name= iPhone 6s Plus,OS=latest"
 
   # Build and archive the application.
 
