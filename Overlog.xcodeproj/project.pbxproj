@@ -14,6 +14,7 @@
 		3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 		BF6904561ED49B9600FF303E /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904551ED49B9600FF303E /* Overlay.swift */; };
+		BF6904571ED49CA800FF303E /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
 		BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904581ED58EB500FF303E /* OverlayViewController.swift */; };
 		BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69045A1ED5975D00FF303E /* OverlayView.swift */; };
 /* End PBXBuildFile section */
@@ -390,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6904571ED49CA800FF303E /* ApplicationDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
