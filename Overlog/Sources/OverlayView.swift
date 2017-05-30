@@ -9,14 +9,15 @@ import UIKit
 
 internal final class OverlayView: UIView {
     
-    let floatingButton = UIButton(type: .system)
+    internal let containerView = UIView()
+    internal let floatingButton = UIButton(type: .system)
     
-    override init(frame: CGRect = .zero) {
+    internal override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
-        backgroundColor = .white
-        
+        addSubview(containerView)
         addSubview(floatingButton)
+                
         floatingButton.setTitle("Overlog", for: .normal)
         
         floatingButton.layer.cornerRadius = 30.0
@@ -28,24 +29,91 @@ internal final class OverlayView: UIView {
         
         floatingButton.setTitleColor(.white, for: .normal)
         
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         floatingButton.translatesAutoresizingMaskIntoConstraints = false
         
         setupConstraints()
     }
     
-    fileprivate func setupConstraints() {
+    /// Embed a view into container view and setup its constraints.
+    ///
+    /// - Parameter view: view to be embedded.
+    internal func embed(view: UIView) {
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.addSubview(view)
         
         if #available(iOSApplicationExtension 9.0, *) {
             NSLayoutConstraint.activate([
+                view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                view.topAnchor.constraint(equalTo: containerView.topAnchor),
+                view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+                view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            ])
+        } else {
+            let views = [
+                "view": view,
+            ]
+            
+            containerView.addConstraints(
+                NSLayoutConstraint.constraints(
+                    withVisualFormat: "H:|[view]|",
+                    options: .alignAllTop,
+                    metrics: nil,
+                    views: views
+                )
+            )
+            
+            containerView.addConstraints(
+                NSLayoutConstraint.constraints(
+                    withVisualFormat: "V:|[view]|",
+                    options: .alignAllTop,
+                    metrics: nil,
+                    views: views
+                )
+            )
+
+        }
+        
+    }
+    
+    private func setupConstraints() {
+        
+        if #available(iOSApplicationExtension 9.0, *) {
+            NSLayoutConstraint.activate([
+                containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                containerView.topAnchor.constraint(equalTo: topAnchor),
+                containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
                 floatingButton.widthAnchor.constraint(equalToConstant: 60),
                 floatingButton.heightAnchor.constraint(equalToConstant: 60),
-                floatingButton.topAnchor.constraint(equalTo: topAnchor),
-                floatingButton.leadingAnchor.constraint(equalTo: leadingAnchor)
+                floatingButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+                floatingButton.topAnchor.constraint(equalTo: topAnchor)
             ])
         } else {
             let views = [
                 "floatingButton": floatingButton,
+                "containerView": containerView
             ]
+            
+            addConstraints(
+                NSLayoutConstraint.constraints(
+                    withVisualFormat: "H:|[containerView]|",
+                    options: .alignAllTop,
+                    metrics: nil,
+                    views: views
+                )
+            )
+            
+            addConstraints(
+                NSLayoutConstraint.constraints(
+                    withVisualFormat: "V:|[containerView]|",
+                    options: .alignAllTop,
+                    metrics: nil,
+                    views: views
+                )
+            )
             
             addConstraints(
                 NSLayoutConstraint.constraints(
@@ -57,7 +125,7 @@ internal final class OverlayView: UIView {
             )
             addConstraints(
                 NSLayoutConstraint.constraints(
-                    withVisualFormat: "H:|[floatingButton]",
+                    withVisualFormat: "H:[floatingButton]|",
                     options: .alignAllTop,
                     metrics: nil,
                     views: views
