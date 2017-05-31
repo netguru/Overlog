@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Overlog
 
 /// Entry point for the application.
 @UIApplicationMain fileprivate final class ApplicationDelegate: UIResponder, UIApplicationDelegate {
@@ -15,11 +16,19 @@ import UIKit
 	/// - SeeAlso: UIApplicationDelegate.window
 	@objc(window) fileprivate lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
 
+    var overlay: Overlay?
+    
 	// MARK: UIApplicationDelegate
 
 	/// - SeeAlso: UIApplicationDelegate.application(_:didFinishLaunchingWithOptions:)
 	fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		window!.makeKeyAndVisible()
+        let navigationController = UINavigationController(rootViewController: ViewController())
+        
+        overlay = Overlay(window: window!, rootViewController: navigationController)
+        overlay?.toggleOnShakeGesture = true
+
+        window?.makeKeyAndVisible()
+        
 		return true
 	}
 
