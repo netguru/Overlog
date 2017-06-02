@@ -1,5 +1,6 @@
 github "Quick/Nimble" "v7.0.0"
 github "Quick/Quick" "v1.1.0"
 github "antitypical/Result" "3.2.2"
+github "netguru/ResponseDetective" "1.1"
 github "netguru/xcconfigs" "823daade52cd18a6f33c68171d8d2ee96ab0e782"
 github "typelift/SwiftCheck" "0.8.0"
