@@ -7,6 +7,7 @@
 import UIKit
 import ResponseDetective
 
+/// A class to oversee the network traffic
 final public class Overseer {
     
     /// A configuration for the ResponseDetective

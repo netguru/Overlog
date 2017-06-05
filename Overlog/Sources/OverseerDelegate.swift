@@ -7,6 +7,7 @@
 import UIKit
 import ResponseDetective
 
+/// An Overseer delegate protocol for notification whenever response, request or error appear in URLSession which Overseer is watching 
 public protocol OverseerDelegate: class {
     
     /// Triggerd when Overseer gets new response

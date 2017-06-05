@@ -7,6 +7,7 @@
 import UIKit
 import ResponseDetective
 
+/// An output facility for overseer
 final public class OverseerOutputFacility: OutputFacility {
     
     /// An deleaget for a notifications
