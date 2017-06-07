@@ -11,7 +11,11 @@ import ResponseDetective
 final public class Overseer {
     
     /// A configuration for the ResponseDetective
-    private let configuration: URLSessionConfiguration
+    public var configuration: URLSessionConfiguration {
+        didSet {
+            ResponseDetective.enable(inConfiguration: configuration)
+        }
+    }
     
     /// An deleaget for a notifications
     weak public var delegate: OverseerDelegate?
