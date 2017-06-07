@@ -24,7 +24,8 @@ class OverseerSpec: QuickSpec {
             let configuration = URLSessionConfiguration.default
             
             beforeEach {
-                overseer = Overseer(with: configuration)
+                overseer = Overseer()
+                overseer.watch(on: configuration)
                 session = URLSession(configuration: configuration)
                 
             }

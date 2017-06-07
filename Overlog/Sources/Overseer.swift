@@ -10,13 +10,6 @@ import ResponseDetective
 /// A class to oversee the network traffic
 final public class Overseer {
     
-    /// A configuration for the ResponseDetective
-    public var configuration: URLSessionConfiguration {
-        didSet {
-            ResponseDetective.enable(inConfiguration: configuration)
-        }
-    }
-    
     /// An deleaget for a notifications
     weak public var delegate: OverseerDelegate?
     
@@ -31,10 +24,14 @@ final public class Overseer {
     
     /// Creates Owerwatch object
     ///
-    /// - parameter configuration: configuration on which Overseer will be observing the network traffic
-    public init(with configuration: URLSessionConfiguration) {
-        self.configuration =  configuration
+    public init() {
         ResponseDetective.outputFacility = self
+    }
+    
+    /// Adds a configuration on which Overseer will be observing the network traffic
+    ///
+    /// - parameter configuration: an configuration for watching
+    public func watch(on configuration: URLSessionConfiguration) {
         ResponseDetective.enable(inConfiguration: configuration)
     }
 }
