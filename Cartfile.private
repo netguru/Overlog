@@ -14,3 +14,4 @@ github "netguru/xcconfigs" "feature/0.2"
 github "Quick/Quick" ~> 1.1.0
 github "Quick/Nimble" ~> 7.0.0
 github "typelift/SwiftCheck" ~> 0.8.0
+github "AliSoftware/OHHTTPStubs" "5.2.3-swift3"
