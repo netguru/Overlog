@@ -42,7 +42,7 @@ class OverseerSpec: QuickSpec {
                 
                 beforeEach {
                     delegate = OverseerDelegateMock()
-                    overseer.buffer.delegate = delegate
+                    overseer.delegate = delegate
                 }
                 
                 afterEach {
@@ -61,10 +61,10 @@ class OverseerSpec: QuickSpec {
                     session.dataTask(with: url, completionHandler: { data, response, error in
                         exp.fulfill()
                     })
-                        .resume()
+                    .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect((overseer.buffer.delegate as! OverseerDelegateMock).requestCounter).toEventually(equal(1))
+                    expect((overseer.delegate as! OverseerDelegateMock).requestCounter).toEventually(equal(1))
                 }
                 
                 it("response") {
@@ -82,7 +82,7 @@ class OverseerSpec: QuickSpec {
                     .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect((overseer.buffer.delegate as! OverseerDelegateMock).responseCounter).toEventually(equal(1))
+                    expect((overseer.delegate as! OverseerDelegateMock).responseCounter).toEventually(equal(1))
                 }
                 
                 it("error") {
@@ -99,7 +99,7 @@ class OverseerSpec: QuickSpec {
                     .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect((overseer.buffer.delegate as! OverseerDelegateMock).errorCounter).toEventually(equal(1))
+                    expect((overseer.delegate as! OverseerDelegateMock).errorCounter).toEventually(equal(1))
                 }
             }
             
@@ -119,7 +119,7 @@ class OverseerSpec: QuickSpec {
                     .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect(overseer.buffer.requestRepresentations).toEventually(haveCount(1))
+                    expect(overseer.requestRepresentations).toEventually(haveCount(1))
                 }
                 
                 it("response") {
@@ -137,7 +137,7 @@ class OverseerSpec: QuickSpec {
                         .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect(overseer.buffer.responseRepresentations).toEventually(haveCount(1))
+                    expect(overseer.responseRepresentations).toEventually(haveCount(1))
                 }
                 
                 it("error") {
@@ -154,7 +154,7 @@ class OverseerSpec: QuickSpec {
                         .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect(overseer.buffer.errorRepresentations).toEventually(haveCount(1))
+                    expect(overseer.errorRepresentations).toEventually(haveCount(1))
                 }
             }
             
