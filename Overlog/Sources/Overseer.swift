@@ -7,6 +7,28 @@
 import UIKit
 import ResponseDetective
 
+/// An Overseer delegate protocol for notification whenever response, request or error appear in URLSession which Overseer is watching
+public protocol OverseerDelegate: class {
+    
+    /// Triggerd when Overseer gets new response
+    ///
+    /// - parameter overseer: An object that get notice about a response
+    /// - parameter response: recived response
+    func overseer(overseer: Overseer, didGet response: ResponseRepresentation)
+    
+    /// Triggerd when Overseer gets new request
+    ///
+    /// - parameter overseer: An object that get notice about a request
+    /// - parameter response: recived request
+    func overseer(overseer: Overseer, didGet request: RequestRepresentation)
+    
+    /// Triggerd when Overseer gets new error
+    ///
+    /// - parameter overseer: An object that get notice about an error
+    /// - parameter response: recived error
+    func overseer(overseer: Overseer, didGet error: ErrorRepresentation)
+}
+
 /// A class to oversee the network traffic
 final public class Overseer {
     

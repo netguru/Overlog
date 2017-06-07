@@ -16,7 +16,6 @@
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 		BE80D6111EE0968C009C6716 /* Overseer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* Overseer.swift */; };
 		BE96FAB71EE19722000C4590 /* OverseerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* OverseerSpec.swift */; };
-		BEF059A61EE4261C006066BD /* OverseerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF059A51EE4261C006066BD /* OverseerDelegate.swift */; };
 		BF6904561ED49B9600FF303E /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904551ED49B9600FF303E /* Overlay.swift */; };
 		BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904581ED58EB500FF303E /* OverlayViewController.swift */; };
 		BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69045A1ED5975D00FF303E /* OverlayView.swift */; };
@@ -75,7 +74,6 @@
 		3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Base.xcconfig"; sourceTree = "<group>"; };
 		BE80D6101EE0968C009C6716 /* Overseer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overseer.swift; sourceTree = "<group>"; };
 		BE96FAB61EE19722000C4590 /* OverseerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverseerSpec.swift; sourceTree = "<group>"; };
-		BEF059A51EE4261C006066BD /* OverseerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverseerDelegate.swift; sourceTree = "<group>"; };
 		BF6904551ED49B9600FF303E /* Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		BF6904581ED58EB500FF303E /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BF69045A1ED5975D00FF303E /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 				BF69045A1ED5975D00FF303E /* OverlayView.swift */,
 				BF6904581ED58EB500FF303E /* OverlayViewController.swift */,
 				BE80D6101EE0968C009C6716 /* Overseer.swift */,
-				BEF059A51EE4261C006066BD /* OverseerDelegate.swift */,
 			);
 			name = Sources;
 			path = Overlog/Sources;
@@ -456,7 +453,6 @@
 			files = (
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
-				BEF059A61EE4261C006066BD /* OverseerDelegate.swift in Sources */,
 				BF6904561ED49B9600FF303E /* Overlay.swift in Sources */,
 				3A2204311ED440440048F6A7 /* Foo.swift in Sources */,
 				BE80D6111EE0968C009C6716 /* Overseer.swift in Sources */,
