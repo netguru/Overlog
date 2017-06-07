@@ -1,5 +1,5 @@
 //
-//  Overseer.swift
+//  NetworkMonitor.swift
 //
 //  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
 //
@@ -10,10 +10,10 @@ import OHHTTPStubs
 import Overlog
 import ResponseDetective
 
-class OverseerSpec: QuickSpec {
+class NetworkMonitorSpec: QuickSpec {
     
     override func spec() {
-        var overseer: Overseer!
+        var monitor: NetworkMonitor!
         
         describe("when new request was sended") {
             
@@ -24,26 +24,26 @@ class OverseerSpec: QuickSpec {
             let configuration = URLSessionConfiguration.default
             
             beforeEach {
-                overseer = Overseer()
-                overseer.watch(on: configuration)
+                monitor = NetworkMonitor()
+                monitor.watch(on: configuration)
                 session = URLSession(configuration: configuration)
                 
             }
             
             afterEach {
                 OHHTTPStubs.removeStub(urlStub)
-                overseer = nil
+                monitor = nil
                 urlStub = nil
                 session = nil
                 
             }
             context("will notify about a new") {
                 
-                var delegate: OverseerDelegateMock!
+                var delegate: NetworkMonitorDelegateMock!
                 
                 beforeEach {
-                    delegate = OverseerDelegateMock()
-                    overseer.delegate = delegate
+                    delegate = NetworkMonitorDelegateMock()
+                    monitor.delegate = delegate
                 }
                 
                 afterEach {
@@ -51,7 +51,7 @@ class OverseerSpec: QuickSpec {
                 }
                 
                 it("request") {
-                    expect(overseer).toNot(beNil())
+                    expect(monitor).toNot(beNil())
                     
                     urlStub = stub(condition: isHost(fixedHost), response: { _ in
                         let stubData = "fixed.response".data(using: .utf8)
@@ -65,11 +65,11 @@ class OverseerSpec: QuickSpec {
                     .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect((overseer.delegate as! OverseerDelegateMock).requestCounter).toEventually(equal(1))
+                    expect((monitor.delegate as! NetworkMonitorDelegateMock).requestCounter).toEventually(equal(1))
                 }
                 
                 it("response") {
-                    expect(overseer).toNot(beNil())
+                    expect(monitor).toNot(beNil())
                     
                     urlStub = stub(condition: isHost(fixedHost), response: { _ in
                         let stubData = "fixed.response".data(using: .utf8)
@@ -83,14 +83,14 @@ class OverseerSpec: QuickSpec {
                     .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect((overseer.delegate as! OverseerDelegateMock).responseCounter).toEventually(equal(1))
+                    expect((monitor.delegate as! NetworkMonitorDelegateMock).responseCounter).toEventually(equal(1))
                 }
                 
                 it("error") {
-                    expect(overseer).toNot(beNil())
+                    expect(monitor).toNot(beNil())
                     
                     urlStub = stub(condition: isHost(fixedHost), response: { _ in
-                        return OHHTTPStubsResponse(error: OverseerErrorMock.fixedError)
+                        return OHHTTPStubsResponse(error: NetworkMonitorErrorMock.fixedError)
                     })
                     
                     let exp = self.expectation(description: "expect to be notified about a new error")
@@ -100,13 +100,13 @@ class OverseerSpec: QuickSpec {
                     .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect((overseer.delegate as! OverseerDelegateMock).errorCounter).toEventually(equal(1))
+                    expect((monitor.delegate as! NetworkMonitorDelegateMock).errorCounter).toEventually(equal(1))
                 }
             }
             
             context("will catch a new") {
                 it("request") {
-                    expect(overseer).toNot(beNil())
+                    expect(monitor).toNot(beNil())
                     
                     urlStub = stub(condition: isHost(fixedHost), response: { _ in
                         let stubData = "fixed.response".data(using: .utf8)
@@ -120,11 +120,11 @@ class OverseerSpec: QuickSpec {
                     .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect(overseer.requestRepresentations).toEventually(haveCount(1))
+                    expect(monitor.requestRepresentations).toEventually(haveCount(1))
                 }
                 
                 it("response") {
-                    expect(overseer).toNot(beNil())
+                    expect(monitor).toNot(beNil())
                     
                     urlStub = stub(condition: isHost(fixedHost), response: { _ in
                         let stubData = "fixed.response".data(using: .utf8)
@@ -138,14 +138,14 @@ class OverseerSpec: QuickSpec {
                         .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect(overseer.responseRepresentations).toEventually(haveCount(1))
+                    expect(monitor.responseRepresentations).toEventually(haveCount(1))
                 }
                 
                 it("error") {
-                    expect(overseer).toNot(beNil())
+                    expect(monitor).toNot(beNil())
                     
                     urlStub = stub(condition: isHost(fixedHost), response: { _ in
-                        return OHHTTPStubsResponse(error: OverseerErrorMock.fixedError)
+                        return OHHTTPStubsResponse(error: NetworkMonitorErrorMock.fixedError)
                     })
                     
                     let exp = self.expectation(description: "expect to catch an error")
@@ -155,7 +155,7 @@ class OverseerSpec: QuickSpec {
                         .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect(overseer.errorRepresentations).toEventually(haveCount(1))
+                    expect(monitor.errorRepresentations).toEventually(haveCount(1))
                 }
             }
             
@@ -163,22 +163,23 @@ class OverseerSpec: QuickSpec {
     }
 }
 
-final class OverseerDelegateMock: OverseerDelegate {
+final class NetworkMonitorDelegateMock: NetworkMonitorDelegate {
+
     var responseCounter = 0
     var requestCounter = 0
     var errorCounter = 0
     
-    func overseer(overseer: Overseer?, didGet response: ResponseRepresentation){
+    func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation){
         responseCounter = responseCounter + 1
     }
-    func overseer(overseer: Overseer?, didGet request: RequestRepresentation){
+    func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation){
         requestCounter = requestCounter + 1
     }
-    func overseer(overseer: Overseer?, didGet error: ErrorRepresentation){
+    func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation){
         errorCounter = errorCounter + 1
     }
 }
 
-enum OverseerErrorMock: Error {
+enum NetworkMonitorErrorMock: Error {
     case fixedError
 }
