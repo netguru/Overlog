@@ -76,12 +76,12 @@ internal final class OverlayViewController: UIViewController {
 
 // MARK: - Target actions
 
-internal extension OverlayViewController {
+fileprivate extension OverlayViewController {
 
     /// Handle action on touch up inside on `floatingButton`
     ///
     /// - Parameter button: floating button instance
-    @objc internal func didTapFloatingButton(button: UIButton) {
+    @objc fileprivate func didTapFloatingButton(button: UIButton) {
         didTapFloatingButton?(button)
     }
 
