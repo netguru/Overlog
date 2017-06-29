@@ -9,22 +9,23 @@ import UIKit
 
 internal protocol SettingsViewControllerFlowDelegate: class {
     
-    /// Tells the flow delegate that close button has been selected.
+    /// Tells the flow delegate that close button has been tapped.
     ///
     /// - Parameters:
     ///   - sender: a button responsible for sending the action
-    func didSelectCloseButton(with sender: UIBarButtonItem)
+    func didTapCloseButton(with sender: UIBarButtonItem)
 }
 
 internal final class SettingsViewController: UITableViewController {
     
+    /// A delegate responsible for sending flow controller callbacks
     internal weak var flowDelegate: SettingsViewControllerFlowDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         /// Configure right bar button item with 'close' option
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didSelectCloseButton(with:)));
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
     }
 }
 
@@ -36,8 +37,8 @@ fileprivate extension SettingsViewController {
     ///
     /// - Parameters:
     ///   - sender: a button responsible for sending the action
-    @objc fileprivate func didSelectCloseButton(with sender: UIBarButtonItem) {
-        flowDelegate?.didSelectCloseButton(with: sender)
+    @objc fileprivate func didTapCloseButton(with sender: UIBarButtonItem) {
+        flowDelegate?.didTapCloseButton(with: sender)
     }
     
 }

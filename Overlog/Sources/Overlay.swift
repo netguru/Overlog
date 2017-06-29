@@ -13,8 +13,8 @@ public final class Overlay {
     /// Toggle's presentation of floating button when shake event was received.
     public var toggleOnShakeGesture: Bool = true
     
-    /// Overlay's root view controller
-    private let rootViewController: OverlayViewController
+    /// Overlay's root flow controller
+    fileprivate let flowController: OverlayFlowController
     
     /// Overlay initializer
     ///
@@ -22,23 +22,22 @@ public final class Overlay {
     ///   - window: application's main window
     ///   - viewController: the main window's root view controller
     public init(window: UIWindow, rootViewController viewController: UIViewController) {
-        rootViewController = OverlayViewController(childViewController: viewController)
-        rootViewController.didPerformShakeEvent = didPerformShake(event:)
-        window.rootViewController = rootViewController
+        flowController = OverlayFlowController(with: viewController, window: window)
+        flowController.rootViewController.didPerformShakeEvent = didPerformShake(event:)
     }
     
     /// Presents floating button
     /// - Discussion:
     ///     - This methods sets `isHidden` to `true` on `OverlayView`'s `floatingButton` only
     public func present() {
-        rootViewController.overlayView.floatingButton.isHidden = false
+        flowController.rootViewController.overlayView.floatingButton.isHidden = false
     }
     
     /// Hides floating button
     /// - Discussion:
     ///     - This methods sets `isHidden` to `false` on `OverlayView`'s `floatingButton` only
     public func hide() {
-        rootViewController.overlayView.floatingButton.isHidden = true
+        flowController.rootViewController.overlayView.floatingButton.isHidden = true
     }
     
     /// Shake event
@@ -46,7 +45,7 @@ public final class Overlay {
     /// - Parameter overlayView: overlayView description
     private func didPerformShake(event _: UIEvent?) {
         if toggleOnShakeGesture {
-            let overlayView = rootViewController.overlayView
+            let overlayView = flowController.rootViewController.overlayView
             overlayView.floatingButton.isHidden = !overlayView.floatingButton.isHidden
         }
     }

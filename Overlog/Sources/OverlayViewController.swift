@@ -7,10 +7,19 @@
 
 import UIKit
 
+internal protocol OverlayViewControllerFlowDelegate: class {
+    
+    /// Tells the flow delegate that floating button has been tapped.
+    ///
+    /// - Parameters:
+    ///   - sender: a button responsible for sending the action
+    func didTapFloatingButton(with sender: UIButton)
+}
+
 internal final class OverlayViewController: UIViewController {
     
-    /// Handler of `.touchUpInside` action on `OverlayView.floatingButton`
-    internal var didTapFloatingButton: ((UIButton) -> Void)? = nil
+    /// A delegate responsible for sending flow controller callbacks
+    internal weak var flowDelegate: OverlayViewControllerFlowDelegate?
     
     /// Handler of `.motionShake` motion event
     internal var didPerformShakeEvent: ((UIEvent?) -> Void)? = nil
@@ -24,21 +33,6 @@ internal final class OverlayViewController: UIViewController {
     /// Overlay view
     internal let overlayView = OverlayView()
     
-    /// Overlay's child view controller
-    internal let childViewController: UIViewController
-    
-    /// Initializes overlay with its child view controller
-    ///
-    /// - Parameter childViewController: A child view controller to be embedded
-    internal init(childViewController: UIViewController) {
-        self.childViewController = childViewController
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     internal override func loadView() {
         view = overlayView
     }
@@ -50,10 +44,6 @@ internal final class OverlayViewController: UIViewController {
             action: #selector(didTapFloatingButton(button:)),
             for: .touchUpInside
         )
-        
-        addChildViewController(childViewController)
-        overlayView.embed(view: childViewController.view)
-        childViewController.didMove(toParentViewController: self)
 
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didDragFloatingButton(with:)))
         panGesture.maximumNumberOfTouches = 1
@@ -82,7 +72,7 @@ fileprivate extension OverlayViewController {
     ///
     /// - Parameter button: floating button instance
     @objc fileprivate func didTapFloatingButton(button: UIButton) {
-        didTapFloatingButton?(button)
+        flowDelegate?.didTapFloatingButton(with: button)
     }
 
     /// Handle the pan gesture on `floatingButton`
