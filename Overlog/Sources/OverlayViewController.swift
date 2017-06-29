@@ -14,12 +14,12 @@ internal final class OverlayViewController: UIViewController {
     
     /// Handler of `.motionShake` motion event
     internal var didPerformShakeEvent: ((UIEvent?) -> Void)? = nil
-	
-	/// The initial center value of `OverlayView.floatingButton` during a drag gesture
-	fileprivate var initialFloatingButtonCenter: CGPoint = .zero
-	
-	/// The initial delta between `OverlayView.floatingButton` center and its touch point during a drag gesture
-	fileprivate var initialFloatingButtonCenterToTouchPointDelta: CGPoint = .zero
+
+    /// The initial center value of `OverlayView.floatingButton` during a drag gesture
+    fileprivate var initialFloatingButtonCenter: CGPoint = .zero
+
+    /// The initial delta between `OverlayView.floatingButton` center and its touch point during a drag gesture
+    fileprivate var initialFloatingButtonCenterToTouchPointDelta: CGPoint = .zero
     
     /// Overlay view
     internal let overlayView = OverlayView()
@@ -54,10 +54,10 @@ internal final class OverlayViewController: UIViewController {
         addChildViewController(childViewController)
         overlayView.embed(view: childViewController.view)
         childViewController.didMove(toParentViewController: self)
-		
-		let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didDragFloatingButton(with:)))
-		panGesture.maximumNumberOfTouches = 1
-		overlayView.floatingButton.addGestureRecognizer(panGesture)
+
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didDragFloatingButton(with:)))
+        panGesture.maximumNumberOfTouches = 1
+        overlayView.floatingButton.addGestureRecognizer(panGesture)
     }
         
     /// Overrides super method and calls `didPerformShakeEvent` closure when `.motionShake` was recevied. 
@@ -77,34 +77,34 @@ internal final class OverlayViewController: UIViewController {
 // MARK: - Target actions
 
 internal extension OverlayViewController {
-	
+
     /// Handle action on touch up inside on `floatingButton`
     ///
     /// - Parameter button: floating button instance
     @objc internal func didTapFloatingButton(button: UIButton) {
         didTapFloatingButton?(button)
     }
-	
-	/// Handle the pan gesture on `floatingButton`
-	///
-	/// - Parameter recognizer: pan gesture recognizer instance
-	@objc fileprivate func didDragFloatingButton(with recognizer: UIPanGestureRecognizer) {
-		if recognizer.state == .began {
-			/// Calculate the initial button center value during the gesture
-			initialFloatingButtonCenter = overlayView.floatingButton.center
-			
-			/// Calculate delta between the touch point and floating button center to eliminate button jumping and provide smoother experience
-			let floatingButtonCenter = CGPoint(x: overlayView.floatingButton.frame.width/2, y: overlayView.floatingButton.frame.height/2)
-			let touchPoint = recognizer.location(in: overlayView.floatingButton)
-			initialFloatingButtonCenterToTouchPointDelta = CGPoint(x: floatingButtonCenter.x - touchPoint.x, y: floatingButtonCenter.y - touchPoint.y)
-		} else if recognizer.state == .ended || recognizer.state == .changed {
-			/// Update the `overlayView.floatingButton` center value with current finger position, include the delta
-			let overlayTouchPoint = recognizer.location(in: overlayView)
-			overlayView.floatingButton.center = CGPoint(x: overlayTouchPoint.x + initialFloatingButtonCenterToTouchPointDelta.x, y: overlayTouchPoint.y + initialFloatingButtonCenterToTouchPointDelta.y)
-		} else if recognizer.state == .cancelled || recognizer.state == .failed {
-			/// Bring back the initial button center if the gesture gets interrupted
-			overlayView.floatingButton.center = initialFloatingButtonCenter
-		}
-	}
+
+    /// Handle the pan gesture on `floatingButton`
+    ///
+    /// - Parameter recognizer: pan gesture recognizer instance
+    @objc fileprivate func didDragFloatingButton(with recognizer: UIPanGestureRecognizer) {
+        if recognizer.state == .began {
+            /// Calculate the initial button center value during the gesture
+            initialFloatingButtonCenter = overlayView.floatingButton.center
+
+            /// Calculate delta between the touch point and floating button center to eliminate button jumping and provide smoother experience
+            let floatingButtonCenter = CGPoint(x: overlayView.floatingButton.frame.width/2, y: overlayView.floatingButton.frame.height/2)
+            let touchPoint = recognizer.location(in: overlayView.floatingButton)
+            initialFloatingButtonCenterToTouchPointDelta = CGPoint(x: floatingButtonCenter.x - touchPoint.x, y: floatingButtonCenter.y - touchPoint.y)
+        } else if recognizer.state == .ended || recognizer.state == .changed {
+            /// Update the `overlayView.floatingButton` center value with current finger position, include the delta
+            let overlayTouchPoint = recognizer.location(in: overlayView)
+            overlayView.floatingButton.center = CGPoint(x: overlayTouchPoint.x + initialFloatingButtonCenterToTouchPointDelta.x, y: overlayTouchPoint.y + initialFloatingButtonCenterToTouchPointDelta.y)
+        } else if recognizer.state == .cancelled || recognizer.state == .failed {
+            /// Bring back the initial button center if the gesture gets interrupted
+            overlayView.floatingButton.center = initialFloatingButtonCenter
+        }
+    }
     
 }
