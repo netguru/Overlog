@@ -14,9 +14,11 @@
 		3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */; };
 		3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
-		810EF3D61F05258A00E12159 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D51F05258A00E12159 /* SettingsViewController.swift */; };
+		731A1B6F1F06753D008A6164 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B6E1F06753D008A6164 /* MainView.swift */; };
+		731A1B711F0679F3008A6164 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B701F0679F3008A6164 /* View.swift */; };
+		810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D51F05258A00E12159 /* MainViewController.swift */; };
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
-		810EF3DC1F05940100E12159 /* SettingsFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* SettingsFlowController.swift */; };
+		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
 		810EF3DE1F05950300E12159 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DD1F05950300E12159 /* FlowController.swift */; };
 		BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */; };
 		BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */; };
@@ -76,9 +78,11 @@
 		3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Debug.xcconfig"; sourceTree = "<group>"; };
 		3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Release.xcconfig"; sourceTree = "<group>"; };
 		3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Base.xcconfig"; sourceTree = "<group>"; };
-		810EF3D51F05258A00E12159 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		731A1B6E1F06753D008A6164 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		731A1B701F0679F3008A6164 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		810EF3D51F05258A00E12159 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
-		810EF3DB1F05940100E12159 /* SettingsFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFlowController.swift; sourceTree = "<group>"; };
+		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
 		810EF3DD1F05950300E12159 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorSpec.swift; sourceTree = "<group>"; };
@@ -130,10 +134,9 @@
 			children = (
 				810EF3DF1F05950A00E12159 /* Abstractions */,
 				810EF3E01F05951A00E12159 /* Flow Controllers */,
-				810EF3E21F05953A00E12159 /* Views */,
+				731A1B741F0686EF008A6164 /* Helpers */,
 				810EF3E11F05952B00E12159 /* View Controllers */,
-				3A2204291ED440390048F6A7 /* Foo.swift */,
-				BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */,
+				810EF3E21F05953A00E12159 /* Views */,
 			);
 			name = Sources;
 			path = Overlog/Sources;
@@ -262,11 +265,21 @@
 			name = Targets;
 			sourceTree = "<group>";
 		};
+		731A1B741F0686EF008A6164 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204291ED440390048F6A7 /* Foo.swift */,
+				BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		810EF3DF1F05950A00E12159 /* Abstractions */ = {
 			isa = PBXGroup;
 			children = (
 				BF6904551ED49B9600FF303E /* Overlay.swift */,
 				810EF3DD1F05950300E12159 /* FlowController.swift */,
+				731A1B701F0679F3008A6164 /* View.swift */,
 			);
 			name = Abstractions;
 			sourceTree = "<group>";
@@ -275,7 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				810EF3D91F0593F300E12159 /* OverlayFlowController.swift */,
-				810EF3DB1F05940100E12159 /* SettingsFlowController.swift */,
+				810EF3DB1F05940100E12159 /* MainViewFlowController.swift */,
 			);
 			name = "Flow Controllers";
 			sourceTree = "<group>";
@@ -284,7 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6904581ED58EB500FF303E /* OverlayViewController.swift */,
-				810EF3D51F05258A00E12159 /* SettingsViewController.swift */,
+				810EF3D51F05258A00E12159 /* MainViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -293,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				BF69045A1ED5975D00FF303E /* OverlayView.swift */,
+				731A1B6E1F06753D008A6164 /* MainView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -499,10 +513,12 @@
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
-				810EF3D61F05258A00E12159 /* SettingsViewController.swift in Sources */,
-				810EF3DC1F05940100E12159 /* SettingsFlowController.swift in Sources */,
+				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
+				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,
+				810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */,
 				BF6904561ED49B9600FF303E /* Overlay.swift in Sources */,
 				3A2204311ED440440048F6A7 /* Foo.swift in Sources */,
+				731A1B711F0679F3008A6164 /* View.swift in Sources */,
 				BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

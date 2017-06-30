@@ -7,34 +7,34 @@
 
 import UIKit
 
-internal final class OverlayView: UIView {
+internal final class OverlayView: View {
     
     internal let containerView = UIView()
     internal let floatingButton = UIButton(type: .system)
-    
-    internal override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
-        
+
+    override func setupHierarchy() {
         addSubview(containerView)
         addSubview(floatingButton)
-                
+    }
+
+    override func setupProperties() {
+
         floatingButton.setTitle("Overlog", for: .normal)
-        
+
         floatingButton.layer.cornerRadius = 30.0
         floatingButton.backgroundColor = UIColor(colorLiteralRed: 66/255.0, green: 146/255.0, blue: 244/255.0, alpha: 1.0)
         floatingButton.layer.shadowColor = UIColor.black.cgColor
         floatingButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         floatingButton.layer.shadowRadius = 7.0
         floatingButton.layer.shadowOpacity = 0.2
-        
+
         floatingButton.setTitleColor(.white, for: .normal)
-        
+
         containerView.translatesAutoresizingMaskIntoConstraints = false
         floatingButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        setupConstraints()
     }
-    
+
+
     /// Embed a view into container view and setup its constraints.
     ///
     /// - Parameter view: view to be embedded.
@@ -78,7 +78,7 @@ internal final class OverlayView: UIView {
         
     }
     
-    private func setupConstraints() {
+    override func setupConstraints() {
         
         if #available(iOSApplicationExtension 9.0, *) {
             NSLayoutConstraint.activate([
@@ -149,10 +149,6 @@ internal final class OverlayView: UIView {
             )
         }
         
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

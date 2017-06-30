@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal protocol SettingsViewControllerFlowDelegate: class {
+internal protocol MainViewControllerFlowDelegate: class {
     
     /// Tells the flow delegate that close button has been tapped.
     ///
@@ -16,22 +16,29 @@ internal protocol SettingsViewControllerFlowDelegate: class {
     func didTapCloseButton(with sender: UIBarButtonItem)
 }
 
-internal final class SettingsViewController: UITableViewController {
+internal final class MainViewController: UIViewController {
     
     /// A delegate responsible for sending flow controller callbacks
-    internal weak var flowDelegate: SettingsViewControllerFlowDelegate?
-    
+    internal weak var flowDelegate: MainViewControllerFlowDelegate?
+
+    internal let customView = MainView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         /// Configure right bar button item with 'close' option
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
+        self.title = "Overlog"
+    }
+
+    override func loadView() {
+        view = customView
     }
 }
 
 // MARK: - Target actions
 
-fileprivate extension SettingsViewController {
+fileprivate extension MainViewController {
     
     /// Sends the close action from bar button item to flow delegate.
     ///
