@@ -9,6 +9,8 @@ import UIKit
 
 protocol FlowController {
     
-    /// A navigation controller responsible for handling the flow
-    weak var navigationController: UINavigationController? { get }
+    associatedtype ViewController: UIViewController
+    
+    /// The root view controller of current flow
+    weak var rootViewController: ViewController? { get }
 }

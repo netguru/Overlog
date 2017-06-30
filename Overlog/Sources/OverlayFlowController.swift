@@ -7,10 +7,10 @@
 
 import UIKit
 
-internal final class OverlayFlowController: OverlayViewControllerFlowDelegate {
+internal final class OverlayFlowController: FlowController, OverlayViewControllerFlowDelegate {
     
-    /// Overlay's root view controller
-    internal let rootViewController: OverlayViewController
+    typealias ViewController = OverlayViewController
+    internal var rootViewController: OverlayViewController?
     
     /// Child controller responsible for handling the settings flow
     fileprivate var settingsFlowController: SettingsFlowController?
@@ -23,6 +23,9 @@ internal final class OverlayFlowController: OverlayViewControllerFlowDelegate {
     init(with viewController: UIViewController, window: UIWindow) {
         /// Create and configure overlay view controller
         rootViewController = OverlayViewController()
+        
+        /// Extract the root controller from optional and set self as flow delegate
+        guard let rootViewController = rootViewController else { return }
         rootViewController.flowDelegate = self
         
         /// Configure root's child controller and add it to a view
@@ -40,6 +43,9 @@ internal final class OverlayFlowController: OverlayViewControllerFlowDelegate {
         /// Create and configure child flow controller
         let settingsViewController = SettingsViewController()
         settingsFlowController = SettingsFlowController(with: UINavigationController(rootViewController: settingsViewController))
+        
+        /// Extract the root view controller
+        guard let rootViewController = rootViewController else { return }
         
         /// Assign the delegate and present the navigation controller
         settingsViewController.flowDelegate = settingsFlowController

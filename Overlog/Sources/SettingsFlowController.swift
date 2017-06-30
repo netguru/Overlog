@@ -9,13 +9,14 @@ import UIKit
 
 internal final class SettingsFlowController: FlowController, SettingsViewControllerFlowDelegate {
     
-    internal weak var navigationController: UINavigationController?
+    typealias ViewController = UINavigationController
+    internal weak var rootViewController: UINavigationController?
     
     /// Initializes settings flow controller
     ///
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
     init(with navigationController: UINavigationController) {
-        self.navigationController = navigationController
+        self.rootViewController = navigationController
     }
     
     /// Starts the flow by presenting settings controller on a given controller
@@ -23,7 +24,7 @@ internal final class SettingsFlowController: FlowController, SettingsViewControl
     /// - Parameter viewController: A controller to present on
     internal func present(on viewController: UIViewController) {
         /// Present the settings navigation controller on overlay controler
-        guard let navigationController = self.navigationController else { return }
+        guard let navigationController = self.rootViewController else { return }
         viewController.present(navigationController, animated: true, completion: nil)
     }
     
@@ -31,6 +32,6 @@ internal final class SettingsFlowController: FlowController, SettingsViewControl
     
     func didTapCloseButton(with sender: UIBarButtonItem) {
         /// Dismiss modally presented settings navigation controller
-        navigationController?.dismiss(animated: true, completion: nil)
+        rootViewController?.dismiss(animated: true, completion: nil)
     }
 }
