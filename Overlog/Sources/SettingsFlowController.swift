@@ -16,7 +16,7 @@ internal final class SettingsFlowController: FlowController, SettingsViewControl
     ///
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
     init(with navigationController: UINavigationController) {
-        self.rootViewController = navigationController
+        rootViewController = navigationController
     }
     
     /// Starts the flow by presenting settings controller on a given controller
@@ -24,7 +24,7 @@ internal final class SettingsFlowController: FlowController, SettingsViewControl
     /// - Parameter viewController: A controller to present on
     internal func present(on viewController: UIViewController) {
         /// Present the settings navigation controller on overlay controler
-        guard let navigationController = self.rootViewController else { return }
+        guard let navigationController = rootViewController else { return }
         viewController.present(navigationController, animated: true, completion: nil)
     }
     
