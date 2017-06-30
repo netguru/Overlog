@@ -10,7 +10,7 @@ import UIKit
 internal final class SettingsFlowController: FlowController, SettingsViewControllerFlowDelegate {
     
     typealias ViewController = UINavigationController
-    internal weak var rootViewController: UINavigationController?
+    internal var rootViewController: UINavigationController?
     
     /// Initializes settings flow controller
     ///
