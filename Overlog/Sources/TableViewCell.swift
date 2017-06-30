@@ -1,20 +1,21 @@
 //
-//  View.swift
+//  TableViewCell.swift
 //
 //  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
 //
 
 import UIKit
 
-
-/// Base class for all views
-internal class View: UIView {
+/// Base class for all UITableViewCells.
+internal class TableViewCell: UITableViewCell {
 
     /// Initialize the receiver
     ///
-    /// - Parameter frame: frame to be used.
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
+    /// - Parameters:
+    ///   - style: UITableViewCellStyle
+    ///   - reuseIdentifier: reuseIdentifier
+    internal override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         setupProperties()
         setupHierarchy()
@@ -38,8 +39,8 @@ internal class View: UIView {
         // no-op by default
     }
 
-    @available(*, unavailable, message: "Use init() instead")
-    required init?(coder aDecoder: NSCoder) {
+    @available(*, unavailable, message: "Use init(style:reuseIdentifier) instead")
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

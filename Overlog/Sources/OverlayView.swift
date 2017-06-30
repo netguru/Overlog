@@ -13,8 +13,7 @@ internal final class OverlayView: View {
     internal let floatingButton = UIButton(type: .system)
 
     override func setupHierarchy() {
-        addSubview(containerView)
-        addSubview(floatingButton)
+        [containerView, floatingButton].forEach { addSubview($0) }
     }
 
     override func setupProperties() {

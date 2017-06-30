@@ -8,7 +8,7 @@
 import UIKit
 
 internal final class MainViewFlowController: FlowController, MainViewControllerFlowDelegate {
-    
+
     typealias ViewController = UINavigationController
     internal weak var rootViewController: UINavigationController?
     
@@ -28,10 +28,26 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         viewController.present(navigationController, animated: true, completion: nil)
     }
     
-    // MARK: - Settings flow delegate
+    // MARK: - MainView flow delegate
     
     func didTapCloseButton(with sender: UIBarButtonItem) {
         /// Dismiss modally presented settings navigation controller
         rootViewController?.dismiss(animated: true, completion: nil)
     }
+
+    /// Tells the flow delegate that some feature was clicked.
+    ///
+    /// - Parameter feature: selected feature.
+    func didSelect(feature: FeatureType) {
+        switch feature {
+            case .userDefaults:
+                /// Show  userDefaults
+                print("")
+            case .network:
+                /// show http movem
+                print("")
+
+        }
+    }
+
 }

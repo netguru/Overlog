@@ -14,21 +14,35 @@ internal protocol MainViewControllerFlowDelegate: class {
     /// - Parameters:
     ///   - sender: a button responsible for sending the action
     func didTapCloseButton(with sender: UIBarButtonItem)
+
+    /// Tells the flow delegate that some feature was clicked.
+    ///
+    /// - Parameter feature: selected feature.
+    func didSelect(feature: FeatureType)
 }
 
 internal final class MainViewController: UIViewController {
-    
+
     /// A delegate responsible for sending flow controller callbacks
     internal weak var flowDelegate: MainViewControllerFlowDelegate?
 
+    /// Custom view to be displayed
     internal let customView = MainView()
+
+
+    fileprivate let dataSource = FeaturesDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         /// Configure right bar button item with 'close' option
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
+
         self.title = "Overlog"
+
+        customView.tableView.register(FeatureCell.self, forCellReuseIdentifier: String(describing: FeatureCell.self))
+        customView.tableView.delegate = self
+        customView.tableView.dataSource = self
     }
 
     override func loadView() {
@@ -48,4 +62,29 @@ fileprivate extension MainViewController {
         flowDelegate?.didTapCloseButton(with: sender)
     }
     
+}
+
+extension MainViewController: UITableViewDataSource {
+
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeatureCell.self), for: indexPath) as! FeatureCell
+        cell.nameLabel.text = dataSource.items[indexPath.row].type.name
+        cell.counterLabel.text = String(dataSource.items[indexPath.row].counter)
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.items.count
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.flowDelegate?.didSelect(feature: dataSource.items[indexPath.row].type)
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
 }

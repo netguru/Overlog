@@ -14,8 +14,7 @@ internal final class MainView: View {
 
 
     override func setupHierarchy() {
-        addSubview(logoImageView)
-        addSubview(tableView)
+       [logoImageView, tableView].forEach { addSubview($0) }
     }
 
     override func setupProperties() {
@@ -23,6 +22,7 @@ internal final class MainView: View {
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         tableView.separatorStyle = .singleLine
+        tableView.tableFooterView = UIView(frame: .zero)
         logoImageView.backgroundColor = .cyan
     }
 
