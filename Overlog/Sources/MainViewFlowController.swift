@@ -11,12 +11,17 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
 
     typealias ViewController = UINavigationController
     internal var rootViewController: UINavigationController?
-    
+
+    fileprivate let userDefaultsViewController: UserDefaultsViewController
+
+
     /// Initializes settings flow controller
     ///
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
     init(with navigationController: UINavigationController) {
         rootViewController = navigationController
+        userDefaultsViewController = UserDefaultsViewController()
+        userDefaultsViewController.flowDelegate = self
     }
     
     /// Starts the flow by presenting settings controller on a given controller
@@ -42,13 +47,18 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         switch feature {
             case .userDefaults:
                 /// Show  userDefaults view
-                let userDefaultsViewController = UserDefaultsViewController()
                 rootViewController?.pushViewController(userDefaultsViewController, animated: true)
             case .network:
                 /// show http view
                 break
-
         }
     }
+}
 
+extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
+
+    func didTapShareButton(withItems activityItems: [Any]) {
+        let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        userDefaultsViewController.present(activityViewController, animated: true, completion: nil)
+    }
 }

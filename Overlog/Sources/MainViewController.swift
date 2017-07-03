@@ -31,7 +31,7 @@ internal final class MainViewController: UIViewController {
 
     fileprivate let dataSource = FeaturesDataSource()
 
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         
         /// Configure right bar button item with 'close' option
@@ -39,13 +39,17 @@ internal final class MainViewController: UIViewController {
 
         self.title = "Overlog"
 
-        customView.tableView.register(FeatureCell.self, forCellReuseIdentifier: String(describing: FeatureCell.self))
-        customView.tableView.delegate = self
-        customView.tableView.dataSource = self
+        configure(tableView: customView.tableView)
     }
 
-    override func loadView() {
+    internal override func loadView() {
         view = customView
+    }
+
+    private func configure(tableView: UITableView) {
+        tableView.register(FeatureCell.self, forCellReuseIdentifier: String(describing: FeatureCell.self))
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
 
@@ -64,8 +68,6 @@ fileprivate extension MainViewController {
 }
 
 extension MainViewController: UITableViewDataSource {
-
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeatureCell.self), for: indexPath) as! FeatureCell
         cell.nameLabel.text = dataSource.items[indexPath.row].type.description

@@ -7,23 +7,48 @@
 
 import UIKit
 
+internal protocol UserDefaultsViewControllerFlowDelegate: class {
+
+    /// Tells the flow delegate that share button has been tapped.
+    ///
+    /// - Parameters:
+    ///   - sender: a button responsible for sending the action
+    func didTapShareButton(withItems activityItems: [Any])
+}
+
 internal final class UserDefaultsViewController: UIViewController {
 
     /// Custom view to be displayed
     internal let customView = UserDefaultsView()
+
     fileprivate let userDefaultsDictionary = UserDefaults.standard.dictionaryRepresentation()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    /// A delegate responsible for sending flow controller callbacks
+    internal weak var flowDelegate: UserDefaultsViewControllerFlowDelegate?
 
-        customView.tableView.delegate = self
-        customView.tableView.dataSource = self
-        customView.tableView.register(UserDefaultsCell.self, forCellReuseIdentifier: String(describing: UserDefaultsCell.self))
-        customView.tableView.estimatedRowHeight = 44.0
+    internal override func viewDidLoad() {
+        super.viewDidLoad()
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonPressed))
+
+        self.navigationItem.rightBarButtonItem = shareButton
+        configure(tableView: customView.tableView)
     }
 
-    override func loadView() {
+    internal override func loadView() {
         view = customView
+    }
+}
+
+extension UserDefaultsViewController {
+    fileprivate func configure(tableView: UITableView) {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UserDefaultsCell.self, forCellReuseIdentifier: String(describing: UserDefaultsCell.self))
+        tableView.estimatedRowHeight = 44.0
+    }
+
+    @objc fileprivate func shareButtonPressed() {
+        self.flowDelegate?.didTapShareButton(withItems: ["User Defaults", String(describing: userDefaultsDictionary) ])
     }
 }
 
@@ -39,7 +64,7 @@ extension UserDefaultsViewController: UITableViewDataSource {
         let currentKey = userDefaultsDictionary.keys.sorted()[indexPath.row]
 
         cell.keyLabel.text = String(currentKey)
-        cell.valueLabel.text = userDefaultsDictionary[currentKey] as? String
+        cell.valueLabel.text = String(describing: userDefaultsDictionary[currentKey])
         return cell
     }
 
@@ -63,7 +88,7 @@ extension UserDefaultsViewController: UITableViewDelegate {
                 guard let keyString = cell.keyLabel.text else {
                     return
                 }
-                
+
                 let pasteboard = UIPasteboard.general
                 pasteboard.string = "\(keyString): \(cell.valueLabel.text ?? "")"
             }
