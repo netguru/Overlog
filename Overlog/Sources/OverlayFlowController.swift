@@ -13,7 +13,7 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
     internal var rootViewController: OverlayViewController?
     
     /// Child controller responsible for handling the settings flow
-    fileprivate var settingsFlowController: SettingsFlowController?
+    fileprivate var mainFlowController: MainViewFlowController?
     
     /// Initializes Overlog's root flow controller
     ///
@@ -41,14 +41,14 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
     
     func didTapFloatingButton(with sender: UIButton) {
         /// Create and configure child flow controller
-        let settingsViewController = SettingsViewController()
-        settingsFlowController = SettingsFlowController(with: UINavigationController(rootViewController: settingsViewController))
+        let mainViewController = MainViewController()
+        mainFlowController = MainViewFlowController(with: UINavigationController(rootViewController: mainViewController))
         
         /// Extract the root view controller
         guard let rootViewController = rootViewController else { return }
         
         /// Assign the delegate and present the navigation controller
-        settingsViewController.flowDelegate = settingsFlowController
-        settingsFlowController?.present(on: rootViewController)
+        mainViewController.flowDelegate = mainFlowController
+        mainFlowController?.present(on: rootViewController)
     }
 }

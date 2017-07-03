@@ -7,7 +7,7 @@
 
 # Configuration dependencies
 
-github "netguru/xcconfigs" "feature/0.2"
+github "netguru/xcconfigs" ~> 0.2
 
 # Test dependencies
 
