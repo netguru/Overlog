@@ -25,6 +25,7 @@ internal final class UserDefaultsCell: TableViewCell {
 
     override func setupConstraints() {
         if #available(iOSApplicationExtension 9.0, *) {
+
             NSLayoutConstraint.activate([
                 keyLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 keyLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
@@ -34,6 +35,40 @@ internal final class UserDefaultsCell: TableViewCell {
                 valueLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 valueLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
             ])
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+
+            let views = [
+                "keyLabel": keyLabel,
+                "valueLabel": valueLabel
+            ]
+
+            let keyLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-16-[keyLabel]|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += keyLabelHorizontalPositionConstraint
+
+            let valueLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-16-[valueLabel]|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += valueLabelHorizontalPositionConstraint
+
+            let valueLabelVerticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-[keyLabel]-4-[valueLabel]-4-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+
+            allConstraints += valueLabelVerticalPositionConstraint
+
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
 

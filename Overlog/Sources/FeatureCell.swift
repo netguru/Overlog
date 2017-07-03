@@ -37,7 +37,32 @@ final class FeatureCell: TableViewCell {
                 counterLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
                 counterLabel.widthAnchor.constraint(equalToConstant: 24)
             ])
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+
+            let views = [
+                "nameLabel": nameLabel,
+                "counterLabel": counterLabel
+            ]
+
+            let horizontalViewsPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-16-[nameLabel]-10-[counterLabel(24)]-20-|",
+                options: [.alignAllCenterY],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += horizontalViewsPositionConstraint
+
+            let nameLabelSizingConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-20-[nameLabel]-20-|",
+                options: [.alignAllCenterY],
+                metrics: nil,
+                views: views
+            )
+
+            allConstraints += nameLabelSizingConstraint
+
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
-
 }

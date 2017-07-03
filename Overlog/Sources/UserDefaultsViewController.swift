@@ -21,6 +21,7 @@ internal final class UserDefaultsViewController: UIViewController {
     /// Custom view to be displayed
     internal let customView = UserDefaultsView()
 
+    /// Dictionary representation of user defaults
     fileprivate let userDefaultsDictionary = UserDefaults.standard.dictionaryRepresentation()
 
     /// A delegate responsible for sending flow controller callbacks

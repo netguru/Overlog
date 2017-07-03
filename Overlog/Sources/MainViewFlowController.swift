@@ -56,9 +56,19 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
 }
 
 extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
-
     func didTapShareButton(withItems activityItems: [Any]) {
         let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [
+            .airDrop,
+            .postToFacebook,
+            .postToVimeo,
+            .postToWeibo,
+            .postToFlickr,
+            .postToTwitter,
+            .addToReadingList,
+            .assignToContact
+        ]
+
         userDefaultsViewController.present(activityViewController, animated: true, completion: nil)
     }
 }

@@ -33,6 +33,32 @@ final class UserDefaultsView: View {
                 tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
+
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+
+            let views = [
+                "tableView": tableView
+            ]
+
+            let tableViewVerticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-[tableView]-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += tableViewVerticalPositionConstraint
+
+            let tableViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-(-8)-[tableView]-(-8)-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            
+            allConstraints += tableViewHorizontalPositionConstraint
+
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
 }
