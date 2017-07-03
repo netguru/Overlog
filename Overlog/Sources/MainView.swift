@@ -3,15 +3,14 @@
 //
 //  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
 // Licensed under the MIT License.
+//
 
 import UIKit
 
 internal final class MainView: View {
 
-
     internal let tableView = UITableView(frame: .zero)
     internal let logoImageView = UIImageView(frame: .zero)
-
 
     override func setupHierarchy() {
        [logoImageView, tableView].forEach { addSubview($0) }
@@ -21,8 +20,13 @@ internal final class MainView: View {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
-        tableView.separatorStyle = .singleLine
+
+        /// To hide empty cells
+        tableView.bounces = false
+
         tableView.tableFooterView = UIView(frame: .zero)
+        tableView.separatorStyle = .singleLine
+
         logoImageView.backgroundColor = .cyan
     }
 
@@ -39,8 +43,7 @@ internal final class MainView: View {
                 tableView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor),
                 tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
-                ]
-            )
+            ])
         }
     }
 

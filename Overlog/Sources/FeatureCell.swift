@@ -2,6 +2,7 @@
 //  FeatureCell.swift
 //
 //  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+// Licensed under the MIT License.
 //
 
 import UIKit
@@ -19,7 +20,8 @@ final class FeatureCell: TableViewCell {
         [nameLabel, counterLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
         self.accessoryType = .disclosureIndicator
-
+        self.selectionStyle = .none
+        
         counterLabel.layer.cornerRadius = 6
         counterLabel.textAlignment = .center
         counterLabel.clipsToBounds = true

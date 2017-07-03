@@ -29,7 +29,6 @@ internal final class MainViewController: UIViewController {
     /// Custom view to be displayed
     internal let customView = MainView()
 
-
     fileprivate let dataSource = FeaturesDataSource()
 
     override func viewDidLoad() {
@@ -71,6 +70,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeatureCell.self), for: indexPath) as! FeatureCell
         cell.nameLabel.text = dataSource.items[indexPath.row].type.name
         cell.counterLabel.text = String(dataSource.items[indexPath.row].counter)
+
         return cell
     }
 
