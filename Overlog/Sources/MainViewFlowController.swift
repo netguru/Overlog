@@ -41,11 +41,12 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     func didSelect(feature: FeatureType) {
         switch feature {
             case .userDefaults:
-                /// Show  userDefaults
-                print("")
+                /// Show  userDefaults view
+                let userDefaultsViewController = UserDefaultsViewController()
+                rootViewController?.pushViewController(userDefaultsViewController, animated: true)
             case .network:
-                /// show http movem
-                print("")
+                /// show http view
+                break
 
         }
     }

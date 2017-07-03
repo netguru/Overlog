@@ -22,8 +22,6 @@ final class UserDefaultsView: View {
 
         /// To hide empty cells
         tableView.tableFooterView = UIView(frame: .zero)
-        tableView.bounces = false
-
     }
 
     override func setupConstraints() {

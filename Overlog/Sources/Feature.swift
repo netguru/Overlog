@@ -10,7 +10,7 @@ import Foundation
 internal enum FeatureType: String {
     case network, userDefaults
 
-    var name: String {
+    var description: String {
 
         switch self {
             case .userDefaults:
@@ -20,7 +20,6 @@ internal enum FeatureType: String {
         }
     }
 }
-
 
 /// Overlog feature model
 internal struct Feature {

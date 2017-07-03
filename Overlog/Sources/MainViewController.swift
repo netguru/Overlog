@@ -68,7 +68,7 @@ extension MainViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeatureCell.self), for: indexPath) as! FeatureCell
-        cell.nameLabel.text = dataSource.items[indexPath.row].type.name
+        cell.nameLabel.text = dataSource.items[indexPath.row].type.description
         cell.counterLabel.text = String(dataSource.items[indexPath.row].counter)
 
         return cell
