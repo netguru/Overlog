@@ -27,10 +27,6 @@ internal final class UserDefaultsViewController: UIViewController {
     }
 }
 
-extension UserDefaultsViewController: UITableViewDelegate {
-
-}
-
 extension UserDefaultsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,5 +45,28 @@ extension UserDefaultsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+}
+
+extension UserDefaultsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        return action == #selector(copy(_:))
+    }
+
+    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+        if action == #selector(copy(_:)) {
+            if let cell = tableView.cellForRow(at: indexPath) as? UserDefaultsCell {
+                guard let keyString = cell.keyLabel.text else {
+                    return
+                }
+                
+                let pasteboard = UIPasteboard.general
+                pasteboard.string = "\(keyString): \(cell.valueLabel.text ?? "")"
+            }
+        }
     }
 }
