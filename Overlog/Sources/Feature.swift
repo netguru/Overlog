@@ -24,5 +24,5 @@ internal enum FeatureType: String {
 /// Overlog feature model
 internal struct Feature {
     let type: FeatureType
-    let counter: Int
+    var counter: Int
 }
