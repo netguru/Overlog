@@ -6,12 +6,16 @@
 //
 
 import Foundation
+/// ASL module is deprecated and replaced by os_log(3). However, the new implementation
+/// lacks a possibility to search for logs in the current run environment (it has yet
+/// to be implemented / released to the public by Apple). The decission was made to
+/// use the ASL as is it still being supported.
 import asl
 
 /// A class to monitor the logs printed in the console
 final public class LogsMonitor {
 
-    /// An deleaget for a notifications
+    /// A delegate for notifications
     weak public var delegate: LogsMonitorDelegate?
 
     /// The ASL client associated with the receiver
@@ -23,12 +27,15 @@ final public class LogsMonitor {
     }
 
     public func scanForLogs() {
+
+        /// Searching for all logs
         let query = asl_new(UInt32(ASL_TYPE_QUERY))
         let results = asl_search(self.aslClient, query)
 
         var logsDictionary = [String: String]()
         var record = asl_next(results)
 
+        /// Iterating for logs read by asl_search command
         while record != nil {
 
             var i = UInt32(0)
