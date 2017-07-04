@@ -8,7 +8,7 @@ import Foundation
 
 /// All overlog feature types
 internal enum FeatureType: String {
-    case network, userDefaults
+    case network, userDefaults, logs
 
     var description: String {
 
@@ -17,6 +17,8 @@ internal enum FeatureType: String {
                 return "User Defaults"
             case .network:
                 return "HTTP"
+            case .logs:
+                return "Logs"
         }
     }
 }
