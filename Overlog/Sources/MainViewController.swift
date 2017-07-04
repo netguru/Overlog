@@ -77,6 +77,7 @@ extension MainViewController: UITableViewDataSource {
         if dataSource.items[indexPath.row].counter > 0 {
             cell.counterLabel.text = String(dataSource.items[indexPath.row].counter)
         }
+
         return cell
     }
 
