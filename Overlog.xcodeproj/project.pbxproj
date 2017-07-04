@@ -496,6 +496,7 @@
 			);
 			inputPaths = (
 				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
+				"$(_CARTHAGE_BUILD_PATH)/ResponseDetective.framework",
 			);
 			name = "Carthage Copy Frameworks";
 			outputPaths = (
