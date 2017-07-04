@@ -7,14 +7,17 @@
 
 @import Foundation;
 
+extern NSString * _Nullable const OVLKeychainManagerKeyReference;
+extern NSString * _Nullable const OVLKeychainManagerServiceReference;
+
 @interface KeychainManager : NSObject
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// Returns a list of keychain keys available for the app.
+/// Returns a list of dictionaries containing keychain key name and associated service name.
 ///
-/// @returns A list of keychain keys.
-- (NSArray<NSString *> *)keychainKeys;
+/// @returns A list of keychain entry dictionaries.
+- (NSArray<NSDictionary *> *)allKeys;
 
 NS_ASSUME_NONNULL_END
 

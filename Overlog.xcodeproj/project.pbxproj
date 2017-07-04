@@ -27,6 +27,7 @@
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
 		810EF3DE1F05950300E12159 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DD1F05950300E12159 /* FlowController.swift */; };
+		8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA521F0BD45D002831E9 /* KeychainEntry.swift */; };
 		81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */; };
 		BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */; };
 		BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */; };
@@ -99,6 +100,7 @@
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
 		810EF3DD1F05950300E12159 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		8186AA521F0BD45D002831E9 /* KeychainEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainEntry.swift; sourceTree = "<group>"; };
 		81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainManager.h; sourceTree = "<group>"; };
 		81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainManager.m; sourceTree = "<group>"; };
 		81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Overlog-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				731A1B791F069491008A6164 /* Feature.swift */,
+				8186AA521F0BD45D002831E9 /* KeychainEntry.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 			files = (
 				810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */,
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
+				8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */,
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
