@@ -1,5 +1,5 @@
 //
-//  UserDefaultsView.swift
+//  NetTrafficView.swift
 //
 //  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
 //  Licensed under the MIT License.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class UserDefaultsView: View {
+internal final class NetTrafficView: View {
 
     internal let tableView = UITableView(frame: .zero)
 
@@ -19,6 +19,7 @@ final class UserDefaultsView: View {
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+
         /// To hide empty cells
         tableView.tableFooterView = UIView(frame: .zero)
     }
@@ -54,9 +55,9 @@ final class UserDefaultsView: View {
                 metrics: nil,
                 views: views
             )
-            
-            allConstraints += tableViewHorizontalPositionConstraint
 
+            allConstraints += tableViewHorizontalPositionConstraint
+            
             NSLayoutConstraint.activate(allConstraints)
         }
     }

@@ -29,6 +29,7 @@ internal final class MainViewController: UIViewController {
     /// Custom view to be displayed
     internal let customView = MainView()
 
+    /// Data source of all available features
     fileprivate let dataSource = FeaturesDataSource()
 
     internal override func viewDidLoad() {
@@ -70,9 +71,12 @@ fileprivate extension MainViewController {
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeatureCell.self), for: indexPath) as! FeatureCell
-        cell.nameLabel.text = dataSource.items[indexPath.row].type.description
-        cell.counterLabel.text = String(dataSource.items[indexPath.row].counter)
 
+        cell.nameLabel.text = dataSource.items[indexPath.row].type.description
+        
+        if dataSource.items[indexPath.row].counter > 0 {
+            cell.counterLabel.text = String(dataSource.items[indexPath.row].counter)
+        }
         return cell
     }
 

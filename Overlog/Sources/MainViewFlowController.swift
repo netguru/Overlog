@@ -12,8 +12,11 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     typealias ViewController = UINavigationController
     internal var rootViewController: UINavigationController?
 
+    /// View controller for displaying user defaults
     fileprivate let userDefaultsViewController: UserDefaultsViewController
 
+    /// View controller for displaying network traffic
+    fileprivate let networkTrafficViewController: NetworkTrafficViewController
 
     /// Initializes settings flow controller
     ///
@@ -21,6 +24,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     init(with navigationController: UINavigationController) {
         rootViewController = navigationController
         userDefaultsViewController = UserDefaultsViewController()
+        networkTrafficViewController = NetworkTrafficViewController()
         userDefaultsViewController.flowDelegate = self
     }
     
@@ -49,8 +53,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
                 /// Show  userDefaults view
                 rootViewController?.pushViewController(userDefaultsViewController, animated: true)
             case .network:
-                /// show http view
-                break
+                rootViewController?.pushViewController(networkTrafficViewController, animated: true)
         }
     }
 }
