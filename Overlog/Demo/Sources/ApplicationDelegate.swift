@@ -24,7 +24,8 @@ import Overlog
 	fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let navigationController = UINavigationController(rootViewController: ViewController())
         
-        overlay = Overlay(window: window!, rootViewController: navigationController)
+        overlay = Overlay.shared
+        overlay?.show(window: window!, rootViewController: navigationController)
         overlay?.toggleOnShakeGesture = true
 
         window?.makeKeyAndVisible()

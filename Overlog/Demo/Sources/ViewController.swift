@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ResponseDetective
+import Overlog
 
 final class ViewController: UITableViewController {
     
@@ -16,11 +16,11 @@ final class ViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
 
         let configuration = URLSessionConfiguration.default
-        ResponseDetective.enable(inConfiguration: configuration)
+
+        Overlay.shared.enableNetworkDebugging(inConfiguration: configuration)
         let session = URLSession(configuration: configuration)
         let request = URLRequest(url: URL(string: "https://cljsbin-bkhgroqzwe.now.sh/headers")!)
         session.dataTask(with: request).resume()
 
     }
- 
 }

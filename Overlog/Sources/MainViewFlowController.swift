@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ResponseDetective
 
 internal final class MainViewFlowController: FlowController, MainViewControllerFlowDelegate {
 
@@ -25,6 +26,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         rootViewController = navigationController
         userDefaultsViewController = UserDefaultsViewController()
         networkTrafficViewController = NetworkTrafficViewController()
+        NetworkMonitor.shared.delegate = self
         userDefaultsViewController.flowDelegate = self
     }
     
@@ -39,6 +41,9 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     
     // MARK: - MainView flow delegate
     
+    /// Action performed after taping close button
+    ///
+    /// - Parameter sender: close button
     func didTapCloseButton(with sender: UIBarButtonItem) {
         /// Dismiss modally presented settings navigation controller
         rootViewController?.dismiss(animated: true, completion: nil)
@@ -73,5 +78,16 @@ extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
         ]
 
         userDefaultsViewController.present(activityViewController, animated: true, completion: nil)
+    }
+}
+
+extension MainViewFlowController: NetworkMonitorDelegate {
+    func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation) {
+    }
+
+    func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation) {
+    }
+
+    func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation) {
     }
 }
