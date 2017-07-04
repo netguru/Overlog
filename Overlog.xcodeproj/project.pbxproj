@@ -34,6 +34,7 @@
 		BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69045A1ED5975D00FF303E /* OverlayView.swift */; };
 		BF6904A51EDC30E900FF303E /* Overlog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF6904AC1EDD9CE600FF303E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904AA1EDD9C6000FF303E /* ViewController.swift */; };
+		EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		BF6904581ED58EB500FF303E /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BF69045A1ED5975D00FF303E /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		BF6904AA1EDD9C6000FF303E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 				3A2204291ED440390048F6A7 /* Foo.swift */,
 				BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */,
 				731A1B771F069405008A6164 /* FeaturesDataSource.swift */,
+				EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */,
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
+				EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
