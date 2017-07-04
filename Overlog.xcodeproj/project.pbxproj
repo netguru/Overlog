@@ -27,6 +27,7 @@
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
 		810EF3DE1F05950300E12159 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DD1F05950300E12159 /* FlowController.swift */; };
+		81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */; };
 		BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */; };
 		BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */; };
 		BF6904561ED49B9600FF303E /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904551ED49B9600FF303E /* Overlay.swift */; };
@@ -98,6 +99,9 @@
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
 		810EF3DD1F05950300E12159 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainManager.h; sourceTree = "<group>"; };
+		81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainManager.m; sourceTree = "<group>"; };
+		81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Overlog-Bridging-Header.h"; sourceTree = "<group>"; };
 		BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorSpec.swift; sourceTree = "<group>"; };
 		BF6904551ED49B9600FF303E /* Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				731A1B741F0686EF008A6164 /* Helpers */,
 				810EF3E11F05952B00E12159 /* View Controllers */,
 				810EF3E21F05953A00E12159 /* Views */,
+				81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */,
 			);
 			name = Sources;
 			path = Overlog/Sources;
@@ -286,6 +291,8 @@
 				3A2204291ED440390048F6A7 /* Foo.swift */,
 				BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */,
 				731A1B771F069405008A6164 /* FeaturesDataSource.swift */,
+				81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */,
+				81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -555,6 +562,7 @@
 				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,
 				810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */,
+				81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */,
 				BF6904561ED49B9600FF303E /* Overlay.swift in Sources */,
 				731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */,
 				731A1B7E1F06953E008A6164 /* TableViewCell.swift in Sources */,
@@ -627,6 +635,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				SWIFT_OBJC_BRIDGING_HEADER = "Overlog/Sources/Overlog-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -635,6 +648,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				SWIFT_OBJC_BRIDGING_HEADER = "Overlog/Sources/Overlog-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
