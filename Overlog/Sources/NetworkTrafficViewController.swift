@@ -27,9 +27,8 @@ extension NetworkTrafficViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(NetworkTrafficCell.self, forCellReuseIdentifier: String(describing: NetworkTrafficCell.self))
-        tableView.estimatedRowHeight = 64.0
+        tableView.estimatedRowHeight = 44.0
     }
-
 }
 
 extension NetworkTrafficViewController: UITableViewDelegate {
