@@ -13,13 +13,14 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     internal var rootViewController: UINavigationController?
 
     fileprivate let userDefaultsViewController: UserDefaultsViewController
-
+    fileprivate let keychainViewController: KeychainViewController
 
     /// Initializes settings flow controller
     ///
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
     init(with navigationController: UINavigationController) {
         rootViewController = navigationController
+        keychainViewController = KeychainViewController()
         userDefaultsViewController = UserDefaultsViewController()
         userDefaultsViewController.flowDelegate = self
     }
@@ -48,6 +49,9 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
             case .userDefaults:
                 /// Show  userDefaults view
                 rootViewController?.pushViewController(userDefaultsViewController, animated: true)
+            case .keychain:
+                /// Show keychain view
+                rootViewController?.pushViewController(keychainViewController, animated: true)
             case .network:
                 /// show http view
                 break

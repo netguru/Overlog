@@ -1,8 +1,8 @@
 //
-// KeychainManager.m
+//  KeychainManager.m
 //
-// Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
-// Licensed under the MIT License.
+//  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+//  Licensed under the MIT License.
 //
 
 #import "KeychainManager.h"
@@ -12,7 +12,7 @@ NSString * const OVLKeychainManagerServiceReference = @"serviceName";
 
 @implementation KeychainManager
 
-- (NSArray<NSDictionary *> *)allKeys {
+- (NSArray<NSDictionary<NSString *, NSString *> *> *)allKeys {
     /// Create an array for the results
     NSMutableArray<NSDictionary *> *result = [[NSMutableArray alloc] init];
     
