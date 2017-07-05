@@ -15,12 +15,12 @@ internal final class LogsViewController: UIViewController {
     /// Instance of a class which enables searching for logs
     fileprivate let logsMonitor = LogsMonitor()
 
-    /// Dictionary of recently found logs
-    fileprivate(set) var logsDictionary = [String: String]()
+    /// Array of recently found logs
+    fileprivate(set) var logs = [Log]()
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        logsDictionary = logsMonitor.scanForLogs()
+        logs = logsMonitor.scanForLogs()
         configure(tableView: customView.tableView)
     }
     
@@ -41,16 +41,16 @@ extension LogsViewController {
 extension LogsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return logsDictionary.keys.count
+        return logs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UserDefaultsCell.self), for: indexPath) as! UserDefaultsCell
-        
-        let currentKey = logsDictionary.keys.sorted()[indexPath.row]
-        
-        cell.keyLabel.text = String(currentKey)
-        cell.valueLabel.text = String(describing: logsDictionary[currentKey])
+
+        let log = logs[indexPath.row]
+        cell.keyLabel.text = log.timestamp
+        cell.valueLabel.text = "\(log.sender) \(log.message)"
+        cell.valueLabel.lineBreakMode = .byWordWrapping
         return cell
     }
     
