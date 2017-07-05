@@ -15,7 +15,7 @@ struct KeychainEntry {
     /// A name of service associated to given keychain entry.
     fileprivate(set) var serviceName: String?
     
-    init(with dictionary:[String:String]) {
+    init(with dictionary: [String: String]) {
         keyName = dictionary[OVLKeychainManagerKeyReference]!
         serviceName = dictionary[OVLKeychainManagerServiceReference]
     }
