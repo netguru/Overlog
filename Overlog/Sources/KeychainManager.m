@@ -12,7 +12,7 @@ NSString * const OVLKeychainManagerServiceReference = @"serviceName";
 
 @implementation KeychainManager
 
-- (NSArray<NSDictionary<NSString *, NSString *> *> *)allKeys {
+- (NSArray<NSDictionary<NSString *, NSString *> *> *)allEntries {
     /// Create an array for the results
     NSMutableArray<NSDictionary *> *result = [[NSMutableArray alloc] init];
     

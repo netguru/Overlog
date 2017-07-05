@@ -19,7 +19,7 @@ internal final class KeychainViewController: UITableViewController {
         super.viewDidLoad()
         
         let keychain = KeychainManager()
-        keychainEntries = keychain.allKeys().map { (value: [String : String]) -> KeychainEntry in
+        keychainEntries = keychain.allEntries().map { (value: [String : String]) -> KeychainEntry in
             return KeychainEntry(with: value)
         }
         

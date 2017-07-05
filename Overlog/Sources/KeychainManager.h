@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Returns a list of dictionaries containing keychain key name and associated service name.
 ///
 /// @returns A list of keychain entry dictionaries.
-- (NSArray<NSDictionary<NSString *, NSString *> *> *)allKeys;
+- (NSArray<NSDictionary<NSString *, NSString *> *> *)allEntries;
 
 NS_ASSUME_NONNULL_END
 
