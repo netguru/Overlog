@@ -44,7 +44,7 @@ extension KeychainViewController {
         let entry = keychainEntries[indexPath.row]
         cell.textLabel?.text = entry.keyName
         if let service = entry.serviceName {
-            cell.detailTextLabel?.text = "Service: \(service)"
+            cell.detailTextLabel?.text = "Service".localized + ": \(service)"
         }
         
         return cell

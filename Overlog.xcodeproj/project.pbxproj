@@ -30,6 +30,7 @@
 		8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA521F0BD45D002831E9 /* KeychainEntry.swift */; };
 		8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA541F0BD702002831E9 /* KeychainViewController.swift */; };
 		81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */; };
+		81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CCC1411F0D02CA0058BEB8 /* String.swift */; };
 		BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */; };
 		BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */; };
 		BF6904561ED49B9600FF303E /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904551ED49B9600FF303E /* Overlay.swift */; };
@@ -106,6 +107,7 @@
 		81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainManager.h; sourceTree = "<group>"; };
 		81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainManager.m; sourceTree = "<group>"; };
 		81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Overlog-Bridging-Header.h"; sourceTree = "<group>"; };
+		81CCC1411F0D02CA0058BEB8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorSpec.swift; sourceTree = "<group>"; };
 		BF6904551ED49B9600FF303E /* Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				731A1B7B1F069497008A6164 /* Models */,
 				810EF3DF1F05950A00E12159 /* Abstractions */,
+				81CCC1401F0D02AF0058BEB8 /* Extensions */,
 				810EF3E01F05951A00E12159 /* Flow Controllers */,
 				731A1B741F0686EF008A6164 /* Helpers */,
 				810EF3E11F05952B00E12159 /* View Controllers */,
@@ -359,6 +362,14 @@
 				7301BA501F06CD1B00B3C018 /* UserDefaultsView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		81CCC1401F0D02AF0058BEB8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				81CCC1411F0D02CA0058BEB8 /* String.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,6 +582,7 @@
 				810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */,
 				8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */,
 				81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */,
+				81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */,
 				BF6904561ED49B9600FF303E /* Overlay.swift in Sources */,
 				731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */,
 				731A1B7E1F06953E008A6164 /* TableViewCell.swift in Sources */,
