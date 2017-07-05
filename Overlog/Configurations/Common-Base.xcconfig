@@ -13,6 +13,7 @@
 // MARK: Build
 
 _BUILD_VERSION = 0.1
+_CLANG_ENABLE_MODULES = YES
 
 // MARK: Deployment
 
