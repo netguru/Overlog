@@ -27,6 +27,7 @@
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
 		810EF3DE1F05950300E12159 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DD1F05950300E12159 /* FlowController.swift */; };
+		8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185ADF71F0D15A700379C39 /* SettingsViewController.swift */; };
 		BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */; };
 		BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */; };
 		BF6904561ED49B9600FF303E /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904551ED49B9600FF303E /* Overlay.swift */; };
@@ -98,6 +99,7 @@
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
 		810EF3DD1F05950300E12159 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		8185ADF71F0D15A700379C39 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorSpec.swift; sourceTree = "<group>"; };
 		BF6904551ED49B9600FF303E /* Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				810EF3D51F05258A00E12159 /* MainViewController.swift */,
 				BF6904581ED58EB500FF303E /* OverlayViewController.swift */,
 				731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */,
+				8185ADF71F0D15A700379C39 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
+				8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */,
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
 				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,

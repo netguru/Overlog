@@ -1,5 +1,5 @@
 //
-// SettingsViewController.swift
+// MainViewController.swift
 //
 // Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
 // Licensed under the MIT License.
@@ -34,10 +34,12 @@ internal final class MainViewController: UIViewController {
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
-        /// Configure right bar button item with 'close' option
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
-
-        self.title = "Overlog"
+        /// Configure bar button item with 'close' option
+        let closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
+        let settingsBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(didTapSettingsButton(with:)))
+        
+        navigationItem.rightBarButtonItems = [closeBarButtonItem, settingsBarButtonItem]
+        title = "Overlog"
 
         configure(tableView: customView.tableView)
     }
@@ -65,6 +67,28 @@ fileprivate extension MainViewController {
         flowDelegate?.didTapCloseButton(with: sender)
     }
     
+    /// Sends the settings action from bar button item to flow delegate.
+    ///
+    /// - Parameters:
+    ///   - sender: a button responsible for sending the action
+    @objc fileprivate func didTapSettingsButton(with sender: UIBarButtonItem) {
+        let viewController = SettingsViewController()
+        viewController.modalPresentationStyle = .popover
+        guard let popoverPresentationController = viewController.popoverPresentationController else {
+            return
+        }
+        popoverPresentationController.permittedArrowDirections = .up
+        popoverPresentationController.barButtonItem = sender
+        popoverPresentationController.delegate = self
+        present(viewController, animated: true, completion: nil)
+    }
+    
+}
+
+extension MainViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 }
 
 extension MainViewController: UITableViewDataSource {
