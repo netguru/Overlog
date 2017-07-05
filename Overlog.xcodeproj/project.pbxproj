@@ -26,6 +26,7 @@
 		731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B7F1F06961E008A6164 /* FeatureCell.swift */; };
 		731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */; };
 		73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */; };
+		73EB46401F0CD7D3001B7AA1 /* NetworkTraffic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB463F1F0CD7D3001B7AA1 /* NetworkTraffic.swift */; };
 		810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D51F05258A00E12159 /* MainViewController.swift */; };
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
@@ -100,6 +101,7 @@
 		731A1B7F1F06961E008A6164 /* FeatureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
 		731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsViewController.swift; sourceTree = "<group>"; };
 		73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsCell.swift; sourceTree = "<group>"; };
+		73EB463F1F0CD7D3001B7AA1 /* NetworkTraffic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTraffic.swift; sourceTree = "<group>"; };
 		810EF3D51F05258A00E12159 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				731A1B791F069491008A6164 /* Feature.swift */,
+				73EB463F1F0CD7D3001B7AA1 /* NetworkTraffic.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
+				73EB46401F0CD7D3001B7AA1 /* NetworkTraffic.swift in Sources */,
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
 				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,

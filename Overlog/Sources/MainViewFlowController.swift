@@ -19,6 +19,9 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// View controller for displaying network traffic
     fileprivate let networkTrafficViewController: NetworkTrafficViewController
 
+    /// Array which holds all network traffic
+    internal var networkTraffics: [NetworkTraffic] = []
+
     /// Initializes settings flow controller
     ///
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
@@ -83,11 +86,19 @@ extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
 
 extension MainViewFlowController: NetworkMonitorDelegate {
     func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation) {
+        networkTraffics.append(NetworkTraffic(request: request))
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation) {
+        if let currentItem = networkTraffics.filter( { $0.request.identifier == error.requestIdentifier }).first {
+            currentItem.error = error
+        }
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation) {
+        if let currentItem = networkTraffics.filter( { $0.request.identifier == response.requestIdentifier }).first {
+            currentItem.response = response
+        }
+
     }
 }
