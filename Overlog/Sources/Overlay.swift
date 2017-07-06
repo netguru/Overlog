@@ -41,6 +41,7 @@ public final class Overlay {
         NetworkMonitor.shared.watch(on: configuration)
     }
 
+    /// Shared instance
     public static let shared = Overlay()
 
     /// Presents floating button
