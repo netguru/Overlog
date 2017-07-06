@@ -43,14 +43,14 @@ extension ResponseViewController {
         if let response = networkTraffic.response {
             customView.deserializedBodyLabel.text =  "Body:\n \(response.deserializedBody ?? "Empty")"
             customView.headersLabel.text = "Headers:\n\(String(describing: response.headers))"
-            customView.statusCodeLabel.text = "Status code: \(String(describing: response.statusCode))"
+            customView.statusCodeLabel.text = "  Status code: \(String(describing: response.statusCode))  "
             customView.statusCodeLabel.backgroundColor = .green
         }
 
         if let error = networkTraffic.error {
             customView.deserializedBodyLabel.text =  "Info:\n \(error.userInfo)"
             customView.headersLabel.text = "Domain:\n\(error.domain)\nReason:\n\(error.reason)"
-            customView.statusCodeLabel.text = "Error code: \(String(describing: error.code))"
+            customView.statusCodeLabel.text = "  Error code: \(String(describing: error.code))  "
             customView.statusCodeLabel.backgroundColor = .red
         }
     }

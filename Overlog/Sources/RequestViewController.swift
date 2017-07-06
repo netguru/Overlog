@@ -43,7 +43,7 @@ extension RequestViewController {
     fileprivate func prepareView() {
         customView.deserializedBodyLabel.text = "Body:\n\(networkRequest.deserializedBody ?? "Empty")"
         customView.headersLabel.text = "Headers:\n\(String(describing: networkRequest.headers))"
-        customView.methodLabel.text = "Method: \(networkRequest.method)"
+        customView.methodLabel.text = "  Method: \(networkRequest.method)  "
         customView.urlLabel.text = "URL: \(networkRequest.urlString)"
     }
 }
