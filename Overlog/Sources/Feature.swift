@@ -8,14 +8,16 @@
 import Foundation
 
 /// All overlog feature types
-internal enum FeatureType {
-    case network, userDefaults
+internal enum FeatureType: String {
+    case network, keychain, userDefaults
 
     var description: String {
 
         switch self {
             case .userDefaults:
                 return "User Defaults"
+            case .keychain:
+                return "Keychain"
             case .network:
                 return "HTTP"
         }
