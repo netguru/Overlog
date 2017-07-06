@@ -26,7 +26,7 @@ public struct Log {
     /// - Parameters:
     ///   - raw: raw log dictionary returned by ASL
     init(raw log: [String: String]) {
-        timestamp = log[Keys.timestamp.rawValue] ?? ""
+        timestamp = log[Keys.timestamp.rawValue] ?? "-"
         sender = log[Keys.sender.rawValue] ?? ""
         message = log[Keys.message.rawValue] ?? ""
     }

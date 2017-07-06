@@ -20,7 +20,7 @@ internal final class LogsViewController: UIViewController {
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        logs = logsMonitor.scanForLogs()
+        logs = logsMonitor.scanForSystemLogs()
         configure(tableView: customView.tableView)
     }
     

@@ -73,7 +73,7 @@ extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
             .addToReadingList,
             .assignToContact
         ]
-        
+
         userDefaultsViewController.present(activityViewController, animated: true, completion: nil)
     }
 }
