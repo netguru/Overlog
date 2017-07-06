@@ -21,8 +21,7 @@ internal struct FeaturesDataSource {
     fileprivate func prepareItems() -> [Feature] {
         return [
             Feature(type: .userDefaults, counter: 0),
-            Feature(type: .network, counter: 0)
-            Feature(type: .userDefaults, counter:0),
+            Feature(type: .network, counter: 0),
             Feature(type: .keychain, counter: 0)
         ]
     }

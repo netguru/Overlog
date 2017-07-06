@@ -5,7 +5,6 @@
 //  Licensed under the MIT License.
 //
 
-
 import UIKit
 
 final class NetworkTrafficViewController: UIViewController {
@@ -52,7 +51,7 @@ extension NetworkTrafficViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NetworkTrafficCell.self), for: indexPath) as! NetworkTrafficCell
 
-        cell.requestTypeLabel.text = "Request"
+        cell.requestTypeLabel.text = "Request".localized
 
         let currentRequest = networkTraffics[indexPath.row].request
         cell.requestURLLabel.text = currentRequest.urlString

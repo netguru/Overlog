@@ -38,7 +38,7 @@ internal final class MainViewController: UIViewController {
         /// Configure right bar button item with 'close' option
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
 
-        self.title = "Overlog"
+        self.title = "Overlog".localized
         configure(tableView: customView.tableView)
     }
 
