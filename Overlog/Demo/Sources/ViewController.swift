@@ -22,5 +22,12 @@ final class ViewController: UITableViewController {
         let request = URLRequest(url: URL(string: "https://cljsbin-bkhgroqzwe.now.sh/headers")!)
         session.dataTask(with: request).resume()
 
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+            let delayedRequest = URLRequest(url: URL(string: "https://cljsbin-bkhgroqzwe.now.sh/get")!)
+            session.dataTask(with: delayedRequest).resume()
+
+        }
+
     }
 }

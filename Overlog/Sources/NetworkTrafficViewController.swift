@@ -11,6 +11,13 @@ import UIKit
 final class NetworkTrafficViewController: UIViewController {
 
     let customView = NetTrafficView()
+    fileprivate let networkTraffics: [NetworkTraffic]
+
+    init(networkTraffics: [NetworkTraffic]) {
+        self.networkTraffics = networkTraffics
+
+        super.init(nibName: nil, bundle: nil)
+    }
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +26,10 @@ final class NetworkTrafficViewController: UIViewController {
 
     internal override func loadView() {
         view = customView
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -41,10 +52,15 @@ extension NetworkTrafficViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NetworkTrafficCell.self), for: indexPath) as! NetworkTrafficCell
 
+        cell.requestTypeLabel.text = "Request"
+
+        let currentRequest = networkTraffics[indexPath.row].request
+        cell.requestURLLabel.text = currentRequest.urlString
+
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return networkTraffics.count
     }
 }

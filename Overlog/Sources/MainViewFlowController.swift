@@ -16,9 +16,6 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// View controller for displaying user defaults
     fileprivate let userDefaultsViewController: UserDefaultsViewController
 
-    /// View controller for displaying network traffic
-    fileprivate let networkTrafficViewController: NetworkTrafficViewController
-
     /// Array which holds all network traffic
     internal var networkTraffics: [NetworkTraffic] = []
 
@@ -28,7 +25,6 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     init(with navigationController: UINavigationController) {
         rootViewController = navigationController
         userDefaultsViewController = UserDefaultsViewController()
-        networkTrafficViewController = NetworkTrafficViewController()
         NetworkMonitor.shared.delegate = self
         userDefaultsViewController.flowDelegate = self
     }
@@ -61,6 +57,9 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
                 /// Show  userDefaults view
                 rootViewController?.pushViewController(userDefaultsViewController, animated: true)
             case .network:
+                /// View controller for displaying network traffic
+                let networkTrafficViewController = NetworkTrafficViewController(networkTraffics: networkTraffics)
+
                 rootViewController?.pushViewController(networkTrafficViewController, animated: true)
         }
     }
@@ -99,6 +98,5 @@ extension MainViewFlowController: NetworkMonitorDelegate {
         if let currentItem = networkTraffics.filter( { $0.request.identifier == response.requestIdentifier }).first {
             currentItem.response = response
         }
-
     }
 }

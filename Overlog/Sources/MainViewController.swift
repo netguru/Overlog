@@ -8,7 +8,7 @@
 import UIKit
 
 internal protocol MainViewControllerFlowDelegate: class {
-    
+
     /// Tells the flow delegate that close button has been tapped.
     ///
     /// - Parameters:
@@ -39,7 +39,6 @@ internal final class MainViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
 
         self.title = "Overlog"
-
         configure(tableView: customView.tableView)
     }
 
@@ -65,7 +64,6 @@ fileprivate extension MainViewController {
     @objc fileprivate func didTapCloseButton(with sender: UIBarButtonItem) {
         flowDelegate?.didTapCloseButton(with: sender)
     }
-    
 }
 
 extension MainViewController: UITableViewDataSource {

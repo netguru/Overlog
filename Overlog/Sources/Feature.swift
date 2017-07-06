@@ -8,7 +8,7 @@
 import Foundation
 
 /// All overlog feature types
-internal enum FeatureType: String {
+internal enum FeatureType {
     case network, userDefaults
 
     var description: String {
@@ -30,4 +30,8 @@ internal struct Feature {
 
     /// Feature counter used for notifications
     var counter: Int
+
+    mutating func changeCounter(counter: Int) {
+        self.counter = counter
+    }
 }
