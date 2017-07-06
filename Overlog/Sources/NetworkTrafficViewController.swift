@@ -9,7 +9,7 @@ import UIKit
 
 final class NetworkTrafficViewController: UIViewController {
 
-    let customView = NetTrafficView()
+    let customView = TableView()
     fileprivate let networkTraffics: [NetworkTraffic]
 
     init(networkTraffics: [NetworkTraffic]) {
