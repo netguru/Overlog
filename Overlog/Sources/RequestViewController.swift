@@ -44,6 +44,6 @@ extension RequestViewController {
         customView.deserializedBodyLabel.text = "Body:\n\(networkRequest.deserializedBody ?? "Empty")"
         customView.headersLabel.text = "Headers:\n\(String(describing: networkRequest.headers))"
         customView.methodLabel.text = "Method: \(networkRequest.method)"
-        customView.urlLabel.text = "URL: \n\(networkRequest.urlString)"
+        customView.urlLabel.text = "URL: \(networkRequest.urlString)"
     }
 }
