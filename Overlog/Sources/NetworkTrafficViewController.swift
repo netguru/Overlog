@@ -27,6 +27,7 @@ final class NetworkTrafficViewController: UIViewController {
         view = customView
     }
 
+    @available(*, unavailable, message: "Use init(networkTraffics:) instead")
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -44,6 +45,12 @@ extension NetworkTrafficViewController {
 extension NetworkTrafficViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let trafficDetailsViewController = TrafficDetailsViewController(networkTraffic: networkTraffics[indexPath.row])
+        navigationController?.pushViewController(trafficDetailsViewController, animated: true)
+
     }
 }
 
