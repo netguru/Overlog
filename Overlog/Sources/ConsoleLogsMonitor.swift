@@ -1,0 +1,42 @@
+//
+//  ConsoleLogsMonitor.swift
+//  Overlog
+//
+//  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+//
+
+import Foundation
+
+/// A class to monitor the logs printed in the console
+final public class ConsoleLogsMonitor: LogsMonitor {
+
+    /// A buffer of logs
+    public fileprivate(set) var logs: [Log] = []
+
+    /// Start monitoring for new data in standard and error outputs
+    public override func subscribeForLogs() {
+        let pipe = Pipe()
+        let handle = pipe.fileHandleForReading
+        dup2(pipe.fileHandleForWriting.fileDescriptor, fileno(stderr))
+        dup2(pipe.fileHandleForWriting.fileDescriptor, fileno(stdout))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(dataAvailable(notification:)), name: NSNotification.Name.NSFileHandleDataAvailable, object: nil)
+        handle.waitForDataInBackgroundAndNotify()
+    }
+
+    /// Parse available output data
+    @objc public func dataAvailable(notification: Notification) {
+        if let fileHandle = notification.object as? FileHandle {
+
+            if let parsedData = NSString(data: fileHandle.availableData, encoding: String.Encoding.utf8.rawValue) {
+                let newLog = Log(timestamp: nil, sender: nil, message: parsedData as String)
+                logs.append(newLog)
+                DispatchQueue.main.async {
+                    self.delegate?.monitor(self, didGet: self.logs)
+                }
+            }
+
+            fileHandle.waitForDataInBackgroundAndNotify()
+        }
+    }
+}

@@ -8,22 +8,35 @@
 import UIKit
 
 internal final class LogsViewController: UIViewController {
-    
+
     /// Custom view to be displayed
     internal let customView = UserDefaultsView()
-    
+
+    /// Kind of logs to be displayed
+    internal var logsKind = FeatureType.consoleLogs
+
     /// Instance of a class which enables searching for logs
-    fileprivate let logsMonitor = LogsMonitor()
+    fileprivate let logsMonitor: LogsMonitor
 
     /// Array of recently found logs
     fileprivate(set) var logs = [Log]()
-    
+
+    init(logsMonitor: LogsMonitor) {
+        self.logsMonitor = logsMonitor
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        logs = logsMonitor.scanForSystemLogs()
+        logsMonitor.delegate = self
+        logsMonitor.subscribeForLogs()
         configure(tableView: customView.tableView)
     }
-    
+
     internal override func loadView() {
         view = customView
     }
@@ -80,4 +93,13 @@ extension LogsViewController: UITableViewDelegate {
             }
         }
     }
+}
+
+extension LogsViewController: LogsMonitorDelegate {
+
+    func monitor(_ monitor: LogsMonitor, didGet logs: [Log]) {
+        self.logs = logs
+        customView.tableView.reloadData()
+    }
+
 }

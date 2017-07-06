@@ -34,6 +34,8 @@
 		BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69045A1ED5975D00FF303E /* OverlayView.swift */; };
 		BF6904A51EDC30E900FF303E /* Overlog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF6904AC1EDD9CE600FF303E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904AA1EDD9C6000FF303E /* ViewController.swift */; };
+		EA747B961F0E66770048506A /* ConsoleLogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */; };
+		EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */; };
 		EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */; };
 		EAFAE2791F0BCC780017380B /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2781F0BCC780017380B /* LogsViewController.swift */; };
 		EAFAE27D1F0CD70F0017380B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE27C1F0CD70F0017380B /* Log.swift */; };
@@ -107,6 +109,8 @@
 		BF6904581ED58EB500FF303E /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BF69045A1ED5975D00FF303E /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		BF6904AA1EDD9C6000FF303E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogsMonitor.swift; sourceTree = "<group>"; };
+		EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogsMonitor.swift; sourceTree = "<group>"; };
 		EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsMonitor.swift; sourceTree = "<group>"; };
 		EAFAE2781F0BCC780017380B /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		EAFAE27C1F0CD70F0017380B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 				BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */,
 				731A1B771F069405008A6164 /* FeaturesDataSource.swift */,
 				EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */,
+				EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */,
+				EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -556,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */,
+				EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */,
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
 				EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */,
@@ -574,6 +581,7 @@
 				EAFAE2791F0BCC780017380B /* LogsViewController.swift in Sources */,
 				7301BA511F06CD1B00B3C018 /* UserDefaultsView.swift in Sources */,
 				731A1B711F0679F3008A6164 /* View.swift in Sources */,
+				EA747B961F0E66770048506A /* ConsoleLogsMonitor.swift in Sources */,
 				731A1B7A1F069491008A6164 /* Feature.swift in Sources */,
 				BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */,
 			);

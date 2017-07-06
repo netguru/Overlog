@@ -13,7 +13,8 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     internal var rootViewController: UINavigationController?
 
     fileprivate let userDefaultsViewController: UserDefaultsViewController
-    fileprivate let logsViewController: LogsViewController
+    fileprivate let consoleLogsViewController: LogsViewController
+    fileprivate let systemLogsViewController: LogsViewController
 
 
     /// Initializes settings flow controller
@@ -21,7 +22,8 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
     init(with navigationController: UINavigationController) {
         rootViewController = navigationController
-        logsViewController = LogsViewController()
+        consoleLogsViewController = LogsViewController(logsMonitor: ConsoleLogsMonitor())
+        systemLogsViewController = LogsViewController(logsMonitor: SystemLogsMonitor())
         userDefaultsViewController = UserDefaultsViewController()
         userDefaultsViewController.flowDelegate = self
     }
@@ -53,9 +55,12 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
             case .network:
                 /// show http view
                 break
-            case .logs:
-                /// Show logs view
-                rootViewController?.pushViewController(logsViewController, animated: true)
+            case .consoleLogs:
+                /// Show console logs view
+                rootViewController?.pushViewController(consoleLogsViewController, animated: true)
+            case .systemLogs:
+                /// Show system logs view
+                rootViewController?.pushViewController(systemLogsViewController, animated: true)
         }
     }
 }
