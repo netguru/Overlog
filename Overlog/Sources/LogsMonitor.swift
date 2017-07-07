@@ -14,7 +14,7 @@ public class LogsMonitor {
     // MARK: Abstract
 
     /// Start monitoring for new data
-    internal func subscribeForLogs() {
+    public func subscribeForLogs() {
         // no-op by default
     }
 }

@@ -19,7 +19,7 @@ final public class ConsoleLogsMonitor: LogsMonitor {
     /// Subscribes for gathering logs only in a release mode. In the debug mode
     /// logs will be visible in a console window. It is a workaround for a fact
     /// that stdout and stderr outputs can be redirected only to a one handle.
-    internal override func subscribeForLogs() {
+    public override func subscribeForLogs() {
         #if ENV_DEBUG
             return
         #else
