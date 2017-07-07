@@ -33,7 +33,7 @@ internal final class LogEntryCell: TableViewCell {
                 dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
 
                 messageLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 4),
-                dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                messageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 messageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
                 ])
