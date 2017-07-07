@@ -12,9 +12,6 @@ internal final class LogsViewController: UIViewController {
     /// Custom view to be displayed
     internal let customView = TableView()
 
-    /// Kind of logs to be displayed
-    internal var logsKind = FeatureType.consoleLogs
-
     /// Instance of a class which enables searching for logs
     fileprivate let logsMonitor: LogsMonitor
 
@@ -46,27 +43,26 @@ extension LogsViewController {
     fileprivate func configure(tableView: UITableView) {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UserDefaultsCell.self, forCellReuseIdentifier: String(describing: UserDefaultsCell.self))
+        tableView.register(LogEntryCell.self, forCellReuseIdentifier: String(describing: LogEntryCell.self))
         tableView.estimatedRowHeight = 44.0
     }
 }
 
 extension LogsViewController: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return logs.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UserDefaultsCell.self), for: indexPath) as! UserDefaultsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LogEntryCell.self), for: indexPath) as! LogEntryCell
 
         let log = logs[indexPath.row]
-        cell.keyLabel.text = log.timestamp
-        cell.valueLabel.text = "\(log.sender) \(log.message)"
-        cell.valueLabel.lineBreakMode = .byWordWrapping
+        cell.dateLabel.text = log.timestamp
+        cell.messageLabel.text = "\(log.sender) \(log.message)"
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
@@ -76,20 +72,16 @@ extension LogsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         return action == #selector(copy(_:))
     }
-    
+
     func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
         if action == #selector(copy(_:)) {
-            if let cell = tableView.cellForRow(at: indexPath) as? UserDefaultsCell {
-                guard let keyString = cell.keyLabel.text else {
-                    return
-                }
-                
+            if let cell = tableView.cellForRow(at: indexPath) as? LogEntryCell {
                 let pasteboard = UIPasteboard.general
-                pasteboard.string = "\(keyString): \(cell.valueLabel.text ?? "")"
+                pasteboard.string = "\(cell.dateLabel.text ?? ""): \(cell.messageLabel.text ?? "")"
             }
         }
     }

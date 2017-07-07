@@ -35,8 +35,8 @@ public struct Log {
     ///
     /// - Parameters:
     ///   - raw: raw log dictionary returned by ASL
-    init(timestamp: String?, sender: String?, message: String?) {
-        self.timestamp = timestamp ?? "-"
+    init(timestamp: Date?, sender: String?, message: String?) {
+        self.timestamp = timestamp?.description ?? "-"
         self.sender = sender ?? ""
         self.message = message ?? ""
     }
