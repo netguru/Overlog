@@ -10,9 +10,12 @@ import Foundation
 public class LogsMonitor {
 
     weak public var delegate: LogsMonitorDelegate?
+    
+    // MARK: Abstract
 
-    public func subscribeForLogs() {
-        fatalError("subscribeForLogs() has not been implemented - you should always use a subclass!")
+    /// Start monitoring for new data
+    internal func subscribeForLogs() {
+        // no-op by default
     }
 }
 

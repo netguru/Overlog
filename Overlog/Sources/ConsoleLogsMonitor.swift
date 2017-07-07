@@ -19,7 +19,7 @@ final public class ConsoleLogsMonitor: LogsMonitor {
     /// Subscribes for gathering logs only in a release mode. In the debug mode
     /// logs will be visible in a console window. It is a workaround for a fact
     /// that stdout and stderr outputs can be redirected only to a one handle.
-    public override func subscribeForLogs() {
+    internal override func subscribeForLogs() {
         #if ENV_DEBUG
             return
         #else
@@ -34,7 +34,7 @@ final public class ConsoleLogsMonitor: LogsMonitor {
     }
 
     /// Parse available output data
-    @objc public func dataAvailable(notification: Notification) {
+    @objc private func dataAvailable(notification: Notification) {
         if let fileHandle = notification.object as? FileHandle {
 
             if let parsedData = NSString(data: fileHandle.availableData, encoding: String.Encoding.utf8.rawValue) {
