@@ -25,7 +25,10 @@ final public class NetworkMonitor {
     public init() {
         ResponseDetective.outputFacility = self
     }
-    
+
+    /// Shared instance
+    public static let shared = NetworkMonitor()
+
     /// Adds a configuration on which monitor will be observing the network traffic
     ///
     /// - parameter configuration: an configuration for watching

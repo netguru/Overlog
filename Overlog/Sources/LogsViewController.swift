@@ -10,7 +10,7 @@ import UIKit
 internal final class LogsViewController: UIViewController {
 
     /// Custom view to be displayed
-    internal let customView = UserDefaultsView()
+    internal let customView = TableView()
 
     /// Kind of logs to be displayed
     internal var logsKind = FeatureType.consoleLogs

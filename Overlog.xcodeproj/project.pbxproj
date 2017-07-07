@@ -14,7 +14,9 @@
 		3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */; };
 		3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
-		7301BA511F06CD1B00B3C018 /* UserDefaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7301BA501F06CD1B00B3C018 /* UserDefaultsView.swift */; };
+		7301BA511F06CD1B00B3C018 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7301BA501F06CD1B00B3C018 /* TableView.swift */; };
+		7310A4B41F0B480D00945C7E /* NetworkTrafficViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */; };
+		7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */; };
 		731A1B6F1F06753D008A6164 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B6E1F06753D008A6164 /* MainView.swift */; };
 		731A1B711F0679F3008A6164 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B701F0679F3008A6164 /* View.swift */; };
 		731A1B781F069405008A6164 /* FeaturesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B771F069405008A6164 /* FeaturesDataSource.swift */; };
@@ -22,11 +24,22 @@
 		731A1B7E1F06953E008A6164 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B7D1F06953E008A6164 /* TableViewCell.swift */; };
 		731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B7F1F06961E008A6164 /* FeatureCell.swift */; };
 		731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */; };
+		7378713D1F0E451F00AF0724 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7378713C1F0E451F00AF0724 /* RequestViewController.swift */; };
+		7378713F1F0E466100AF0724 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7378713E1F0E466100AF0724 /* ResponseViewController.swift */; };
 		73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */; };
+		73EB46401F0CD7D3001B7AA1 /* NetworkTraffic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB463F1F0CD7D3001B7AA1 /* NetworkTraffic.swift */; };
+		73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46431F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift */; };
+		73EB46461F0E22CA001B7AA1 /* TrafficDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */; };
+		73EB46481F0E2712001B7AA1 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46471F0E2712001B7AA1 /* RequestView.swift */; };
+		73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46491F0E274D001B7AA1 /* ResponseView.swift */; };
 		810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D51F05258A00E12159 /* MainViewController.swift */; };
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
 		810EF3DE1F05950300E12159 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DD1F05950300E12159 /* FlowController.swift */; };
+		8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA521F0BD45D002831E9 /* KeychainEntry.swift */; };
+		8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA541F0BD702002831E9 /* KeychainViewController.swift */; };
+		81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */; };
+		81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CCC1411F0D02CA0058BEB8 /* String.swift */; };
 		BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */; };
 		BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */; };
 		BF6904561ED49B9600FF303E /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904551ED49B9600FF303E /* Overlay.swift */; };
@@ -36,8 +49,8 @@
 		BF6904AC1EDD9CE600FF303E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904AA1EDD9C6000FF303E /* ViewController.swift */; };
 		EA747B961F0E66770048506A /* ConsoleLogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */; };
 		EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */; };
+		EA747B991F0F80570048506A /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2781F0BCC780017380B /* LogsViewController.swift */; };
 		EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */; };
-		EAFAE2791F0BCC780017380B /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2781F0BCC780017380B /* LogsViewController.swift */; };
 		EAFAE27D1F0CD70F0017380B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE27C1F0CD70F0017380B /* Log.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,7 +103,9 @@
 		3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Debug.xcconfig"; sourceTree = "<group>"; };
 		3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Release.xcconfig"; sourceTree = "<group>"; };
 		3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Base.xcconfig"; sourceTree = "<group>"; };
-		7301BA501F06CD1B00B3C018 /* UserDefaultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsView.swift; sourceTree = "<group>"; };
+		7301BA501F06CD1B00B3C018 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTrafficViewController.swift; sourceTree = "<group>"; };
+		7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTrafficCell.swift; sourceTree = "<group>"; };
 		731A1B6E1F06753D008A6164 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		731A1B701F0679F3008A6164 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		731A1B771F069405008A6164 /* FeaturesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturesDataSource.swift; sourceTree = "<group>"; };
@@ -98,11 +113,24 @@
 		731A1B7D1F06953E008A6164 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		731A1B7F1F06961E008A6164 /* FeatureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
 		731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsViewController.swift; sourceTree = "<group>"; };
+		7378713C1F0E451F00AF0724 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
+		7378713E1F0E466100AF0724 /* ResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
 		73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsCell.swift; sourceTree = "<group>"; };
+		73EB463F1F0CD7D3001B7AA1 /* NetworkTraffic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTraffic.swift; sourceTree = "<group>"; };
+		73EB46431F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficDetailsViewController.swift; sourceTree = "<group>"; };
+		73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficDetailsView.swift; sourceTree = "<group>"; };
+		73EB46471F0E2712001B7AA1 /* RequestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
+		73EB46491F0E274D001B7AA1 /* ResponseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
 		810EF3D51F05258A00E12159 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
 		810EF3DD1F05950300E12159 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		8186AA521F0BD45D002831E9 /* KeychainEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainEntry.swift; sourceTree = "<group>"; };
+		8186AA541F0BD702002831E9 /* KeychainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainViewController.swift; sourceTree = "<group>"; };
+		81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainManager.h; sourceTree = "<group>"; };
+		81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainManager.m; sourceTree = "<group>"; };
+		81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Overlog-Bridging-Header.h"; sourceTree = "<group>"; };
+		81CCC1411F0D02CA0058BEB8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorSpec.swift; sourceTree = "<group>"; };
 		BF6904551ED49B9600FF303E /* Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
@@ -158,10 +186,12 @@
 			children = (
 				731A1B7B1F069497008A6164 /* Models */,
 				810EF3DF1F05950A00E12159 /* Abstractions */,
+				81CCC1401F0D02AF0058BEB8 /* Extensions */,
 				810EF3E01F05951A00E12159 /* Flow Controllers */,
 				731A1B741F0686EF008A6164 /* Helpers */,
 				810EF3E11F05952B00E12159 /* View Controllers */,
 				810EF3E21F05953A00E12159 /* Views */,
+				81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */,
 			);
 			name = Sources;
 			path = Overlog/Sources;
@@ -296,6 +326,8 @@
 				3A2204291ED440390048F6A7 /* Foo.swift */,
 				BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */,
 				731A1B771F069405008A6164 /* FeaturesDataSource.swift */,
+				81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */,
+				81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */,
 				EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */,
 				EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */,
 				EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */,
@@ -307,6 +339,8 @@
 			isa = PBXGroup;
 			children = (
 				731A1B791F069491008A6164 /* Feature.swift */,
+				73EB463F1F0CD7D3001B7AA1 /* NetworkTraffic.swift */,
+				8186AA521F0BD45D002831E9 /* KeychainEntry.swift */,
 				EAFAE27C1F0CD70F0017380B /* Log.swift */,
 			);
 			name = Models;
@@ -317,6 +351,7 @@
 			children = (
 				731A1B7F1F06961E008A6164 /* FeatureCell.swift */,
 				73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */,
+				7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -344,9 +379,14 @@
 		810EF3E11F05952B00E12159 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8186AA541F0BD702002831E9 /* KeychainViewController.swift */,
 				810EF3D51F05258A00E12159 /* MainViewController.swift */,
+				7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */,
 				BF6904581ED58EB500FF303E /* OverlayViewController.swift */,
+				73EB46431F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift */,
 				731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */,
+				7378713C1F0E451F00AF0724 /* RequestViewController.swift */,
+				7378713E1F0E466100AF0724 /* ResponseViewController.swift */,
 				EAFAE2781F0BCC780017380B /* LogsViewController.swift */,
 			);
 			name = "View Controllers";
@@ -358,9 +398,20 @@
 				731A1B7C1F06952E008A6164 /* Cells */,
 				731A1B6E1F06753D008A6164 /* MainView.swift */,
 				BF69045A1ED5975D00FF303E /* OverlayView.swift */,
-				7301BA501F06CD1B00B3C018 /* UserDefaultsView.swift */,
+				7301BA501F06CD1B00B3C018 /* TableView.swift */,
+				73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */,
+				73EB46471F0E2712001B7AA1 /* RequestView.swift */,
+				73EB46491F0E274D001B7AA1 /* ResponseView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		81CCC1401F0D02AF0058BEB8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				81CCC1411F0D02CA0058BEB8 /* String.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +553,7 @@
 			);
 			inputPaths = (
 				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
+				"$(_CARTHAGE_BUILD_PATH)/ResponseDetective.framework",
 			);
 			name = "Carthage Copy Frameworks";
 			outputPaths = (
@@ -561,29 +613,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73EB46481F0E2712001B7AA1 /* RequestView.swift in Sources */,
 				810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */,
+				7378713F1F0E466100AF0724 /* ResponseViewController.swift in Sources */,
+				7378713D1F0E451F00AF0724 /* RequestViewController.swift in Sources */,
 				EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */,
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
+				7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */,
+				8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */,
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
 				EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
+				EA747B991F0F80570048506A /* LogsViewController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
+				73EB46401F0CD7D3001B7AA1 /* NetworkTraffic.swift in Sources */,
+				73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */,
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
 				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
 				EAFAE27D1F0CD70F0017380B /* Log.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,
 				810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */,
+				8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */,
+				81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */,
+				81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */,
+				73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */,
 				BF6904561ED49B9600FF303E /* Overlay.swift in Sources */,
 				731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */,
 				731A1B7E1F06953E008A6164 /* TableViewCell.swift in Sources */,
 				3A2204311ED440440048F6A7 /* Foo.swift in Sources */,
 				731A1B781F069405008A6164 /* FeaturesDataSource.swift in Sources */,
-				EAFAE2791F0BCC780017380B /* LogsViewController.swift in Sources */,
-				7301BA511F06CD1B00B3C018 /* UserDefaultsView.swift in Sources */,
+				7301BA511F06CD1B00B3C018 /* TableView.swift in Sources */,
 				731A1B711F0679F3008A6164 /* View.swift in Sources */,
 				EA747B961F0E66770048506A /* ConsoleLogsMonitor.swift in Sources */,
 				731A1B7A1F069491008A6164 /* Feature.swift in Sources */,
 				BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */,
+				7310A4B41F0B480D00945C7E /* NetworkTrafficViewController.swift in Sources */,
+				73EB46461F0E22CA001B7AA1 /* TrafficDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,7 +712,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -655,7 +719,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
