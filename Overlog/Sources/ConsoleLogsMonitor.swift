@@ -20,7 +20,7 @@ final public class ConsoleLogsMonitor: LogsMonitor {
     /// logs will be visible in a console window. It is a workaround for a fact
     /// that stdout and stderr outputs can be redirected only to a one handle.
     public override func subscribeForLogs() {
-        #if DEBUG
+        #if ENV_DEBUG
             return
         #else
             let pipe = Pipe()
