@@ -7,8 +7,9 @@
 import Quick
 import Nimble
 import OHHTTPStubs
-import Overlog
 import ResponseDetective
+
+@testable import Overlog
 
 class NetworkMonitorSpec: QuickSpec {
     

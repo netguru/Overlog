@@ -692,6 +692,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 			};
 			name = Debug;
 		};
@@ -699,6 +700,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 			};
 			name = Release;
 		};
