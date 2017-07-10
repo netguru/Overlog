@@ -17,8 +17,8 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     fileprivate let userDefaultsViewController: UserDefaultsViewController
     fileprivate let keychainViewController: KeychainViewController
 
-    /// Array which holds all network traffic
-    internal var networkTraffics: [NetworkTraffic] = []
+    /// Array which holds all network traffic entries
+    internal var networkTrafficEntries: [NetworkTrafficEntry] = []
 
     /// Initializes settings flow controller
     ///
@@ -63,7 +63,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
                 rootViewController?.pushViewController(keychainViewController, animated: true)
             case .network:
                 /// View controller for displaying network traffic
-                let networkTrafficViewController = NetworkTrafficViewController(networkTraffics: networkTraffics)
+                let networkTrafficViewController = NetworkTrafficViewController(networkTrafficEntries: networkTrafficEntries)
 
                 rootViewController?.pushViewController(networkTrafficViewController, animated: true)
         }
@@ -90,17 +90,17 @@ extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
 
 extension MainViewFlowController: NetworkMonitorDelegate {
     func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation) {
-        networkTraffics.append(NetworkTraffic(request: request))
+        networkTrafficEntries.append(NetworkTrafficEntry(request: request))
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation) {
-        if let currentItem = networkTraffics.filter( { $0.request.identifier == error.requestIdentifier }).first {
+        if let currentItem = networkTrafficEntries.filter( { $0.request.identifier == error.requestIdentifier }).first {
             currentItem.error = error
         }
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation) {
-        if let currentItem = networkTraffics.filter( { $0.request.identifier == response.requestIdentifier }).first {
+        if let currentItem = networkTrafficEntries.filter( { $0.request.identifier == response.requestIdentifier }).first {
             currentItem.response = response
         }
     }

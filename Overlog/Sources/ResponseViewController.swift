@@ -12,14 +12,14 @@ internal final class ResponseViewController: UIViewController {
     /// Respoonse view to be displayed
     internal let customView = ResponseView()
 
-    /// networkTraffic instance
-    fileprivate let networkTraffic: NetworkTraffic
+    /// networkTrafficEntry instance
+    fileprivate let networkTrafficEntry: NetworkTrafficEntry
 
     /// Initialize the instance
     ///
-    /// - Parameter networkTraffic: networkTraffic instance
-    init(networkTraffic: NetworkTraffic) {
-        self.networkTraffic = networkTraffic
+    /// - Parameter networkTrafficEntry: networkTrafficEntry instance
+    init(networkTrafficEntry: NetworkTrafficEntry) {
+        self.networkTrafficEntry = networkTrafficEntry
         super.init(nibName: nil, bundle: nil)
         prepareView()
     }
@@ -40,14 +40,14 @@ internal final class ResponseViewController: UIViewController {
 
 extension ResponseViewController {
     func prepareView() {
-        if let response = networkTraffic.response {
+        if let response = networkTrafficEntry.response {
             customView.deserializedBodyLabel.text =  "Body:\n \(response.deserializedBody ?? "Empty")"
             customView.headersLabel.text = "Headers:\n\(String(describing: response.headers))"
             customView.statusCodeLabel.text = "  Status code: \(String(describing: response.statusCode))  "
             customView.statusCodeLabel.backgroundColor = .green
         }
 
-        if let error = networkTraffic.error {
+        if let error = networkTrafficEntry.error {
             customView.deserializedBodyLabel.text =  "Info:\n \(error.userInfo)"
             customView.headersLabel.text = "Domain:\n\(error.domain)\nReason:\n\(error.reason)"
             customView.statusCodeLabel.text = "  Error code: \(String(describing: error.code))  "

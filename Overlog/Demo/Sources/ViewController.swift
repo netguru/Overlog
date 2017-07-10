@@ -17,13 +17,13 @@ final class ViewController: UITableViewController {
 
         let configuration = URLSessionConfiguration.default
 
-        Overlay.shared.enableNetworkDebugging(inConfiguration: configuration)
+        Overlog.shared.enableNetworkDebugging(inConfiguration: configuration)
         let session = URLSession(configuration: configuration)
         let request = URLRequest(url: URL(string: "https://cljsbin-bkhgroqzwe.now.sh/headers")!)
         session.dataTask(with: request).resume()
 
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
             let delayedRequest = URLRequest(url: URL(string: "https://cljsbin-bkhgroqzwe.now.sh/get")!)
             session.dataTask(with: delayedRequest).resume()
 
