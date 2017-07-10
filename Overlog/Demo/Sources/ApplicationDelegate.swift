@@ -16,7 +16,7 @@ import Overlog
 	/// - SeeAlso: UIApplicationDelegate.window
 	@objc(window) fileprivate lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
 
-    var overlay: Overlay?
+    var overlog: Overlog?
     
 	// MARK: UIApplicationDelegate
 
@@ -24,8 +24,9 @@ import Overlog
 	fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let navigationController = UINavigationController(rootViewController: ViewController())
         
-        overlay = Overlay(window: window!, rootViewController: navigationController)
-        overlay?.toggleOnShakeGesture = true
+        overlog = Overlog.shared
+        overlog?.show(in: window!, rootViewController: navigationController)
+        overlog?.toggleOnShakeGesture = true
 
         window?.makeKeyAndVisible()
         

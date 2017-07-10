@@ -22,10 +22,13 @@ final public class NetworkMonitor {
     /// A buffer of request representations.
     public fileprivate(set) var errorRepresentations: [ErrorRepresentation] = []
     
-    public init() {
+    private init() {
         ResponseDetective.outputFacility = self
     }
-    
+
+    /// Shared instance
+    public static let shared = NetworkMonitor()
+
     /// Adds a configuration on which monitor will be observing the network traffic
     ///
     /// - parameter configuration: an configuration for watching

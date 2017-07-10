@@ -19,7 +19,7 @@ internal protocol UserDefaultsViewControllerFlowDelegate: class {
 internal final class UserDefaultsViewController: UIViewController {
 
     /// Custom view to be displayed
-    internal let customView = UserDefaultsView()
+    internal let customView = TableView()
 
     /// Dictionary representation of user defaults
     fileprivate let userDefaultsDictionary = UserDefaults.standard.dictionaryRepresentation()

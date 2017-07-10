@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import ResponseDetective
 
 internal final class MainViewFlowController: FlowController, MainViewControllerFlowDelegate {
 
     typealias ViewController = UINavigationController
     internal var rootViewController: UINavigationController?
 
+    /// View controller for displaying user defaults
     fileprivate let userDefaultsViewController: UserDefaultsViewController
     fileprivate let keychainViewController: KeychainViewController
+
+    /// Array which holds all network traffic entries
+    internal var networkTrafficEntries: [NetworkTrafficEntry] = []
 
     /// Initializes settings flow controller
     ///
@@ -22,6 +27,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         rootViewController = navigationController
         keychainViewController = KeychainViewController()
         userDefaultsViewController = UserDefaultsViewController()
+        NetworkMonitor.shared.delegate = self
         userDefaultsViewController.flowDelegate = self
     }
     
@@ -36,6 +42,9 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     
     // MARK: - MainView flow delegate
     
+    /// Action performed after taping close button
+    ///
+    /// - Parameter sender: close button
     func didTapCloseButton(with sender: UIBarButtonItem) {
         /// Dismiss modally presented settings navigation controller
         rootViewController?.dismiss(animated: true, completion: nil)
@@ -53,8 +62,10 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
                 /// Show keychain view
                 rootViewController?.pushViewController(keychainViewController, animated: true)
             case .network:
-                /// show http view
-                break
+                /// View controller for displaying network traffic
+                let networkTrafficViewController = NetworkTrafficViewController(networkTrafficEntries: networkTrafficEntries)
+
+                rootViewController?.pushViewController(networkTrafficViewController, animated: true)
         }
     }
 }
@@ -74,5 +85,23 @@ extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
         ]
 
         userDefaultsViewController.present(activityViewController, animated: true, completion: nil)
+    }
+}
+
+extension MainViewFlowController: NetworkMonitorDelegate {
+    func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation) {
+        networkTrafficEntries.append(NetworkTrafficEntry(request: request))
+    }
+
+    func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation) {
+        if let currentItem = networkTrafficEntries.filter( { $0.request.identifier == error.requestIdentifier }).first {
+            currentItem.error = error
+        }
+    }
+
+    func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation) {
+        if let currentItem = networkTrafficEntries.filter( { $0.request.identifier == response.requestIdentifier }).first {
+            currentItem.response = response
+        }
     }
 }
