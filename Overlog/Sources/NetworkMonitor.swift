@@ -22,7 +22,7 @@ final public class NetworkMonitor {
     /// A buffer of request representations.
     public fileprivate(set) var errorRepresentations: [ErrorRepresentation] = []
     
-    internal init() {
+    private init() {
         ResponseDetective.outputFacility = self
     }
 
