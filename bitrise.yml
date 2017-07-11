@@ -97,7 +97,7 @@ workflows:
 
   archive-application:
     envs:
-      - XCODEBUILD_SCHEME: Overlog Demo
+      - XCODEBUILD_SCHEME: Demo
     steps:
       - xcode-archive:
           title: xcode-archive-application
