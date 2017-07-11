@@ -51,9 +51,11 @@ workflows:
       - cache-pull
       - bootstrap-carthage
       - test-framework
+      - archive-application
     after_run:
       - cache-push
       - deploy-bitriseio
+      - deploy-hockeyapp
       - notify-slack
 
   # Pull previously cached directories.
