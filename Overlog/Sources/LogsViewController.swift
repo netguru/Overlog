@@ -18,6 +18,9 @@ internal final class LogsViewController: UIViewController {
     /// Array of recently found logs
     fileprivate(set) var logs = [LogEntry]()
 
+    /// Initialize the view controller with a specific LogsMonitor
+    ///
+    /// - parameter logsMonitor: a console or system logs monitor
     init(logsMonitor: LogsMonitor) {
         self.logsMonitor = logsMonitor
         super.init(nibName: nil, bundle: nil)

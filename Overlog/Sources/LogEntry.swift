@@ -34,7 +34,9 @@ public struct LogEntry {
     /// Log initializer
     ///
     /// - Parameters:
-    ///   - raw: raw log dictionary returned by ASL
+    ///   - timestamp: date of the logged event
+    ///   - sender: the object which sent the log
+    ///   - message: the body of the log
     init(timestamp: Date?, sender: String?, message: String?) {
         self.timestamp = timestamp?.description ?? "-"
         self.sender = sender ?? ""

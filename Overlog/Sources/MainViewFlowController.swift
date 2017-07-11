@@ -66,12 +66,9 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
                 /// Show keychain view
                 rootViewController?.pushViewController(keychainViewController, animated: true)
             case .network:
-                /// View controller for displaying network traffic
+                /// Show view controller for displaying network traffic
                 let networkTrafficViewController = NetworkTrafficViewController(networkTrafficEntries: networkTrafficEntries)
-
                 rootViewController?.pushViewController(networkTrafficViewController, animated: true)
-                /// show http view
-                break
             case .consoleLogs:
                 /// Show console logs view
                 rootViewController?.pushViewController(consoleLogsViewController, animated: true)

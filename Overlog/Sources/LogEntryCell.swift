@@ -36,7 +36,7 @@ internal final class LogEntryCell: TableViewCell {
                 messageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 messageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
-                ])
+            ])
         }
     }
 }
