@@ -40,6 +40,8 @@
 		8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA541F0BD702002831E9 /* KeychainViewController.swift */; };
 		81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */; };
 		81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CCC1411F0D02CA0058BEB8 /* String.swift */; };
+		81DD0EFB1F14ECEA0088EB6A /* Demo-Base-Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 81DD0EF91F14ECEA0088EB6A /* Demo-Base-Debug.xcconfig */; };
+		81DD0EFC1F14ECEA0088EB6A /* Demo-Base-Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 81DD0EFA1F14ECEA0088EB6A /* Demo-Base-Release.xcconfig */; };
 		BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */; };
 		BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */; };
 		BF6904561ED49B9600FF303E /* Overlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904551ED49B9600FF303E /* Overlog.swift */; };
@@ -82,7 +84,6 @@
 
 /* Begin PBXFileReference section */
 		3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Overlog Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Demo-Base.xcconfig"; sourceTree = "<group>"; };
 		3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Base.xcconfig"; sourceTree = "<group>"; };
 		3A2204261ED440390048F6A7 /* Framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Framework-Info.plist"; sourceTree = "<group>"; };
 		3A2204271ED440390048F6A7 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
@@ -126,6 +127,8 @@
 		81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainManager.m; sourceTree = "<group>"; };
 		81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Overlog-Bridging-Header.h"; sourceTree = "<group>"; };
 		81CCC1411F0D02CA0058BEB8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		81DD0EF91F14ECEA0088EB6A /* Demo-Base-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Demo-Base-Debug.xcconfig"; sourceTree = "<group>"; };
+		81DD0EFA1F14ECEA0088EB6A /* Demo-Base-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Demo-Base-Release.xcconfig"; sourceTree = "<group>"; };
 		BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorSpec.swift; sourceTree = "<group>"; };
 		BF6904551ED49B9600FF303E /* Overlog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlog.swift; sourceTree = "<group>"; };
@@ -305,7 +308,8 @@
 			children = (
 				3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */,
 				3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */,
-				3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */,
+				81DD0EF91F14ECEA0088EB6A /* Demo-Base-Debug.xcconfig */,
+				81DD0EFA1F14ECEA0088EB6A /* Demo-Base-Release.xcconfig */,
 			);
 			name = Targets;
 			sourceTree = "<group>";
@@ -471,6 +475,7 @@
 				TargetAttributes = {
 					3A2203EB1ED42EA30048F6A7 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 9HJ69C5G9K;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
@@ -518,6 +523,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81DD0EFC1F14ECEA0088EB6A /* Demo-Base-Release.xcconfig in Resources */,
+				81DD0EFB1F14ECEA0088EB6A /* Demo-Base-Debug.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,14 +667,14 @@
 /* Begin XCBuildConfiguration section */
 		3A2203FB1ED42EA30048F6A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */;
+			baseConfigurationReference = 81DD0EF91F14ECEA0088EB6A /* Demo-Base-Debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		3A2203FC1ED42EA30048F6A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */;
+			baseConfigurationReference = 81DD0EFA1F14ECEA0088EB6A /* Demo-Base-Release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;

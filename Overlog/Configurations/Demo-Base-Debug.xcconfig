@@ -17,6 +17,13 @@ _BUNDLE_IDENTIFIER = co.netguru.lib.overlog.demo
 _BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Demo/Resources/Demo-Info.plist
 _BUNDLE_TESTABLE = NO
 
+/// MARK: Code signing
+
+CODE_SIGN_IDENTITY = iPhone Developer
+DEVELOPMENT_TEAM = 9HJ69C5G9K
+PROVISIONING_PROFILE = e3739837-322c-4b8b-8faf-fc29022c177d
+PROVISIONING_PROFILE_SPECIFIER = Overlog Demo Development
+
 // MARK: Assets
 
 _ASSET_ICON = app-icon
