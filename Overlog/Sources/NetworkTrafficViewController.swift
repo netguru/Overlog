@@ -9,11 +9,11 @@ import UIKit
 
 final class NetworkTrafficViewController: UIViewController {
 
-    let customView = TableView()
-    fileprivate let networkTraffics: [NetworkTraffic]
+    internal let customView = TableView()
+    fileprivate let networkTrafficEntries: [NetworkTrafficEntry]
 
-    init(networkTraffics: [NetworkTraffic]) {
-        self.networkTraffics = networkTraffics
+    init(networkTrafficEntries: [NetworkTrafficEntry]) {
+        self.networkTrafficEntries = networkTrafficEntries
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,7 +48,7 @@ extension NetworkTrafficViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let trafficDetailsViewController = TrafficDetailsViewController(networkTraffic: networkTraffics[indexPath.row])
+        let trafficDetailsViewController = TrafficDetailsViewController(networkTrafficEntry: networkTrafficEntries[indexPath.row])
         navigationController?.pushViewController(trafficDetailsViewController, animated: true)
 
     }
@@ -60,13 +60,13 @@ extension NetworkTrafficViewController: UITableViewDataSource {
 
         cell.requestTypeLabel.text = "Request".localized
 
-        let currentRequest = networkTraffics[indexPath.row].request
+        let currentRequest = networkTrafficEntries[indexPath.row].request
         cell.requestURLLabel.text = currentRequest.urlString
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return networkTraffics.count
+        return networkTrafficEntries.count
     }
 }

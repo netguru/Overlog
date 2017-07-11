@@ -1,5 +1,5 @@
 //
-// Overlay.swift
+// Overlog.swift
 //
 // Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
 // Licensed under the MIT License.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-/// An Overlay abstraction
-public final class Overlay {
+/// An Overlog abstraction
+public final class Overlog {
     
     /// Toggle's presentation of floating button when shake event was received.
     public var toggleOnShakeGesture: Bool = true
@@ -17,7 +17,7 @@ public final class Overlay {
     fileprivate var flowController: OverlayFlowController?
 
     /// Initialzer
-    init() {
+    internal init() {
         flowController = nil
     }
 
@@ -26,7 +26,7 @@ public final class Overlay {
     /// - Parameters:
     ///   - window: application's main window
     ///   - viewController: the main window's root view controller
-    public func show(window: UIWindow, rootViewController viewController: UIViewController) {
+    public func show(in window: UIWindow, rootViewController viewController: UIViewController) {
         flowController = OverlayFlowController(with: viewController, window: window)
 
         /// Extract the root view controller and configure the events
@@ -42,7 +42,7 @@ public final class Overlay {
     }
 
     /// Shared instance
-    public static let shared = Overlay()
+    public static let shared = Overlog()
 
     /// Presents floating button
     /// - Discussion:

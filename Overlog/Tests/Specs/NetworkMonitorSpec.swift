@@ -24,7 +24,7 @@ class NetworkMonitorSpec: QuickSpec {
             let configuration = URLSessionConfiguration.default
             
             beforeEach {
-                monitor = NetworkMonitor()
+                monitor = NetworkMonitor.shared
                 monitor.watch(on: configuration)
                 session = URLSession(configuration: configuration)
                 
@@ -120,7 +120,7 @@ class NetworkMonitorSpec: QuickSpec {
                     .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect(monitor.requestRepresentations).toEventually(haveCount(1))
+                    expect(monitor.requestRepresentations.count).toEventually(beGreaterThanOrEqualTo(1))
                 }
                 
                 it("response") {
@@ -138,7 +138,7 @@ class NetworkMonitorSpec: QuickSpec {
                         .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect(monitor.responseRepresentations).toEventually(haveCount(1))
+                    expect(monitor.responseRepresentations.count).toEventually(beGreaterThanOrEqualTo(1))
                 }
                 
                 it("error") {
@@ -155,7 +155,7 @@ class NetworkMonitorSpec: QuickSpec {
                         .resume()
                     self.waitForExpectations(timeout: 1, handler: nil)
                     
-                    expect(monitor.errorRepresentations).toEventually(haveCount(1))
+                    expect(monitor.errorRepresentations.count).toEventually(beGreaterThanOrEqualTo(1))
                 }
             }
             

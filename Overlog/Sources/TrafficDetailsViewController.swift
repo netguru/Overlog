@@ -23,10 +23,10 @@ internal final class TrafficDetailsViewController: UIViewController {
 
     /// Initialise the instance
     ///
-    /// - Parameter networkTraffic: networkTraffic instance
-    init(networkTraffic: NetworkTraffic) {
-        requestViewController = RequestViewController(networkRequest: networkTraffic.request)
-        responseViewController = ResponseViewController(networkTraffic: networkTraffic)
+    /// - Parameter NetworkTrafficEntry: NetworkTrafficEntry instance
+    init(networkTrafficEntry: NetworkTrafficEntry) {
+        requestViewController = RequestViewController(networkRequest: networkTrafficEntry.request)
+        responseViewController = ResponseViewController(networkTrafficEntry: networkTrafficEntry)
         displayedViewController = requestViewController
         super.init(nibName: nil, bundle: nil)
     }
