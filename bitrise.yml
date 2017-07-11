@@ -96,6 +96,8 @@ workflows:
   # Build and archive the application.
 
   archive-application:
+    envs:
+      - XCODEBUILD_SCHEME: Overlog Demo
     steps:
       - xcode-archive:
           title: xcode-archive-application
