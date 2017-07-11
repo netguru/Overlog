@@ -11,7 +11,7 @@ import Foundation
 final public class ConsoleLogsMonitor: LogsMonitor {
 
     /// A buffer of logs
-    public fileprivate(set) var logs: [Log] = []
+    public fileprivate(set) var logs: [LogEntry] = []
 
     /// Start monitoring for new data in standard and error outputs.
     ///
@@ -38,7 +38,7 @@ final public class ConsoleLogsMonitor: LogsMonitor {
         if let fileHandle = notification.object as? FileHandle {
 
             if let parsedData = NSString(data: fileHandle.availableData, encoding: String.Encoding.utf8.rawValue) {
-                let newLog = Log(timestamp: Date(), sender: nil, message: parsedData as String)
+                let newLog = LogEntry(timestamp: Date(), sender: nil, message: parsedData as String)
                 logs.append(newLog)
                 DispatchQueue.main.async {
                     self.delegate?.monitor(self, didGet: self.logs)

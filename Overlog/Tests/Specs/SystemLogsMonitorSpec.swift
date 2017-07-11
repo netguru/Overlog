@@ -51,7 +51,7 @@ final class SystemLogsMonitorDelegateMock: LogsMonitorDelegate {
 
     var logsCounter = 0
 
-    func monitor(_ monitor: LogsMonitor, didGet logs: [Log]) {
+    func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry]) {
         logsCounter = logs.count
     }
 }

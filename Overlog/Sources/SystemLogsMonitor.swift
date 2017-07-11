@@ -31,7 +31,7 @@ final public class SystemLogsMonitor: LogsMonitor {
         let query = asl_new(UInt32(ASL_TYPE_QUERY))
         let results = asl_search(aslClient, query)
 
-        var logsArray = [Log]()
+        var logsArray = [LogEntry]()
         var record = asl_next(results)
 
         /// Iterating for logs read by asl_search command
@@ -51,7 +51,7 @@ final public class SystemLogsMonitor: LogsMonitor {
                 key = asl_key(record, i)
             }
 
-            let log = Log(raw: logDictionary)
+            let log = LogEntry(raw: logDictionary)
             logsArray.append(log)
 
             record = asl_next(results)

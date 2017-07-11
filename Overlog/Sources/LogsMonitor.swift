@@ -26,6 +26,6 @@ public protocol LogsMonitorDelegate: class {
     ///
     /// - parameter monitor: An object that get notice about a log
     /// - parameter logs: all system logs gathered
-    func monitor(_ monitor: LogsMonitor, didGet logs: [Log])
+    func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry])
 }
 

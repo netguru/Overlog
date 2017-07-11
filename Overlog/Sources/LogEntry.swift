@@ -1,5 +1,5 @@
 //
-//  Log.swift
+//  LogEntry.swift
 //  Overlog
 //
 //  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
@@ -15,7 +15,7 @@ private enum Keys: String {
 }
 
 /// Overlog log model
-public struct Log {
+public struct LogEntry {
 
     let timestamp: String
     let sender: String

@@ -16,7 +16,7 @@ internal final class LogsViewController: UIViewController {
     fileprivate let logsMonitor: LogsMonitor
 
     /// Array of recently found logs
-    fileprivate(set) var logs = [Log]()
+    fileprivate(set) var logs = [LogEntry]()
 
     init(logsMonitor: LogsMonitor) {
         self.logsMonitor = logsMonitor
@@ -89,7 +89,7 @@ extension LogsViewController: UITableViewDelegate {
 
 extension LogsViewController: LogsMonitorDelegate {
 
-    func monitor(_ monitor: LogsMonitor, didGet logs: [Log]) {
+    func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry]) {
         self.logs = logs
         customView.tableView.reloadData()
     }

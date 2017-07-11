@@ -53,7 +53,7 @@
 		EA747B9B1F0F84DD0048506A /* LogEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B9A1F0F84DD0048506A /* LogEntryCell.swift */; };
 		EA747B9E1F0F8CF50048506A /* SystemLogsMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B9C1F0F8ADD0048506A /* SystemLogsMonitorSpec.swift */; };
 		EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */; };
-		EAFAE27D1F0CD70F0017380B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE27C1F0CD70F0017380B /* Log.swift */; };
+		EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE27C1F0CD70F0017380B /* LogEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,7 +145,7 @@
 		EA747B9C1F0F8ADD0048506A /* SystemLogsMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogsMonitorSpec.swift; sourceTree = "<group>"; };
 		EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsMonitor.swift; sourceTree = "<group>"; };
 		EAFAE2781F0BCC780017380B /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
-		EAFAE27C1F0CD70F0017380B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		EAFAE27C1F0CD70F0017380B /* LogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,7 +346,7 @@
 				731A1B791F069491008A6164 /* Feature.swift */,
 				73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */,
 				8186AA521F0BD45D002831E9 /* KeychainEntry.swift */,
-				EAFAE27C1F0CD70F0017380B /* Log.swift */,
+				EAFAE27C1F0CD70F0017380B /* LogEntry.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -636,7 +636,7 @@
 				73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */,
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
 				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
-				EAFAE27D1F0CD70F0017380B /* Log.swift in Sources */,
+				EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,
 				810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */,
 				8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */,
