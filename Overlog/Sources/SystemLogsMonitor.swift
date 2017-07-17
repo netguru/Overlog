@@ -22,7 +22,7 @@ final public class SystemLogsMonitor: LogsMonitor {
     fileprivate(set) var aslClient: aslclient
     fileprivate(set) var fileURL: String?
 
-    init() {
+    public init() {
         self.aslClient = asl_open(ProcessInfo.processInfo.processName, nil, 0x00000001)
     }
 
@@ -32,6 +32,8 @@ final public class SystemLogsMonitor: LogsMonitor {
         /// Searching for all logs
         let query = asl_new(UInt32(ASL_TYPE_QUERY))
         let results = asl_search(aslClient, query)
+
+        defer { asl_release(results) }
 
         var logsArray = [LogEntry]()
         var record = asl_next(results)
@@ -59,7 +61,6 @@ final public class SystemLogsMonitor: LogsMonitor {
             record = asl_next(results)
         }
 
-        asl_release(results)
         delegate?.monitor(self, didGet: logsArray)
     }
 
