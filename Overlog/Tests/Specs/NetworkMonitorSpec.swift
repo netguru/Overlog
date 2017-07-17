@@ -1,7 +1,8 @@
 //
-//  NetworkMonitor.swift
+// NetworkMonitorSpec.swift
 //
-//  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+// Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+// Licensed under the MIT License.
 //
 
 import Quick
@@ -15,7 +16,7 @@ class NetworkMonitorSpec: QuickSpec {
     override func spec() {
         var monitor: NetworkMonitor!
         
-        describe("when new request was sended") {
+        describe("when new request was sent") {
             
             var urlStub: OHHTTPStubsDescriptor!
             let fixedHost = "fixedhost.com"
