@@ -11,13 +11,13 @@ internal final class SettingsViewController: UITableViewController {
     
     let reuseIdentifier = "SettingsViewTableCell"
     
-    let availableFeatures: [FeatureType] = [.userDefaults, .network]
+    let availableFeatures: [FeatureType] = [.userDefaults, .network, .keychain]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.allowsSelection = false
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
     // MARK: - UITableViewDataSource
@@ -29,17 +29,36 @@ internal final class SettingsViewController: UITableViewController {
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = availableFeatures[indexPath.row].rawValue
-        let toggle = UISwitch()
-        toggle.addTarget(self, action: #selector(didChangeValue(for:)), for: .valueChanged)
-        cell.accessoryView = toggle
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? SettingsTableViewCell else {
+            return UITableViewCell()
+        }
+        let feature = availableFeatures[indexPath.row]
+        cell.toggle.isOn = UserDefaults.standard.bool(forKey: feature.defaultsKey)
+        cell.textLabel?.text = feature.description
+        cell.delegate = self
         return cell
     }
-    
-    // MARK: - Helpers
-    
-    @objc fileprivate func didChangeValue(for toggle: UISwitch) {
-        
+}
+
+// MARK: - UIPopoverPresentationControllerDelegate
+
+extension SettingsViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }
+
+// MARK: - SettingsTableViewCellDelegate
+
+extension SettingsViewController: SettingsTableViewCellDelegate {
+    
+    func tableViewCell(_ tableViewCell: SettingsTableViewCell, didPerformActionWith control: UIControl) {
+        guard let indexPath = tableView.indexPath(for: tableViewCell),
+        let toggle = control as? UISwitch else {
+            return
+        }
+        let feature = availableFeatures[indexPath.row]
+        UserDefaults.standard.set(toggle.isOn, forKey: feature.defaultsKey)
+    }
+}
+

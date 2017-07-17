@@ -36,7 +36,7 @@
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
 		810EF3DE1F05950300E12159 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DD1F05950300E12159 /* FlowController.swift */; };
-		812CA3161F14B5FA00B71401 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812CA3151F14B5FA00B71401 /* SettingsTableViewCell.swift */; };
+		812CA3161F14B5FA00B71401 /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812CA3151F14B5FA00B71401 /* SelectableTableViewCell.swift */; };
 		8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185ADF71F0D15A700379C39 /* SettingsViewController.swift */; };
 		8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA521F0BD45D002831E9 /* KeychainEntry.swift */; };
 		8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA541F0BD702002831E9 /* KeychainViewController.swift */; };
@@ -122,7 +122,7 @@
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
 		810EF3DD1F05950300E12159 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
-		812CA3151F14B5FA00B71401 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		812CA3151F14B5FA00B71401 /* SelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTableViewCell.swift; sourceTree = "<group>"; };
 		8185ADF71F0D15A700379C39 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8186AA521F0BD45D002831E9 /* KeychainEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainEntry.swift; sourceTree = "<group>"; };
 		8186AA541F0BD702002831E9 /* KeychainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainViewController.swift; sourceTree = "<group>"; };
@@ -341,8 +341,11 @@
 			children = (
 				731A1B7F1F06961E008A6164 /* FeatureCell.swift */,
 				73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */,
+<<<<<<< Updated upstream
 				7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */,
-				812CA3151F14B5FA00B71401 /* SettingsTableViewCell.swift */,
+=======
+				812CA3151F14B5FA00B71401 /* SelectableTableViewCell.swift */,
+>>>>>>> Stashed changes
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 		810EF3E11F05952B00E12159 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8186AA541F0BD702002831E9 /* KeychainViewController.swift */,
 				810EF3D51F05258A00E12159 /* MainViewController.swift */,
 				7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */,
 				BF6904581ED58EB500FF303E /* OverlayViewController.swift */,
@@ -615,9 +619,12 @@
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
 				8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */,
+<<<<<<< Updated upstream
 				73EB46401F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift in Sources */,
 				73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */,
-				812CA3161F14B5FA00B71401 /* SettingsTableViewCell.swift in Sources */,
+=======
+				812CA3161F14B5FA00B71401 /* SelectableTableViewCell.swift in Sources */,
+>>>>>>> Stashed changes
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
 				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,

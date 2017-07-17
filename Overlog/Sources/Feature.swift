@@ -22,6 +22,10 @@ internal enum FeatureType: String {
                 return "HTTP"
         }
     }
+    
+    var defaultsKey: String {
+        return "OVL\(description)ReferenceKey".replacingOccurrences(of: " ", with: "")
+    }
 }
 
 /// Overlog feature model

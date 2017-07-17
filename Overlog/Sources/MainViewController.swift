@@ -14,6 +14,12 @@ internal protocol MainViewControllerFlowDelegate: class {
     /// - Parameters:
     ///   - sender: a button responsible for sending the action
     func didTapCloseButton(with sender: UIBarButtonItem)
+    
+    /// Tells the flow delegate that settings button has been tapped.
+    ///
+    /// - Parameters:
+    ///   - sender: a button responsible for sending the action
+    func didTapSettingsButton(with sender: UIBarButtonItem)
 
     /// Tells the flow delegate that some feature was clicked.
     ///
@@ -74,23 +80,9 @@ fileprivate extension MainViewController {
     /// - Parameters:
     ///   - sender: a button responsible for sending the action
     @objc fileprivate func didTapSettingsButton(with sender: UIBarButtonItem) {
-        let viewController = SettingsViewController()
-        viewController.modalPresentationStyle = .popover
-        guard let popoverPresentationController = viewController.popoverPresentationController else {
-            return
-        }
-        popoverPresentationController.permittedArrowDirections = .up
-        popoverPresentationController.barButtonItem = sender
-        popoverPresentationController.delegate = self
-        present(viewController, animated: true, completion: nil)
+        flowDelegate?.didTapSettingsButton(with: sender)
     }
     
-}
-
-extension MainViewController: UIPopoverPresentationControllerDelegate {
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
 }
 
 extension MainViewController: UITableViewDataSource {

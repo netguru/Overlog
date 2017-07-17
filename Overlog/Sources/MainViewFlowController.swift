@@ -42,12 +42,27 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     
     // MARK: - MainView flow delegate
     
-    /// Action performed after taping close button
+    /// Action performed after tapping close button
     ///
     /// - Parameter sender: close button
     func didTapCloseButton(with sender: UIBarButtonItem) {
         /// Dismiss modally presented settings navigation controller
         rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    /// Action performed after tapping settings button
+    ///
+    /// - Parameter sender: settings button
+    func didTapSettingsButton(with sender: UIBarButtonItem) {
+        let viewController = SettingsViewController()
+        viewController.modalPresentationStyle = .popover
+        guard let popoverPresentationController = viewController.popoverPresentationController else {
+            return
+        }
+        popoverPresentationController.permittedArrowDirections = .up
+        popoverPresentationController.barButtonItem = sender
+        popoverPresentationController.delegate = viewController
+        rootViewController?.present(viewController, animated: true, completion: nil)
     }
 
     /// Tells the flow delegate that some feature was clicked.
