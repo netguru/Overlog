@@ -7,16 +7,14 @@
 
 import Foundation
 
-public class LogsMonitor {
+public protocol LogsMonitor {
 
-    weak public var delegate: LogsMonitorDelegate?
+    weak var delegate: LogsMonitorDelegate? { get set }
     
     // MARK: Abstract
 
     /// Start monitoring for new data
-    public func subscribeForLogs() {
-        // no-op by default
-    }
+    func subscribeForLogs()
 }
 
 /// A LogsMonitorDelegate delegate protocol for notifying about new logs available.

@@ -13,7 +13,7 @@ internal final class LogsViewController: UIViewController {
     internal let customView = TableView()
 
     /// Instance of a class which enables searching for logs
-    fileprivate let logsMonitor: LogsMonitor
+    fileprivate var logsMonitor: LogsMonitor
 
     /// Array of recently found logs
     fileprivate(set) var logs = [LogEntry]()
