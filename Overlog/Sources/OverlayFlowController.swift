@@ -14,7 +14,10 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
     
     /// Child controller responsible for handling the settings flow
     fileprivate var mainFlowController: MainViewFlowController?
-    
+
+    /// Main view controller instance
+    fileprivate let mainViewController: MainViewController
+
     /// Initializes Overlog's root flow controller
     ///
     /// - Parameters:
@@ -23,7 +26,11 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
     init(with viewController: UIViewController, window: UIWindow) {
         /// Create and configure overlay view controller
         rootViewController = OverlayViewController()
-        
+
+        /// Create and configure child flow controller
+        mainViewController = MainViewController()
+        mainFlowController = MainViewFlowController(with: UINavigationController(rootViewController: mainViewController))
+
         /// Extract the root controller from optional and set self as flow delegate
         guard let rootViewController = rootViewController else { return }
         rootViewController.flowDelegate = self
@@ -36,14 +43,10 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
         /// Make the overlay view controller window's root view controller
         window.rootViewController = rootViewController
     }
-    
+
     // MARK: - Overlay flow delegate
     
     func didTapFloatingButton(with sender: UIButton) {
-        /// Create and configure child flow controller
-        let mainViewController = MainViewController()
-        mainFlowController = MainViewFlowController(with: UINavigationController(rootViewController: mainViewController))
-        
         /// Extract the root view controller
         guard let rootViewController = rootViewController else { return }
         

@@ -8,7 +8,7 @@
 import UIKit
 
 internal protocol MainViewControllerFlowDelegate: class {
-    
+
     /// Tells the flow delegate that close button has been tapped.
     ///
     /// - Parameters:
@@ -29,6 +29,7 @@ internal final class MainViewController: UIViewController {
     /// Custom view to be displayed
     internal let customView = MainView()
 
+    /// Data source of all available features
     fileprivate let dataSource = FeaturesDataSource()
 
     internal override func viewDidLoad() {
@@ -41,6 +42,7 @@ internal final class MainViewController: UIViewController {
         navigationItem.rightBarButtonItems = [closeBarButtonItem, settingsBarButtonItem]
         title = "Overlog"
 
+        self.title = "Overlog".localized
         configure(tableView: customView.tableView)
     }
 
@@ -94,8 +96,12 @@ extension MainViewController: UIPopoverPresentationControllerDelegate {
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeatureCell.self), for: indexPath) as! FeatureCell
+
         cell.nameLabel.text = dataSource.items[indexPath.row].type.description
-        cell.counterLabel.text = String(dataSource.items[indexPath.row].counter)
+        
+        if dataSource.items[indexPath.row].counter > 0 {
+            cell.counterLabel.text = String(dataSource.items[indexPath.row].counter)
+        }
 
         return cell
     }

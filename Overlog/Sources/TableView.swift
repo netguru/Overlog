@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class UserDefaultsView: View {
+final class TableView: View {
 
     internal let tableView = UITableView(frame: .zero)
 
@@ -18,8 +18,7 @@ final class UserDefaultsView: View {
     override func setupProperties() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
-        tableView.separatorStyle = .singleLine
-
+        tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         /// To hide empty cells
         tableView.tableFooterView = UIView(frame: .zero)
     }
