@@ -8,6 +8,12 @@
 import UIKit
 
 internal protocol SettingsTableViewCellDelegate: class {
+    
+    /// Tells the receiver that an action was triggered by given control instance.
+    ///
+    /// - Parameters:
+    ///   - tableViewCell: a table view cell containing the sender.
+    ///   - sender: a control instance responsible for triggering the action.
     func tableViewCell(_ tableViewCell: SettingsTableViewCell, didPerformActionWith control: UIControl)
 }
 

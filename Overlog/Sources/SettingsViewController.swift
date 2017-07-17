@@ -9,9 +9,11 @@ import UIKit
 
 internal final class SettingsViewController: UITableViewController {
     
-    let reuseIdentifier = "SettingsViewTableCell"
+    /// A reuse identifier for the settings cell.
+    fileprivate let reuseIdentifier = "SettingsViewTableCell"
     
-    let availableFeatures: [FeatureType] = [.userDefaults, .network, .keychain]
+    /// An array containing all available in-app features.
+    fileprivate let availableFeatures: [FeatureType] = [.userDefaults, .network, .keychain]
     
     override func viewDidLoad() {
         super.viewDidLoad()
