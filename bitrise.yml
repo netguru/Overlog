@@ -51,11 +51,9 @@ workflows:
       - cache-pull
       - bootstrap-carthage
       - test-framework
-      - archive-application
     after_run:
       - cache-push
       - deploy-bitriseio
-      - deploy-hockeyapp
       - notify-slack
 
   # Pull previously cached directories.
@@ -96,8 +94,6 @@ workflows:
   # Build and archive the application.
 
   archive-application:
-    envs:
-      - XCODEBUILD_SCHEME: Demo
     steps:
       - xcode-archive:
           title: xcode-archive-application
