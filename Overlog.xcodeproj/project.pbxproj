@@ -47,6 +47,13 @@
 		BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69045A1ED5975D00FF303E /* OverlayView.swift */; };
 		BF6904A51EDC30E900FF303E /* Overlog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF6904AC1EDD9CE600FF303E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904AA1EDD9C6000FF303E /* ViewController.swift */; };
+		EA747B961F0E66770048506A /* ConsoleLogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */; };
+		EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */; };
+		EA747B991F0F80570048506A /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2781F0BCC780017380B /* LogsViewController.swift */; };
+		EA747B9B1F0F84DD0048506A /* LogEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B9A1F0F84DD0048506A /* LogEntryCell.swift */; };
+		EA747B9E1F0F8CF50048506A /* SystemLogsMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B9C1F0F8ADD0048506A /* SystemLogsMonitorSpec.swift */; };
+		EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */; };
+		EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE27C1F0CD70F0017380B /* LogEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +139,13 @@
 		BF6904581ED58EB500FF303E /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BF69045A1ED5975D00FF303E /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		BF6904AA1EDD9C6000FF303E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogsMonitor.swift; sourceTree = "<group>"; };
+		EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogsMonitor.swift; sourceTree = "<group>"; };
+		EA747B9A1F0F84DD0048506A /* LogEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEntryCell.swift; sourceTree = "<group>"; };
+		EA747B9C1F0F8ADD0048506A /* SystemLogsMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogsMonitorSpec.swift; sourceTree = "<group>"; };
+		EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsMonitor.swift; sourceTree = "<group>"; };
+		EAFAE2781F0BCC780017380B /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
+		EAFAE27C1F0CD70F0017380B /* LogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +226,7 @@
 			children = (
 				3A2204301ED440390048F6A7 /* FooSpec.swift */,
 				BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */,
+				EA747B9C1F0F8ADD0048506A /* SystemLogsMonitorSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -318,6 +333,9 @@
 				731A1B771F069405008A6164 /* FeaturesDataSource.swift */,
 				81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */,
 				81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */,
+				EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */,
+				EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */,
+				EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -328,6 +346,7 @@
 				731A1B791F069491008A6164 /* Feature.swift */,
 				73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */,
 				8186AA521F0BD45D002831E9 /* KeychainEntry.swift */,
+				EAFAE27C1F0CD70F0017380B /* LogEntry.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -338,6 +357,7 @@
 				731A1B7F1F06961E008A6164 /* FeatureCell.swift */,
 				73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */,
 				7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */,
+				EA747B9A1F0F84DD0048506A /* LogEntryCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -373,6 +393,7 @@
 				731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */,
 				7378713C1F0E451F00AF0724 /* RequestViewController.swift */,
 				7378713E1F0E466100AF0724 /* ResponseViewController.swift */,
+				EAFAE2781F0BCC780017380B /* LogsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -602,21 +623,26 @@
 				810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */,
 				7378713F1F0E466100AF0724 /* ResponseViewController.swift in Sources */,
 				7378713D1F0E451F00AF0724 /* RequestViewController.swift in Sources */,
+				EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */,
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */,
 				8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */,
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
+				EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
+				EA747B991F0F80570048506A /* LogsViewController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
 				73EB46401F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift in Sources */,
 				73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */,
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
 				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
+				EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,
 				810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */,
 				8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */,
 				81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */,
 				81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */,
+				EA747B9B1F0F84DD0048506A /* LogEntryCell.swift in Sources */,
 				73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */,
 				BF6904561ED49B9600FF303E /* Overlog.swift in Sources */,
 				731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */,
@@ -625,6 +651,7 @@
 				731A1B781F069405008A6164 /* FeaturesDataSource.swift in Sources */,
 				7301BA511F06CD1B00B3C018 /* TableView.swift in Sources */,
 				731A1B711F0679F3008A6164 /* View.swift in Sources */,
+				EA747B961F0E66770048506A /* ConsoleLogsMonitor.swift in Sources */,
 				731A1B7A1F069491008A6164 /* Feature.swift in Sources */,
 				BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */,
 				7310A4B41F0B480D00945C7E /* NetworkTrafficViewController.swift in Sources */,
@@ -638,6 +665,7 @@
 			files = (
 				3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */,
 				BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */,
+				EA747B9E1F0F8CF50048506A /* SystemLogsMonitorSpec.swift in Sources */,
 				3A2204321ED440470048F6A7 /* FooSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,6 +16,8 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// View controller for displaying user defaults
     fileprivate let userDefaultsViewController: UserDefaultsViewController
     fileprivate let keychainViewController: KeychainViewController
+    fileprivate let consoleLogsViewController: LogsViewController
+    fileprivate let systemLogsViewController: LogsViewController
 
     /// Array which holds all network traffic entries
     internal var networkTrafficEntries: [NetworkTrafficEntry] = []
@@ -26,6 +28,8 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     init(with navigationController: UINavigationController) {
         rootViewController = navigationController
         keychainViewController = KeychainViewController()
+        consoleLogsViewController = LogsViewController(logsMonitor: ConsoleLogsMonitor())
+        systemLogsViewController = LogsViewController(logsMonitor: SystemLogsMonitor())
         userDefaultsViewController = UserDefaultsViewController()
         NetworkMonitor.shared.delegate = self
         userDefaultsViewController.flowDelegate = self
@@ -62,10 +66,15 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
                 /// Show keychain view
                 rootViewController?.pushViewController(keychainViewController, animated: true)
             case .network:
-                /// View controller for displaying network traffic
+                /// Show view controller for displaying network traffic
                 let networkTrafficViewController = NetworkTrafficViewController(networkTrafficEntries: networkTrafficEntries)
-
                 rootViewController?.pushViewController(networkTrafficViewController, animated: true)
+            case .consoleLogs:
+                /// Show console logs view
+                rootViewController?.pushViewController(consoleLogsViewController, animated: true)
+            case .systemLogs:
+                /// Show system logs view
+                rootViewController?.pushViewController(systemLogsViewController, animated: true)
         }
     }
 }

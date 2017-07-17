@@ -9,7 +9,7 @@ import Foundation
 
 /// All overlog feature types
 internal enum FeatureType: String {
-    case network, keychain, userDefaults
+    case network, keychain, userDefaults, consoleLogs, systemLogs
 
     var description: String {
 
@@ -20,6 +20,10 @@ internal enum FeatureType: String {
                 return "Keychain"
             case .network:
                 return "HTTP"
+            case .consoleLogs:
+                return "Console Logs"
+            case .systemLogs:
+                return "System Logs"
         }
     }
 }
