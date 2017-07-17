@@ -22,7 +22,9 @@ internal struct FeaturesDataSource {
         return [
             Feature(type: .userDefaults, counter: 0),
             Feature(type: .network, counter: 0),
-            Feature(type: .keychain, counter: 0)
+            Feature(type: .keychain, counter: 0),
+            Feature(type: .consoleLogs, counter: 0),
+            Feature(type: .systemLogs, counter: 0)
         ]
     }
 }
