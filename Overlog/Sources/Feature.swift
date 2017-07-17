@@ -10,7 +10,8 @@ import Foundation
 /// All overlog feature types
 internal enum FeatureType: String {
     case network, keychain, userDefaults, consoleLogs, systemLogs
-
+    
+    /// Description for corresponding feature type
     var description: String {
 
         switch self {
@@ -27,6 +28,7 @@ internal enum FeatureType: String {
         }
     }
     
+    /// User defaults key for corresponding feature type
     var defaultsKey: String {
         return "OVL\(description)ReferenceKey".replacingOccurrences(of: " ", with: "")
     }

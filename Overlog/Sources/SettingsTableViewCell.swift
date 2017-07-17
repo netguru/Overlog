@@ -19,8 +19,10 @@ internal protocol SettingsTableViewCellDelegate: class {
 
 final internal class SettingsTableViewCell: UITableViewCell {
     
+    /// A switch instance responsible for changing value described by the cell
     let toggle = UISwitch()
     
+    /// A delegate object responsible for receiving callbacks from cell instance
     weak var delegate: SettingsTableViewCellDelegate?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
