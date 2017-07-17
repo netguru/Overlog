@@ -18,7 +18,7 @@ internal final class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        availableFeatures = FeaturesDataSource().items.map { (value: Feature) -> FeatureType in
+        availableFeatures = FeaturesDataSource().allItems.map { (value: Feature) -> FeatureType in
             return value.type
         }
         
@@ -38,10 +38,12 @@ internal final class SettingsViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? SettingsTableViewCell else {
             return UITableViewCell()
         }
+        
         let feature = availableFeatures[indexPath.row]
         cell.toggle.isOn = UserDefaults.standard.bool(forKey: feature.defaultsKey)
         cell.textLabel?.text = feature.description
         cell.delegate = self
+        
         return cell
     }
 }
@@ -63,8 +65,11 @@ extension SettingsViewController: SettingsTableViewCellDelegate {
         let toggle = control as? UISwitch else {
             return
         }
+        
         let feature = availableFeatures[indexPath.row]
         UserDefaults.standard.set(toggle.isOn, forKey: feature.defaultsKey)
+        
+        NotificationCenter.default.post(name: Feature.enabledFeaturesDidChangeNotificationKey, object: nil)
     }
 }
 

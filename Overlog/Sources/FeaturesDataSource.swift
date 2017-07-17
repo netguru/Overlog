@@ -10,12 +10,19 @@ import Foundation
 // Struct that keeps all possible options in
 internal struct FeaturesDataSource {
 
-    /// Data source items
-    internal var items: [Feature] = []
+    /// All data source items
+    internal var allItems: [Feature] = []
+    
+    /// Enabled data source items
+    internal var enabledItems: [Feature] {
+        return allItems.filter { (feature: Feature) -> Bool in
+            return UserDefaults.standard.bool(forKey: feature.type.defaultsKey)
+        }
+    }
 
     /// Initialize the receiver
     internal init() {
-        items = prepareItems()
+        allItems = prepareItems()
     }
 
     fileprivate func prepareItems() -> [Feature] {

@@ -34,6 +34,9 @@ internal enum FeatureType: String {
 
 /// Overlog feature model
 internal struct Feature {
+    
+    /// Name for notification informing about changes in enabled features data source
+    static let enabledFeaturesDidChangeNotificationKey = Notification.Name(rawValue: "OVLEnabledFeaturesDidChange")
 
     /// Feature type
     let type: FeatureType

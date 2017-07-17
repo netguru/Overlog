@@ -50,7 +50,7 @@ internal final class OverlayViewController: UIViewController {
         
         let hasLaunchedOnce = UserDefaults.standard.bool(forKey: firstLaunchDefaultsKey)
         if !hasLaunchedOnce {
-            let availableFeatures = FeaturesDataSource().items.map { (value: Feature) -> FeatureType in
+            let availableFeatures = FeaturesDataSource().allItems.map { (value: Feature) -> FeatureType in
                 return value.type
             }
             for feature in availableFeatures {
