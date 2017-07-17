@@ -13,12 +13,16 @@ internal final class SettingsViewController: UITableViewController {
     fileprivate let reuseIdentifier = "SettingsViewTableCell"
     
     /// An array containing all available in-app features.
-    fileprivate let availableFeatures: [FeatureType] = [.userDefaults, .network, .keychain]
+    fileprivate var availableFeatures: [FeatureType]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.allowsSelection = false
         
+        availableFeatures = FeaturesDataSource().items.map { (value: Feature) -> FeatureType in
+            return value.type
+        }
+        
+        tableView.allowsSelection = false
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
