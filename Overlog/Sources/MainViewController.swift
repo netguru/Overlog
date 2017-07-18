@@ -56,9 +56,8 @@ internal final class MainViewController: UIViewController {
         let settingsBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(didTapSettingsButton(with:)))
         
         navigationItem.rightBarButtonItems = [closeBarButtonItem, settingsBarButtonItem]
-        title = "Overlog"
 
-        self.title = "Overlog".localized
+        title = "Overlog".localized
         configure(tableView: customView.tableView)
         
         /// Add notification handling for changes in enabled features data source

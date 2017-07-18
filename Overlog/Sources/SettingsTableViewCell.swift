@@ -13,7 +13,7 @@ internal protocol SettingsTableViewCellDelegate: class {
     ///
     /// - Parameters:
     ///   - tableViewCell: a table view cell containing the sender.
-    ///   - sender: a control instance responsible for triggering the action.
+    ///   - control: a control instance responsible for triggering the action.
     func tableViewCell(_ tableViewCell: SettingsTableViewCell, didPerformActionWith control: UIControl)
 }
 
