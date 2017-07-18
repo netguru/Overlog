@@ -32,7 +32,6 @@ internal final class LogsViewController: UIViewController {
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        logsMonitor.delegate = self
         logsMonitor.subscribeForLogs()
         configure(tableView: customView.tableView)
     }
@@ -40,6 +39,12 @@ internal final class LogsViewController: UIViewController {
     internal override func loadView() {
         view = customView
     }
+
+    public func reload(with newLogs: [LogEntry]) {
+        logs = newLogs
+        customView.tableView.reloadData()
+    }
+
 }
 
 extension LogsViewController {
@@ -88,13 +93,4 @@ extension LogsViewController: UITableViewDelegate {
             }
         }
     }
-}
-
-extension LogsViewController: LogsMonitorDelegate {
-
-    func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry]) {
-        self.logs = logs
-        customView.tableView.reloadData()
-    }
-
 }

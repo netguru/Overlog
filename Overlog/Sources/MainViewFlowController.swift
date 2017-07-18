@@ -129,3 +129,16 @@ extension MainViewFlowController: NetworkMonitorDelegate {
         }
     }
 }
+
+extension MainViewFlowController: LogsMonitorDelegate {
+
+    func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry]) {
+        if monitor is ConsoleLogsMonitor {
+            consoleLogsViewController.reload(with: logs)
+            delegate?.controller(self, didGetEventOfType: .consoleLogs)
+        } else {
+            systemLogsViewController.reload(with: logs)
+            delegate?.controller(self, didGetEventOfType: .systemLogs)
+        }
+    }
+}
