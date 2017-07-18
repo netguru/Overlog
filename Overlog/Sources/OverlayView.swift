@@ -39,7 +39,11 @@ internal final class OverlayView: View {
         containerView.addSubview(view)
         view.autoresizingMask = [.flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleTopMargin]
     }
-    
+
+    internal func animateTitleChange(with newTitle: String, duration numberOfSeconds: TimeInterval) {
+        self.floatingButton.setTitle(newTitle, for: .normal)
+    }
+
     override func setupConstraints() {
         
         containerView.autoresizingMask = [.flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleTopMargin, .flexibleWidth, .flexibleHeight]
