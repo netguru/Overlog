@@ -10,7 +10,8 @@ import Foundation
 /// All overlog feature types
 internal enum FeatureType: String {
     case network, keychain, userDefaults, consoleLogs, systemLogs
-
+    
+    /// Description for corresponding feature type
     var description: String {
 
         switch self {
@@ -26,10 +27,18 @@ internal enum FeatureType: String {
                 return "System Logs"
         }
     }
+    
+    /// User defaults key for corresponding feature type
+    var defaultsKey: String {
+        return "OVL\(description)ReferenceKey".replacingOccurrences(of: " ", with: "")
+    }
 }
 
 /// Overlog feature model
 internal struct Feature {
+    
+    /// Name for notification informing about changes in enabled features data source
+    static let enabledFeaturesDidChangeNotificationKey = Notification.Name(rawValue: "OVLEnabledFeaturesDidChange")
 
     /// Feature type
     let type: FeatureType

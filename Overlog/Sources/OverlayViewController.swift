@@ -30,6 +30,9 @@ internal final class OverlayViewController: UIViewController {
     /// The initial delta between `OverlayView.floatingButton` center and its touch point during a drag gesture
     fileprivate var initialFloatingButtonCenterToTouchPointDelta: CGPoint = .zero
     
+    /// The user defaults key for boolean value determining if it's a first launch of the app
+    fileprivate let firstLaunchDefaultsKey = "OVLHasLaunchedOnce"
+    
     /// Overlay view
     internal let overlayView = OverlayView()
     
@@ -44,6 +47,17 @@ internal final class OverlayViewController: UIViewController {
             action: #selector(didTapFloatingButton(button:)),
             for: .touchUpInside
         )
+        
+        let hasLaunchedOnce = UserDefaults.standard.bool(forKey: firstLaunchDefaultsKey)
+        if !hasLaunchedOnce {
+            let availableFeatures = FeaturesDataSource().allItems.map { (value: Feature) -> FeatureType in
+                return value.type
+            }
+            for feature in availableFeatures {
+                UserDefaults.standard.set(true, forKey: feature.defaultsKey)
+            }
+            UserDefaults.standard.set(true, forKey: firstLaunchDefaultsKey)
+        }
 
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didDragFloatingButton(with:)))
         panGesture.maximumNumberOfTouches = 1
