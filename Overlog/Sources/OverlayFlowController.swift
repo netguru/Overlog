@@ -42,6 +42,8 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
         
         /// Make the overlay view controller window's root view controller
         window.rootViewController = rootViewController
+        
+        mainFlowController?.delegate = self
     }
 
     // MARK: - Overlay flow delegate
@@ -54,4 +56,23 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
         mainViewController.flowDelegate = mainFlowController
         mainFlowController?.present(on: rootViewController)
     }
+}
+
+extension OverlayFlowController: MainViewFlowControllerDelegate {
+
+    func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: FeatureType) {
+        var newTitle = ""
+
+        switch eventType {
+        case .network:
+            newTitle = "\u{1F30D}"
+        case .consoleLogs:
+            newTitle = "\u{1F916}"
+        default:
+            break
+        }
+
+        rootViewController?.overlayView.animateTitleChange(with: newTitle, duration: 1)
+    }
+
 }
