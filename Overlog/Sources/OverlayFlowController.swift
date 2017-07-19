@@ -61,16 +61,16 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
 extension OverlayFlowController: MainViewFlowControllerDelegate {
 
     func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: FeatureType) {
-        var newTitle = ""
-
-        switch eventType {
-        case .network:
-            newTitle = "\u{1F30D}"
-        case .consoleLogs:
-            newTitle = "\u{1F916}"
-        default:
-            break
-        }
+        let newTitle = { () -> String in 
+            switch eventType {
+            case .network:
+                return "\u{1F30D}"
+            case .consoleLogs:
+                return "\u{1F916}"
+            default:
+                return ""
+            }
+        }()
 
         rootViewController?.overlayView.animateTitleChange(with: newTitle, duration: 1)
     }

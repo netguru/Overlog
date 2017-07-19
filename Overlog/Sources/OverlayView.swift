@@ -44,11 +44,13 @@ internal final class OverlayView: View {
     internal func animateTitleChange(with newTitle: String, duration numberOfSeconds: TimeInterval) {
         timer.invalidate()
         floatingButton.setTitle(newTitle, for: .normal)
-        timer = Timer.scheduledTimer(timeInterval: numberOfSeconds,
-                                     target: self,
-                                     selector: #selector(resetTitle),
-                                     userInfo: nil,
-                                     repeats: false)
+        timer = Timer.scheduledTimer(
+            timeInterval: numberOfSeconds,
+            target: self,
+            selector: #selector(resetTitle),
+            userInfo: nil,
+            repeats: false
+        )
     }
     
     @objc fileprivate func resetTitle() {
