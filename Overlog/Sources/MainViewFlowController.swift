@@ -10,6 +10,9 @@ import ResponseDetective
 
 internal final class MainViewFlowController: FlowController, MainViewControllerFlowDelegate {
 
+    /// A delegate for receiving new events occurences
+    internal weak var delegate: MainViewFlowControllerDelegate?
+
     typealias ViewController = UINavigationController
     internal var rootViewController: UINavigationController?
 
@@ -18,6 +21,10 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     fileprivate let keychainViewController: KeychainViewController
     fileprivate let consoleLogsViewController: LogsViewController
     fileprivate let systemLogsViewController: LogsViewController
+
+    /// Logs monitors for reading and notifiying about logs
+    fileprivate let consoleLogsMonitor: ConsoleLogsMonitor
+    fileprivate let systemLogsMonitor: SystemLogsMonitor
 
     /// Array which holds all network traffic entries
     internal var networkTrafficEntries: [NetworkTrafficEntry] = []
@@ -28,10 +35,15 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     init(with navigationController: UINavigationController) {
         rootViewController = navigationController
         keychainViewController = KeychainViewController()
-        consoleLogsViewController = LogsViewController(logsMonitor: ConsoleLogsMonitor())
-        systemLogsViewController = LogsViewController(logsMonitor: SystemLogsMonitor())
+        consoleLogsMonitor = ConsoleLogsMonitor()
+        consoleLogsViewController = LogsViewController(logsMonitor: consoleLogsMonitor)
+        systemLogsMonitor = SystemLogsMonitor()
+        systemLogsViewController = LogsViewController(logsMonitor: systemLogsMonitor)
         userDefaultsViewController = UserDefaultsViewController()
         NetworkMonitor.shared.delegate = self
+        consoleLogsMonitor.delegate = self
+        consoleLogsMonitor.subscribeForLogs()
+        systemLogsMonitor.delegate = self
         userDefaultsViewController.flowDelegate = self
     }
     
@@ -90,6 +102,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
             case .systemLogs:
                 /// Show system logs view
                 rootViewController?.pushViewController(systemLogsViewController, animated: true)
+                systemLogsMonitor.subscribeForLogs()
         }
     }
 }
@@ -115,17 +128,44 @@ extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
 extension MainViewFlowController: NetworkMonitorDelegate {
     func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation) {
         networkTrafficEntries.append(NetworkTrafficEntry(request: request))
+        delegate?.controller(self, didGetEventOfType: .network)
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation) {
         if let currentItem = networkTrafficEntries.filter( { $0.request.identifier == error.requestIdentifier }).first {
             currentItem.error = error
         }
+        delegate?.controller(self, didGetEventOfType: .network)
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation) {
         if let currentItem = networkTrafficEntries.filter( { $0.request.identifier == response.requestIdentifier }).first {
             currentItem.response = response
         }
+        delegate?.controller(self, didGetEventOfType: .network)
     }
+}
+
+extension MainViewFlowController: LogsMonitorDelegate {
+
+    func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry]) {
+        if monitor is ConsoleLogsMonitor {
+            consoleLogsViewController.reload(with: logs)
+            delegate?.controller(self, didGetEventOfType: .consoleLogs)
+        } else {
+            systemLogsViewController.reload(with: logs)
+            delegate?.controller(self, didGetEventOfType: .systemLogs)
+        }
+    }
+
+}
+
+internal protocol MainViewFlowControllerDelegate: class {
+
+    /// Triggerd when any event occurs, informs the delegate about
+    ///
+    /// - parameter controller: A view flow controller receiving events from monitors
+    /// - parameter eventType: Type of an event declared as FeatureType
+    func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: FeatureType)
+
 }
