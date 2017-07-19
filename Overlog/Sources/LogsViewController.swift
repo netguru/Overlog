@@ -32,7 +32,6 @@ internal final class LogsViewController: UIViewController {
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        logsMonitor.subscribeForLogs()
         configure(tableView: customView.tableView)
     }
 

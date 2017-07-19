@@ -42,6 +42,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         userDefaultsViewController = UserDefaultsViewController()
         NetworkMonitor.shared.delegate = self
         consoleLogsMonitor.delegate = self
+        consoleLogsMonitor.subscribeForLogs()
         systemLogsMonitor.delegate = self
         userDefaultsViewController.flowDelegate = self
     }
@@ -101,6 +102,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
             case .systemLogs:
                 /// Show system logs view
                 rootViewController?.pushViewController(systemLogsViewController, animated: true)
+                systemLogsMonitor.subscribeForLogs()
         }
     }
 }
