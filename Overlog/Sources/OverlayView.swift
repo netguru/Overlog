@@ -11,6 +11,7 @@ internal final class OverlayView: View {
     
     internal let containerView = UIView()
     internal let floatingButton = UIButton(type: .system)
+    fileprivate var timer = Timer()
 
     override func setupHierarchy() {
         [containerView, floatingButton].forEach { addSubview($0) }
@@ -41,7 +42,17 @@ internal final class OverlayView: View {
     }
 
     internal func animateTitleChange(with newTitle: String, duration numberOfSeconds: TimeInterval) {
-        self.floatingButton.setTitle(newTitle, for: .normal)
+        timer.invalidate()
+        floatingButton.setTitle(newTitle, for: .normal)
+        timer = Timer.scheduledTimer(timeInterval: numberOfSeconds,
+                                     target: self,
+                                     selector: #selector(resetTitle),
+                                     userInfo: nil,
+                                     repeats: false)
+    }
+    
+    @objc fileprivate func resetTitle() {
+        floatingButton.setTitle("Overlog", for: .normal)
     }
 
     override func setupConstraints() {
