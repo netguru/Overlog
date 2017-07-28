@@ -18,8 +18,6 @@ _DEFINES_MODULE = YES
 _LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 _SWIFT_VERSION = 3.0
 
-SWIFT_OBJC_BRIDGING_HEADER = $(SRCROOT)/Overlog/Sources/Overlog-Bridging-Header.h
-
 // MARK: Deployment
 
 _DEPLOYMENT_TARGET_IOS = 8.0

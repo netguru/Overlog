@@ -37,13 +37,12 @@
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
 		810EF3DE1F05950300E12159 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DD1F05950300E12159 /* FlowController.swift */; };
 		812CA3161F14B5FA00B71401 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812CA3151F14B5FA00B71401 /* SettingsTableViewCell.swift */; };
+		8151F5F11F2B48C8005142EC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151F5EE1F2B48C8005142EC /* Keychain.swift */; };
 		8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185ADF71F0D15A700379C39 /* SettingsViewController.swift */; };
-		8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA521F0BD45D002831E9 /* KeychainEntry.swift */; };
 		8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA541F0BD702002831E9 /* KeychainViewController.swift */; };
 		81B15FC71F1D403F00C9BDA2 /* FeatureSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B15FC61F1D403F00C9BDA2 /* FeatureSpec.swift */; };
 		81B15FC81F1D40FB00C9BDA2 /* FeaturesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B771F069405008A6164 /* FeaturesDataSource.swift */; };
 		81B15FC91F1D411200C9BDA2 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B791F069491008A6164 /* Feature.swift */; };
-		81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */; };
 		81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CCC1411F0D02CA0058BEB8 /* String.swift */; };
 		BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */; };
 		BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */; };
@@ -133,13 +132,10 @@
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
 		810EF3DD1F05950300E12159 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		812CA3151F14B5FA00B71401 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		8151F5EE1F2B48C8005142EC /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		8185ADF71F0D15A700379C39 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		8186AA521F0BD45D002831E9 /* KeychainEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainEntry.swift; sourceTree = "<group>"; };
 		8186AA541F0BD702002831E9 /* KeychainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainViewController.swift; sourceTree = "<group>"; };
 		81B15FC61F1D403F00C9BDA2 /* FeatureSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureSpec.swift; sourceTree = "<group>"; };
-		81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainManager.h; sourceTree = "<group>"; };
-		81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainManager.m; sourceTree = "<group>"; };
-		81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Overlog-Bridging-Header.h"; sourceTree = "<group>"; };
 		81CCC1411F0D02CA0058BEB8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorSpec.swift; sourceTree = "<group>"; };
@@ -186,6 +182,7 @@
 		3A2204251ED440390048F6A7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8151F5EA1F2B4877005142EC /* Dependencies */,
 				3A2204261ED440390048F6A7 /* Framework-Info.plist */,
 				3A2204271ED440390048F6A7 /* Tests-Info.plist */,
 			);
@@ -203,7 +200,6 @@
 				731A1B741F0686EF008A6164 /* Helpers */,
 				810EF3E11F05952B00E12159 /* View Controllers */,
 				810EF3E21F05953A00E12159 /* Views */,
-				81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */,
 			);
 			name = Sources;
 			path = Overlog/Sources;
@@ -340,8 +336,6 @@
 				3A2204291ED440390048F6A7 /* Foo.swift */,
 				BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */,
 				731A1B771F069405008A6164 /* FeaturesDataSource.swift */,
-				81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */,
-				81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */,
 				EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */,
 				EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */,
 				EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */,
@@ -354,7 +348,6 @@
 			children = (
 				731A1B791F069491008A6164 /* Feature.swift */,
 				73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */,
-				8186AA521F0BD45D002831E9 /* KeychainEntry.swift */,
 				EAFAE27C1F0CD70F0017380B /* LogEntry.swift */,
 			);
 			name = Models;
@@ -421,6 +414,22 @@
 				73EB46491F0E274D001B7AA1 /* ResponseView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		8151F5EA1F2B4877005142EC /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				8151F5EC1F2B48C8005142EC /* KeychainAccess */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		8151F5EC1F2B48C8005142EC /* KeychainAccess */ = {
+			isa = PBXGroup;
+			children = (
+				8151F5EE1F2B48C8005142EC /* Keychain.swift */,
+			);
+			path = KeychainAccess;
 			sourceTree = "<group>";
 		};
 		81CCC1401F0D02AF0058BEB8 /* Extensions */ = {
@@ -637,7 +646,6 @@
 				EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */,
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */,
-				8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */,
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
 				EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
@@ -653,12 +661,12 @@
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,
 				810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */,
 				8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */,
-				81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */,
 				81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */,
 				EA747B9B1F0F84DD0048506A /* LogEntryCell.swift in Sources */,
 				73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */,
 				BF6904561ED49B9600FF303E /* Overlog.swift in Sources */,
 				731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */,
+				8151F5F11F2B48C8005142EC /* Keychain.swift in Sources */,
 				731A1B7E1F06953E008A6164 /* TableViewCell.swift in Sources */,
 				3A2204311ED440440048F6A7 /* Foo.swift in Sources */,
 				731A1B781F069405008A6164 /* FeaturesDataSource.swift in Sources */,
