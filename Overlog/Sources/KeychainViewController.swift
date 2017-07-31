@@ -12,16 +12,11 @@ internal final class KeychainViewController: UITableViewController {
     /// A reuse identifier for keychain view cells
     fileprivate let reuseIdentifier = "KeychainViewCellReuseIdentifier"
     
-    /// Array representation of keychain entries
-    fileprivate var keychainEntries: [KeychainEntry] = []
+    /// Array representation of keychain keys
+    fileprivate var keys: [String] = Keychain().allKeys()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let keychain = KeychainManager()
-        keychainEntries = keychain.allEntries().map { (value: [String : String]) -> KeychainEntry in
-            return KeychainEntry(with: value)
-        }
         
         tableView.allowsSelection = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
@@ -35,18 +30,12 @@ internal final class KeychainViewController: UITableViewController {
 extension KeychainViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return keychainEntries.count
+        return keys.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = TableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        
-        let entry = keychainEntries[indexPath.row]
-        cell.textLabel?.text = entry.keyName
-        if let service = entry.serviceName {
-            cell.detailTextLabel?.text = "Service".localized + ": \(service)"
-        }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)!
+        cell.textLabel?.text = keys[indexPath.row]
         return cell
     }
     
