@@ -37,6 +37,7 @@
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
 		810EF3DE1F05950300E12159 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DD1F05950300E12159 /* FlowController.swift */; };
 		812CA3161F14B5FA00B71401 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812CA3151F14B5FA00B71401 /* SettingsTableViewCell.swift */; };
+		814DE1291F335F8D00FE8F94 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814DE1281F335F8D00FE8F94 /* Network.swift */; };
 		8151F5F11F2B48C8005142EC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151F5EE1F2B48C8005142EC /* Keychain.swift */; };
 		8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185ADF71F0D15A700379C39 /* SettingsViewController.swift */; };
 		8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA541F0BD702002831E9 /* KeychainViewController.swift */; };
@@ -132,6 +133,7 @@
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
 		810EF3DD1F05950300E12159 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		812CA3151F14B5FA00B71401 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		814DE1281F335F8D00FE8F94 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		8151F5EE1F2B48C8005142EC /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		8185ADF71F0D15A700379C39 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8186AA541F0BD702002831E9 /* KeychainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		3A2204281ED440390048F6A7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				814DE1271F33560F00FE8F94 /* Networking */,
 				731A1B7B1F069497008A6164 /* Models */,
 				810EF3DF1F05950A00E12159 /* Abstractions */,
 				81CCC1401F0D02AF0058BEB8 /* Extensions */,
@@ -414,6 +417,14 @@
 				73EB46491F0E274D001B7AA1 /* ResponseView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		814DE1271F33560F00FE8F94 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				814DE1281F335F8D00FE8F94 /* Network.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		8151F5EA1F2B4877005142EC /* Dependencies */ = {
@@ -665,6 +676,7 @@
 				EA747B9B1F0F84DD0048506A /* LogEntryCell.swift in Sources */,
 				73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */,
 				BF6904561ED49B9600FF303E /* Overlog.swift in Sources */,
+				814DE1291F335F8D00FE8F94 /* Network.swift in Sources */,
 				731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */,
 				8151F5F11F2B48C8005142EC /* Keychain.swift in Sources */,
 				731A1B7E1F06953E008A6164 /* TableViewCell.swift in Sources */,
