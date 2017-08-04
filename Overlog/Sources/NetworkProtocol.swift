@@ -8,5 +8,7 @@
 import Foundation
 
 internal protocol NetworkProtocol {
-    func performRequest(with parameters: Dictionary<String, Any>?, completionHandler: @escaping (NetworkResponse) -> ())
+    associatedtype NetworkParameters
+    
+    func performRequest(with parameters: NetworkParameters?, completionHandler: @escaping (NetworkResponse) -> ())
 }

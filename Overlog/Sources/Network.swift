@@ -8,6 +8,8 @@
 import Foundation
 
 internal enum Network: NetworkProtocol {
+    typealias NetworkParameters = Dictionary<String, Any>
+    
     case get(url: URL)
     case post(url: URL)
     
@@ -20,7 +22,7 @@ internal enum Network: NetworkProtocol {
         }
     }
     
-    func performRequest(with parameters: Dictionary<String, Any>?, completionHandler: @escaping (NetworkResponse) -> ()) {
+    func performRequest(with parameters: NetworkParameters?, completionHandler: @escaping (NetworkResponse) -> ()) {
         let session = URLSession(configuration: .default)
         var request: URLRequest! = nil
         switch self {
