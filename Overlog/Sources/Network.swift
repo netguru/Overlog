@@ -27,11 +27,14 @@ internal enum Network: NetworkProtocol {
         var request: URLRequest! = nil
         switch self {
         case .get(let url):
-            let requestURL = URL(string: String(describing: url.absoluteString) + requestParameters(from: parameters))
-            request = URLRequest(url: requestURL!)
+            if let parameters = requestParameters(from: parameters) {
+                request = URLRequest(url: URL(string: String(describing: url.absoluteString) + "?" + parameters)!)
+            } else {
+                request = URLRequest(url: url)
+            }
         case .post(let url):
             request = URLRequest(url: url)
-            request?.httpBody = requestParameters(from: parameters).data(using: .utf8)
+            request?.httpBody = requestParameters(from: parameters)?.data(using: .utf8)
         }
         request?.httpMethod = self.httpMethod
         let dataTask = session.dataTask(with: request) { data, response, error in
@@ -50,19 +53,18 @@ internal enum Network: NetworkProtocol {
         dataTask.resume()
     }
     
-    fileprivate func requestParameters(from dictonary: Dictionary<String, Any>?) -> String {
+    fileprivate func requestParameters(from dictonary: Dictionary<String, Any>?) -> String? {
         guard let dictonary = dictonary else {
-            return String.empty
+            return nil
         }
-        let glue = "?"
-        var result = glue
+        var result = String.empty
         for key in Array(dictonary.keys) {
-            if result != glue {
+            if result != String.empty {
                 result.append("&")
             }
             let value = dictonary[key]
             result.append("\(key)=\(String(describing: value))")
         }
-        return result
+        return result == String.empty ? nil : result
     }
 }
