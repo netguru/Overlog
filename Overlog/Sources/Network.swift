@@ -26,11 +26,9 @@ internal enum Network: NetworkProtocol {
         switch self {
         case .get(let url):
             let requestURL = URL(string: String(describing: url.absoluteString) + requestParameters(from: parameters))
-            request?.httpMethod = "GET"
             request = URLRequest(url: requestURL!)
         case .post(let url):
             request = URLRequest(url: url)
-            request?.httpMethod = "POST"
             request?.httpBody = requestParameters(from: parameters).data(using: .utf8)
         }
         request?.httpMethod = self.httpMethod
