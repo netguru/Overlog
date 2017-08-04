@@ -41,6 +41,9 @@
 		8151F5F11F2B48C8005142EC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151F5EE1F2B48C8005142EC /* Keychain.swift */; };
 		8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185ADF71F0D15A700379C39 /* SettingsViewController.swift */; };
 		8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA541F0BD702002831E9 /* KeychainViewController.swift */; };
+		818D689E1F347BFC00F67175 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D689D1F347BFC00F67175 /* NetworkProtocol.swift */; };
+		818D68A01F347C0500F67175 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D689F1F347C0500F67175 /* NetworkResponse.swift */; };
+		818D68A21F34935C00F67175 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D68A11F34935C00F67175 /* NetworkError.swift */; };
 		81B15FC71F1D403F00C9BDA2 /* FeatureSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B15FC61F1D403F00C9BDA2 /* FeatureSpec.swift */; };
 		81B15FC81F1D40FB00C9BDA2 /* FeaturesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B771F069405008A6164 /* FeaturesDataSource.swift */; };
 		81B15FC91F1D411200C9BDA2 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B791F069491008A6164 /* Feature.swift */; };
@@ -137,6 +140,9 @@
 		8151F5EE1F2B48C8005142EC /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		8185ADF71F0D15A700379C39 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8186AA541F0BD702002831E9 /* KeychainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainViewController.swift; sourceTree = "<group>"; };
+		818D689D1F347BFC00F67175 /* NetworkProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		818D689F1F347C0500F67175 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		818D68A11F34935C00F67175 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		81B15FC61F1D403F00C9BDA2 /* FeatureSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureSpec.swift; sourceTree = "<group>"; };
 		81CCC1411F0D02CA0058BEB8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -422,6 +428,9 @@
 		814DE1271F33560F00FE8F94 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				818D68A11F34935C00F67175 /* NetworkError.swift */,
+				818D689D1F347BFC00F67175 /* NetworkProtocol.swift */,
+				818D689F1F347C0500F67175 /* NetworkResponse.swift */,
 				814DE1281F335F8D00FE8F94 /* Network.swift */,
 			);
 			name = Networking;
@@ -662,8 +671,10 @@
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				EA747B991F0F80570048506A /* LogsViewController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
+				818D689E1F347BFC00F67175 /* NetworkProtocol.swift in Sources */,
 				8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */,
 				73EB46401F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift in Sources */,
+				818D68A21F34935C00F67175 /* NetworkError.swift in Sources */,
 				73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */,
 				812CA3161F14B5FA00B71401 /* SettingsTableViewCell.swift in Sources */,
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
@@ -686,6 +697,7 @@
 				731A1B711F0679F3008A6164 /* View.swift in Sources */,
 				EA747B961F0E66770048506A /* ConsoleLogsMonitor.swift in Sources */,
 				731A1B7A1F069491008A6164 /* Feature.swift in Sources */,
+				818D68A01F347C0500F67175 /* NetworkResponse.swift in Sources */,
 				BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */,
 				7310A4B41F0B480D00945C7E /* NetworkTrafficViewController.swift in Sources */,
 				73EB46461F0E22CA001B7AA1 /* TrafficDetailsView.swift in Sources */,
