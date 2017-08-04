@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum NetworkError: Error {
+internal enum NetworkError: Error {
     case noData
 }

@@ -22,7 +22,7 @@ internal enum Network: NetworkProtocol {
         }
     }
     
-    func performRequest(with parameters: NetworkParameters?, completionHandler: @escaping (NetworkResponse) -> ()) {
+    func performRequest(with parameters: NetworkParameters?, headers: Dictionary<String, String>?, completionHandler: @escaping (NetworkResponse) -> ()) {
         let session = URLSession(configuration: .default)
         var request: URLRequest! = nil
         switch self {
