@@ -1,5 +1,5 @@
 //
-// OverlayFlowController.swift
+// NetworkTrafficViewFlowController.swift
 //
 // Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
 // Licensed under the MIT License.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-internal final class NetworkTrafficViewFlowController {
+internal final class NetworkTrafficViewFlowController: FlowController {
 
-    /// The root navigation controller of the flow.
-    fileprivate let rootViewController: UINavigationController
+    typealias ViewController = UINavigationController
+    internal var rootViewController: UINavigationController?
 
     /// Initialiazes network traffic flow controller.
     ///
@@ -24,6 +24,26 @@ internal final class NetworkTrafficViewFlowController {
     /// - Parameter networkTrafficEntries: An array of traffic entries to display.
     func push(with networkTrafficEntries: [NetworkTrafficEntry]) {
         let networkTrafficViewController = NetworkTrafficViewController(networkTrafficEntries: networkTrafficEntries)
-        rootViewController.pushViewController(networkTrafficViewController, animated: true)
+        networkTrafficViewController.flowDelegate = self
+        rootViewController?.pushViewController(networkTrafficViewController, animated: true)
+    }
+}
+
+extension NetworkTrafficViewFlowController: NetworkTrafficViewControllerFlowDelegate {
+
+    func didSelect(networkTrafficEntry: NetworkTrafficEntry) {
+        let trafficDetailsViewController = TrafficDetailsViewController(networkTrafficEntry: networkTrafficEntry)
+        rootViewController?.pushViewController(trafficDetailsViewController, animated: true)
+    }
+}
+
+extension NetworkTrafficViewFlowController: TrafficDetailsViewControllerFlowDelegate {
+
+    func didTapShareButton(withRequest request: RequestRepresentation) {
+
+    }
+
+    func didTapShareButton(withResponse response: ResponseRepresentation) {
+        
     }
 }
