@@ -112,7 +112,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
 
 extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
     func didTapShareButton(withItems activityItems: [Any]) {
-        userDefaultsViewController.present(DefaultActivityViewController(activityItems: activityItems), animated: true, completion: nil)
+        userDefaultsViewController.present(DefaultActivityViewController(activityItems: activityItems, applicationActivities: nil), animated: true, completion: nil)
     }
 }
 

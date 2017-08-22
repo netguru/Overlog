@@ -22,10 +22,4 @@ internal final class DefaultActivityViewController: UIActivityViewController {
             .assignToContact
         ]
     }
-
-    /// Convenience initialiazer for omitting applicationActivities.
-    convenience init(activityItems: [Any]) {
-        self.init(activityItems: activityItems
-            , applicationActivities: nil)
-    }
 }

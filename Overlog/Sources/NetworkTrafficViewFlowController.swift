@@ -41,6 +41,6 @@ extension NetworkTrafficViewFlowController: NetworkTrafficViewControllerFlowDele
 extension NetworkTrafficViewFlowController: TrafficDetailsViewControllerFlowDelegate {
 
     func didTapShareButton(withItems activityItems: [Any]) {
-        rootViewController?.present(DefaultActivityViewController(activityItems: activityItems), animated: true, completion: nil)
+        rootViewController?.present(DefaultActivityViewController(activityItems: activityItems, applicationActivities: nil), animated: true, completion: nil)
     }
 }
