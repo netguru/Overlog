@@ -33,17 +33,14 @@ extension NetworkTrafficViewFlowController: NetworkTrafficViewControllerFlowDele
 
     func didSelect(networkTrafficEntry: NetworkTrafficEntry) {
         let trafficDetailsViewController = TrafficDetailsViewController(networkTrafficEntry: networkTrafficEntry)
+        trafficDetailsViewController.flowDelegate = self
         rootViewController?.pushViewController(trafficDetailsViewController, animated: true)
     }
 }
 
 extension NetworkTrafficViewFlowController: TrafficDetailsViewControllerFlowDelegate {
 
-    func didTapShareButton(withRequest request: RequestRepresentation) {
-
-    }
-
-    func didTapShareButton(withResponse response: ResponseRepresentation) {
-        
+    func didTapShareButton(withItems activityItems: [Any]) {
+        rootViewController?.present(DefaultActivityViewController(activityItems: activityItems), animated: true, completion: nil)
     }
 }

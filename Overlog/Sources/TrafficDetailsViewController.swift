@@ -10,15 +10,10 @@ import ResponseDetective
 
 internal protocol TrafficDetailsViewControllerFlowDelegate: class {
 
-    /// Tells the flow delegate that share button has been tapped for request.
+    /// Tells the flow delegate that share button has been tapped for activity items.
     ///
-    /// - Parameter request: a request to share.
-    func didTapShareButton(withRequest request: RequestRepresentation)
-
-    /// Tells the flow delegate that share button has been tapped for response.
-    ///
-    /// - Parameter response: a response to share.
-    func didTapShareButton(withResponse response: ResponseRepresentation)
+    /// - Parameter activityItems: Selected activity items. 
+    func didTapShareButton(withItems activityItems: [Any])
 }
 
 internal final class TrafficDetailsViewController: UIViewController {
@@ -94,10 +89,14 @@ fileprivate extension TrafficDetailsViewController {
     @objc fileprivate func shareButtonPressed() {
         switch customView.segmentedControl.selectedSegmentIndex {
         case 0:
-            self.flowDelegate?.didTapShareButton(withRequest: self.networkTrafficEntry.request)
+            if let content = try? self.networkTrafficEntry.request.deserialize(with: .json) {
+                self.flowDelegate?.didTapShareButton(withItems: ["Response", content])
+            }
         case 1:
-            if let response = self.networkTrafficEntry.response {
-                self.flowDelegate?.didTapShareButton(withResponse: response)
+            if
+                let response = self.networkTrafficEntry.response,
+                let content = try? response.deserialize(with: .json) {
+                self.flowDelegate?.didTapShareButton(withItems: ["Response", content])
             }
         default:
             break
