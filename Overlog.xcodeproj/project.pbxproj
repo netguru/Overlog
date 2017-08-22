@@ -32,6 +32,7 @@
 		73EB46461F0E22CA001B7AA1 /* TrafficDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */; };
 		73EB46481F0E2712001B7AA1 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46471F0E2712001B7AA1 /* RequestView.swift */; };
 		73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46491F0E274D001B7AA1 /* ResponseView.swift */; };
+		779A9D551F4C357800CF6310 /* NetworkTrafficViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A9D541F4C357800CF6310 /* NetworkTrafficViewFlowController.swift */; };
 		810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D51F05258A00E12159 /* MainViewController.swift */; };
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
@@ -127,6 +128,7 @@
 		73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficDetailsView.swift; sourceTree = "<group>"; };
 		73EB46471F0E2712001B7AA1 /* RequestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		73EB46491F0E274D001B7AA1 /* ResponseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
+		779A9D541F4C357800CF6310 /* NetworkTrafficViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTrafficViewFlowController.swift; sourceTree = "<group>"; };
 		810EF3D51F05258A00E12159 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			children = (
 				810EF3DB1F05940100E12159 /* MainViewFlowController.swift */,
 				810EF3D91F0593F300E12159 /* OverlayFlowController.swift */,
+				779A9D541F4C357800CF6310 /* NetworkTrafficViewFlowController.swift */,
 			);
 			name = "Flow Controllers";
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
 				8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */,
 				73EB46401F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift in Sources */,
+				779A9D551F4C357800CF6310 /* NetworkTrafficViewFlowController.swift in Sources */,
 				73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */,
 				812CA3161F14B5FA00B71401 /* SettingsTableViewCell.swift in Sources */,
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
