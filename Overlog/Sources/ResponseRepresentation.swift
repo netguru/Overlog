@@ -16,7 +16,7 @@ extension ResponseRepresentation: CustomDeserializable {
                 return data as? [String : Any] ?? [:]
             }
             return [:]
-            }()
+        }()
         return ["Status Code " : self.statusString,
                 "URL" : self.urlString,
                 "Headers" : self.headers,

@@ -16,7 +16,7 @@ extension RequestRepresentation: CustomDeserializable {
                 return data as? [String : Any] ?? [:]
             }
             return [:]
-            }()
+        }()
         return ["Method" : self.method,
                 "URL" : self.urlString,
                 "Headers" : self.headers,

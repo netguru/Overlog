@@ -23,7 +23,7 @@ internal protocol CustomDeserializable {
 
 extension CustomDeserializable {
 
-    /// Deserializes object to requestes format string represenation.
+    /// Deserializes object to requested format String represenation.
     ///
     /// - Parameter format: The format of the deserialization.
     /// - Returns: A string represenation if successful.

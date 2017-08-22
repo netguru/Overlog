@@ -9,9 +9,9 @@ import UIKit
 
 internal protocol NetworkTrafficViewControllerFlowDelegate {
 
-    /// Tells the flow delegate that controller did select a traffic entry.
+    /// Tells the flow delegate that controller did select a network traffic entry.
     ///
-    /// - Parameter networkTrafficEntry: Selected traffic entry.
+    /// - Parameter networkTrafficEntry: Selected a networktraffic entry.
     func didSelect(networkTrafficEntry: NetworkTrafficEntry)
 }
 
@@ -20,6 +20,7 @@ final class NetworkTrafficViewController: UIViewController {
     internal let customView = TableView()
     fileprivate let networkTrafficEntries: [NetworkTrafficEntry]
 
+    /// Delegate of the network traffic view controller.
     internal var flowDelegate: NetworkTrafficViewControllerFlowDelegate?
 
     init(networkTrafficEntries: [NetworkTrafficEntry]) {
