@@ -9,12 +9,18 @@ import Foundation
 import ResponseDetective
 
 extension RequestRepresentation: CustomDeserializable {
-    
-    func dictionaryRepresenation() -> [String : String] {
+
+    func dictionaryRepresenation() -> [String : Any] {
+        let bodyDictionary = try? { () throws -> [String : Any] in
+            if let body = self.body, let data = try? JSONSerialization.jsonObject(with: body, options: []) {
+                return data as? [String : Any] ?? [:]
+            }
+            return [:]
+            }()
         return ["Method" : self.method,
                 "URL" : self.urlString,
-                "Headers" : self.headers.description,
+                "Headers" : self.headers,
                 "Content Type": self.contentType,
-                "Body" : self.deserializedBody ?? ""]
+                "Body" : bodyDictionary ?? ""]
     }
 }

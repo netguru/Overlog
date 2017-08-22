@@ -18,7 +18,7 @@ internal protocol CustomDeserializable {
     /// Dictionary represenation of object.
     ///
     /// - Returns: A dictionary containing object's fields.
-    func dictionaryRepresenation() -> [String : String]
+    func dictionaryRepresenation() -> [String : Any]
 }
 
 extension CustomDeserializable {

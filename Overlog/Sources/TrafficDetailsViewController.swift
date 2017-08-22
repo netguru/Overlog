@@ -90,13 +90,13 @@ fileprivate extension TrafficDetailsViewController {
         switch customView.segmentedControl.selectedSegmentIndex {
         case 0:
             if let content = try? self.networkTrafficEntry.request.deserialize(with: .json) {
-                self.flowDelegate?.didTapShareButton(withItems: ["Response", content])
+                self.flowDelegate?.didTapShareButton(withItems: ["{\n\"Request\": " + content + "\n}"])
             }
         case 1:
             if
                 let response = self.networkTrafficEntry.response,
                 let content = try? response.deserialize(with: .json) {
-                self.flowDelegate?.didTapShareButton(withItems: ["Response", content])
+                self.flowDelegate?.didTapShareButton(withItems: ["{\n\"Response\": " + content + "\n}"])
             }
         default:
             break
