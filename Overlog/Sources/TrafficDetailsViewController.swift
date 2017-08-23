@@ -6,11 +6,23 @@
 //
 
 import UIKit
+import ResponseDetective
+
+internal protocol TrafficDetailsViewControllerFlowDelegate: class {
+
+    /// Tells the flow delegate that share button has been tapped for activity items.
+    ///
+    /// - Parameter activityItems: Selected activity items. 
+    func didTapShareButton(withItems activityItems: [Any])
+}
 
 internal final class TrafficDetailsViewController: UIViewController {
 
     /// Traffic details View
     fileprivate let customView = TrafficDetailsView()
+
+    /// Network traffic entry instance.
+    fileprivate let networkTrafficEntry: NetworkTrafficEntry
 
     /// Reques view Controller
     fileprivate let requestViewController: RequestViewController
@@ -21,10 +33,14 @@ internal final class TrafficDetailsViewController: UIViewController {
     /// Current displayed view controller
     fileprivate var displayedViewController: UIViewController
 
+    /// A delegate responsible for sending flow controller callbacks
+    internal weak var flowDelegate: TrafficDetailsViewControllerFlowDelegate?
+
     /// Initialise the instance
     ///
     /// - Parameter NetworkTrafficEntry: NetworkTrafficEntry instance
     init(networkTrafficEntry: NetworkTrafficEntry) {
+        self.networkTrafficEntry = networkTrafficEntry
         requestViewController = RequestViewController(networkRequest: networkTrafficEntry.request)
         responseViewController = ResponseViewController(networkTrafficEntry: networkTrafficEntry)
         displayedViewController = requestViewController
@@ -33,6 +49,9 @@ internal final class TrafficDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonPressed))
+        self.navigationItem.rightBarButtonItem = shareButton
+
         customView.segmentedControl.addTarget(self, action: #selector(didChageSegment(sender:)), for: .valueChanged)
     }
 
@@ -64,6 +83,23 @@ fileprivate extension TrafficDetailsViewController {
                 display(viewController: responseViewController)
             default:
                 break
+        }
+    }
+
+    @objc fileprivate func shareButtonPressed() {
+        switch customView.segmentedControl.selectedSegmentIndex {
+        case 0:
+            if let content = try? self.networkTrafficEntry.request.deserialize(with: .json) {
+                self.flowDelegate?.didTapShareButton(withItems: ["{\n\"Request\": " + content + "\n}"])
+            }
+        case 1:
+            if
+                let response = self.networkTrafficEntry.response,
+                let content = try? response.deserialize(with: .json) {
+                self.flowDelegate?.didTapShareButton(withItems: ["{\n\"Response\": " + content + "\n}"])
+            }
+        default:
+            break
         }
     }
 

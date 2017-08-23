@@ -22,6 +22,9 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     fileprivate let consoleLogsViewController: LogsViewController
     fileprivate let systemLogsViewController: LogsViewController
 
+    /// Child flow controllers
+    fileprivate let networkTrafficViewFlowController: NetworkTrafficViewFlowController
+
     /// Logs monitors for reading and notifiying about logs
     fileprivate let consoleLogsMonitor: ConsoleLogsMonitor
     fileprivate let systemLogsMonitor: SystemLogsMonitor
@@ -40,6 +43,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         systemLogsMonitor = SystemLogsMonitor()
         systemLogsViewController = LogsViewController(logsMonitor: systemLogsMonitor)
         userDefaultsViewController = UserDefaultsViewController()
+        networkTrafficViewFlowController = NetworkTrafficViewFlowController(with: navigationController)
         NetworkMonitor.shared.delegate = self
         consoleLogsMonitor.delegate = self
         consoleLogsMonitor.subscribeForLogs()
@@ -94,8 +98,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
                 rootViewController?.pushViewController(keychainViewController, animated: true)
             case .network:
                 /// Show view controller for displaying network traffic
-                let networkTrafficViewController = NetworkTrafficViewController(networkTrafficEntries: networkTrafficEntries)
-                rootViewController?.pushViewController(networkTrafficViewController, animated: true)
+                networkTrafficViewFlowController.push(with: networkTrafficEntries)
             case .consoleLogs:
                 /// Show console logs view
                 rootViewController?.pushViewController(consoleLogsViewController, animated: true)
@@ -109,19 +112,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
 
 extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
     func didTapShareButton(withItems activityItems: [Any]) {
-        let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        activityViewController.excludedActivityTypes = [
-            .airDrop,
-            .postToFacebook,
-            .postToVimeo,
-            .postToWeibo,
-            .postToFlickr,
-            .postToTwitter,
-            .addToReadingList,
-            .assignToContact
-        ]
-
-        userDefaultsViewController.present(activityViewController, animated: true, completion: nil)
+        userDefaultsViewController.present(DefaultActivityViewController(activityItems: activityItems, applicationActivities: nil), animated: true, completion: nil)
     }
 }
 
