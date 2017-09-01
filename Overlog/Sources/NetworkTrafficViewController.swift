@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal protocol NetworkTrafficViewControllerFlowDelegate {
+internal protocol NetworkTrafficViewControllerFlowDelegate: class {
 
     /// Tells the flow delegate that controller did select a network traffic entry.
     ///
@@ -21,7 +21,7 @@ final class NetworkTrafficViewController: UIViewController {
     fileprivate let networkTrafficEntries: [NetworkTrafficEntry]
 
     /// Delegate of the network traffic view controller.
-    internal var flowDelegate: NetworkTrafficViewControllerFlowDelegate?
+    internal weak var flowDelegate: NetworkTrafficViewControllerFlowDelegate?
 
     init(networkTrafficEntries: [NetworkTrafficEntry]) {
         self.networkTrafficEntries = networkTrafficEntries
