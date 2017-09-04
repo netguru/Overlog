@@ -65,7 +65,7 @@ extension UserDefaultsViewController: UITableViewDataSource {
         let currentKey = userDefaultsDictionary.keys.sorted()[indexPath.row]
 
         cell.keyLabel.text = String(currentKey)
-        cell.valueLabel.text = String(describing: userDefaultsDictionary[currentKey])
+        cell.valueLabel.text = userDefaultsDictionary[currentKey].map { String(describing: $0) } ?? "unknown value"
         return cell
     }
 
