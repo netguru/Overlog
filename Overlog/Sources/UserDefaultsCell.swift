@@ -21,6 +21,7 @@ internal final class UserDefaultsCell: TableViewCell {
 
         self.selectionStyle = .none
         valueLabel.numberOfLines = 0
+        keyLabel.numberOfLines = 0
     }
 
     override func setupConstraints() {
@@ -28,8 +29,8 @@ internal final class UserDefaultsCell: TableViewCell {
 
             NSLayoutConstraint.activate([
                 keyLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                keyLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 keyLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-                keyLabel.heightAnchor.constraint(equalToConstant: 36),
 
                 valueLabel.topAnchor.constraint(equalTo: keyLabel.bottomAnchor, constant: 4),
                 valueLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -44,7 +45,7 @@ internal final class UserDefaultsCell: TableViewCell {
             ]
 
             let keyLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[keyLabel]|",
+                withVisualFormat: "H:|-16-[keyLabel]-16-|",
                 options: [],
                 metrics: nil,
                 views: views
