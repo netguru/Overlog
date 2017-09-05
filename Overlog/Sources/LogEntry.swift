@@ -6,18 +6,25 @@
 //
 
 import Foundation
+import asl
 
 /// Default ASL log keys
 private enum Keys: String {
-    case timestamp = "CFLog Local Time"
-    case sender = "Sender"
-    case message = "Message"
+    case time, sender, message
+
+    var rawValue: String {
+        switch self {
+        case .time: return ASL_KEY_TIME;
+        case .sender: return ASL_KEY_SENDER;
+        case .message: return ASL_KEY_MSG;
+        }
+    }
 }
 
 /// Overlog log model
 public struct LogEntry {
 
-    let timestamp: String
+    let date: Date?
     let sender: String
     let message: String
 
@@ -26,7 +33,11 @@ public struct LogEntry {
     /// - Parameters:
     ///   - raw: raw log dictionary returned by ASL
     init(raw log: [String: String]) {
-        timestamp = log[Keys.timestamp.rawValue] ?? "-"
+        if let time = log[Keys.time.rawValue], let timeInterval = TimeInterval(time) {
+            date = Date(timeIntervalSince1970:timeInterval)
+        } else {
+            date = nil
+        }
         sender = log[Keys.sender.rawValue] ?? ""
         message = log[Keys.message.rawValue] ?? ""
     }
@@ -37,8 +48,8 @@ public struct LogEntry {
     ///   - timestamp: date of the logged event
     ///   - sender: the object which sent the log
     ///   - message: the body of the log
-    init(timestamp: Date?, sender: String?, message: String?) {
-        self.timestamp = timestamp?.description ?? "-"
+    init(date: Date?, sender: String?, message: String?) {
+        self.date = date
         self.sender = sender ?? ""
         self.message = message ?? ""
     }

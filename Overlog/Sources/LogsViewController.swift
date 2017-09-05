@@ -17,6 +17,14 @@ internal final class LogsViewController: UIViewController {
 
     /// Array of recently found logs
     fileprivate(set) var logs = [LogEntry]()
+    
+    /// Date formatter used for formatting dates from log models.
+    fileprivate lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        return formatter
+    }()
 
     /// Initialize the view controller with a specific LogsMonitor
     ///
@@ -53,6 +61,16 @@ extension LogsViewController {
         tableView.register(LogEntryCell.self, forCellReuseIdentifier: String(describing: LogEntryCell.self))
         tableView.estimatedRowHeight = 44.0
     }
+    
+    fileprivate func stringify(date: Date?) -> String {
+        if let date = date {
+            let stringDate = dateFormatter.string(from: date)
+            if stringDate.characters.count != 0 {
+                return stringDate
+            }
+        }
+        return "-"
+    }
 }
 
 extension LogsViewController: UITableViewDataSource {
@@ -63,9 +81,9 @@ extension LogsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LogEntryCell.self), for: indexPath) as! LogEntryCell
-
         let log = logs[indexPath.row]
-        cell.dateLabel.text = log.timestamp
+
+        cell.dateLabel.text = stringify(date: log.date)
         cell.messageLabel.text = "\(log.sender) \(log.message)"
         return cell
     }
