@@ -11,7 +11,7 @@ internal final class OverlayView: View {
     
     internal let containerView = UIView()
     internal let floatingButton = UIButton(type: .system)
-    fileprivate var timer = Timer()
+    private var floatingButtonTilteChangeTask: DispatchWorkItem?
 
     override func setupHierarchy() {
         [containerView, floatingButton].forEach { addSubview($0) }
@@ -41,20 +41,26 @@ internal final class OverlayView: View {
         view.autoresizingMask = [.flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleTopMargin]
     }
 
-    internal func animateTitleChange(with newTitle: String, duration numberOfSeconds: TimeInterval) {
-        timer.invalidate()
-        floatingButton.setTitle(newTitle, for: .normal)
-        timer = Timer.scheduledTimer(
-            timeInterval: numberOfSeconds,
-            target: self,
-            selector: #selector(resetTitle),
-            userInfo: nil,
-            repeats: false
-        )
-    }
-    
-    @objc fileprivate func resetTitle() {
-        floatingButton.setTitle("Overlog", for: .normal)
+    /// Animates floating button's title.
+    ///
+    /// - Parameters:
+    ///   - fromTitle: Title of the button which appear on the animation's beginning.
+    ///   - toTitle: Title of the button to show when animation ends.
+    ///   - numberOfSeconds: duration of animation in seconds.
+    internal func animateTitleChange(from fromTitle: String, to toTitle: String = "Overlog", duration numberOfSeconds: Int) {
+
+        if let task = self.floatingButtonTilteChangeTask {
+            task.cancel()
+        }
+        floatingButtonTilteChangeTask = nil
+        floatingButton.setTitle(fromTitle, for: .normal)
+
+        let task = DispatchWorkItem { [weak self] in
+            self?.floatingButton.setTitle(toTitle, for: .normal)
+            self?.floatingButtonTilteChangeTask = nil
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(numberOfSeconds), execute: task)
+        self.floatingButtonTilteChangeTask = task
     }
 
     override func setupConstraints() {
