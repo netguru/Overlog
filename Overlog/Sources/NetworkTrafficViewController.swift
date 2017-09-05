@@ -34,6 +34,14 @@ final class NetworkTrafficViewController: UIViewController {
         configure(tableView: customView.tableView)
     }
 
+    internal override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let indexPath = customView.tableView.indexPathForSelectedRow {
+            customView.tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+
     internal override func loadView() {
         view = customView
     }

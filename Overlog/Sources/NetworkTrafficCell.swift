@@ -24,7 +24,7 @@ internal final class NetworkTrafficCell: TableViewCell {
         requestTypeLabel.clipsToBounds = true
         requestTypeLabel.textAlignment = .center
 
-        requestTypeLabel.backgroundColor = UIColor.blue
+        requestTypeLabel.backgroundColor = .blue
 
         self.accessoryType = .disclosureIndicator
     }
@@ -42,6 +42,15 @@ internal final class NetworkTrafficCell: TableViewCell {
                 requestURLLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
 
             ])
+        }
+    }
+
+    internal override func setSelected(_ selected: Bool, animated: Bool) {
+        let backgroundColor = requestTypeLabel.backgroundColor
+        super.setSelected(selected, animated: animated)
+
+        if selected {
+            requestTypeLabel.backgroundColor = backgroundColor
         }
     }
 }
