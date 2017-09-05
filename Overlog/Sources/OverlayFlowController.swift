@@ -72,7 +72,7 @@ extension OverlayFlowController: MainViewFlowControllerDelegate {
             }
         }()
 
-        rootViewController?.overlayView.animateTitleChange(with: newTitle, duration: 1)
+        rootViewController?.overlayView.animateTitleChange(from: newTitle, duration: 1)
     }
 
 }
