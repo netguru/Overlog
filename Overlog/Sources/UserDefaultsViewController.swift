@@ -24,6 +24,16 @@ internal final class UserDefaultsViewController: UIViewController {
     /// Dictionary representation of user defaults
     fileprivate let userDefaultsDictionary = UserDefaults.standard.dictionaryRepresentation()
 
+    /// String representation of user defaults formatted with XML format
+    fileprivate var userDefaultsXMLFormattedStringRepresentation: String? {
+        do {
+            let data = try PropertyListSerialization.data(fromPropertyList: userDefaultsDictionary, format: .xml, options: 0)
+            return String(data: data, encoding: .utf8)
+        } catch {
+            return nil
+        }
+    }
+
     /// A delegate responsible for sending flow controller callbacks
     internal weak var flowDelegate: UserDefaultsViewControllerFlowDelegate?
 
@@ -49,7 +59,9 @@ extension UserDefaultsViewController {
     }
 
     @objc fileprivate func shareButtonPressed() {
-        self.flowDelegate?.didTapShareButton(withItems: ["User Defaults", String(describing: userDefaultsDictionary) ])
+        if let stringifiedXML = userDefaultsXMLFormattedStringRepresentation {
+            flowDelegate?.didTapShareButton(withItems: [stringifiedXML])
+        }
     }
 }
 
