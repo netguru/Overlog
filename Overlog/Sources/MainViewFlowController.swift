@@ -40,7 +40,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
     init(with navigationController: UINavigationController) {
         rootViewController = navigationController
-        keychainMonitor = KeychainMonitor()
+        keychainMonitor = KeychainMonitor(dataSource: Keychain())
         keychainViewController = KeychainViewController()
         consoleLogsMonitor = ConsoleLogsMonitor()
         consoleLogsViewController = LogsViewController(logsMonitor: consoleLogsMonitor)
@@ -166,7 +166,7 @@ extension MainViewFlowController: KeychainMonitorDelegate {
 
 internal protocol MainViewFlowControllerDelegate: class {
 
-    /// Triggerd when any event occurs, informs the delegate about
+    /// Triggered when any event occurs, informs the delegate about
     ///
     /// - parameter controller: A view flow controller receiving events from monitors
     /// - parameter eventType: Type of an event declared as FeatureType
