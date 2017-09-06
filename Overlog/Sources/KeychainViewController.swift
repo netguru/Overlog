@@ -8,18 +8,33 @@
 import UIKit
 
 internal final class KeychainViewController: UITableViewController {
+
+    /// Array of recently found keychain items.
+    fileprivate(set) var items = [KeychainItem]()
     
     /// A reuse identifier for keychain view cells
     fileprivate let reuseIdentifier = "KeychainViewCellReuseIdentifier"
     
-    /// Array representation of keychain keys
-    fileprivate var keys: [String] = Keychain().allKeys()
-    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    /// Reloads view controller content with received items.
+    ///
+    /// - Parameter newItems: Keychain items which should be displayed by view controller.
+    public func reload(with newItems: [KeychainItem]) {
+        items = newItems
+        tableView.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.allowsSelection = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.tableFooterView = UIView()
     }
     
@@ -30,12 +45,19 @@ internal final class KeychainViewController: UITableViewController {
 extension KeychainViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return keys.count
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)!
-        cell.textLabel?.text = keys[indexPath.row]
+        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        }
+
+        let item = items[indexPath.row]
+        cell.textLabel?.text = "key".localized + ": " + item.key
+        cell.detailTextLabel?.text = "value".localized + ": " + item.value
+
         return cell
     }
     

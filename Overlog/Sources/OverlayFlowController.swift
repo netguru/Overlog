@@ -67,6 +67,8 @@ extension OverlayFlowController: MainViewFlowControllerDelegate {
                 return "\u{1F30D}"
             case .consoleLogs:
                 return "\u{1F916}"
+            case .keychain:
+                return "\u{1F510}"
             default:
                 return ""
             }

@@ -2,6 +2,7 @@
 //  Monitor.swift
 //
 //  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+//  Licensed under the MIT License.
 //
 
 import UIKit
@@ -67,21 +68,21 @@ extension NetworkMonitor: OutputFacility {
 /// An NetworkMonitorDelegate delegate protocol for notification whenever response, request or error appear in URLSession which monitor is watching
 public protocol NetworkMonitorDelegate: class {
     
-    /// Triggerd when Monitor gets new response
+    /// Triggered when Monitor gets new response
     ///
     /// - parameter monitor: An object that get notice about a response
-    /// - parameter response: recived response
+    /// - parameter response: received response
     func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation)
     
-    /// Triggerd when Monitor gets new request
+    /// Triggered when Monitor gets new request
     ///
     /// - parameter monitor: An object that get notice about a request
-    /// - parameter response: recived request
+    /// - parameter response: received request
     func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation)
     
-    /// Triggerd when Monitor gets new error
+    /// Triggered when Monitor gets new error
     ///
     /// - parameter monitor: An object that get notice about an error
-    /// - parameter response: recived error
+    /// - parameter response: received error
     func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation)
 }

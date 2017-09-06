@@ -12,6 +12,13 @@
 		3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */; };
 		3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
+		5EEAE7F61F5F0AF5009B6149 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAE7F51F5F0AF5009B6149 /* KeychainItem.swift */; };
+		5EEAE7F81F5F0C45009B6149 /* KeychainMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAE7F71F5F0C45009B6149 /* KeychainMonitor.swift */; };
+		5EEAE7FA1F5FF86D009B6149 /* KeychainItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAE7F91F5FF86D009B6149 /* KeychainItemSpec.swift */; };
+		5EEAE7FB1F5FF9F1009B6149 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAE7F51F5F0AF5009B6149 /* KeychainItem.swift */; };
+		5EEAE7FD1F5FFB36009B6149 /* KeychainMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAE7FC1F5FFB36009B6149 /* KeychainMonitorSpec.swift */; };
+		5EEAE7FE1F5FFB3A009B6149 /* KeychainMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEAE7F71F5F0C45009B6149 /* KeychainMonitor.swift */; };
+		5EEAE7FF1F5FFF77009B6149 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151F5EE1F2B48C8005142EC /* Keychain.swift */; };
 		7301BA511F06CD1B00B3C018 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7301BA501F06CD1B00B3C018 /* TableView.swift */; };
 		7310A4B41F0B480D00945C7E /* NetworkTrafficViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */; };
 		7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */; };
@@ -110,6 +117,10 @@
 		3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Debug.xcconfig"; sourceTree = "<group>"; };
 		3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Release.xcconfig"; sourceTree = "<group>"; };
 		3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Base.xcconfig"; sourceTree = "<group>"; };
+		5EEAE7F51F5F0AF5009B6149 /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
+		5EEAE7F71F5F0C45009B6149 /* KeychainMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainMonitor.swift; sourceTree = "<group>"; };
+		5EEAE7F91F5FF86D009B6149 /* KeychainItemSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemSpec.swift; sourceTree = "<group>"; };
+		5EEAE7FC1F5FFB36009B6149 /* KeychainMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainMonitorSpec.swift; sourceTree = "<group>"; };
 		7301BA501F06CD1B00B3C018 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTrafficViewController.swift; sourceTree = "<group>"; };
 		7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTrafficCell.swift; sourceTree = "<group>"; };
@@ -237,6 +248,8 @@
 				81B15FC61F1D403F00C9BDA2 /* FeatureSpec.swift */,
 				BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */,
 				EA747B9C1F0F8ADD0048506A /* SystemLogsMonitorSpec.swift */,
+				5EEAE7F91F5FF86D009B6149 /* KeychainItemSpec.swift */,
+				5EEAE7FC1F5FFB36009B6149 /* KeychainMonitorSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -345,6 +358,7 @@
 				EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */,
 				EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */,
 				779A9D561F4C448600CF6310 /* DefaultActivityViewController.swift */,
+				5EEAE7F71F5F0C45009B6149 /* KeychainMonitor.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -355,6 +369,7 @@
 				731A1B791F069491008A6164 /* Feature.swift */,
 				73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */,
 				EAFAE27C1F0CD70F0017380B /* LogEntry.swift */,
+				5EEAE7F51F5F0AF5009B6149 /* KeychainItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -664,6 +679,7 @@
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */,
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
+				5EEAE7F61F5F0AF5009B6149 /* KeychainItem.swift in Sources */,
 				EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				EA747B991F0F80570048506A /* LogsViewController.swift in Sources */,
@@ -679,6 +695,7 @@
 				779A9D621F4C5E0E00CF6310 /* ResponseRepresentation.swift in Sources */,
 				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
 				EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */,
+				5EEAE7F81F5F0C45009B6149 /* KeychainMonitor.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,
 				810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */,
 				8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */,
@@ -705,12 +722,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EEAE7FD1F5FFB36009B6149 /* KeychainMonitorSpec.swift in Sources */,
+				5EEAE7FB1F5FF9F1009B6149 /* KeychainItem.swift in Sources */,
 				3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */,
 				81B15FC91F1D411200C9BDA2 /* Feature.swift in Sources */,
+				5EEAE7FE1F5FFB3A009B6149 /* KeychainMonitor.swift in Sources */,
+				5EEAE7FF1F5FFF77009B6149 /* Keychain.swift in Sources */,
 				BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */,
 				EA747B9E1F0F8CF50048506A /* SystemLogsMonitorSpec.swift in Sources */,
 				81B15FC81F1D40FB00C9BDA2 /* FeaturesDataSource.swift in Sources */,
 				81B15FC71F1D403F00C9BDA2 /* FeatureSpec.swift in Sources */,
+				5EEAE7FA1F5FF86D009B6149 /* KeychainItemSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
