@@ -29,6 +29,9 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     fileprivate let consoleLogsMonitor: ConsoleLogsMonitor
     fileprivate let systemLogsMonitor: SystemLogsMonitor
 
+    /// Items monitor for reading and notifiying about keychain's content
+    fileprivate let keychainMonitor: KeychainMonitor
+
     /// Array which holds all network traffic entries
     internal var networkTrafficEntries: [NetworkTrafficEntry] = []
 
@@ -37,6 +40,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
     init(with navigationController: UINavigationController) {
         rootViewController = navigationController
+        keychainMonitor = KeychainMonitor()
         keychainViewController = KeychainViewController()
         consoleLogsMonitor = ConsoleLogsMonitor()
         consoleLogsViewController = LogsViewController(logsMonitor: consoleLogsMonitor)
@@ -48,6 +52,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         consoleLogsMonitor.delegate = self
         consoleLogsMonitor.subscribeForLogs()
         systemLogsMonitor.delegate = self
+        keychainMonitor.delegate = self
         userDefaultsViewController.flowDelegate = self
     }
     
@@ -96,6 +101,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
             case .keychain:
                 /// Show keychain view
                 rootViewController?.pushViewController(keychainViewController, animated: true)
+                keychainMonitor.subscribeForItems()
             case .network:
                 /// Show view controller for displaying network traffic
                 networkTrafficViewFlowController.push(with: networkTrafficEntries)
@@ -148,7 +154,14 @@ extension MainViewFlowController: LogsMonitorDelegate {
             delegate?.controller(self, didGetEventOfType: .systemLogs)
         }
     }
+}
 
+extension MainViewFlowController: KeychainMonitorDelegate {
+
+    func monitor(_ monitor: KeychainMonitor, didGet items: [KeychainItem]) {
+        keychainViewController.reload(with: items)
+        delegate?.controller(self, didGetEventOfType: .keychain)
+    }
 }
 
 internal protocol MainViewFlowControllerDelegate: class {
