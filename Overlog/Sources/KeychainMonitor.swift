@@ -5,9 +5,7 @@
 //  Licensed under the MIT License.
 //
 
-import Foundation
-
-extension Keychain: KeychainMonitorDataSource{}
+extension Keychain: KeychainMonitorDataSource {}
 
 /// A class to monitor the keychain items
 final public class KeychainMonitor {

@@ -5,8 +5,6 @@
 //  Licensed under the MIT License.
 //
 
-import Foundation
-
 /// Default Keychain log keys
 private enum Keys: String {
     case key = "key"
