@@ -12,15 +12,25 @@ internal final class SettingsViewController: UITableViewController {
     /// A reuse identifier for the settings cell.
     fileprivate let reuseIdentifier = "SettingsViewTableCell"
     
-    /// An array containing all available in-app features.
-    fileprivate var availableFeatures: [FeatureType]!
+    /// Data source of available features
+    fileprivate let featuresDataSource: FeaturesDataSource
+    
+    /// Cached available features taken from its data source.
+    fileprivate var features: [Feature]
+    
+    init(featuresDataSource: FeaturesDataSource) {
+        self.featuresDataSource = featuresDataSource;
+        self.features = featuresDataSource.availableFeatures()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable, message: "Use init(featuresDataSource:) instead")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        availableFeatures = FeaturesDataSource().allItems.map { (value: Feature) -> FeatureType in
-            return value.type
-        }
         
         tableView.allowsSelection = false
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
@@ -29,7 +39,7 @@ internal final class SettingsViewController: UITableViewController {
     // MARK: - UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return availableFeatures.count
+        return features.count
     }
     
     // MARK: - UITableViewDelegate
@@ -39,8 +49,8 @@ internal final class SettingsViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        let feature = availableFeatures[indexPath.row]
-        cell.toggle.isOn = UserDefaults.standard.bool(forKey: feature.defaultsKey)
+        let feature = features[indexPath.row]
+        cell.toggle.isOn = feature.enabled
         cell.textLabel?.text = feature.description
         cell.delegate = self
         
@@ -66,10 +76,7 @@ extension SettingsViewController: SettingsTableViewCellDelegate {
             return
         }
         
-        let feature = availableFeatures[indexPath.row]
-        UserDefaults.standard.set(toggle.isOn, forKey: feature.defaultsKey)
-        
-        NotificationCenter.default.post(name: Feature.enabledFeaturesDidChangeNotificationKey, object: nil)
+        featuresDataSource.feature(features[indexPath.row], didEnable: toggle.isOn)
     }
 }
 

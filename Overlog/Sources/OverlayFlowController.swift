@@ -23,13 +23,13 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
     /// - Parameters:
     ///   - viewController: A child view controller of the overlay
     ///   - window: Application's main window
-    init(with viewController: UIViewController, window: UIWindow) {
+    init(with viewController: UIViewController, window: UIWindow, configuration: Configuration) {
         /// Create and configure overlay view controller
         rootViewController = OverlayViewController()
 
         /// Create and configure child flow controller
-        mainViewController = MainViewController()
-        mainFlowController = MainViewFlowController(with: UINavigationController(rootViewController: mainViewController))
+        mainViewController = MainViewController(featuresDataSource: configuration)
+        mainFlowController = MainViewFlowController(with: UINavigationController(rootViewController: mainViewController), configuration: configuration)
 
         /// Extract the root controller from optional and set self as flow delegate
         guard let rootViewController = rootViewController else { return }

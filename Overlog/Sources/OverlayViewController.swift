@@ -50,13 +50,13 @@ internal final class OverlayViewController: UIViewController {
         
         let hasLaunchedOnce = UserDefaults.standard.bool(forKey: firstLaunchDefaultsKey)
         if !hasLaunchedOnce {
-            let availableFeatures = FeaturesDataSource().allItems.map { (value: Feature) -> FeatureType in
-                return value.type
-            }
-            for feature in availableFeatures {
-                UserDefaults.standard.set(true, forKey: feature.defaultsKey)
-            }
-            UserDefaults.standard.set(true, forKey: firstLaunchDefaultsKey)
+//            let availableFeatures = FeaturesDataSource().allItems.map { (value: Feature) -> FeatureType in
+//                return value.type
+//            }
+//            for feature in availableFeatures {
+//                UserDefaults.standard.set(true, forKey: feature.defaultsKey)
+//            }
+//            UserDefaults.standard.set(true, forKey: firstLaunchDefaultsKey)
         }
 
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didDragFloatingButton(with:)))

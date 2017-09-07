@@ -10,8 +10,8 @@ import UIKit
 /// An Overlog abstraction
 public final class Overlog {
     
-    /// Toggle's presentation of floating button when shake event was received.
-    public var toggleOnShakeGesture: Bool = true
+    /// Overlog configuration.
+    public let configuration = Configuration()
     
     /// Overlay's root flow controller
     fileprivate var flowController: OverlayFlowController?
@@ -27,7 +27,7 @@ public final class Overlog {
     ///   - window: application's main window
     ///   - viewController: the main window's root view controller
     public func show(in window: UIWindow, rootViewController viewController: UIViewController) {
-        flowController = OverlayFlowController(with: viewController, window: window)
+        flowController = OverlayFlowController(with: viewController, window: window, configuration: configuration)
 
         /// Extract the root view controller and configure the events
         guard let rootViewController = flowController?.rootViewController else { return }
@@ -66,7 +66,7 @@ public final class Overlog {
     ///
     /// - Parameter overlayView: overlayView description
     private func didPerformShake(event _: UIEvent?) {
-        if toggleOnShakeGesture {
+        if configuration.toggleOnShakeGesture {
             /// Extract the root view controller and configure the floating button
             guard let rootViewController = flowController?.rootViewController else { return }
             let overlayView = rootViewController.overlayView

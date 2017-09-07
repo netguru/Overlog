@@ -25,12 +25,15 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// Child flow controllers
     fileprivate let networkTrafficViewFlowController: NetworkTrafficViewFlowController
 
-    /// Logs monitors for reading and notifiying about logs
+    /// Logs monitors for reading and notifying about logs
     fileprivate let consoleLogsMonitor: ConsoleLogsMonitor
     fileprivate let systemLogsMonitor: SystemLogsMonitor
 
-    /// Items monitor for reading and notifiying about keychain's content
+    /// Items monitor for reading and notifying about keychain's content
     fileprivate let keychainMonitor: KeychainMonitor
+    
+    /// Configuration to apply.
+    fileprivate let configuration: Configuration
 
     /// Array which holds all network traffic entries
     internal var networkTrafficEntries: [NetworkTrafficEntry] = []
@@ -38,7 +41,8 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// Initializes settings flow controller
     ///
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
-    init(with navigationController: UINavigationController) {
+    init(with navigationController: UINavigationController, configuration: Configuration) {
+        self.configuration = configuration
         rootViewController = navigationController
         keychainMonitor = KeychainMonitor(dataSource: Keychain())
         keychainViewController = KeychainViewController()
@@ -79,7 +83,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     ///
     /// - Parameter sender: settings button
     func didTapSettingsButton(with sender: UIBarButtonItem) {
-        let viewController = SettingsViewController()
+        let viewController = SettingsViewController(featuresDataSource: configuration)
         viewController.modalPresentationStyle = .popover
         guard let popoverPresentationController = viewController.popoverPresentationController else {
             return
