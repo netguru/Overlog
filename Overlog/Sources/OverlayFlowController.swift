@@ -18,12 +18,17 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
     /// Main view controller instance
     fileprivate let mainViewController: MainViewController
 
+    /// Overlog configuration.
+    fileprivate let configuration: Configuration
+
     /// Initializes Overlog's root flow controller
     ///
     /// - Parameters:
     ///   - viewController: A child view controller of the overlay
     ///   - window: Application's main window
     init(with viewController: UIViewController, window: UIWindow, configuration: Configuration) {
+        self.configuration = configuration
+
         /// Create and configure overlay view controller
         rootViewController = OverlayViewController()
 
@@ -61,20 +66,10 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
 extension OverlayFlowController: MainViewFlowControllerDelegate {
 
     func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: FeatureType) {
-        let newTitle = { () -> String in 
-            switch eventType {
-            case .network:
-                return "\u{1F30D}"
-            case .consoleLogs:
-                return "\u{1F916}"
-            case .keychain:
-                return "\u{1F510}"
-            default:
-                return ""
-            }
-        }()
-
-        rootViewController?.overlayView.animateTitleChange(from: newTitle, duration: 1)
+        let featureEnabled = configuration.enabledFeatures().filter { $0.type == eventType }.first != nil
+        if featureEnabled {
+            rootViewController?.overlayView.animateTitleChange(from: eventType.icon, duration: 1)
+        }
     }
 
 }
