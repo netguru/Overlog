@@ -27,7 +27,6 @@ import Overlog
         overlog = Overlog.shared
         overlog?.configuration.toggleOnShakeGesture = true
         overlog?.configuration.features = FeatureType.all
-//        overlog?.configuration.features = [.network]
         overlog?.show(in: window!, rootViewController: navigationController)
 
         window?.makeKeyAndVisible()
