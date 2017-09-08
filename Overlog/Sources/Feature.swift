@@ -21,7 +21,7 @@ internal struct Feature {
     
     /// Feature counter used for notifications
     var counter = Int(0)
-    
+
     mutating func changeCounter(counter: Int) {
         self.counter = counter
     }
