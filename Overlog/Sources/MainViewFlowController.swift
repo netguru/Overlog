@@ -37,13 +37,12 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
 
     /// View controller for displaying user defaults items.
     fileprivate lazy var userDefaultsViewController: UserDefaultsViewController? = {
-        guard let _ = self.userDefaultsMonitor else {
-            return nil
-        }
-        let controller = UserDefaultsViewController()
-        controller.flowDelegate = self
-
-        return controller
+        return self.keychainMonitor != nil ? {
+            let controller = UserDefaultsViewController()
+            controller.flowDelegate = self
+            
+            return controller
+        }() : nil
     }()
 
     /// View controller for displaying keychain items.
