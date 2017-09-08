@@ -10,12 +10,7 @@ import Nimble
 import Overlog
 
 class ConfigurationSpec: QuickSpec {
-    
-    // MARK: Mocks
-    
-    
-    // MARK: Specs
-    
+
     override func spec() {
         var legacyFlags: [String : Bool] = [:]
         let defaults = UserDefaults.standard
@@ -80,18 +75,44 @@ class ConfigurationSpec: QuickSpec {
             }
         }
         
-        describe("when disabling network feature") {
-            beforeEach {
-                sut.features = [.network]
-                sut.feature(.network, didEnable: false)
+        describe("when disabling feature") {
+            var statusChangeSucceded: Bool!
+            
+            afterEach {
+                statusChangeSucceded = nil
             }
             
-            it("network feature should be available") {
-                expect(sut.availableFeatures().filter { $0.type == .network }.first).toNot(beNil())
+            context("which exists") {
+                beforeEach {
+                    sut.features = [.network]
+                    statusChangeSucceded = sut.feature(.network, didEnable: false)
+                }
+                
+                it("network feature should be available") {
+                    expect(sut.availableFeatures().filter { $0.type == .network }.first).toNot(beNil())
+                }
+                
+                it("network feature should be disabled") {
+                    expect(sut.enabledFeatures().filter { $0.type == .network }.first).to(beNil())
+                }
+                
+                it("status change should succeded") {
+                    expect(statusChangeSucceded).to(beTruthy())
+                }
             }
             
-            it("network feature should be disabled") {
-                expect(sut.enabledFeatures().filter { $0.type == .network }.first).to(beNil())
+            context("which does not exist") {
+                beforeEach {
+                    statusChangeSucceded = sut.feature(.network, didEnable: false)
+                }
+                
+                it("feature should not be available") {
+                    expect(sut.availableFeatures().filter { $0.type == .network }.first).to(beNil())
+                }
+                
+                it("status change should failed") {
+                    expect(statusChangeSucceded).to(beFalsy())
+                }
             }
         }
         

@@ -9,9 +9,12 @@ import Foundation
 
 public class Configuration {
     
-    /// Toggle's presentation of floating button when shake event was received.
+    /// Toggles presentation of floating button when shake event was received.
     public var toggleOnShakeGesture = true
     
+    /// Default configuration storage.
+    fileprivate let defaults = UserDefaults.standard
+
     /// Feature types to configure Overlog
     ///
     /// - Note: **Getter** reads straight from the User Defaults.
@@ -22,10 +25,9 @@ public class Configuration {
     /// - Warning: Setting this variable will post a notification through NotificationCenter.
     public var features: [FeatureType] {
         get {
-            return FeatureType.all.filter { UserDefaults.standard.object(forKey: $0.referenceKey) != nil }
+            return FeatureType.all.filter { defaults.object(forKey: $0.referenceKey) != nil }
         }
         set {
-            let defaults = UserDefaults.standard
             FeatureType.all.forEach {
                 let exists = newValue.contains($0)
                 let enabled = defaults.object(forKey: $0.referenceKey) as? Bool ?? true
@@ -45,7 +47,7 @@ extension Configuration: FeaturesDataSource {
     ///
     /// - Returns: All available features.
     internal func availableFeatures() -> [Feature] {
-        return features.map { Feature(type: $0, enabled: UserDefaults.standard.bool(forKey: $0.referenceKey)) }
+        return features.map { Feature(type: $0, enabled: defaults.bool(forKey: $0.referenceKey)) }
     }
     
     /// Provides enabled features.
@@ -66,9 +68,15 @@ extension Configuration: FeaturesDataSource {
     /// - Warning: Invoking this function will post a notification through NotificationCenter.
     ///
     /// - SeeAlso: `features`
-    internal func feature(_ type: FeatureType, didEnable enable: Bool) {
-        UserDefaults.standard.set(enable, forKey: type.referenceKey)
+    @discardableResult internal func feature(_ type: FeatureType, didEnable enable: Bool) -> Bool {
+        guard let _ = defaults.object(forKey: type.referenceKey) else {
+            return false
+        }
+
+        defaults.set(enable, forKey: type.referenceKey)
         NotificationCenter.default.post(name: enabledFeaturesDidChangeNotificationKey, object: nil)
+
+        return true
     }
     
     /// Name of the notification to register if any object wants to be notified about any changes in available or enabled features.
