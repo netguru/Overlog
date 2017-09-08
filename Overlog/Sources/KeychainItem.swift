@@ -5,7 +5,7 @@
 //  Licensed under the MIT License.
 //
 
-/// Default Keychain log keys
+/// Default Keychain item keys
 private enum Keys: String {
     case key = "key"
     case value = "value"
@@ -21,9 +21,9 @@ public struct KeychainItem {
     ///
     /// - Parameters:
     ///   - raw: raw entry dictionary returned by Keychain Access 
-    init(raw entry: [String: Any]) {
-        key = entry[Keys.key.rawValue].map(String.init(describing:)) ?? "no key"
-        value = entry[Keys.value.rawValue].map(String.init(describing:)) ?? "no value"
+    init(raw item: [String: Any]) {
+        key = item[Keys.key.rawValue].map(String.init(describing:)) ?? "no key"
+        value = item[Keys.value.rawValue].map(String.init(describing:)) ?? "no value"
     }
     
 }

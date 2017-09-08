@@ -22,17 +22,13 @@ final public class ConsoleLogsMonitor: LogsMonitor {
     /// logs will be visible in a console window. It is a workaround for a fact
     /// that stdout and stderr outputs can be redirected only to a one handle.
     public func subscribeForLogs() {
-        #if ENV_DEBUG
-            return
-        #else
-            let pipe = Pipe()
-            let handle = pipe.fileHandleForReading
-            dup2(pipe.fileHandleForWriting.fileDescriptor, fileno(stderr))
-            dup2(pipe.fileHandleForWriting.fileDescriptor, fileno(stdout))
+        let pipe = Pipe()
+        let handle = pipe.fileHandleForReading
+        dup2(pipe.fileHandleForWriting.fileDescriptor, fileno(stderr))
+        dup2(pipe.fileHandleForWriting.fileDescriptor, fileno(stdout))
 
-            NotificationCenter.default.addObserver(self, selector: #selector(dataAvailable(notification:)), name: .NSFileHandleDataAvailable, object: nil)
-            handle.waitForDataInBackgroundAndNotify()
-        #endif
+        NotificationCenter.default.addObserver(self, selector: #selector(dataAvailable(notification:)), name: .NSFileHandleDataAvailable, object: nil)
+        handle.waitForDataInBackgroundAndNotify()
     }
 
     /// Parse available output data

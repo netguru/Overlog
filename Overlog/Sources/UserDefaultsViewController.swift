@@ -18,16 +18,17 @@ internal protocol UserDefaultsViewControllerFlowDelegate: class {
 
 internal final class UserDefaultsViewController: UIViewController {
 
-    /// Custom view to be displayed
+    /// Custom view to be displayed.
     internal let customView = TableView()
 
-    /// Dictionary representation of user defaults
-    fileprivate let userDefaultsDictionary = UserDefaults.standard.dictionaryRepresentation()
+    /// Array of recently found user defaults items.
+    fileprivate(set) var items = [UserDefaultsItem]()
 
     /// String representation of user defaults formatted with XML format
     fileprivate var userDefaultsXMLFormattedStringRepresentation: String? {
         do {
-            let data = try PropertyListSerialization.data(fromPropertyList: userDefaultsDictionary, format: .xml, options: 0)
+            let propertyList = UserDefaults.standard.dictionaryRepresentation()
+            let data = try PropertyListSerialization.data(fromPropertyList: propertyList, format: .xml, options: 0)
             return String(data: data, encoding: .utf8)
         } catch {
             return nil
@@ -48,6 +49,12 @@ internal final class UserDefaultsViewController: UIViewController {
     internal override func loadView() {
         view = customView
     }
+
+    internal func reload(with newItems: [UserDefaultsItem]) {
+        items = newItems
+        customView.tableView.reloadData()
+    }
+
 }
 
 extension UserDefaultsViewController {
@@ -68,16 +75,15 @@ extension UserDefaultsViewController {
 extension UserDefaultsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userDefaultsDictionary.keys.count
+        return items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UserDefaultsCell.self), for: indexPath) as! UserDefaultsCell
 
-        let currentKey = userDefaultsDictionary.keys.sorted()[indexPath.row]
-
-        cell.keyLabel.text = String(currentKey)
-        cell.valueLabel.text = userDefaultsDictionary[currentKey].map(String.init(describing:))
+        let item = items[indexPath.row]
+        cell.keyLabel.text = item.key
+        cell.valueLabel.text = item.value
         return cell
     }
 
