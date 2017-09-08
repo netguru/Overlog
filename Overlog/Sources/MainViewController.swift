@@ -35,10 +35,24 @@ internal final class MainViewController: UIViewController {
     /// Custom view to be displayed
     internal let customView = MainView()
 
-    /// Data source of all available features
-    fileprivate let dataSource = FeaturesDataSource()
+    /// Data source of available features
+    fileprivate let featuresDataSource: FeaturesDataSource
+    
+    /// Cached enabled features taken from its data source.
+    fileprivate var features: [Feature]
     
     // MARK: - View controller lifecycle
+    
+    init(featuresDataSource: FeaturesDataSource) {
+        self.featuresDataSource = featuresDataSource;
+        self.features = featuresDataSource.enabledFeatures()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable, message: "Use init(featuresDataSource:) instead")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -61,7 +75,8 @@ internal final class MainViewController: UIViewController {
         configure(tableView: customView.tableView)
         
         /// Add notification handling for changes in enabled features data source
-        NotificationCenter.default.addObserver(forName: Feature.enabledFeaturesDidChangeNotificationKey, object: nil, queue: OperationQueue.main) { [unowned self] (notification: Notification) in
+        NotificationCenter.default.addObserver(forName: featuresDataSource.enabledFeaturesDidChangeNotificationKey, object: nil, queue: OperationQueue.main) { [unowned self] (notification: Notification) in
+            self.features = self.featuresDataSource.enabledFeatures()
             self.customView.tableView.reloadData()
         }
     }
@@ -101,23 +116,23 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeatureCell.self), for: indexPath) as! FeatureCell
 
-        cell.nameLabel.text = dataSource.enabledItems[indexPath.row].type.description
-        
-        if dataSource.enabledItems[indexPath.row].counter > 0 {
-            cell.counterLabel.text = String(dataSource.enabledItems[indexPath.row].counter)
+        let feature = features[indexPath.row]
+        cell.nameLabel.text = feature.description
+        if feature.counter > 0 {
+            cell.counterLabel.text = String(feature.counter)
         }
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.enabledItems.count
+        return features.count
     }
 }
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.flowDelegate?.didSelect(feature: dataSource.enabledItems[indexPath.row].type)
+        self.flowDelegate?.didSelect(feature: features[indexPath.row].type)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

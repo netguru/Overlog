@@ -7,44 +7,20 @@
 
 import Foundation
 
-/// All overlog feature types
-internal enum FeatureType: String {
-    case network, keychain, userDefaults, consoleLogs, systemLogs
-    
-    /// Description for corresponding feature type
-    var description: String {
-
-        switch self {
-            case .userDefaults:
-                return "User Defaults"
-            case .keychain:
-                return "Keychain"
-            case .network:
-                return "HTTP"
-            case .consoleLogs:
-                return "Console Logs"
-            case .systemLogs:
-                return "System Logs"
-        }
-    }
-    
-    /// User defaults key for corresponding feature type
-    var defaultsKey: String {
-        return "OVL\(description)ReferenceKey".replacingOccurrences(of: " ", with: "")
-    }
-}
-
-/// Overlog feature model
 internal struct Feature {
+    internal let type: FeatureType
+    internal let enabled: Bool
+    internal var description: String {
+        return type.rawValue
+    }
     
-    /// Name for notification informing about changes in enabled features data source
-    static let enabledFeaturesDidChangeNotificationKey = Notification.Name(rawValue: "OVLEnabledFeaturesDidChange")
-
-    /// Feature type
-    let type: FeatureType
-
+    init(type: FeatureType, enabled: Bool) {
+        self.type = type;
+        self.enabled = enabled
+    }
+    
     /// Feature counter used for notifications
-    var counter: Int
+    var counter = Int(0)
 
     mutating func changeCounter(counter: Int) {
         self.counter = counter
