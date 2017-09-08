@@ -5,12 +5,6 @@
 //  Licensed under the MIT License.
 //
 
-/// Default user defaults keys
-private enum Keys: String {
-    case key = "key"
-    case value = "value"
-}
-
 /// Overlog user defaults model
 internal struct UserDefaultsItem {
     let key: String
