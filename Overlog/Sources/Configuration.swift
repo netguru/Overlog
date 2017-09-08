@@ -13,6 +13,13 @@ public class Configuration {
     public var toggleOnShakeGesture = true
     
     /// Feature types to configure Overlog
+    ///
+    /// - Note: **Getter** reads straight from the User Defaults.
+    ///         **Setter** checks if new features already exist in the User Defaults.
+    ///         If not, then removes corresponding entry from the User Defaults.
+    ///         Otherwise assigns enable status (found in appropriate entry) to the corresponding new feature.
+    ///
+    /// - Warning: Setting this variable will post a notification through NotificationCenter.
     public var features: [FeatureType] {
         get {
             return FeatureType.all.filter { UserDefaults.standard.object(forKey: $0.referenceKey) != nil }
@@ -32,20 +39,40 @@ public class Configuration {
 
 extension Configuration: FeaturesDataSource {
     
+    /// Provides available features.
+    ///
+    /// - Note: Available features are those features which have been saved in the User Defaults.
+    ///
+    /// - Returns: All available features.
     internal func availableFeatures() -> [Feature] {
         return features.map { Feature(type: $0, enabled: UserDefaults.standard.bool(forKey: $0.referenceKey)) }
     }
     
-    internal func feature(_ feature: Feature, didEnable enable: Bool) {
-        UserDefaults.standard.set(enable, forKey: feature.type.referenceKey)
-        NotificationCenter.default.post(name: enabledFeaturesDidChangeNotificationKey, object: nil)
-    }
-    
+    /// Provides enabled features.
+    ///
+    /// - Note: Enabled features are those features which have been saved in the User Defaults and their value is set to 1 (true).
+    ///
+    /// - Returns: All enabled features.
     internal func enabledFeatures() -> [Feature] {
         return availableFeatures().filter { $0.enabled }
     }
     
-    var enabledFeaturesDidChangeNotificationKey: Notification.Name {
+    /// Changes enable status of feature with given type only if feature already exists in the User Defaults
+    ///
+    /// - Parameters:
+    ///   - type: Type of the feature to change.
+    ///   - enable: Indicates whether feature should be enabled or disabled.
+    ///
+    /// - Warning: Invoking this function will post a notification through NotificationCenter.
+    ///
+    /// - SeeAlso: `features`
+    internal func feature(_ type: FeatureType, didEnable enable: Bool) {
+        UserDefaults.standard.set(enable, forKey: type.referenceKey)
+        NotificationCenter.default.post(name: enabledFeaturesDidChangeNotificationKey, object: nil)
+    }
+    
+    /// Name of the notification to register if any object wants to be notified about any changes in available or enabled features.
+    internal var enabledFeaturesDidChangeNotificationKey: Notification.Name {
         return Notification.Name(rawValue: "OVLEnabledFeaturesDidChange")
     }
 }

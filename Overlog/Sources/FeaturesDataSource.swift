@@ -8,10 +8,24 @@
 import Foundation
 
 internal protocol FeaturesDataSource {
-    func availableFeatures() -> [Feature]
-    func enabledFeatures() -> [Feature]
-    func feature(_ feature: Feature, didEnable: Bool)
     
-    /// Name for the notification informing when available feature has been disabled or enabled
+    /// Provides available features.
+    ///
+    /// - Returns: All available features.
+    func availableFeatures() -> [Feature]
+    
+    /// Provides enabled features.
+    ///
+    /// - Returns: All enabled features.
+    func enabledFeatures() -> [Feature]
+    
+    /// Changes enable status of feature with given type.
+    ///
+    /// - Parameters:
+    ///   - type: Type of the feature to change.
+    ///   - enable: Indicates whether feature should be enabled or disabled.
+    func feature(_ type: FeatureType, didEnable enable: Bool)
+    
+    /// Name of the notification to register if any object wants to be notified about any changes in available or enabled features.
     var enabledFeaturesDidChangeNotificationKey: Notification.Name { get }
 }

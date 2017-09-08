@@ -76,7 +76,7 @@ extension SettingsViewController: SettingsTableViewCellDelegate {
             return
         }
         
-        featuresDataSource.feature(features[indexPath.row], didEnable: toggle.isOn)
+        featuresDataSource.feature(features[indexPath.row].type, didEnable: toggle.isOn)
     }
 }
 
