@@ -204,6 +204,13 @@ fileprivate extension MainViewFlowController {
             userDefaultsMonitor?.delegate = self
         }
         if createMonitor(for: .consoleLogs) {
+            print("***\n"
+                + "\n"
+                + "Overlog has been configured to gather console logs which won't be visible in a console window anymore.\n"
+                + "It is a workaround for a fact that stdout and stderr outputs can be redirected only to a one handle.\n"
+                + "\n"
+                + "***"
+            )
             consoleLogsMonitor = ConsoleLogsMonitor()
             consoleLogsMonitor?.delegate = self
             consoleLogsMonitor?.subscribeForLogs()

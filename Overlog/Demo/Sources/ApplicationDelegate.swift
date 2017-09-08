@@ -25,7 +25,7 @@ import Overlog
         let navigationController = UINavigationController(rootViewController: ViewController())
         
         overlog = Overlog.shared
-        overlog?.configuration.features = [.userDefaults, .network]
+        overlog?.configuration.features = [.userDefaults, .network, .consoleLogs]
         overlog?.show(in: window!, rootViewController: navigationController)
 
         window?.makeKeyAndVisible()

@@ -18,9 +18,8 @@ final public class ConsoleLogsMonitor: LogsMonitor {
     /// Start monitoring for new data in standard and error outputs.
     ///
     /// - Remark:
-    /// Subscribes for gathering logs only in a release mode. In the debug mode
-    /// logs will be visible in a console window. It is a workaround for a fact
-    /// that stdout and stderr outputs can be redirected only to a one handle.
+    /// Subscribes for gathering logs which won't be visible in a console window anymore.
+    /// It is a workaround for a fact that stdout and stderr outputs can be redirected only to a one handle.
     public func subscribeForLogs() {
         let pipe = Pipe()
         let handle = pipe.fileHandleForReading
