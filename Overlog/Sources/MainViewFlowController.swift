@@ -190,19 +190,19 @@ extension MainViewFlowController: UserDefaultsMonitorDelegate {
 
 fileprivate extension MainViewFlowController {
     func createMonitors() {
-        if createMonitor(for: .network) {
+        if configuration.containsFeature(ofType: .network) {
             networkMonitor = NetworkMonitor.shared
             networkMonitor?.delegate = self
         }
-        if createMonitor(for: .keychain) {
+        if configuration.containsFeature(ofType: .keychain) {
             keychainMonitor = KeychainMonitor(dataSource: Keychain())
             keychainMonitor?.delegate = self
         }
-        if createMonitor(for: .userDefaults) {
+        if configuration.containsFeature(ofType: .userDefaults) {
             userDefaultsMonitor = UserDefaultsMonitor(dataSource: UserDefaults.standard)
             userDefaultsMonitor?.delegate = self
         }
-        if createMonitor(for: .consoleLogs) {
+        if configuration.containsFeature(ofType: .consoleLogs) {
             print("***\n"
                 + "\n"
                 + "Overlog has been configured to gather console logs which won't be visible in a console window anymore.\n"
@@ -214,14 +214,10 @@ fileprivate extension MainViewFlowController {
             consoleLogsMonitor?.delegate = self
             consoleLogsMonitor?.subscribeForLogs()
         }
-        if createMonitor(for: .systemLogs) {
+        if configuration.containsFeature(ofType: .systemLogs) {
             systemLogsMonitor = SystemLogsMonitor()
             systemLogsMonitor?.delegate = self
         }
-    }
-
-    func createMonitor(for featureType: FeatureType) -> Bool {
-        return configuration.availableFeatures().filter { $0.type == featureType }.first != nil
     }
 }
 
