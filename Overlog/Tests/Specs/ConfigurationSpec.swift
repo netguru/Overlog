@@ -116,19 +116,35 @@ class ConfigurationSpec: QuickSpec {
             }
         }
         
-        describe("notification should be posted") {
+        describe("when") {
             let notification = Notification(name: Notification.Name(rawValue: "OVLEnabledFeaturesDidChange"), object: nil)
             
-            it("when changing feature") {
-                expect {
-                    sut.features = [.keychain]
-                }.to(postNotifications(contain(notification)))
+            context("adding feature") {
+                it("notification should be posted") {
+                    expect {
+                        sut.features = [.keychain]
+                    }.to(postNotifications(contain(notification)))
+                }
             }
             
-            it("when adding feature") {
-                expect {
-                    return sut.feature(.systemLogs, didEnable: false)
-                }.to(postNotifications(contain(notification)))
+            context("changing existing feature") {
+                beforeEach {
+                    sut.features = [.systemLogs]
+                }
+                
+                it("notification should be posted") {
+                    expect {
+                        return sut.feature(.systemLogs, didEnable: false)
+                    }.to(postNotifications(contain(notification)))
+                }
+            }
+            
+            context("changing non-existing feature") {
+                it("notification should not be posted") {
+                    expect {
+                        return sut.feature(.consoleLogs, didEnable: false)
+                    }.toNot(postNotifications(contain(notification)))
+                }
             }
         }
     }
