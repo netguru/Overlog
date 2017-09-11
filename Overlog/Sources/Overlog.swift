@@ -13,6 +13,17 @@ public final class Overlog {
     /// Overlog configuration.
     public let configuration = Configuration()
     
+    /// A Boolean value that determines whether the overlog floating button is hidden.
+    /// - Discussion:
+    ///     - Setting the value of this property to true hides the floating button and setting it to false shows the it. The default value is false.
+    public var isHidden: Bool = false {
+        didSet {
+            /// Extract the root view controller and configure the floating button
+            guard let rootViewController = flowController?.rootViewController else { return }
+            rootViewController.overlayView.floatingButton.isHidden = isHidden
+        }
+    }
+
     /// Overlay's root flow controller
     fileprivate var flowController: OverlayFlowController?
 
@@ -51,15 +62,6 @@ public final class Overlog {
         /// Extract the root view controller and configure the floating button
         guard let rootViewController = flowController?.rootViewController else { return }
         rootViewController.overlayView.floatingButton.isHidden = false
-    }
-    
-    /// Hides floating button
-    /// - Discussion:
-    ///     - This methods sets `isHidden` to `true` on `OverlayView`'s `floatingButton` only
-    public func hide() {
-        /// Extract the root view controller and configure the floating button
-        guard let rootViewController = flowController?.rootViewController else { return }
-        rootViewController.overlayView.floatingButton.isHidden = true
     }
     
     /// Shake event
