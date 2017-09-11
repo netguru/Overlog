@@ -45,7 +45,9 @@ extension NetworkMonitor: OutputFacility {
     /// - parameter response: object that represent request
     public func output(requestRepresentation request: RequestRepresentation) {
         requestRepresentations.append(request)
-        delegate?.monitor(self, didGet: request)
+        DispatchQueue.main.async {
+            self.delegate?.monitor(self, didGet: request)
+        }
     }
     
     /// Adds the response representation to the buffer.
@@ -53,7 +55,9 @@ extension NetworkMonitor: OutputFacility {
     /// - parameter response: object that represent request's response
     public func output(responseRepresentation response: ResponseRepresentation) {
         responseRepresentations.append(response)
-        delegate?.monitor(self, didGet: response)
+        DispatchQueue.main.async {
+            self.delegate?.monitor(self, didGet: response)
+        }
     }
     
     /// Adds the error representation to the buffer.
@@ -61,7 +65,9 @@ extension NetworkMonitor: OutputFacility {
     /// - parameter response: object that represent request's error
     public func output(errorRepresentation error: ErrorRepresentation) {
         errorRepresentations.append(error)
-        delegate?.monitor(self, didGet: error)
+        DispatchQueue.main.async {
+            self.delegate?.monitor(self, didGet: error)
+        }
     }
 }
 

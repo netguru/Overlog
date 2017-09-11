@@ -143,13 +143,16 @@ extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
 
 extension MainViewFlowController: NetworkMonitorDelegate {
     func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation) {
-        networkTrafficEntries.append(NetworkTrafficEntry(request: request))
+        let networkTrafficEntry = NetworkTrafficEntry(request: request)
+        networkTrafficEntries.append(networkTrafficEntry)
+        networkTrafficViewFlowController.reload(with: networkTrafficEntry)
         delegate?.controller(self, didGetEventOfType: .network)
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation) {
         if let currentItem = networkTrafficEntries.filter( { $0.request.identifier == error.requestIdentifier }).first {
             currentItem.error = error
+            networkTrafficViewFlowController.reload(with: currentItem)
         }
         delegate?.controller(self, didGetEventOfType: .network)
     }
@@ -157,6 +160,7 @@ extension MainViewFlowController: NetworkMonitorDelegate {
     func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation) {
         if let currentItem = networkTrafficEntries.filter( { $0.request.identifier == response.requestIdentifier }).first {
             currentItem.response = response
+            networkTrafficViewFlowController.reload(with: currentItem)
         }
         delegate?.controller(self, didGetEventOfType: .network)
     }
