@@ -46,7 +46,8 @@ class KeychainMonitorSpec: QuickSpec {
         }
         
         afterEach {
-            sut = nil;
+            sut = nil
+            delegate = nil
         }
         
         describe("when keychain does not contain items") {
@@ -76,7 +77,7 @@ class KeychainMonitorSpec: QuickSpec {
                 sut.subscribeForItems()
             }
             
-            it("items subscription should return 0 items") {
+            it("items subscription should return 1 item") {
                 expect(delegate.items).toNot(beNil())
                 expect(delegate.items!.count).to(equal(1))
             }

@@ -73,6 +73,10 @@ class ConfigurationSpec: QuickSpec {
             it("should be exact 1 enabled feature") {
                 expect(sut.enabledFeatures().count).to(equal(1))
             }
+            
+            it("configuration should contain this feature type") {
+                expect(sut.containsFeature(ofType: .network)).to(beTruthy())
+            }
         }
         
         describe("when disabling feature") {
@@ -99,6 +103,10 @@ class ConfigurationSpec: QuickSpec {
                 it("status change should succeded") {
                     expect(statusChangeSucceded).to(beTruthy())
                 }
+                
+                it("configuration should contain disabled feature type") {
+                    expect(sut.containsFeature(ofType: .network)).to(beTruthy())
+                }
             }
             
             context("which does not exist") {
@@ -112,6 +120,10 @@ class ConfigurationSpec: QuickSpec {
                 
                 it("status change should failed") {
                     expect(statusChangeSucceded).to(beFalsy())
+                }
+                
+                it("configuration should not contain feature type") {
+                    expect(sut.containsFeature(ofType: .network)).to(beFalsy())
                 }
             }
         }

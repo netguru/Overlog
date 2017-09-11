@@ -16,24 +16,49 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     typealias ViewController = UINavigationController
     internal var rootViewController: UINavigationController?
 
-    /// View controller for displaying user defaults
-    fileprivate let userDefaultsViewController: UserDefaultsViewController
-    fileprivate let keychainViewController: KeychainViewController
-    fileprivate let consoleLogsViewController: LogsViewController
-    fileprivate let systemLogsViewController: LogsViewController
-
     /// Child flow controllers
     fileprivate let networkTrafficViewFlowController: NetworkTrafficViewFlowController
 
     /// Logs monitors for reading and notifying about logs
-    fileprivate let consoleLogsMonitor: ConsoleLogsMonitor
-    fileprivate let systemLogsMonitor: SystemLogsMonitor
+    fileprivate var consoleLogsMonitor: ConsoleLogsMonitor?
+    fileprivate var systemLogsMonitor: SystemLogsMonitor?
 
-    /// Items monitor for reading and notifying about keychain's content
-    fileprivate let keychainMonitor: KeychainMonitor
-    
+    /// Items monitor for reading and notifying about keychain's content.
+    fileprivate var keychainMonitor: KeychainMonitor?
+
+    /// Network monitor for intercepting and notifying about requests and responses
+    fileprivate var networkMonitor: NetworkMonitor?
+
+    /// User defaults monitor for reading and notifying about user defaults' content.
+    fileprivate var userDefaultsMonitor: UserDefaultsMonitor?
+
     /// Configuration to apply.
     fileprivate let configuration: Configuration
+
+    /// View controller for displaying user defaults items.
+    fileprivate lazy var userDefaultsViewController: UserDefaultsViewController? = {
+        return self.keychainMonitor != nil ? {
+            let controller = UserDefaultsViewController()
+            controller.flowDelegate = self
+            
+            return controller
+        }() : nil
+    }()
+
+    /// View controller for displaying keychain items.
+    fileprivate lazy var keychainViewController: KeychainViewController? = {
+        return self.keychainMonitor != nil ? KeychainViewController() : nil
+    }()
+
+    /// View controller for displaying console logs.
+    fileprivate lazy var consoleLogsViewController: LogsViewController? = {
+        return self.consoleLogsMonitor != nil ? LogsViewController() : nil
+    }()
+
+    /// View controller for displaying system logs.
+    fileprivate lazy var systemLogsViewController: LogsViewController? = {
+        return self.systemLogsMonitor != nil ? LogsViewController() : nil
+    }()
 
     /// Array which holds all network traffic entries
     internal var networkTrafficEntries: [NetworkTrafficEntry] = []
@@ -44,22 +69,11 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     init(with navigationController: UINavigationController, configuration: Configuration) {
         self.configuration = configuration
         rootViewController = navigationController
-        keychainMonitor = KeychainMonitor(dataSource: Keychain())
-        keychainViewController = KeychainViewController()
-        consoleLogsMonitor = ConsoleLogsMonitor()
-        consoleLogsViewController = LogsViewController(logsMonitor: consoleLogsMonitor)
-        systemLogsMonitor = SystemLogsMonitor()
-        systemLogsViewController = LogsViewController(logsMonitor: systemLogsMonitor)
-        userDefaultsViewController = UserDefaultsViewController()
         networkTrafficViewFlowController = NetworkTrafficViewFlowController(with: navigationController)
-        NetworkMonitor.shared.delegate = self
-        consoleLogsMonitor.delegate = self
-        consoleLogsMonitor.subscribeForLogs()
-        systemLogsMonitor.delegate = self
-        keychainMonitor.delegate = self
-        userDefaultsViewController.flowDelegate = self
+
+        createMonitors()
     }
-    
+
     /// Starts the flow by presenting settings controller on a given controller
     ///
     /// - Parameter viewController: A controller to present on
@@ -98,31 +112,32 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     ///
     /// - Parameter feature: selected feature.
     func didSelect(feature: FeatureType) {
+        var viewControllerToPush: UIViewController?
         switch feature {
             case .userDefaults:
-                /// Show  userDefaults view
-                rootViewController?.pushViewController(userDefaultsViewController, animated: true)
+                viewControllerToPush = userDefaultsViewController
+                userDefaultsMonitor?.subscribeForItems()
             case .keychain:
-                /// Show keychain view
-                rootViewController?.pushViewController(keychainViewController, animated: true)
-                keychainMonitor.subscribeForItems()
+                viewControllerToPush = keychainViewController
+                keychainMonitor?.subscribeForItems()
             case .network:
-                /// Show view controller for displaying network traffic
                 networkTrafficViewFlowController.push(with: networkTrafficEntries)
             case .consoleLogs:
-                /// Show console logs view
-                rootViewController?.pushViewController(consoleLogsViewController, animated: true)
+                viewControllerToPush = consoleLogsViewController
             case .systemLogs:
-                /// Show system logs view
-                rootViewController?.pushViewController(systemLogsViewController, animated: true)
-                systemLogsMonitor.subscribeForLogs()
+                viewControllerToPush = systemLogsViewController
+                systemLogsMonitor?.subscribeForLogs()
+        }
+
+        if let viewController = viewControllerToPush {
+            rootViewController?.pushViewController(viewController, animated: true)
         }
     }
 }
 
 extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
     func didTapShareButton(withItems activityItems: [Any]) {
-        userDefaultsViewController.present(DefaultActivityViewController(activityItems: activityItems, applicationActivities: nil), animated: true, completion: nil)
+        userDefaultsViewController?.present(DefaultActivityViewController(activityItems: activityItems, applicationActivities: nil), animated: true, completion: nil)
     }
 }
 
@@ -148,23 +163,61 @@ extension MainViewFlowController: NetworkMonitorDelegate {
 }
 
 extension MainViewFlowController: LogsMonitorDelegate {
-
     func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry]) {
         if monitor is ConsoleLogsMonitor {
-            consoleLogsViewController.reload(with: logs)
+            consoleLogsViewController?.reload(with: logs)
             delegate?.controller(self, didGetEventOfType: .consoleLogs)
         } else {
-            systemLogsViewController.reload(with: logs)
+            systemLogsViewController?.reload(with: logs)
             delegate?.controller(self, didGetEventOfType: .systemLogs)
         }
     }
 }
 
 extension MainViewFlowController: KeychainMonitorDelegate {
-
     func monitor(_ monitor: KeychainMonitor, didGet items: [KeychainItem]) {
-        keychainViewController.reload(with: items)
+        keychainViewController?.reload(with: items)
         delegate?.controller(self, didGetEventOfType: .keychain)
+    }
+}
+
+extension MainViewFlowController: UserDefaultsMonitorDelegate {
+    func monitor(_ monitor: UserDefaultsMonitor, didGet items: [UserDefaultsItem]) {
+        userDefaultsViewController?.reload(with: items)
+        delegate?.controller(self, didGetEventOfType: .userDefaults)
+    }
+}
+
+fileprivate extension MainViewFlowController {
+    func createMonitors() {
+        if configuration.containsFeature(ofType: .network) {
+            networkMonitor = NetworkMonitor.shared
+            networkMonitor?.delegate = self
+        }
+        if configuration.containsFeature(ofType: .keychain) {
+            keychainMonitor = KeychainMonitor(dataSource: Keychain())
+            keychainMonitor?.delegate = self
+        }
+        if configuration.containsFeature(ofType: .userDefaults) {
+            userDefaultsMonitor = UserDefaultsMonitor(dataSource: UserDefaults.standard)
+            userDefaultsMonitor?.delegate = self
+        }
+        if configuration.containsFeature(ofType: .consoleLogs) {
+            print("***\n"
+                + "\n"
+                + "Overlog has been configured to gather console logs which won't be visible in a console window anymore.\n"
+                + "It is a workaround for a fact that stdout and stderr outputs can be redirected only to a one handle.\n"
+                + "\n"
+                + "***"
+            )
+            consoleLogsMonitor = ConsoleLogsMonitor()
+            consoleLogsMonitor?.delegate = self
+            consoleLogsMonitor?.subscribeForLogs()
+        }
+        if configuration.containsFeature(ofType: .systemLogs) {
+            systemLogsMonitor = SystemLogsMonitor()
+            systemLogsMonitor?.delegate = self
+        }
     }
 }
 

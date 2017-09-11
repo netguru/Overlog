@@ -37,6 +37,10 @@ public class Configuration {
             NotificationCenter.default.post(name: enabledFeaturesDidChangeNotificationKey, object: nil)
         }
     }
+
+    internal func containsFeature(ofType type: FeatureType) -> Bool {
+        return availableFeatures().filter { $0.type == type }.first != nil
+    }
 }
 
 extension Configuration: FeaturesDataSource {

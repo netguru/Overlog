@@ -12,9 +12,6 @@ internal final class LogsViewController: UIViewController {
     /// Custom view to be displayed
     internal let customView = TableView()
 
-    /// Instance of a class which enables searching for logs
-    fileprivate var logsMonitor: LogsMonitor
-
     /// Array of recently found logs
     fileprivate(set) var logs = [LogEntry]()
     
@@ -25,18 +22,6 @@ internal final class LogsViewController: UIViewController {
         
         return formatter
     }()
-
-    /// Initialize the view controller with a specific LogsMonitor
-    ///
-    /// - parameter logsMonitor: a console or system logs monitor
-    init(logsMonitor: LogsMonitor) {
-        self.logsMonitor = logsMonitor
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     internal override func viewDidLoad() {
         super.viewDidLoad()

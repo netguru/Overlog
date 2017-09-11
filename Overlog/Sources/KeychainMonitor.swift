@@ -31,7 +31,7 @@ final public class KeychainMonitor {
     }
 }
 
-/// A KeychainMonitorDelegate delegate protocol for notifying about new keychain items available.
+/// A KeychainMonitorDelegate delegate protocol for notifying about received keychain items.
 public protocol KeychainMonitorDelegate: class {
 
     /// Triggered when Monitor receives keychain items
