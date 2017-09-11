@@ -22,7 +22,7 @@ internal final class TrafficDetailsViewController: UIViewController {
     fileprivate let customView = TrafficDetailsView()
 
     /// Network traffic entry instance.
-    fileprivate let networkTrafficEntry: NetworkTrafficEntry
+    internal let networkTrafficEntry: NetworkTrafficEntry
 
     /// Reques view Controller
     fileprivate let requestViewController: RequestViewController
@@ -41,10 +41,15 @@ internal final class TrafficDetailsViewController: UIViewController {
     /// - Parameter NetworkTrafficEntry: NetworkTrafficEntry instance
     init(networkTrafficEntry: NetworkTrafficEntry) {
         self.networkTrafficEntry = networkTrafficEntry
-        requestViewController = RequestViewController(networkRequest: networkTrafficEntry.request)
-        responseViewController = ResponseViewController(networkTrafficEntry: networkTrafficEntry)
+        requestViewController = RequestViewController()
+        responseViewController = ResponseViewController()
         displayedViewController = requestViewController
         super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable, message: "Use init(networkTraffic:) instead")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -53,6 +58,7 @@ internal final class TrafficDetailsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = shareButton
 
         customView.segmentedControl.addTarget(self, action: #selector(didChageSegment(sender:)), for: .valueChanged)
+        renderContent()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -67,9 +73,9 @@ internal final class TrafficDetailsViewController: UIViewController {
         view = customView
     }
 
-    @available(*, unavailable, message: "Use init(networkTraffic:) instead")
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    internal func renderContent() {
+        requestViewController.displayRequest(from: networkTrafficEntry)
+        responseViewController.displayResponse(from: networkTrafficEntry)
     }
 }
 

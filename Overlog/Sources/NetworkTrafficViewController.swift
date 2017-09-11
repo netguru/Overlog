@@ -18,15 +18,19 @@ internal protocol NetworkTrafficViewControllerFlowDelegate: class {
 final class NetworkTrafficViewController: UIViewController {
 
     internal let customView = TableView()
-    fileprivate let networkTrafficEntries: [NetworkTrafficEntry]
+    fileprivate var networkTrafficEntries: [NetworkTrafficEntry]
 
     /// Delegate of the network traffic view controller.
     internal weak var flowDelegate: NetworkTrafficViewControllerFlowDelegate?
 
     init(networkTrafficEntries: [NetworkTrafficEntry]) {
         self.networkTrafficEntries = networkTrafficEntries
-
         super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable, message: "Use init(networkTraffics:) instead")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     internal override func viewDidLoad() {
@@ -46,9 +50,19 @@ final class NetworkTrafficViewController: UIViewController {
         view = customView
     }
 
-    @available(*, unavailable, message: "Use init(networkTraffics:) instead")
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    /// Reloads view controller content with received entry.
+    ///
+    /// - Parameter entry: Network entry which should be displayed by the view controller.
+    public func reload(with entry: NetworkTrafficEntry) {
+        if let index = networkTrafficEntries.index(where: { $0 === entry }) {
+            let indexPath = IndexPath(row: index, section: 0)
+            customView.tableView.reloadRows(at: [indexPath], with: .automatic)
+        } else {
+            let lastRow = customView.tableView.numberOfRows(inSection: 0) - 1
+            let indexPath = IndexPath(row: lastRow + 1, section: 0)
+            networkTrafficEntries.append(entry)
+            customView.tableView.insertRows(at: [indexPath], with: .automatic)
+        }
     }
 }
 
