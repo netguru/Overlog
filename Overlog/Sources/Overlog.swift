@@ -27,7 +27,7 @@ public final class Overlog {
     /// Overlay's root flow controller
     fileprivate var flowController: OverlayFlowController?
 
-    /// Initialzer
+    /// Initializer
     internal init() {
         flowController = nil
     }
