@@ -61,7 +61,6 @@ internal final class OverlayViewController: UIViewController {
             didPerformShakeEvent?(event)
         }
     }
-    
 }
 
 // MARK: - Target actions
@@ -99,5 +98,4 @@ fileprivate extension OverlayViewController {
 			break
 		}
     }
-    
 }

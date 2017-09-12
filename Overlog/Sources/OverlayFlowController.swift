@@ -41,8 +41,9 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
         rootViewController.flowDelegate = self
         
         /// Configure root's child controller and add it to a view
+        viewController.view.frame = rootViewController.view.bounds
         rootViewController.addChildViewController(viewController)
-        rootViewController.overlayView.embed(view: viewController.view)
+        rootViewController.view.addSubview(viewController.view)
         viewController.didMove(toParentViewController: rootViewController)
         
         /// Make the overlay view controller window's root view controller
@@ -71,5 +72,4 @@ extension OverlayFlowController: MainViewFlowControllerDelegate {
             rootViewController?.overlayView.animateTitleChange(from: eventType.icon, duration: 1)
         }
     }
-
 }
