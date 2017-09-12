@@ -55,15 +55,6 @@ public final class Overlog {
     /// Shared instance
     public static let shared = Overlog()
 
-    /// Presents floating button
-    /// - Discussion:
-    ///     - This methods sets `isHidden` to `false` on `OverlayView`'s `floatingButton` only
-    public func present() {
-        /// Extract the root view controller and configure the floating button
-        guard let rootViewController = flowController?.rootViewController else { return }
-        rootViewController.overlayView.floatingButton.isHidden = false
-    }
-    
     /// Shake event
     ///
     /// - Parameter overlayView: overlayView description
