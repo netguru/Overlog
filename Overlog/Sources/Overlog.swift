@@ -27,7 +27,7 @@ public final class Overlog {
     /// Overlay's root flow controller
     fileprivate var flowController: OverlayFlowController?
 
-    /// Initialzer
+    /// Initializer
     internal init() {
         flowController = nil
     }
@@ -55,24 +55,12 @@ public final class Overlog {
     /// Shared instance
     public static let shared = Overlog()
 
-    /// Presents floating button
-    /// - Discussion:
-    ///     - This methods sets `isHidden` to `false` on `OverlayView`'s `floatingButton` only
-    public func present() {
-        /// Extract the root view controller and configure the floating button
-        guard let rootViewController = flowController?.rootViewController else { return }
-        rootViewController.overlayView.floatingButton.isHidden = false
-    }
-    
-    /// Shake event
+    /// Shake event.
     ///
-    /// - Parameter overlayView: overlayView description
+    /// - Parameter event: A shake event to be handled.
     private func didPerformShake(event _: UIEvent?) {
         if configuration.toggleOnShakeGesture {
-            /// Extract the root view controller and configure the floating button
-            guard let rootViewController = flowController?.rootViewController else { return }
-            let overlayView = rootViewController.overlayView
-            overlayView.floatingButton.isHidden = !overlayView.floatingButton.isHidden
+            isHidden = !isHidden
         }
     }
     
