@@ -12,6 +12,10 @@
 		3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */; };
 		3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
+		5E6E26F41F86B54600A1DC4D /* URLConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F31F86B54600A1DC4D /* URLConfigurationViewController.swift */; };
+		5E6E26F61F86B5BA00A1DC4D /* URLConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F51F86B5BA00A1DC4D /* URLConfigurationView.swift */; };
+		5E6E26F81F86C07D00A1DC4D /* URLConfigurationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F71F86C07D00A1DC4D /* URLConfigurationStorage.swift */; };
+		5E6E26FA1F86C96C00A1DC4D /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F91F86C96C00A1DC4D /* Scheme.swift */; };
 		5E88AF8B1F616DD700D54712 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88AF8A1F616DD700D54712 /* FeatureType.swift */; };
 		5E88AF8C1F6178EF00D54712 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88AF8A1F616DD700D54712 /* FeatureType.swift */; };
 		5E88AF901F627C8700D54712 /* ConfigurationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88AF8F1F627C8700D54712 /* ConfigurationSpec.swift */; };
@@ -126,6 +130,10 @@
 		3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Debug.xcconfig"; sourceTree = "<group>"; };
 		3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Release.xcconfig"; sourceTree = "<group>"; };
 		3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Base.xcconfig"; sourceTree = "<group>"; };
+		5E6E26F31F86B54600A1DC4D /* URLConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfigurationViewController.swift; sourceTree = "<group>"; };
+		5E6E26F51F86B5BA00A1DC4D /* URLConfigurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfigurationView.swift; sourceTree = "<group>"; };
+		5E6E26F71F86C07D00A1DC4D /* URLConfigurationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfigurationStorage.swift; sourceTree = "<group>"; };
+		5E6E26F91F86C96C00A1DC4D /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		5E88AF8A1F616DD700D54712 /* FeatureType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureType.swift; sourceTree = "<group>"; };
 		5E88AF8F1F627C8700D54712 /* ConfigurationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationSpec.swift; sourceTree = "<group>"; };
 		5E88AF921F62BD0400D54712 /* UserDefaultsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsMonitor.swift; sourceTree = "<group>"; };
@@ -375,6 +383,7 @@
 				779A9D561F4C448600CF6310 /* DefaultActivityViewController.swift */,
 				5EEAE7F71F5F0C45009B6149 /* KeychainMonitor.swift */,
 				5E88AF921F62BD0400D54712 /* UserDefaultsMonitor.swift */,
+				5E6E26F71F86C07D00A1DC4D /* URLConfigurationStorage.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -384,6 +393,7 @@
 			children = (
 				731A1B791F069491008A6164 /* Feature.swift */,
 				5E88AF8A1F616DD700D54712 /* FeatureType.swift */,
+				5E6E26F91F86C96C00A1DC4D /* Scheme.swift */,
 				73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */,
 				EAFAE27C1F0CD70F0017380B /* LogEntry.swift */,
 				5EEAE7F51F5F0AF5009B6149 /* KeychainItem.swift */,
@@ -448,6 +458,7 @@
 				7378713C1F0E451F00AF0724 /* RequestViewController.swift */,
 				7378713E1F0E466100AF0724 /* ResponseViewController.swift */,
 				EAFAE2781F0BCC780017380B /* LogsViewController.swift */,
+				5E6E26F31F86B54600A1DC4D /* URLConfigurationViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -462,6 +473,7 @@
 				73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */,
 				73EB46471F0E2712001B7AA1 /* RequestView.swift */,
 				73EB46491F0E274D001B7AA1 /* ResponseView.swift */,
+				5E6E26F51F86B5BA00A1DC4D /* URLConfigurationView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -694,11 +706,14 @@
 				810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */,
 				7378713F1F0E466100AF0724 /* ResponseViewController.swift in Sources */,
 				7378713D1F0E451F00AF0724 /* RequestViewController.swift in Sources */,
+				5E6E26FA1F86C96C00A1DC4D /* Scheme.swift in Sources */,
 				EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */,
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */,
+				5E6E26F81F86C07D00A1DC4D /* URLConfigurationStorage.swift in Sources */,
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
 				5EEAE7F61F5F0AF5009B6149 /* KeychainItem.swift in Sources */,
+				5E6E26F61F86B5BA00A1DC4D /* URLConfigurationView.swift in Sources */,
 				EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				EA747B991F0F80570048506A /* LogsViewController.swift in Sources */,
@@ -713,6 +728,7 @@
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
 				5EEAE8051F604458009B6149 /* Configuration.swift in Sources */,
 				779A9D621F4C5E0E00CF6310 /* ResponseRepresentation.swift in Sources */,
+				5E6E26F41F86B54600A1DC4D /* URLConfigurationViewController.swift in Sources */,
 				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
 				EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */,
 				5EEAE7F81F5F0C45009B6149 /* KeychainMonitor.swift in Sources */,

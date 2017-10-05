@@ -14,10 +14,11 @@ public enum FeatureType: String {
     case userDefaults = "User Defaults"
     case consoleLogs = "Console Logs"
     case systemLogs = "System Logs"
+    case url = "URL Configuration"
     
     /// All available feature types.
     static public var all: [FeatureType] {
-        return [.network, .keychain, .userDefaults, .consoleLogs, .systemLogs]
+        return [.network, .keychain, .userDefaults, .consoleLogs, .systemLogs, .url]
     }
     
     /// User defaults key for corresponding feature type.
