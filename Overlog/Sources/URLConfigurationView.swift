@@ -31,7 +31,6 @@ internal final class URLConfigurationView: View {
     }
     
     internal override func setupConstraints() {
-        
         if #available(iOSApplicationExtension 9.0, *) {
             NSLayoutConstraint.activate([
                 segmentedControl.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -55,7 +54,6 @@ internal final class URLConfigurationView: View {
         super.draw(rect)
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
-
         context.beginPath()
         context.move(to: CGPoint(x: inputField.frame.minX, y: inputField.frame.maxY))
         context.addLine(to: CGPoint(x: inputField.frame.maxX, y: inputField.frame.maxY))
