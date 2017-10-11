@@ -15,12 +15,12 @@ internal struct Feature {
     }
     
     init(type: FeatureType, enabled: Bool) {
-        self.type = type;
+        self.type = type
         self.enabled = enabled
     }
     
     /// Feature counter used for notifications
-    var counter = Int(0)
+    internal var counter = Int(0)
 
     mutating func changeCounter(counter: Int) {
         self.counter = counter
