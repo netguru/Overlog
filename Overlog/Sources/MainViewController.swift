@@ -1,0 +1,141 @@
+//
+//  MainViewController.swift
+//
+//  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+//  Licensed under the MIT License.
+//
+
+import UIKit
+
+internal protocol MainViewControllerFlowDelegate: class {
+
+    /// Tells the flow delegate that close button has been tapped.
+    ///
+    /// - Parameters:
+    ///   - sender: a button responsible for sending the action
+    func didTapCloseButton(with sender: UIBarButtonItem)
+    
+    /// Tells the flow delegate that settings button has been tapped.
+    ///
+    /// - Parameters:
+    ///   - sender: a button responsible for sending the action
+    func didTapSettingsButton(with sender: UIBarButtonItem)
+
+    /// Tells the flow delegate that some feature was clicked.
+    ///
+    /// - Parameter feature: selected feature.
+    func didSelect(feature: FeatureType)
+}
+
+internal final class MainViewController: UIViewController {
+
+    /// A delegate responsible for sending flow controller callbacks
+    internal weak var flowDelegate: MainViewControllerFlowDelegate?
+
+    /// Custom view to be displayed
+    internal let customView = MainView()
+
+    /// Data source of available features
+    fileprivate let featuresDataSource: FeaturesDataSource
+    
+    /// Cached enabled features taken from its data source.
+    fileprivate var features: [Feature]
+    
+    // MARK: - View controller lifecycle
+    
+    init(featuresDataSource: FeaturesDataSource) {
+        self.featuresDataSource = featuresDataSource;
+        self.features = featuresDataSource.enabledFeatures()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable, message: "Use init(featuresDataSource:) instead")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    internal override func loadView() {
+        view = customView
+    }
+
+    internal override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        /// Configure bar button item with 'close' option
+        let closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
+        let settingsBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(didTapSettingsButton(with:)))
+        
+        navigationItem.rightBarButtonItems = [closeBarButtonItem, settingsBarButtonItem]
+
+        title = "Overlog".localized
+        configure(tableView: customView.tableView)
+        
+        /// Add notification handling for changes in enabled features data source
+        NotificationCenter.default.addObserver(forName: featuresDataSource.enabledFeaturesDidChangeNotificationKey, object: nil, queue: OperationQueue.main) { [unowned self] (notification: Notification) in
+            self.features = self.featuresDataSource.enabledFeatures()
+            self.customView.tableView.reloadData()
+        }
+    }
+    
+    // MARK: - Configuration
+
+    private func configure(tableView: UITableView) {
+        tableView.register(FeatureCell.self, forCellReuseIdentifier: String(describing: FeatureCell.self))
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+}
+
+// MARK: - Target actions
+
+fileprivate extension MainViewController {
+    
+    /// Sends the close action from bar button item to flow delegate.
+    ///
+    /// - Parameters:
+    ///   - sender: a button responsible for sending the action
+    @objc fileprivate func didTapCloseButton(with sender: UIBarButtonItem) {
+        flowDelegate?.didTapCloseButton(with: sender)
+    }
+    
+    /// Sends the settings action from bar button item to flow delegate.
+    ///
+    /// - Parameters:
+    ///   - sender: a button responsible for sending the action
+    @objc fileprivate func didTapSettingsButton(with sender: UIBarButtonItem) {
+        flowDelegate?.didTapSettingsButton(with: sender)
+    }
+    
+}
+
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeatureCell.self), for: indexPath) as! FeatureCell
+
+        let feature = features[indexPath.row]
+        cell.nameLabel.text = feature.description
+        if feature.counter > 0 {
+            cell.counterLabel.text = String(feature.counter)
+        }
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return features.count
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.flowDelegate?.didSelect(feature: features[indexPath.row].type)
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+}

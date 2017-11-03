@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A2204021ED42F5F0048F6A7 /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
+		3A2204311ED440440048F6A7 /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204291ED440390048F6A7 /* Foo.swift */; };
+		3A2204321ED440470048F6A7 /* FooSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204301ED440390048F6A7 /* FooSpec.swift */; };
+		3A22043F1ED442990048F6A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2204361ED440590048F6A7 /* Images.xcassets */; };
+		3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */; };
+		3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
+		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
+		7301BA511F06CD1B00B3C018 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7301BA501F06CD1B00B3C018 /* TableView.swift */; };
+		7310A4B41F0B480D00945C7E /* NetworkTrafficViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */; };
+		7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */; };
+		731A1B6F1F06753D008A6164 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B6E1F06753D008A6164 /* MainView.swift */; };
+		731A1B711F0679F3008A6164 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B701F0679F3008A6164 /* View.swift */; };
+		731A1B781F069405008A6164 /* FeaturesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B771F069405008A6164 /* FeaturesDataSource.swift */; };
+		731A1B7A1F069491008A6164 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B791F069491008A6164 /* Feature.swift */; };
+		731A1B7E1F06953E008A6164 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B7D1F06953E008A6164 /* TableViewCell.swift */; };
+		731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B7F1F06961E008A6164 /* FeatureCell.swift */; };
+		731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */; };
+		7378713D1F0E451F00AF0724 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7378713C1F0E451F00AF0724 /* RequestViewController.swift */; };
+		7378713F1F0E466100AF0724 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7378713E1F0E466100AF0724 /* ResponseViewController.swift */; };
+		73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */; };
+		73EB46401F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */; };
+		73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46431F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift */; };
+		73EB46461F0E22CA001B7AA1 /* TrafficDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */; };
+		73EB46481F0E2712001B7AA1 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46471F0E2712001B7AA1 /* RequestView.swift */; };
+		73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46491F0E274D001B7AA1 /* ResponseView.swift */; };
+		810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D51F05258A00E12159 /* MainViewController.swift */; };
+		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
+		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
+		810EF3DE1F05950300E12159 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DD1F05950300E12159 /* FlowController.swift */; };
+		812CA3161F14B5FA00B71401 /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812CA3151F14B5FA00B71401 /* SelectableTableViewCell.swift */; };
+		8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185ADF71F0D15A700379C39 /* SettingsViewController.swift */; };
+		8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA521F0BD45D002831E9 /* KeychainEntry.swift */; };
+		8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186AA541F0BD702002831E9 /* KeychainViewController.swift */; };
+		81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */; };
+		81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CCC1411F0D02CA0058BEB8 /* String.swift */; };
+		BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */; };
+		BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */; };
+		BF6904561ED49B9600FF303E /* Overlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904551ED49B9600FF303E /* Overlog.swift */; };
+		BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904581ED58EB500FF303E /* OverlayViewController.swift */; };
+		BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69045A1ED5975D00FF303E /* OverlayView.swift */; };
+		BF6904A51EDC30E900FF303E /* Overlog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF6904AC1EDD9CE600FF303E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6904AA1EDD9C6000FF303E /* ViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A88CEBD1ED32D4D00557CFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A88CEA91ED32D4D00557CFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A88CEB11ED32D4D00557CFA;
+			remoteInfo = Overlog;
+		};
+		3ADF07BE1ED48FE4004E8C7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A88CEA91ED32D4D00557CFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A88CEB11ED32D4D00557CFA;
+			remoteInfo = Overlog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BF6904A61EDC30EA00FF303E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BF6904A51EDC30E900FF303E /* Overlog.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Overlog Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Demo-Base.xcconfig"; sourceTree = "<group>"; };
+		3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Base.xcconfig"; sourceTree = "<group>"; };
+		3A2204261ED440390048F6A7 /* Framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Framework-Info.plist"; sourceTree = "<group>"; };
+		3A2204271ED440390048F6A7 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		3A2204291ED440390048F6A7 /* Foo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
+		3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCheckSupport.swift; sourceTree = "<group>"; };
+		3A2204301ED440390048F6A7 /* FooSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooSpec.swift; sourceTree = "<group>"; };
+		3A2204351ED440590048F6A7 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
+		3A2204361ED440590048F6A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
+		3A88CEB21ED32D4D00557CFA /* Overlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Overlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Overlog Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A88CED41ED32F2A00557CFA /* Common-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Base.xcconfig"; sourceTree = "<group>"; };
+		3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Debug.xcconfig"; sourceTree = "<group>"; };
+		3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Release.xcconfig"; sourceTree = "<group>"; };
+		3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Base.xcconfig"; sourceTree = "<group>"; };
+		7301BA501F06CD1B00B3C018 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTrafficViewController.swift; sourceTree = "<group>"; };
+		7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTrafficCell.swift; sourceTree = "<group>"; };
+		731A1B6E1F06753D008A6164 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		731A1B701F0679F3008A6164 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		731A1B771F069405008A6164 /* FeaturesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturesDataSource.swift; sourceTree = "<group>"; };
+		731A1B791F069491008A6164 /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		731A1B7D1F06953E008A6164 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		731A1B7F1F06961E008A6164 /* FeatureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
+		731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsViewController.swift; sourceTree = "<group>"; };
+		7378713C1F0E451F00AF0724 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
+		7378713E1F0E466100AF0724 /* ResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
+		73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsCell.swift; sourceTree = "<group>"; };
+		73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTrafficEntry.swift; sourceTree = "<group>"; };
+		73EB46431F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficDetailsViewController.swift; sourceTree = "<group>"; };
+		73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficDetailsView.swift; sourceTree = "<group>"; };
+		73EB46471F0E2712001B7AA1 /* RequestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
+		73EB46491F0E274D001B7AA1 /* ResponseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
+		810EF3D51F05258A00E12159 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
+		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
+		810EF3DD1F05950300E12159 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		812CA3151F14B5FA00B71401 /* SelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTableViewCell.swift; sourceTree = "<group>"; };
+		8185ADF71F0D15A700379C39 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8186AA521F0BD45D002831E9 /* KeychainEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainEntry.swift; sourceTree = "<group>"; };
+		8186AA541F0BD702002831E9 /* KeychainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainViewController.swift; sourceTree = "<group>"; };
+		81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainManager.h; sourceTree = "<group>"; };
+		81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainManager.m; sourceTree = "<group>"; };
+		81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Overlog-Bridging-Header.h"; sourceTree = "<group>"; };
+		81CCC1411F0D02CA0058BEB8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorSpec.swift; sourceTree = "<group>"; };
+		BF6904551ED49B9600FF303E /* Overlog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlog.swift; sourceTree = "<group>"; };
+		BF6904581ED58EB500FF303E /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BF69045A1ED5975D00FF303E /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		BF6904AA1EDD9C6000FF303E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A2203E91ED42EA30048F6A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A2204021ED42F5F0048F6A7 /* Overlog.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A88CEAE1ED32D4D00557CFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A88CEB81ED32D4D00557CFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A2204251ED440390048F6A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204261ED440390048F6A7 /* Framework-Info.plist */,
+				3A2204271ED440390048F6A7 /* Tests-Info.plist */,
+			);
+			name = Resources;
+			path = Overlog/Resources;
+			sourceTree = "<group>";
+		};
+		3A2204281ED440390048F6A7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				731A1B7B1F069497008A6164 /* Models */,
+				810EF3DF1F05950A00E12159 /* Abstractions */,
+				81CCC1401F0D02AF0058BEB8 /* Extensions */,
+				810EF3E01F05951A00E12159 /* Flow Controllers */,
+				731A1B741F0686EF008A6164 /* Helpers */,
+				810EF3E11F05952B00E12159 /* View Controllers */,
+				810EF3E21F05953A00E12159 /* Views */,
+				81BA2AEE1F0B8F300064B67D /* Overlog-Bridging-Header.h */,
+			);
+			name = Sources;
+			path = Overlog/Sources;
+			sourceTree = "<group>";
+		};
+		3A22042A1ED440390048F6A7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3A22042F1ED440390048F6A7 /* Specs */,
+				3A22042B1ED440390048F6A7 /* Additions */,
+			);
+			name = Tests;
+			path = Overlog/Tests;
+			sourceTree = "<group>";
+		};
+		3A22042B1ED440390048F6A7 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204421ED442E90048F6A7 /* Generators */,
+				3A2204431ED442EE0048F6A7 /* Matchers */,
+				3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		3A22042F1ED440390048F6A7 /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204301ED440390048F6A7 /* FooSpec.swift */,
+				BE96FAB61EE19722000C4590 /* NetworkMonitorSpec.swift */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
+		3A2204331ED440590048F6A7 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204371ED440590048F6A7 /* Sources */,
+				3A2204341ED440590048F6A7 /* Resources */,
+			);
+			name = Demo;
+			path = Overlog/Demo;
+			sourceTree = "<group>";
+		};
+		3A2204341ED440590048F6A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204351ED440590048F6A7 /* Demo-Info.plist */,
+				3A2204361ED440590048F6A7 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3A2204371ED440590048F6A7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */,
+				BF6904AA1EDD9C6000FF303E /* ViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3A2204421ED442E90048F6A7 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Generators;
+			sourceTree = "<group>";
+		};
+		3A2204431ED442EE0048F6A7 /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Matchers;
+			sourceTree = "<group>";
+		};
+		3A88CEA81ED32D4D00557CFA = {
+			isa = PBXGroup;
+			children = (
+				3A2204281ED440390048F6A7 /* Sources */,
+				3A22042A1ED440390048F6A7 /* Tests */,
+				3A2204331ED440590048F6A7 /* Demo */,
+				3A2204251ED440390048F6A7 /* Resources */,
+				3A88CED31ED32EFD00557CFA /* Configurations */,
+				3A88CEB31ED32D4D00557CFA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A88CEB31ED32D4D00557CFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CEB21ED32D4D00557CFA /* Overlog.framework */,
+				3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */,
+				3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A88CED31ED32EFD00557CFA /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CED81ED32F9A00557CFA /* Common */,
+				3A88CED91ED32FA200557CFA /* Targets */,
+			);
+			name = Configurations;
+			path = Overlog/Configurations;
+			sourceTree = "<group>";
+		};
+		3A88CED81ED32F9A00557CFA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CED41ED32F2A00557CFA /* Common-Base.xcconfig */,
+				3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */,
+				3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		3A88CED91ED32FA200557CFA /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */,
+				3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */,
+				3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */,
+			);
+			name = Targets;
+			sourceTree = "<group>";
+		};
+		731A1B741F0686EF008A6164 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A2204291ED440390048F6A7 /* Foo.swift */,
+				BE80D6101EE0968C009C6716 /* NetworkMonitor.swift */,
+				731A1B771F069405008A6164 /* FeaturesDataSource.swift */,
+				81BA2AEB1F0B8EE40064B67D /* KeychainManager.h */,
+				81BA2AEC1F0B8EE40064B67D /* KeychainManager.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		731A1B7B1F069497008A6164 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				731A1B791F069491008A6164 /* Feature.swift */,
+				73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */,
+				8186AA521F0BD45D002831E9 /* KeychainEntry.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		731A1B7C1F06952E008A6164 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				731A1B7F1F06961E008A6164 /* FeatureCell.swift */,
+				73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */,
+<<<<<<< Updated upstream
+				7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */,
+=======
+				812CA3151F14B5FA00B71401 /* SelectableTableViewCell.swift */,
+>>>>>>> Stashed changes
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		810EF3DF1F05950A00E12159 /* Abstractions */ = {
+			isa = PBXGroup;
+			children = (
+				810EF3DD1F05950300E12159 /* FlowController.swift */,
+				BF6904551ED49B9600FF303E /* Overlog.swift */,
+				731A1B7D1F06953E008A6164 /* TableViewCell.swift */,
+				731A1B701F0679F3008A6164 /* View.swift */,
+			);
+			name = Abstractions;
+			sourceTree = "<group>";
+		};
+		810EF3E01F05951A00E12159 /* Flow Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				810EF3DB1F05940100E12159 /* MainViewFlowController.swift */,
+				810EF3D91F0593F300E12159 /* OverlayFlowController.swift */,
+			);
+			name = "Flow Controllers";
+			sourceTree = "<group>";
+		};
+		810EF3E11F05952B00E12159 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8186AA541F0BD702002831E9 /* KeychainViewController.swift */,
+				810EF3D51F05258A00E12159 /* MainViewController.swift */,
+				7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */,
+				BF6904581ED58EB500FF303E /* OverlayViewController.swift */,
+				73EB46431F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift */,
+				731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */,
+				8186AA541F0BD702002831E9 /* KeychainViewController.swift */,
+				8185ADF71F0D15A700379C39 /* SettingsViewController.swift */,
+				7378713C1F0E451F00AF0724 /* RequestViewController.swift */,
+				7378713E1F0E466100AF0724 /* ResponseViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		810EF3E21F05953A00E12159 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				731A1B7C1F06952E008A6164 /* Cells */,
+				731A1B6E1F06753D008A6164 /* MainView.swift */,
+				BF69045A1ED5975D00FF303E /* OverlayView.swift */,
+				7301BA501F06CD1B00B3C018 /* TableView.swift */,
+				73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */,
+				73EB46471F0E2712001B7AA1 /* RequestView.swift */,
+				73EB46491F0E274D001B7AA1 /* ResponseView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		81CCC1401F0D02AF0058BEB8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				81CCC1411F0D02CA0058BEB8 /* String.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A2203EB1ED42EA30048F6A7 /* Overlog Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A2203FD1ED42EA30048F6A7 /* Build configuration list for PBXNativeTarget "Overlog Demo" */;
+			buildPhases = (
+				3A2203E81ED42EA30048F6A7 /* Sources */,
+				3A2203E91ED42EA30048F6A7 /* Frameworks */,
+				3A2203EA1ED42EA30048F6A7 /* Resources */,
+				3A2204011ED42F440048F6A7 /* Carthage Copy Frameworks */,
+				BF6904A61EDC30EA00FF303E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3ADF07BF1ED48FE4004E8C7E /* PBXTargetDependency */,
+			);
+			name = "Overlog Demo";
+			productName = "Overlog Demo";
+			productReference = 3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A88CEB11ED32D4D00557CFA /* Overlog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A88CEC61ED32D4D00557CFA /* Build configuration list for PBXNativeTarget "Overlog" */;
+			buildPhases = (
+				3A88CEAD1ED32D4D00557CFA /* Sources */,
+				3A88CEAE1ED32D4D00557CFA /* Frameworks */,
+				3A88CEB01ED32D4D00557CFA /* Resources */,
+				BE80D60F1EE09405009C6716 /* Carthage Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Overlog;
+			productName = Overlog;
+			productReference = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3A88CEBA1ED32D4D00557CFA /* Overlog Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A88CEC91ED32D4D00557CFA /* Build configuration list for PBXNativeTarget "Overlog Tests" */;
+			buildPhases = (
+				3A88CEB71ED32D4D00557CFA /* Sources */,
+				3A88CEB81ED32D4D00557CFA /* Frameworks */,
+				3A88CEB91ED32D4D00557CFA /* Resources */,
+				3A88CEE91ED34ABB00557CFA /* Carthage Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A88CEBE1ED32D4D00557CFA /* PBXTargetDependency */,
+			);
+			name = "Overlog Tests";
+			productName = OverlogTests;
+			productReference = 3A88CEBB1ED32D4D00557CFA /* Overlog Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A88CEA91ED32D4D00557CFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Netguru Sp. z o.o.";
+				TargetAttributes = {
+					3A2203EB1ED42EA30048F6A7 = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Manual;
+					};
+					3A88CEB11ED32D4D00557CFA = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Manual;
+					};
+					3A88CEBA1ED32D4D00557CFA = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3A88CEAC1ED32D4D00557CFA /* Build configuration list for PBXProject "Overlog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A88CEA81ED32D4D00557CFA;
+			productRefGroup = 3A88CEB31ED32D4D00557CFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A88CEB11ED32D4D00557CFA /* Overlog */,
+				3A88CEBA1ED32D4D00557CFA /* Overlog Tests */,
+				3A2203EB1ED42EA30048F6A7 /* Overlog Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A2203EA1ED42EA30048F6A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A22043F1ED442990048F6A7 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A88CEB01ED32D4D00557CFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A88CEB91ED32D4D00557CFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A2204011ED42F440048F6A7 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
+				"$(_CARTHAGE_BUILD_PATH)/ResponseDetective.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
+		3A88CEE91ED34ABB00557CFA /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(_CARTHAGE_BUILD_PATH)/Nimble.framework",
+				"$(_CARTHAGE_BUILD_PATH)/Quick.framework",
+				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
+				"$(_CARTHAGE_BUILD_PATH)/SwiftCheck.framework",
+				"$(_CARTHAGE_BUILD_PATH)/OHHTTPStubs.framework",
+				"$(_CARTHAGE_BUILD_PATH)/ResponseDetective.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
+		BE80D60F1EE09405009C6716 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(_CARTHAGE_BUILD_PATH)/ResponseDetective.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A2203E81ED42EA30048F6A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF6904AC1EDD9CE600FF303E /* ViewController.swift in Sources */,
+				3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A88CEAD1ED32D4D00557CFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73EB46481F0E2712001B7AA1 /* RequestView.swift in Sources */,
+				810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */,
+				7378713F1F0E466100AF0724 /* ResponseViewController.swift in Sources */,
+				7378713D1F0E451F00AF0724 /* RequestViewController.swift in Sources */,
+				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
+				7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */,
+				8186AA531F0BD45D002831E9 /* KeychainEntry.swift in Sources */,
+				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
+				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
+				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
+				8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */,
+<<<<<<< Updated upstream
+				73EB46401F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift in Sources */,
+				73EB464A1F0E274D001B7AA1 /* ResponseView.swift in Sources */,
+=======
+				812CA3161F14B5FA00B71401 /* SelectableTableViewCell.swift in Sources */,
+>>>>>>> Stashed changes
+				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
+				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
+				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,
+				810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */,
+				8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */,
+				81BA2AED1F0B8EE40064B67D /* KeychainManager.m in Sources */,
+				81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */,
+				73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */,
+				BF6904561ED49B9600FF303E /* Overlog.swift in Sources */,
+				731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */,
+				731A1B7E1F06953E008A6164 /* TableViewCell.swift in Sources */,
+				3A2204311ED440440048F6A7 /* Foo.swift in Sources */,
+				731A1B781F069405008A6164 /* FeaturesDataSource.swift in Sources */,
+				7301BA511F06CD1B00B3C018 /* TableView.swift in Sources */,
+				731A1B711F0679F3008A6164 /* View.swift in Sources */,
+				731A1B7A1F069491008A6164 /* Feature.swift in Sources */,
+				BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */,
+				7310A4B41F0B480D00945C7E /* NetworkTrafficViewController.swift in Sources */,
+				73EB46461F0E22CA001B7AA1 /* TrafficDetailsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A88CEB71ED32D4D00557CFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */,
+				BE96FAB71EE19722000C4590 /* NetworkMonitorSpec.swift in Sources */,
+				3A2204321ED440470048F6A7 /* FooSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A88CEBE1ED32D4D00557CFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A88CEB11ED32D4D00557CFA /* Overlog */;
+			targetProxy = 3A88CEBD1ED32D4D00557CFA /* PBXContainerItemProxy */;
+		};
+		3ADF07BF1ED48FE4004E8C7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A88CEB11ED32D4D00557CFA /* Overlog */;
+			targetProxy = 3ADF07BE1ED48FE4004E8C7E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3A2203FB1ED42EA30048F6A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3A2203FC1ED42EA30048F6A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		3A88CEC41ED32D4D00557CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */;
+			buildSettings = {
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3A88CEC51ED32D4D00557CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */;
+			buildSettings = {
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		3A88CEC71ED32D4D00557CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3A88CEC81ED32D4D00557CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		3A88CECA1ED32D4D00557CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3A88CECB1ED32D4D00557CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A2203FD1ED42EA30048F6A7 /* Build configuration list for PBXNativeTarget "Overlog Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A2203FB1ED42EA30048F6A7 /* Debug */,
+				3A2203FC1ED42EA30048F6A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A88CEAC1ED32D4D00557CFA /* Build configuration list for PBXProject "Overlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A88CEC41ED32D4D00557CFA /* Debug */,
+				3A88CEC51ED32D4D00557CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A88CEC61ED32D4D00557CFA /* Build configuration list for PBXNativeTarget "Overlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A88CEC71ED32D4D00557CFA /* Debug */,
+				3A88CEC81ED32D4D00557CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A88CEC91ED32D4D00557CFA /* Build configuration list for PBXNativeTarget "Overlog Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A88CECA1ED32D4D00557CFA /* Debug */,
+				3A88CECB1ED32D4D00557CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A88CEA91ED32D4D00557CFA /* Project object */;
+}

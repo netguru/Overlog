@@ -1,0 +1,18 @@
+#
+# Cartfile.private
+#
+# Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+# Licensed under the MIT License.
+#
+
+# Configuration dependencies
+
+github "netguru/xcconfigs" == 0.2
+
+# Test dependencies
+
+github "akashivskyy/QuickSwiftCheck" ~> 1.2.0
+github "Quick/Quick" ~> 1.2.0
+github "Quick/Nimble" ~> 7.0.2
+github "typelift/SwiftCheck" ~> 0.8.1
+github "AliSoftware/OHHTTPStubs" ~> 6.0.0

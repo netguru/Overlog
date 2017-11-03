@@ -1,0 +1,9 @@
+#
+# Cartfile
+# Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+#
+
+# Architecture dependencies
+
+github "antitypical/Result" ~> 3.0.0
+github "netguru/ResponseDetective" ~> 1.2.2

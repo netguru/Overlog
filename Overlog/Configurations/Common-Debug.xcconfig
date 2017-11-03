@@ -1,0 +1,15 @@
+//
+// Common-Debug.xcconfig
+//
+// Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+// Licensed under the MIT License.
+//
+
+// MARK: Imports
+
+#include "Common-Base.xcconfig"
+#include "../../Carthage/Checkouts/xcconfigs/Configurations/Debug.xcconfig"
+
+// MARK: Build
+
+_SWIFT_OPTIMIZATION_LEVEL = -Onone
