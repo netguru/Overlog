@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A2204021ED42F5F0048F6A7 /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 		3A22043F1ED442990048F6A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2204361ED440590048F6A7 /* Images.xcassets */; };
-		3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */; };
 		3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 		5E6E26F41F86B54600A1DC4D /* URLConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F31F86B54600A1DC4D /* URLConfigurationViewController.swift */; };
@@ -123,7 +122,6 @@
 		3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Base.xcconfig"; sourceTree = "<group>"; };
 		3A2204261ED440390048F6A7 /* Framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Framework-Info.plist"; sourceTree = "<group>"; };
 		3A2204271ED440390048F6A7 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
-		3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCheckSupport.swift; sourceTree = "<group>"; };
 		3A2204351ED440590048F6A7 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
 		3A2204361ED440590048F6A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 			children = (
 				3A2204421ED442E90048F6A7 /* Generators */,
 				3A2204431ED442EE0048F6A7 /* Matchers */,
-				3A22042E1ED440390048F6A7 /* SwiftCheckSupport.swift */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -768,7 +765,6 @@
 			files = (
 				5EEAE7FD1F5FFB36009B6149 /* KeychainMonitorSpec.swift in Sources */,
 				5EEAE7FB1F5FF9F1009B6149 /* KeychainItem.swift in Sources */,
-				3A2204411ED442D80048F6A7 /* SwiftCheckSupport.swift in Sources */,
 				81B15FC91F1D411200C9BDA2 /* Feature.swift in Sources */,
 				5E6E26FD1F86DB9C00A1DC4D /* URLConfigurationStorage.swift in Sources */,
 				5EEAE7FE1F5FFB3A009B6149 /* KeychainMonitor.swift in Sources */,

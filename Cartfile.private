@@ -7,11 +7,12 @@
 
 # Configuration dependencies
 
-github "netguru/xcconfigs" ~> 0.2
+github "netguru/xcconfigs" == 0.2
 
 # Test dependencies
 
-github "Quick/Quick" ~> 1.1.0
-github "Quick/Nimble" ~> 7.0.0
-github "typelift/SwiftCheck" ~> 0.8.0
-github "AliSoftware/OHHTTPStubs" "5.2.3-swift3"
+github "akashivskyy/QuickSwiftCheck" ~> 1.2.0
+github "Quick/Quick" ~> 1.2.0
+github "Quick/Nimble" ~> 7.0.2
+github "typelift/SwiftCheck" ~> 0.8.1
+github "AliSoftware/OHHTTPStubs" ~> 6.0.0

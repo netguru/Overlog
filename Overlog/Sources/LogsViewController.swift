@@ -50,7 +50,7 @@ extension LogsViewController {
     fileprivate func stringify(date: Date?) -> String {
         if let date = date {
             let stringDate = dateFormatter.string(from: date)
-            if stringDate.characters.count != 0 {
+            if stringDate.count != 0 {
                 return stringDate
             }
         }

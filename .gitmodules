@@ -19,3 +19,6 @@
 [submodule "Carthage/Checkouts/xcconfigs"]
 	path = Carthage/Checkouts/xcconfigs
 	url = https://github.com/netguru/xcconfigs.git
+[submodule "Carthage/Checkouts/QuickSwiftCheck"]
+	path = Carthage/Checkouts/QuickSwiftCheck
+	url = https://github.com/akashivskyy/QuickSwiftCheck.git

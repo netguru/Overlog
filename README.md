@@ -1,7 +1,7 @@
 # Overlog
 
 ![](https://www.bitrise.io/app/a30519b090279206/status.svg?token=IqUL6pahZ_BKcwqjzfV0dg&branch=develop)
-![](https://img.shields.io/badge/swift-3.1-orange.svg)
+![](https://img.shields.io/badge/swift-3.2-orange.svg)
 ![](https://img.shields.io/github/release/netguru/Overlog.svg)
 ![](https://img.shields.io/badge/carthage-compatible-green.svg)
 ![](https://img.shields.io/badge/cocoapods-compatible-green.svg)
@@ -10,7 +10,7 @@
 
 ## Installation Requirements
 
-Overlog requires **Xcode 8.3 or higher** and supports **iOS 8.0 or higher**.
+Overlog requires **Xcode 9.1 or higher** and supports **iOS 8.0 or higher**.
 
 ## Installation
 

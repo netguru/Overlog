@@ -25,7 +25,7 @@ internal final class OverlayView: View {
         floatingButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         floatingButton.layer.shadowRadius = 7.0
         floatingButton.layer.shadowOpacity = 0.2
-        floatingButton.backgroundColor = UIColor(colorLiteralRed: 66/255.0, green: 146/255.0, blue: 244/255.0, alpha: 1.0)
+        floatingButton.backgroundColor = UIColor(red: 66/255.0, green: 146/255.0, blue: 244/255.0, alpha: 1.0)
         floatingButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
 
         containerView.translatesAutoresizingMaskIntoConstraints = false
