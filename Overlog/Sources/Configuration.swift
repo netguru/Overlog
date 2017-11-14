@@ -12,6 +12,9 @@ public class Configuration {
     /// Toggles presentation of floating button when shake event was received.
     public var toggleOnShakeGesture = true
     
+    // A keychain service identifier associated with the host application.
+    public var keychainIdentifier: String?
+    
     /// Default configuration storage.
     fileprivate let defaults = UserDefaults.standard
 

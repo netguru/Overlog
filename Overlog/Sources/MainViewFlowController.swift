@@ -37,7 +37,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
 
     /// View controller for displaying user defaults items.
     fileprivate lazy var userDefaultsViewController: UserDefaultsViewController? = {
-        return self.keychainMonitor != nil ? {
+        return self.userDefaultsMonitor != nil ? {
             let controller = UserDefaultsViewController()
             controller.flowDelegate = self
             
@@ -201,7 +201,13 @@ fileprivate extension MainViewFlowController {
             networkMonitor?.delegate = self
         }
         if configuration.containsFeature(ofType: .keychain) {
-            keychainMonitor = KeychainMonitor(dataSource: Keychain())
+            let keychain: KeychainMonitorDataSource
+            if let serviceIdentifier = configuration.keychainIdentifier {
+                keychain = Keychain(service: serviceIdentifier)
+            } else {
+                keychain = Keychain()
+            }
+            keychainMonitor = KeychainMonitor(dataSource: keychain)
             keychainMonitor?.delegate = self
         }
         if configuration.containsFeature(ofType: .userDefaults) {
