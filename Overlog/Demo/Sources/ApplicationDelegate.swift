@@ -26,6 +26,7 @@ import Overlog
         
         overlog = Overlog.shared
         overlog?.configuration.features = FeatureType.all
+        overlog?.configuration.keychainIdentifier = "com.name.overlog.keychain"
         overlog?.show(in: window!, rootViewController: navigationController)
 
         window?.makeKeyAndVisible()
