@@ -74,6 +74,8 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
         overlayWindow.center = CGPoint(x: startPosition.x + deltaMove.x, y: startPosition.y + deltaMove.y)
     }
     
+    // MARK: - Helpers
+    
     /// Gets view controller that is currently visible for user. Also works with Navigation Controllers and Tab Bar Controllers
     ///
     /// - Parameter rootViewController: Controller when looking for visible vc starts
