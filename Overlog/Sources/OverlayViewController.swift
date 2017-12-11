@@ -96,8 +96,8 @@ fileprivate extension OverlayViewController {
 			/// Update the `overlayView.floatingButton` center value with current finger position, include the delta
 			let overlayTouchPoint = recognizer.location(in: view.superview)
 			overlayView.floatingButton.center = CGPoint(x: overlayTouchPoint.x + initialFloatingButtonCenterToTouchPointDelta.x, y: overlayTouchPoint.y + initialFloatingButtonCenterToTouchPointDelta.y)
-            
-            // When movement ended call delegate with movement delta, also reset origin to zero because delegate should change its window frame
+			
+			// When movement ended call delegate with movement delta, also reset origin to zero because delegate should change its window frame
 			if case .ended = recognizer.state {
 				let deltaMove = CGPoint(x: overlayView.floatingButton.center.x - initialFloatingButtonCenter.x, y: overlayView.floatingButton.center.y - initialFloatingButtonCenter.y)
 				flowDelegate?.didEndDraggingFloatingButton(deltaMove: deltaMove)
