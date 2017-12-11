@@ -84,13 +84,11 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
         guard let presented = rootViewController?.presentedViewController else {
             return rootViewController
         }
-        if presented.isKind(of: UINavigationController.self) {
-            let navigationController = presented as? UINavigationController
-            return getCurrentTopViewController(rootViewController: navigationController?.viewControllers.last)
+        if let navigationController = presented as? UINavigationController {
+			return getCurrentTopViewController(rootViewController: navigationController.viewControllers.last)
         }
-        if presented.isKind(of: UITabBarController.self) {
-            let tabBarController = presented as? UITabBarController
-            return getCurrentTopViewController(rootViewController: tabBarController?.selectedViewController)
+		if let tabBarController = presented as? UITabBarController {
+            return getCurrentTopViewController(rootViewController: tabBarController.selectedViewController)
         }
         return getCurrentTopViewController(rootViewController: presented)
     }
