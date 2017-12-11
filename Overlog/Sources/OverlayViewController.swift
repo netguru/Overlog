@@ -14,6 +14,11 @@ internal protocol OverlayViewControllerFlowDelegate: class {
     /// - Parameters:
     ///   - sender: a button responsible for sending the action
     func didTapFloatingButton(with sender: UIButton)
+    
+    /// Tells the flow delegate that floating button was dragged to new position
+    ///
+    /// - Parameter deltaMove: movement delta of floating button
+    func didEndDraggingFloatingButton(deltaMove: CGPoint)
 }
 
 internal final class OverlayViewController: UIViewController {
@@ -89,8 +94,15 @@ fileprivate extension OverlayViewController {
 			initialFloatingButtonCenterToTouchPointDelta = CGPoint(x: floatingButtonCenter.x - touchPoint.x, y: floatingButtonCenter.y - touchPoint.y)
 		case .ended, .changed:
 			/// Update the `overlayView.floatingButton` center value with current finger position, include the delta
-			let overlayTouchPoint = recognizer.location(in: overlayView)
+			let overlayTouchPoint = recognizer.location(in: view.superview)
 			overlayView.floatingButton.center = CGPoint(x: overlayTouchPoint.x + initialFloatingButtonCenterToTouchPointDelta.x, y: overlayTouchPoint.y + initialFloatingButtonCenterToTouchPointDelta.y)
+			
+			// When movement ended call delegate with movement delta, also reset origin to zero because delegate should change its window frame
+			if case .ended = recognizer.state {
+				let deltaMove = CGPoint(x: overlayView.floatingButton.center.x - initialFloatingButtonCenter.x, y: overlayView.floatingButton.center.y - initialFloatingButtonCenter.y)
+				flowDelegate?.didEndDraggingFloatingButton(deltaMove: deltaMove)
+				overlayView.floatingButton.frame.origin = .zero
+			}
 		case .cancelled, .failed:
 			/// Bring back the initial button center if the gesture gets interrupted
 			overlayView.floatingButton.center = initialFloatingButtonCenter

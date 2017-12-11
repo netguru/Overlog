@@ -51,9 +51,8 @@ public final class Overlog {
     ///
     /// - Parameters:
     ///   - window: application's main window
-    ///   - viewController: the main window's root view controller
-    public func show(in window: UIWindow, rootViewController viewController: UIViewController) {
-        flowController = OverlayFlowController(with: viewController, window: window, configuration: configuration)
+    public func show(in window: UIWindow) {
+        flowController = OverlayFlowController(with: window, configuration: configuration)
 
         /// Extract the root view controller and configure the events
         guard let rootViewController = flowController?.rootViewController else { return }
