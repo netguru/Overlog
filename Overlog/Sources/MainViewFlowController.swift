@@ -81,6 +81,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         /// Present the settings navigation controller on overlay controler
         guard let navigationController = rootViewController else { return }
         viewController.present(navigationController, animated: true, completion: nil)
+        delegate?.controller(self, toggleOverlogVisibilityToState: true)
     }
     
     // MARK: - MainView flow delegate
@@ -91,6 +92,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     func didTapCloseButton(with sender: UIBarButtonItem) {
         /// Dismiss modally presented settings navigation controller
         rootViewController?.dismiss(animated: true, completion: nil)
+        delegate?.controller(self, toggleOverlogVisibilityToState: false)
     }
     
     /// Action performed after tapping settings button
@@ -240,5 +242,12 @@ internal protocol MainViewFlowControllerDelegate: class {
     /// - parameter controller: A view flow controller receiving events from monitors
     /// - parameter eventType: Type of an event declared as FeatureType
     func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: FeatureType)
+    
+    /// Triggered when main view controller is presenting or dismissing
+    ///
+    /// - Parameters:
+    ///   - controller: A view flow controller receiving event
+    ///   - visible: state of the view controller
+    func controller(_ controller: MainViewFlowController, toggleOverlogVisibilityToState visible: Bool)
 
 }

@@ -17,7 +17,7 @@ internal protocol OverlayViewControllerFlowDelegate: class {
     
     /// Tells the flow delegate that floating button was dragged to new position
     ///
-    /// - Parameter currectPosition: new position of floating button
+    /// - Parameter deltaMove: movement delta of floating button
     func didEndDraggingFloatingButton(deltaMove: CGPoint)
 }
 
@@ -83,8 +83,6 @@ fileprivate extension OverlayViewController {
     ///
     /// - Parameter recognizer: pan gesture recognizer instance
     @objc fileprivate func didDragFloatingButton(with recognizer: UIPanGestureRecognizer) {
-        
-        
 		switch recognizer.state {
 		case .began:
 			/// Calculate the initial button center value during the gesture

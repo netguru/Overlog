@@ -28,9 +28,9 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
     /// Initializes Overlog's root flow controller
     ///
     /// - Parameters:
-    ///   - viewController: A child view controller of the overlay
     ///   - window: Application's main window
-    init(with viewController: UIViewController, window: UIWindow, configuration: Configuration) {
+    ///   - configuration: Overlog configuration
+    init(with window: UIWindow, configuration: Configuration) {
         self.applicationWindow = window
         self.configuration = configuration
 
@@ -43,33 +43,23 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
 
         /// Extract the root controller from optional and set self as flow delegate
         guard let rootViewController = rootViewController else { return }
+        rootViewController.flowDelegate = self
+        mainFlowController?.delegate = self
         
-        rootViewController.view.frame = viewController.view.bounds
-        
+        /// Init separate window for overlay view controller and set it as root
         overlayWindow = UIWindow(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        overlayWindow?.windowLevel = UIWindowLevelAlert + 1
+        overlayWindow?.windowLevel = UIWindowLevelAlert
         overlayWindow?.rootViewController = rootViewController
         overlayWindow?.isHidden = false
         
         /// Overlay window has to be key window to be able to receive shake gestures
         overlayWindow?.makeKey()
-        
-        rootViewController.flowDelegate = self
-        
-        /// Configure root's child controller and add it to a view
-//        viewController.view.frame = rootViewController.view.bounds
-//        rootViewController.addChildViewController(viewController)
-//        rootViewController.view.addSubview(viewController.view)
-//        viewController.didMove(toParentViewController: rootViewController)
-
-    
-        mainFlowController?.delegate = self
     }
 
     // MARK: - Overlay flow delegate
     
     func didTapFloatingButton(with sender: UIButton) {
-        /// Extract the root view controller
+        /// Get current displaying view controller
         guard let rootViewController = getCurrentTopViewController(rootViewController: applicationWindow?.rootViewController) else { return }
         
         /// Assign the delegate and present the navigation controller
@@ -78,27 +68,28 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
     }
     
     func didEndDraggingFloatingButton(deltaMove: CGPoint) {
+        /// Extract overlay window and change its position according to movement delta
         guard let overlayWindow = overlayWindow else { return }
         let startPosition = overlayWindow.center
-        let positionToSet = CGPoint(x: startPosition.x + deltaMove.x, y: startPosition.y + deltaMove.y)
-        overlayWindow.center = positionToSet
+        overlayWindow.center = CGPoint(x: startPosition.x + deltaMove.x, y: startPosition.y + deltaMove.y)
     }
     
+    /// Gets view controller that is currently visible for user. Also works with Navigation Controllers and Tab Bar Controllers
+    ///
+    /// - Parameter rootViewController: Controller when looking for visible vc starts
+    /// - Returns: Currently visible for user view controller
     private func getCurrentTopViewController(rootViewController: UIViewController?) -> UIViewController? {
         guard let presented = rootViewController?.presentedViewController else {
             return rootViewController
         }
-        
         if presented.isKind(of: UINavigationController.self) {
             let navigationController = presented as? UINavigationController
             return getCurrentTopViewController(rootViewController: navigationController?.viewControllers.last)
         }
-    
         if presented.isKind(of: UITabBarController.self) {
             let tabBarController = presented as? UITabBarController
             return getCurrentTopViewController(rootViewController: tabBarController?.selectedViewController)
         }
-        
         return getCurrentTopViewController(rootViewController: presented)
     }
 }
@@ -109,6 +100,14 @@ extension OverlayFlowController: MainViewFlowControllerDelegate {
         let featureEnabled = configuration.enabledFeatures().filter { $0.type == eventType }.first != nil
         if featureEnabled {
             rootViewController?.overlayView.animateTitleChange(from: eventType.icon, duration: 1)
+        }
+    }
+    
+    func controller(_ controller: MainViewFlowController, toggleOverlogVisibilityToState visible: Bool) {
+        overlayWindow?.isHidden = visible
+        /// When showing overlog window it has to be set as key window again to receive shake gestures
+        if !visible {
+            overlayWindow?.makeKey()
         }
     }
 }
