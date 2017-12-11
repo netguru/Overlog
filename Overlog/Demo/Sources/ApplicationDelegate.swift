@@ -23,13 +23,13 @@ import Overlog
 	/// - SeeAlso: UIApplicationDelegate.application(_:didFinishLaunchingWithOptions:)
 	fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let navigationController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         
         overlog = Overlog.shared
         overlog?.configuration.features = FeatureType.all
         overlog?.configuration.keychainIdentifier = "com.name.overlog.keychain"
         overlog?.show(in: window!, rootViewController: navigationController)
-
-        window?.makeKeyAndVisible()
         
 		return true
 	}
