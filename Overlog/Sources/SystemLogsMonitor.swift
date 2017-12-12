@@ -56,7 +56,7 @@ final public class SystemLogsMonitor: LogsMonitor {
             }
 
             let log = LogEntry(raw: logDictionary)
-            logsArray.append(log)
+            logsArray.insert(log, at: 0)
 
             record = asl_next(results)
         }
