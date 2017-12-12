@@ -36,7 +36,7 @@ final public class ConsoleLogsMonitor: LogsMonitor {
 
             if let parsedData = NSString(data: fileHandle.availableData, encoding: String.Encoding.utf8.rawValue) {
                 let newLog = LogEntry(date: Date(), sender: nil, message: parsedData as String)
-                logs.append(newLog)
+                logs.insert(newLog, at: 0)
                 DispatchQueue.main.async {
                     self.delegate?.monitor(self, didGet: self.logs)
                 }

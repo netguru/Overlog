@@ -148,7 +148,7 @@ extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
 extension MainViewFlowController: NetworkMonitorDelegate {
     func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation) {
         let networkTrafficEntry = NetworkTrafficEntry(request: request)
-        networkTrafficEntries.append(networkTrafficEntry)
+        networkTrafficEntries.insert(networkTrafficEntry, at: 0)
         networkTrafficViewFlowController.reload(with: networkTrafficEntry)
         delegate?.controller(self, didGetEventOfType: .network)
     }

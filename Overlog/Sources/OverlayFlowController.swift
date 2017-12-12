@@ -21,8 +21,10 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
     /// Overlog configuration.
     fileprivate let configuration: Configuration
     
+    /// Default window of application, passed at init
     fileprivate weak var applicationWindow: UIWindow?
     
+    /// Window for displaying overlog overlay icon
     fileprivate var overlayWindow: UIWindow?
 
     /// Initializes Overlog's root flow controller
