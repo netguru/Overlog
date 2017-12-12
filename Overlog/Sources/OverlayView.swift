@@ -12,22 +12,22 @@ internal final class OverlayView: View {
     internal let containerView = UIView()
     internal let floatingButton = UIButton(type: .system)
     private var floatingButtonTilteChangeTask: DispatchWorkItem?
+    private let defaultFloatingButtonIcon = UIImage(namedInOverlogBundle: "bug")
 
     override func setupHierarchy() {
         [containerView, floatingButton].forEach { addSubview($0) }
     }
 
     override func setupProperties() {
-        floatingButton.setTitle("Overlog", for: .normal)
-        floatingButton.setTitleColor(.white, for: .normal)
+        floatingButton.setImage(defaultFloatingButtonIcon, for: .normal)
         floatingButton.layer.cornerRadius = 30.0
         floatingButton.layer.shadowColor = UIColor.black.cgColor
         floatingButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         floatingButton.layer.shadowRadius = 7.0
         floatingButton.layer.shadowOpacity = 0.2
-        floatingButton.backgroundColor = UIColor(red: 66/255.0, green: 146/255.0, blue: 244/255.0, alpha: 1.0)
+        floatingButton.tintColor = UIColor.OVLWhite
+        floatingButton.backgroundColor = UIColor.OVLBlue
         floatingButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
-
         containerView.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -55,17 +55,18 @@ internal final class OverlayView: View {
     ///
     /// - Parameters:
     ///   - fromTitle: Title of the button which appear on the animation's beginning.
-    ///   - toTitle: Title of the button to show when animation ends.
     ///   - numberOfSeconds: duration of animation in seconds.
-    internal func animateTitleChange(from fromTitle: String, to toTitle: String = "Overlog", duration numberOfSeconds: Int) {
+    internal func animateTitleChange(from fromTitle: String, duration numberOfSeconds: Int) {
         if let task = self.floatingButtonTilteChangeTask {
             task.cancel()
         }
         floatingButtonTilteChangeTask = nil
+        floatingButton.setImage(nil, for: .normal)
         floatingButton.setTitle(fromTitle, for: .normal)
 
         let task = DispatchWorkItem { [weak self] in
-            self?.floatingButton.setTitle(toTitle, for: .normal)
+            self?.floatingButton.setImage(self?.defaultFloatingButtonIcon, for: .normal)
+            self?.floatingButton.setTitle(nil, for: .normal)
             self?.floatingButtonTilteChangeTask = nil
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(numberOfSeconds), execute: task)
