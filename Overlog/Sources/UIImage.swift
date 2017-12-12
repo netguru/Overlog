@@ -9,6 +9,9 @@ import UIKit
 
 internal extension UIImage {
     
+    /// Initializes image with name from Overlog bundle
+    ///
+    /// - Parameter namedInOverlogBundle: name of the image
     convenience init(namedInOverlogBundle: String) {
         self.init(named: namedInOverlogBundle, in: Bundle(for: Overlog.self), compatibleWith: nil)!
     }
