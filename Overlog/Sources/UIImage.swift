@@ -12,5 +12,4 @@ internal extension UIImage {
     convenience init(namedInOverlogBundle: String) {
         self.init(named: namedInOverlogBundle, in: Bundle(for: Overlog.self), compatibleWith: nil)!
     }
-
 }
