@@ -13,7 +13,8 @@ final class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Title"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(leftButtonTap))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(rightButtonTap))
 
         let configuration = URLSessionConfiguration.default
 
@@ -26,8 +27,18 @@ final class ViewController: UITableViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
             let delayedRequest = URLRequest(url: URL(string: "https://cljsbin-bkhgroqzwe.now.sh/get")!)
             session.dataTask(with: delayedRequest).resume()
-
         }
-
+    }
+    
+    @objc private func leftButtonTap() {
+        let newVC = ViewController()
+        let navWC = UINavigationController(rootViewController: newVC)
+        UIApplication.shared.delegate!.window!!.rootViewController = navWC
+    }
+    
+    @objc private func rightButtonTap() {
+        let newVC = ViewController()
+        let navWC = UINavigationController(rootViewController: newVC)
+        present(navWC, animated: true)
     }
 }
