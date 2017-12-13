@@ -17,7 +17,8 @@ final class TableView: View {
 
     override func setupProperties() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-
+        tableView.backgroundColor = .OVLDarkBlue
+        tableView.separatorStyle = .none
         tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         /// To hide empty cells
         tableView.tableFooterView = UIView(frame: .zero)

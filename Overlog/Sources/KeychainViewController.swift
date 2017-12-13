@@ -33,7 +33,8 @@ internal final class KeychainViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.backgroundColor = .OVLDarkBlue
+        tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.tableFooterView = UIView()
     }
