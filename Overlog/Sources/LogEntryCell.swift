@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class LogEntryCell: TableViewCell {
+internal final class KeyValueEntryCell: TableViewCell {
 
     internal let dateLabel = UILabel(frame: .zero)
     internal let messageLabel = UILabel(frame: .zero)
