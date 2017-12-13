@@ -65,14 +65,9 @@ internal final class MainViewController: UIViewController {
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
-        /// Configure bar button item with 'close' option
-        let closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
-        let settingsBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(didTapSettingsButton(with:)))
-        
-        navigationItem.rightBarButtonItems = [closeBarButtonItem, settingsBarButtonItem]
-
-        title = "Overlog".localized
         configure(tableView: customView.tableView)
+        configure(navigationItem: navigationItem)
+        configure(navigationBar: navigationController?.navigationBar)
         
         /// Add notification handling for changes in enabled features data source
         NotificationCenter.default.addObserver(forName: featuresDataSource.enabledFeaturesDidChangeNotificationKey, object: nil, queue: OperationQueue.main) { [unowned self] (notification: Notification) in
@@ -83,11 +78,38 @@ internal final class MainViewController: UIViewController {
     
     // MARK: - Configuration
 
+    /// Configures table view
+    ///
+    /// - Parameter tableView: table view to configure
     private func configure(tableView: UITableView) {
         tableView.register(FeatureCell.self, forCellReuseIdentifier: String(describing: FeatureCell.self))
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    /// Configures navigation item
+    ///
+    /// - Parameter navigationItem: navigation item to configure
+    private func configure(navigationItem: UINavigationItem) {
+        let closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
+        let settingsBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(didTapSettingsButton(with:)))
+        
+        navigationItem.leftBarButtonItem = closeBarButtonItem
+        navigationItem.rightBarButtonItem = settingsBarButtonItem
+        navigationItem.title = ""
+    }
+    
+    /// Configures navigastion bar
+    ///
+    /// - Parameter navigationBar: navigation bar to configure
+    private func configure(navigationBar: UINavigationBar?) {
+        navigationBar?.isTranslucent = false
+        navigationBar?.barStyle = .blackOpaque
+        navigationBar?.tintColor = .OVLWhite
+        navigationBar?.barTintColor = .OVLDarkBlue
+        navigationBar?.shadowImage = UIImage()
+    }
+    
 }
 
 // MARK: - Target actions
@@ -132,6 +154,7 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.flowDelegate?.didSelect(feature: features[indexPath.row].type)
     }
 

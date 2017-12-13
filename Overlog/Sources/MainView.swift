@@ -10,76 +10,92 @@ import UIKit
 internal final class MainView: View {
 
     internal let tableView = UITableView(frame: .zero)
-    internal let logoImageView = UIImageView(frame: .zero)
+    internal let headerView = UIView(frame: .init(x: 0, y: 0, width: 0, height:250))
+    internal let logoImageView = UIImageView(image: .init(namedInOverlogBundle: "logo"))
+    internal let footerLabel = UILabel(frame: .zero)
 
     override func setupHierarchy() {
-       [logoImageView, tableView].forEach { addSubview($0) }
+        [tableView, footerLabel].forEach { addSubview($0) }
+        headerView.addSubview(logoImageView)
     }
 
     override func setupProperties() {
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        [logoImageView, tableView, footerLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
-
+        backgroundColor = .OVLDarkBlue
+        
         tableView.bounces = false
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
 
         /// To hide empty cells
+        tableView.tableHeaderView = headerView
         tableView.tableFooterView = UIView(frame: .zero)
 
-        logoImageView.backgroundColor = .lightGray
+        headerView.backgroundColor = .OVLDarkBlue
+        
+        footerLabel.text = "With 💙 from Netguru"
+        footerLabel.textColor = .OVLWhite
+        footerLabel.textAlignment = .center
+        footerLabel.backgroundColor = .OVLDarkBlue
     }
 
     override func setupConstraints() {
+        tableView.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .vertical)
 
         if #available(iOSApplicationExtension 9.0, *) {
             NSLayoutConstraint.activate([
-                logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 64),
-                logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                logoImageView.heightAnchor.constraint(equalToConstant: 136),
-                logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-
                 tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                tableView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor),
+                tableView.topAnchor.constraint(equalTo: topAnchor),
                 tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                tableView.bottomAnchor.constraint(equalTo: footerLabel.topAnchor),
+                
+                logoImageView.heightAnchor.constraint(equalToConstant: 100),
+                logoImageView.widthAnchor.constraint(equalToConstant: 100),
+                logoImageView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+                logoImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+                
+                footerLabel.heightAnchor.constraint(equalToConstant: 60),
+                footerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+                footerLabel.topAnchor.constraint(equalTo: tableView.bottomAnchor),
+                footerLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+                footerLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
         } else {
-            var allConstraints = [NSLayoutConstraint]()
-
-            let views = [
-                "tableView": tableView,
-                "logoImageView": logoImageView
-            ]
-
-            let itemsHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-64-[logoImageView(136)]-0-[tableView]-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += itemsHorizontalPositionConstraint
-
-            let logoImageViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-(-8)-[logoImageView]-(-8)-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += logoImageViewHorizontalPositionConstraint
-
-
-            let tableViewVerticalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-(-8)-[tableView]-(-8)-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-
-            allConstraints += tableViewVerticalPositionConstraint
-            
-            NSLayoutConstraint.activate(allConstraints)
+//            var allConstraints = [NSLayoutConstraint]()
+//
+//            let views = [
+//                "tableView": tableView,
+//                "logoImageView": logoImageView
+//            ]
+//
+//            let itemsHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+//                withVisualFormat: "V:|-64-[logoImageView(136)]-0-[tableView]-|",
+//                options: [],
+//                metrics: nil,
+//                views: views
+//            )
+//            allConstraints += itemsHorizontalPositionConstraint
+//
+//            let logoImageViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+//                withVisualFormat: "H:|-(-8)-[logoImageView]-(-8)-|",
+//                options: [],
+//                metrics: nil,
+//                views: views
+//            )
+//            allConstraints += logoImageViewHorizontalPositionConstraint
+//
+//
+//            let tableViewVerticalPositionConstraint = NSLayoutConstraint.constraints(
+//                withVisualFormat: "H:|-(-8)-[tableView]-(-8)-|",
+//                options: [],
+//                metrics: nil,
+//                views: views
+//            )
+//
+//            allConstraints += tableViewVerticalPositionConstraint
+//
+//            NSLayoutConstraint.activate(allConstraints)
         }
     }
 
