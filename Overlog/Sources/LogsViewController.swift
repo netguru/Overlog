@@ -43,7 +43,7 @@ extension LogsViewController {
     fileprivate func configure(tableView: UITableView) {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(LogEntryCell.self, forCellReuseIdentifier: String(describing: LogEntryCell.self))
+        tableView.register(KeyValueEntryCell.self, forCellReuseIdentifier: String(describing: KeyValueEntryCell.self))
         tableView.estimatedRowHeight = 44.0
     }
     
@@ -65,11 +65,10 @@ extension LogsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LogEntryCell.self), for: indexPath) as! LogEntryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: KeyValueEntryCell.self), for: indexPath) as! KeyValueEntryCell
         let log = logs[indexPath.row]
-
-        cell.dateLabel.text = stringify(date: log.date)
-        cell.messageLabel.text = "\(log.sender) \(log.message)"
+        cell.keyLabel.text = stringify(date: log.date)
+        cell.valueLabel.text = "\(log.sender) \(log.message)"
         return cell
     }
 
@@ -89,9 +88,9 @@ extension LogsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
         if action == #selector(copy(_:)) {
-            if let cell = tableView.cellForRow(at: indexPath) as? LogEntryCell {
+            if let cell = tableView.cellForRow(at: indexPath) as? KeyValueEntryCell {
                 let pasteboard = UIPasteboard.general
-                pasteboard.string = "\(cell.dateLabel.text ?? ""): \(cell.messageLabel.text ?? "")"
+                pasteboard.string = "\(cell.keyLabel.text ?? ""): \(cell.valueLabel.text ?? "")"
             }
         }
     }

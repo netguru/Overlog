@@ -47,7 +47,6 @@
 		731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */; };
 		7378713D1F0E451F00AF0724 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7378713C1F0E451F00AF0724 /* RequestViewController.swift */; };
 		7378713F1F0E466100AF0724 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7378713E1F0E466100AF0724 /* ResponseViewController.swift */; };
-		73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */; };
 		73EB46401F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */; };
 		73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46431F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift */; };
 		73EB46461F0E22CA001B7AA1 /* TrafficDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */; };
@@ -82,7 +81,7 @@
 		EA747B961F0E66770048506A /* ConsoleLogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */; };
 		EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */; };
 		EA747B991F0F80570048506A /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2781F0BCC780017380B /* LogsViewController.swift */; };
-		EA747B9B1F0F84DD0048506A /* LogEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B9A1F0F84DD0048506A /* LogEntryCell.swift */; };
+		EA747B9B1F0F84DD0048506A /* KeyValueEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B9A1F0F84DD0048506A /* KeyValueEntryCell.swift */; };
 		EA747B9E1F0F8CF50048506A /* SystemLogsMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA747B9C1F0F8ADD0048506A /* SystemLogsMonitorSpec.swift */; };
 		EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */; };
 		EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFAE27C1F0CD70F0017380B /* LogEntry.swift */; };
@@ -161,7 +160,6 @@
 		731A1B811F06CB67008A6164 /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsViewController.swift; sourceTree = "<group>"; };
 		7378713C1F0E451F00AF0724 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		7378713E1F0E466100AF0724 /* ResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
-		73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsCell.swift; sourceTree = "<group>"; };
 		73EB463F1F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTrafficEntry.swift; sourceTree = "<group>"; };
 		73EB46431F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficDetailsViewController.swift; sourceTree = "<group>"; };
 		73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficDetailsView.swift; sourceTree = "<group>"; };
@@ -192,7 +190,7 @@
 		BF6904AA1EDD9C6000FF303E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EA747B951F0E66770048506A /* ConsoleLogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogsMonitor.swift; sourceTree = "<group>"; };
 		EA747B971F0E66AE0048506A /* SystemLogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogsMonitor.swift; sourceTree = "<group>"; };
-		EA747B9A1F0F84DD0048506A /* LogEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEntryCell.swift; sourceTree = "<group>"; };
+		EA747B9A1F0F84DD0048506A /* KeyValueEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueEntryCell.swift; sourceTree = "<group>"; };
 		EA747B9C1F0F8ADD0048506A /* SystemLogsMonitorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogsMonitorSpec.swift; sourceTree = "<group>"; };
 		EAFAE2761F0B88EF0017380B /* LogsMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsMonitor.swift; sourceTree = "<group>"; };
 		EAFAE2781F0BCC780017380B /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
@@ -415,9 +413,8 @@
 			isa = PBXGroup;
 			children = (
 				731A1B7F1F06961E008A6164 /* FeatureCell.swift */,
-				73CC52641F0A272F00D36C15 /* UserDefaultsCell.swift */,
 				7310A4B71F0B4A5700945C7E /* NetworkTrafficCell.swift */,
-				EA747B9A1F0F84DD0048506A /* LogEntryCell.swift */,
+				EA747B9A1F0F84DD0048506A /* KeyValueEntryCell.swift */,
 				812CA3151F14B5FA00B71401 /* SettingsTableViewCell.swift */,
 			);
 			name = Cells;
@@ -742,7 +739,6 @@
 				5EEAE8051F604458009B6149 /* Configuration.swift in Sources */,
 				779A9D621F4C5E0E00CF6310 /* ResponseRepresentation.swift in Sources */,
 				5E6E26F41F86B54600A1DC4D /* URLConfigurationViewController.swift in Sources */,
-				73CC52651F0A272F00D36C15 /* UserDefaultsCell.swift in Sources */,
 				EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */,
 				5EEAE7F81F5F0C45009B6149 /* KeychainMonitor.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,
@@ -750,7 +746,7 @@
 				7CB305C91FE0290C0006D1DE /* UIImage.swift in Sources */,
 				8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */,
 				81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */,
-				EA747B9B1F0F84DD0048506A /* LogEntryCell.swift in Sources */,
+				EA747B9B1F0F84DD0048506A /* KeyValueEntryCell.swift in Sources */,
 				73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */,
 				BF6904561ED49B9600FF303E /* Overlog.swift in Sources */,
 				731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */,

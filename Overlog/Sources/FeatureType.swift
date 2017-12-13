@@ -9,7 +9,7 @@ import Foundation
 
 /// Feature types to configure Overlog behvavior.
 public enum FeatureType: String {
-    case network = "HTTP"
+    case network = "HTTP Traffic"
     case keychain = "Keychain"
     case userDefaults = "User Defaults"
     case consoleLogs = "Console Logs"
@@ -18,7 +18,12 @@ public enum FeatureType: String {
     
     /// All available feature types.
     static public var all: [FeatureType] {
-        return [.network, .keychain, .userDefaults, .consoleLogs, .systemLogs, .url]
+        return [.network, .userDefaults, .keychain, .consoleLogs, .systemLogs, .url]
+    }
+    
+    /// Default feature types.
+    static public var `default`: [FeatureType] {
+        return [.network, .userDefaults, .keychain, .systemLogs]
     }
     
     /// User defaults key for corresponding feature type.

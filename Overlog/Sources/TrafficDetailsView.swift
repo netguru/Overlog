@@ -16,8 +16,10 @@ internal final class TrafficDetailsView: View {
     }
 
     override func setupProperties() {
-        contentView.backgroundColor = .white
-        self.backgroundColor = .white
+        contentView.backgroundColor = .OVLDarkBlue
+        self.backgroundColor = .OVLDarkBlue
+        
+        segmentedControl.tintColor = .OVLWhite
 
         [contentView, segmentedControl].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
@@ -29,13 +31,12 @@ internal final class TrafficDetailsView: View {
     override func setupConstraints() {
         if #available(iOSApplicationExtension 9.0, *) {
             NSLayoutConstraint.activate([
-
-                segmentedControl.topAnchor.constraint(equalTo: topAnchor, constant: 72),
+                segmentedControl.topAnchor.constraint(equalTo: topAnchor),
                 segmentedControl.widthAnchor.constraint(equalToConstant: 200),
                 segmentedControl.heightAnchor.constraint(equalToConstant: 32),
                 segmentedControl.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-                contentView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 8),
+                contentView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16),
                 contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
