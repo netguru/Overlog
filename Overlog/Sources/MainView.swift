@@ -101,13 +101,13 @@ internal final class MainView: View {
     private lazy var footerAttributedText: NSAttributedString = {
         let attributedString = NSMutableAttributedString(string: "With ♥ from Netguru")
         
-        // Common attributes
+        /// Common attributes
         let commonAttributes = [
             NSForegroundColorAttributeName: UIColor.OVLLightGray,
             NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16)
         ]
         
-        // Attributes for heart and Netguru text
+        /// Attributes for heart and Netguru text
         let blueBiggerFontAttributes = [
             NSForegroundColorAttributeName: UIColor.OVLLightBlue,
             NSFontAttributeName: UIFont.boldSystemFont(ofSize: 17)
@@ -118,13 +118,13 @@ internal final class MainView: View {
             range: NSRange(location: 0, length: attributedString.length)
         )
         
-        // Blue color for heart
+        /// Blue color for heart
         attributedString.addAttributes(
             blueBiggerFontAttributes,
             range: NSRange(location: 5, length: 1)
         )
         
-        // Blue color for Netguru
+        /// Blue color for Netguru
         attributedString.addAttributes(
             blueBiggerFontAttributes,
             range: NSRange(location: 12, length: 7)

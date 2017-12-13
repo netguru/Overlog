@@ -24,7 +24,7 @@ final class FeatureCell: TableViewCell {
 
         backgroundColor = .OVLDarkBlue
         accessoryType = .none
-        selectionStyle = .gray
+        selectionStyle = .default
         
         if #available(iOSApplicationExtension 8.2, *) {
             nameLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
@@ -86,6 +86,14 @@ final class FeatureCell: TableViewCell {
 //
 //            NSLayoutConstraint.activate(allConstraints)
         }
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        backgroundColor = selected ? .OVLGray : .clear
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        backgroundColor = highlighted ? .OVLGray : .clear
     }
     
     /// Hides bottom border
