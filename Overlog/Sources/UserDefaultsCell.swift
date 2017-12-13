@@ -52,40 +52,6 @@ internal final class UserDefaultsCell: TableViewCell {
                 bottomFill.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 bottomFill.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
-        } else {
-            var allConstraints = [NSLayoutConstraint]()
-
-            let views = [
-                "keyLabel": keyLabel,
-                "valueLabel": valueLabel
-            ]
-
-            let keyLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[keyLabel]-16-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += keyLabelHorizontalPositionConstraint
-
-            let valueLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[valueLabel]|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += valueLabelHorizontalPositionConstraint
-
-            let valueLabelVerticalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-[keyLabel]-4-[valueLabel]-4-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-
-            allConstraints += valueLabelVerticalPositionConstraint
-
-            NSLayoutConstraint.activate(allConstraints)
         }
     }
 

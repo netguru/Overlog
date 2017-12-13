@@ -22,15 +22,15 @@ internal final class RequestView: View {
 
     internal override func setupProperties() {
         [scrollView, methodLabel, urlLabel, headersLabel, deserializedBodyLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [urlLabel, headersLabel, deserializedBodyLabel, methodLabel].forEach { $0.textColor = .OVLWhite }
 
-
-        methodLabel.textColor = .white
+        backgroundColor = .OVLGray
+        
         methodLabel.layer.cornerRadius = 4
         methodLabel.clipsToBounds = true
         methodLabel.textAlignment = .center
-
-        methodLabel.backgroundColor = UIColor.blue
-
+        methodLabel.backgroundColor = .OVLDarkBlue
+        
         urlLabel.numberOfLines = 0
         headersLabel.numberOfLines = 0
         deserializedBodyLabel.numberOfLines = 0

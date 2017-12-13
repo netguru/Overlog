@@ -22,13 +22,14 @@ internal final class ResponseView: View {
 
     internal override func setupProperties() {
         [scrollView, statusCodeLabel, urlLabel, headersLabel, deserializedBodyLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [urlLabel, headersLabel, deserializedBodyLabel, statusCodeLabel].forEach { $0.textColor = .OVLWhite }
 
-        statusCodeLabel.textColor = .white
+        backgroundColor = .OVLGray
+        
         statusCodeLabel.layer.cornerRadius = 4
         statusCodeLabel.clipsToBounds = true
         statusCodeLabel.textAlignment = .center
-
-        statusCodeLabel.backgroundColor = UIColor.blue
+        statusCodeLabel.backgroundColor = UIColor.OVLDarkBlue
 
         headersLabel.numberOfLines = 0
         deserializedBodyLabel.numberOfLines = 0

@@ -35,6 +35,7 @@ final class NetworkTrafficViewController: UIViewController {
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = ""
         configure(tableView: customView.tableView)
     }
 
