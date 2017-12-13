@@ -10,7 +10,7 @@ import UIKit
 internal final class MainView: View {
 
     internal let tableView = UITableView(frame: .zero)
-    internal let headerView = UIView(frame: .init(x: 0, y: 0, width: 0, height:250))
+    internal let headerView = UIView(frame: .init(x: 0, y: 0, width: 0, height: 220))
     internal let logoImageView = UIImageView(image: .init(namedInOverlogBundle: "logo"))
     internal let footerLabel = UILabel(frame: .zero)
 
@@ -24,9 +24,9 @@ internal final class MainView: View {
 
         backgroundColor = .OVLDarkBlue
         
-        tableView.bounces = false
-        tableView.separatorStyle = .singleLine
-        tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        tableView.bounces = true
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
 
         /// To hide empty cells
         tableView.tableHeaderView = headerView
@@ -34,7 +34,7 @@ internal final class MainView: View {
 
         headerView.backgroundColor = .OVLDarkBlue
         
-        footerLabel.text = "With 💙 from Netguru"
+        footerLabel.text = "With ♥ from Netguru"
         footerLabel.textColor = .OVLWhite
         footerLabel.textAlignment = .center
         footerLabel.backgroundColor = .OVLDarkBlue
@@ -53,7 +53,7 @@ internal final class MainView: View {
                 logoImageView.heightAnchor.constraint(equalToConstant: 100),
                 logoImageView.widthAnchor.constraint(equalToConstant: 100),
                 logoImageView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
-                logoImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+                logoImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: -20),
                 
                 footerLabel.heightAnchor.constraint(equalToConstant: 60),
                 footerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),

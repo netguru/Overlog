@@ -143,6 +143,11 @@ extension MainViewController: UITableViewDataSource {
         if feature.counter > 0 {
             cell.counterLabel.text = String(feature.counter)
         }
+        
+        /// Hide bottom border in last cell
+        if indexPath.row + 1 == features.count {
+            cell.hideBorder()
+        }
 
         return cell
     }
