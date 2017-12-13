@@ -64,7 +64,10 @@ internal final class MainView: View {
     }
     
     private lazy var footerAttributedText: NSAttributedString = {
-        let attributedString = NSMutableAttributedString(string: "With ♥ from Netguru")
+        let love = "♥"
+        let netguru = "Netguru"
+        let text = "With \(love) from \(netguru)"
+        let attributedString = NSMutableAttributedString(string: text)
         
         /// Common attributes
         let commonAttributes = [
@@ -84,15 +87,17 @@ internal final class MainView: View {
         )
         
         /// Blue color for heart
+        guard let heartRange = text.range(of: love) else { return attributedString }
         attributedString.addAttributes(
             blueBiggerFontAttributes,
-            range: NSRange(location: 5, length: 1)
+            range: NSRange(heartRange, in: text)
         )
         
         /// Blue color for Netguru
+        guard let netguruRange = text.range(of: netguru) else { return attributedString }
         attributedString.addAttributes(
             blueBiggerFontAttributes,
-            range: NSRange(location: 12, length: 7)
+            range: NSRange(netguruRange, in: text)
         )
         
         return attributedString
