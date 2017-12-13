@@ -21,10 +21,10 @@ internal final class UserDefaultsCell: TableViewCell {
         [keyLabel, valueLabel, bottomFill].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         [keyLabel, valueLabel].forEach { $0.textColor = .OVLWhite }
 
-        selectionStyle = .none
         valueLabel.numberOfLines = 0
         keyLabel.numberOfLines = 0
         backgroundColor = .OVLGray
+        selectionStyle = .none
         
         if #available(iOSApplicationExtension 8.2, *) {
             keyLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)

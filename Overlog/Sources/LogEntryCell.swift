@@ -11,31 +11,47 @@ internal final class LogEntryCell: TableViewCell {
 
     internal let dateLabel = UILabel(frame: .zero)
     internal let messageLabel = UILabel(frame: .zero)
+    internal let bottomFill = UIView(frame: .zero)
 
     override func setupHierarchy() {
-        [dateLabel, messageLabel].forEach { contentView.addSubview($0) }
+        [dateLabel, messageLabel, bottomFill].forEach { contentView.addSubview($0) }
     }
 
     override func setupProperties() {
-        [dateLabel, messageLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [dateLabel, messageLabel, bottomFill].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [dateLabel, messageLabel].forEach { $0.textColor = .OVLWhite }
 
-        self.selectionStyle = .none
         dateLabel.numberOfLines = 0
         messageLabel.numberOfLines = 0
+        backgroundColor = .OVLGray
+        selectionStyle = .none
+        
+        if #available(iOSApplicationExtension 8.2, *) {
+            dateLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
+        } else {
+            dateLabel.font = UIFont.systemFont(ofSize: 16)
+        }
+        
+        bottomFill.backgroundColor = .OVLDarkBlue
+        bottomFill.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .vertical)
     }
 
     override func setupConstraints() {
         if #available(iOSApplicationExtension 9.0, *) {
-
             NSLayoutConstraint.activate([
-                dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+                dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
                 dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
 
-                messageLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 4),
+                messageLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
                 messageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 messageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
+                messageLabel.bottomAnchor.constraint(equalTo: bottomFill.topAnchor, constant: -16),
+                
+                bottomFill.heightAnchor.constraint(equalToConstant: 16),
+                bottomFill.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                bottomFill.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                bottomFill.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
         }
     }
