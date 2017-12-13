@@ -60,41 +60,6 @@ internal final class MainView: View {
                 footerLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
                 footerLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
-        } else {
-//            var allConstraints = [NSLayoutConstraint]()
-//
-//            let views = [
-//                "tableView": tableView,
-//                "logoImageView": logoImageView
-//            ]
-//
-//            let itemsHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-//                withVisualFormat: "V:|-64-[logoImageView(136)]-0-[tableView]-|",
-//                options: [],
-//                metrics: nil,
-//                views: views
-//            )
-//            allConstraints += itemsHorizontalPositionConstraint
-//
-//            let logoImageViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-//                withVisualFormat: "H:|-(-8)-[logoImageView]-(-8)-|",
-//                options: [],
-//                metrics: nil,
-//                views: views
-//            )
-//            allConstraints += logoImageViewHorizontalPositionConstraint
-//
-//
-//            let tableViewVerticalPositionConstraint = NSLayoutConstraint.constraints(
-//                withVisualFormat: "H:|-(-8)-[tableView]-(-8)-|",
-//                options: [],
-//                metrics: nil,
-//                views: views
-//            )
-//
-//            allConstraints += tableViewVerticalPositionConstraint
-//
-//            NSLayoutConstraint.activate(allConstraints)
         }
     }
     
