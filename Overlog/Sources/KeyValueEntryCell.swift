@@ -27,9 +27,9 @@ internal final class KeyValueEntryCell: TableViewCell {
         selectionStyle = .none
         
         if #available(iOSApplicationExtension 8.2, *) {
-            keyLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
+            keyLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)
         } else {
-            keyLabel.font = UIFont.systemFont(ofSize: 16)
+            keyLabel.font = UIFont.systemFont(ofSize: 18)
         }
         
         bottomFill.backgroundColor = .OVLDarkBlue

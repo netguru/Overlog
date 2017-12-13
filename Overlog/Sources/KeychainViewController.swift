@@ -60,3 +60,22 @@ extension KeychainViewController {
         return cell
     }
 }
+
+extension KeychainViewController {
+    override func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        return action == #selector(copy(_:))
+    }
+    
+    override func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+        if action == #selector(copy(_:)) {
+            if let cell = tableView.cellForRow(at: indexPath) as? KeyValueEntryCell {
+                let pasteboard = UIPasteboard.general
+                pasteboard.string = "\(cell.keyLabel.text ?? ""): \(cell.valueLabel.text ?? "")"
+            }
+        }
+    }
+}
