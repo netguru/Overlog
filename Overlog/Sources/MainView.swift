@@ -34,8 +34,7 @@ internal final class MainView: View {
 
         headerView.backgroundColor = .OVLDarkBlue
         
-        footerLabel.text = "With ♥ from Netguru"
-        footerLabel.textColor = .OVLWhite
+        footerLabel.attributedText = footerAttributedText
         footerLabel.textAlignment = .center
         footerLabel.backgroundColor = .OVLDarkBlue
     }
@@ -55,7 +54,7 @@ internal final class MainView: View {
                 logoImageView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
                 logoImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: -20),
                 
-                footerLabel.heightAnchor.constraint(equalToConstant: 60),
+                footerLabel.heightAnchor.constraint(equalToConstant: 80),
                 footerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
                 footerLabel.topAnchor.constraint(equalTo: tableView.bottomAnchor),
                 footerLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -98,5 +97,40 @@ internal final class MainView: View {
 //            NSLayoutConstraint.activate(allConstraints)
         }
     }
+    
+    private lazy var footerAttributedText: NSAttributedString = {
+        let attributedString = NSMutableAttributedString(string: "With ♥ from Netguru")
+        
+        // Common attributes
+        let commonAttributes = [
+            NSForegroundColorAttributeName: UIColor.OVLLightGray,
+            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16)
+        ]
+        
+        // Attributes for heart and Netguru text
+        let blueBiggerFontAttributes = [
+            NSForegroundColorAttributeName: UIColor.OVLLightBlue,
+            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 17)
+        ]
+        
+        attributedString.addAttributes(
+            commonAttributes,
+            range: NSRange(location: 0, length: attributedString.length)
+        )
+        
+        // Blue color for heart
+        attributedString.addAttributes(
+            blueBiggerFontAttributes,
+            range: NSRange(location: 5, length: 1)
+        )
+        
+        // Blue color for Netguru
+        attributedString.addAttributes(
+            blueBiggerFontAttributes,
+            range: NSRange(location: 12, length: 7)
+        )
+        
+        return attributedString
+    }()
 
 }
