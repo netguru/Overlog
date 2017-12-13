@@ -50,7 +50,7 @@ internal final class UserDefaultsCell: TableViewCell {
                 bottomFill.heightAnchor.constraint(equalToConstant: 16),
                 bottomFill.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 bottomFill.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                bottomFill.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                bottomFill.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
         } else {
             var allConstraints = [NSLayoutConstraint]()

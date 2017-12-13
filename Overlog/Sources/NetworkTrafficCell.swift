@@ -9,24 +9,30 @@ import UIKit
 
 internal final class NetworkTrafficCell: TableViewCell {
 
-    let requestTypeLabel = UILabel(frame: .zero)
-    let requestURLLabel = UILabel(frame: .zero)
+    internal let requestTypeLabel = UILabel(frame: .zero)
+    internal let requestURLLabel = UILabel(frame: .zero)
+    internal let indicatorImageView = UIImageView(image: .init(namedInOverlogBundle: "details-default"))
+    internal let bottomFill = UIView(frame: .zero)
 
     internal override func setupHierarchy() {
-        [requestTypeLabel, requestURLLabel].forEach { contentView.addSubview($0) }
+        [requestTypeLabel, requestURLLabel, bottomFill, indicatorImageView].forEach { contentView.addSubview($0) }
     }
 
     internal override func setupProperties() {
-        [requestTypeLabel, requestURLLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [requestTypeLabel, requestURLLabel, bottomFill, indicatorImageView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
-        requestTypeLabel.textColor = .white
+        accessoryType = .none
+        
+        requestTypeLabel.textColor = .OVLWhite
         requestTypeLabel.layer.cornerRadius = 4
         requestTypeLabel.clipsToBounds = true
         requestTypeLabel.textAlignment = .center
-
-        requestTypeLabel.backgroundColor = .blue
-
-        self.accessoryType = .disclosureIndicator
+        requestTypeLabel.backgroundColor = .OVLDarkBlue
+        
+        requestURLLabel.textColor = .OVLWhite
+        
+        bottomFill.backgroundColor = .OVLDarkBlue
+        bottomFill.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .vertical)
     }
 
     internal override func setupConstraints() {
@@ -38,18 +44,26 @@ internal final class NetworkTrafficCell: TableViewCell {
 
                 requestURLLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 requestURLLabel.topAnchor.constraint(equalTo: requestTypeLabel.bottomAnchor, constant: 16),
-                requestURLLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
-
+                requestURLLabel.bottomAnchor.constraint(equalTo: bottomFill.topAnchor, constant: -16),
+                
+                indicatorImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                indicatorImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -8),
+                indicatorImageView.widthAnchor.constraint(equalToConstant: 8),
+                indicatorImageView.heightAnchor.constraint(equalToConstant: 13),
+                
+                bottomFill.heightAnchor.constraint(equalToConstant: 16),
+                bottomFill.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                bottomFill.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                bottomFill.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
         }
     }
 
-    internal override func setSelected(_ selected: Bool, animated: Bool) {
-        let backgroundColor = requestTypeLabel.backgroundColor
-        super.setSelected(selected, animated: animated)
-
-        if selected {
-            requestTypeLabel.backgroundColor = backgroundColor
-        }
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        backgroundColor = selected ? .OVLLightGray : .OVLGray
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        backgroundColor = highlighted ? .OVLLightGray : .OVLGray
     }
 }
