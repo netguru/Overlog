@@ -63,6 +63,7 @@ internal final class ResponseView: View {
             var allConstraints = [NSLayoutConstraint]()
             
             let views = [
+                "self": self,
                 "scrollView": scrollView,
                 "statusCodeLabel": statusCodeLabel,
                 "urlLabel": urlLabel,
@@ -102,28 +103,70 @@ internal final class ResponseView: View {
             )
             allConstraints += statusCodeLabelHorizontalPositionConstraint
             
-            let urlLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[urlLabel]-16-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
+            let urlLabelHorizontalPositionConstraint = [
+                NSLayoutConstraint.init(
+                    item: urlLabel,
+                    attribute: .leading,
+                    relatedBy: .equal,
+                    toItem: self,
+                    attribute: .leading,
+                    multiplier: 1,
+                    constant: 16
+                ),
+                NSLayoutConstraint.init(
+                    item: urlLabel,
+                    attribute: .trailing,
+                    relatedBy: .equal,
+                    toItem: self,
+                    attribute: .trailing,
+                    multiplier: 1,
+                    constant: -16
+                )
+            ]
             allConstraints += urlLabelHorizontalPositionConstraint
             
-            let headersLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[headersLabel]-16-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
+            let headersLabelHorizontalPositionConstraint = [
+                NSLayoutConstraint.init(
+                    item: headersLabel,
+                    attribute: .leading,
+                    relatedBy: .equal,
+                    toItem: self,
+                    attribute: .leading,
+                    multiplier: 1,
+                    constant: 16
+                ),
+                NSLayoutConstraint.init(
+                    item: headersLabel,
+                    attribute: .trailing,
+                    relatedBy: .equal,
+                    toItem: self,
+                    attribute: .trailing,
+                    multiplier: 1,
+                    constant: -16
+                )
+            ]
             allConstraints += headersLabelHorizontalPositionConstraint
             
-            let deserializedBodyLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[deserializedBodyLabel]-16-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
+            let deserializedBodyLabelHorizontalPositionConstraint = [
+                NSLayoutConstraint.init(
+                    item: deserializedBodyLabel,
+                    attribute: .leading,
+                    relatedBy: .equal,
+                    toItem: self,
+                    attribute: .leading,
+                    multiplier: 1,
+                    constant: 16
+                ),
+                NSLayoutConstraint.init(
+                    item: deserializedBodyLabel,
+                    attribute: .trailing,
+                    relatedBy: .equal,
+                    toItem: self,
+                    attribute: .trailing,
+                    multiplier: 1,
+                    constant: -16
+                )
+            ]
             allConstraints += deserializedBodyLabelHorizontalPositionConstraint
             
             NSLayoutConstraint.activate(allConstraints)
