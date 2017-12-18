@@ -9,13 +9,12 @@ import UIKit
 
 internal final class OverlayView: View {
     
-    internal let containerView = UIView()
     internal let floatingButton = UIButton(type: .system)
     private var floatingButtonTilteChangeTask: DispatchWorkItem?
     private let defaultFloatingButtonIcon = UIImage(namedInOverlogBundle: "bug")
 
     override func setupHierarchy() {
-        [containerView, floatingButton].forEach { addSubview($0) }
+        addSubview(floatingButton)
     }
 
     override func setupProperties() {
@@ -28,7 +27,6 @@ internal final class OverlayView: View {
         floatingButton.tintColor = UIColor.OVLWhite
         floatingButton.backgroundColor = UIColor.OVLBlue
         floatingButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func layoutSubviews() {
@@ -36,19 +34,6 @@ internal final class OverlayView: View {
         
         bringFloatingButtonToFrontIfNeeded()
         floatingButton.frame = framePreventingFloatingButtonToMoveOutOfScreen()
-    }
-
-    override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
-            NSLayoutConstraint.activate([
-                containerView.topAnchor.constraint(equalTo: bottomAnchor),
-                containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                containerView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
-        } else {
-            // Fallback on earlier versions
-        }
     }
 
     /// Animates floating button's title.
