@@ -70,7 +70,7 @@ final class FeatureCell: TableViewCell {
             ]
             
             let horizontalViewsPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-32-[nameLabel]-4-[counterLabel(24)]-4-[indicatorImageView(30)]-32-|",
+                withVisualFormat: "H:|-32-[nameLabel]-4-[counterLabel(24)]",
                 options: [.alignAllCenterY],
                 metrics: nil,
                 views: views
@@ -85,6 +85,14 @@ final class FeatureCell: TableViewCell {
             )
             allConstraints += verticalViewsPositionConstraint
             
+            let indicatorImageHorizontalConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "[indicatorImageView(30)]-32-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += indicatorImageHorizontalConstraint
+            
             let indicatorImageViewHeightConstraint = NSLayoutConstraint.constraints(
                 withVisualFormat: "V:[indicatorImageView(30)]",
                 options: [],
@@ -92,6 +100,41 @@ final class FeatureCell: TableViewCell {
                 views: views
             )
             allConstraints += indicatorImageViewHeightConstraint
+            
+            let indicatorImageCenterConstraint = [
+                NSLayoutConstraint.init(
+                    item: indicatorImageView,
+                    attribute: .centerY,
+                    relatedBy: .equal,
+                    toItem: contentView,
+                    attribute: .centerY,
+                    multiplier: 1,
+                    constant: 0
+                )
+            ]
+            allConstraints += indicatorImageCenterConstraint
+            
+            let borderViewConstraint = [
+                NSLayoutConstraint.init(
+                    item: borderView,
+                    attribute: .leading,
+                    relatedBy: .equal,
+                    toItem: nameLabel,
+                    attribute: .leading,
+                    multiplier: 1,
+                    constant: 0
+                ),
+                NSLayoutConstraint.init(
+                    item: borderView,
+                    attribute: .trailing,
+                    relatedBy: .equal,
+                    toItem: indicatorImageView,
+                    attribute: .trailing,
+                    multiplier: 1,
+                    constant: 0
+                )
+            ]
+            allConstraints += borderViewConstraint
             
             NSLayoutConstraint.activate(allConstraints)
         }
