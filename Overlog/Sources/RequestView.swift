@@ -102,7 +102,7 @@ internal final class RequestView: View {
             allConstraints += methodLabelHorizontalPositionConstraint
             
             let urlLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[urlLabel]-4-|",
+                withVisualFormat: "H:|-16-[urlLabel]-16-|",
                 options: [],
                 metrics: nil,
                 views: views
@@ -110,7 +110,7 @@ internal final class RequestView: View {
             allConstraints += urlLabelHorizontalPositionConstraint
             
             let headersLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[headersLabel]",
+                withVisualFormat: "H:|-16-[headersLabel]-16-|",
                 options: [],
                 metrics: nil,
                 views: views
@@ -118,7 +118,7 @@ internal final class RequestView: View {
             allConstraints += headersLabelHorizontalPositionConstraint
             
             let deserializedBodyLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[deserializedBodyLabel]",
+                withVisualFormat: "H:|-16-[deserializedBodyLabel]-16-|",
                 options: [],
                 metrics: nil,
                 views: views
