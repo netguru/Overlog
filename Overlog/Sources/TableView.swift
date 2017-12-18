@@ -33,7 +33,6 @@ final class TableView: View {
                 tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
-
         } else {
             var allConstraints = [NSLayoutConstraint]()
 
