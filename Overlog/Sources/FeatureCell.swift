@@ -59,6 +59,41 @@ final class FeatureCell: TableViewCell {
                 borderView.bottomAnchor.constraint(equalTo: bottomAnchor),
                 borderView.heightAnchor.constraint(equalToConstant: 1)
             ])
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+            
+            let views = [
+                "nameLabel": nameLabel,
+                "counterLabel": counterLabel,
+                "indicatorImageView": indicatorImageView,
+                "borderView": borderView
+            ]
+            
+            let horizontalViewsPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-32-[nameLabel]-4-[counterLabel(24)]-4-[indicatorImageView(30)]-32-|",
+                options: [.alignAllCenterY],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += horizontalViewsPositionConstraint
+            
+            let verticalViewsPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-20-[nameLabel]-20-[borderView(1)]-0-|",
+                options: [.alignAllCenterX],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += verticalViewsPositionConstraint
+            
+            let indicatorImageViewHeightConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:[indicatorImageView(30)]",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += indicatorImageViewHeightConstraint
+            
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
     
