@@ -56,6 +56,78 @@ internal final class NetworkTrafficCell: TableViewCell {
                 bottomFill.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 bottomFill.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+            
+            let views = [
+                "requestTypeLabel": requestTypeLabel,
+                "requestURLLabel": requestURLLabel,
+                "indicatorImageView": indicatorImageView,
+                "bottomFill": bottomFill
+            ]
+            
+            let requestTypeLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-16-[requestTypeLabel(96)]",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += requestTypeLabelHorizontalPositionConstraint
+            
+            let requestURLLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-16-[requestURLLabel]",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += requestURLLabelHorizontalPositionConstraint
+            
+            let bottomFillHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[bottomFill]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += bottomFillHorizontalPositionConstraint
+            
+            let leftViewsVerticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-16-[requestTypeLabel]-16-[requestURLLabel]-16-[bottomFill(16)]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += leftViewsVerticalPositionConstraint
+            
+            let indicatorHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:[indicatorImageView(8)]-16-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += indicatorHorizontalPositionConstraint
+            
+            let indicatorVerticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:[indicatorImageView(13)]",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += indicatorVerticalPositionConstraint
+            
+            let indicatorCenterConstraint = [
+                NSLayoutConstraint.init(
+                    item: indicatorImageView,
+                    attribute: .centerY,
+                    relatedBy: .equal,
+                    toItem: contentView,
+                    attribute: .centerY,
+                    multiplier: 1,
+                    constant: -8
+                )
+            ]
+            allConstraints += indicatorCenterConstraint
+
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
 

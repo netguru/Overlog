@@ -92,7 +92,6 @@ internal final class KeyValueEntryCell: TableViewCell {
                 metrics: nil,
                 views: views
             )
-            
             allConstraints += valueLabelVerticalPositionConstraint
             
             NSLayoutConstraint.activate(allConstraints)
