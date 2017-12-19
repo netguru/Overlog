@@ -108,6 +108,7 @@ internal final class MainViewController: UIViewController {
         navigationBar?.tintColor = .OVLWhite
         navigationBar?.barTintColor = .OVLDarkBlue
         navigationBar?.shadowImage = UIImage()
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
     }
     
 }

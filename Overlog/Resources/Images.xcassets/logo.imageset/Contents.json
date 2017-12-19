@@ -2,7 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Overlog.pdf"
+      "filename" : "Overlog.pdf",
+      "compression-type" : "automatic"
     }
   ],
   "info" : {

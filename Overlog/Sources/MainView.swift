@@ -41,7 +41,6 @@ internal final class MainView: View {
 
     override func setupConstraints() {
         tableView.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .vertical)
-
         if #available(iOSApplicationExtension 9.0, *) {
             NSLayoutConstraint.activate([
                 tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -60,6 +59,71 @@ internal final class MainView: View {
                 footerLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
                 footerLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+            
+            let views = [
+                "tableView": tableView,
+                "logoImageView": logoImageView,
+                "footerLabel": footerLabel,
+                "headerView": headerView
+            ]
+            
+            let logoVerticalSizeConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:[logoImageView(100)]",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += logoVerticalSizeConstraint
+            
+            let logoHorizontalSizeConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:[logoImageView(100)]",
+                options: [.alignAllCenterY],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += logoHorizontalSizeConstraint
+            
+            let logoCenterConstraints = [
+                NSLayoutConstraint.init(
+                    item: logoImageView,
+                    attribute: .centerX,
+                    relatedBy: .equal,
+                    toItem: headerView,
+                    attribute: .centerX,
+                    multiplier: 1,
+                    constant: 0
+                ),
+                NSLayoutConstraint.init(
+                    item: logoImageView,
+                    attribute: .centerY,
+                    relatedBy: .equal,
+                    toItem: headerView,
+                    attribute: .centerY,
+                    multiplier: 1,
+                    constant: -20
+                )
+            ]
+            allConstraints += logoCenterConstraints
+        
+            let verticalPositionsConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-(-8)-[tableView]-[footerLabel(80)]-(-8)-|",
+                options: [.alignAllCenterX],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += verticalPositionsConstraint
+            
+            let tableViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-(-8)-[tableView]-(-8)-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += tableViewHorizontalPositionConstraint
+            
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
     

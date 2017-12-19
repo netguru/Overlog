@@ -41,7 +41,39 @@ internal final class TrafficDetailsView: View {
                 contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
-
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+            
+            let views = [
+                "segmentedControl": segmentedControl,
+                "contentView": contentView
+            ]
+            
+            let verticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[segmentedControl(32)]-16-[contentView]-0-|",
+                options: [.alignAllCenterX],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += verticalPositionConstraint
+            
+            let segmentedControlHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:[segmentedControl(200)]",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += segmentedControlHorizontalPositionConstraint
+            
+            let contentViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[contentView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += contentViewHorizontalPositionConstraint
+            
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
 

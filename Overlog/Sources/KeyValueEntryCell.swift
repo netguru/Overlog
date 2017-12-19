@@ -53,6 +53,48 @@ internal final class KeyValueEntryCell: TableViewCell {
                 bottomFill.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 bottomFill.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+            
+            let views = [
+                "keyLabel": keyLabel,
+                "valueLabel": valueLabel,
+                "bottomFill": bottomFill
+            ]
+            
+            let keyLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-16-[keyLabel]-16-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += keyLabelHorizontalPositionConstraint
+            
+            let valueLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-16-[valueLabel]-16-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += valueLabelHorizontalPositionConstraint
+            
+            let bottomFillHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[bottomFill]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += bottomFillHorizontalPositionConstraint
+            
+            let valueLabelVerticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-16-[keyLabel]-8-[valueLabel]-16-[bottomFill(16)]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += valueLabelVerticalPositionConstraint
+            
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
 }
