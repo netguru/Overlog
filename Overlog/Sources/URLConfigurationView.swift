@@ -22,7 +22,7 @@ internal final class URLConfigurationView: View {
         [titleLabel, inputField, segmentedControl].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         titleLabel.text = "Host:"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.font = .OVLFont(ofSize: 16, weight: .bold)
         
         inputField.placeholder = "(e.g. foo.bar.co):"
         inputField.keyboardType = .URL
