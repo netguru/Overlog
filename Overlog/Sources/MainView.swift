@@ -128,7 +128,12 @@ internal final class MainView: View {
     }
     
     private lazy var footerAttributedText: NSAttributedString = {
-        let love = "♥"
+        let love: String
+        if #available(iOSApplicationExtension 10.0, *) {
+            love = "♥"
+        } else {
+            love = "💙"
+        }
         let netguru = "Netguru"
         let text = "With \(love) from \(netguru)"
         let attributedString = NSMutableAttributedString(string: text)
