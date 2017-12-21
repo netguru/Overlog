@@ -26,11 +26,7 @@ final class FeatureCell: TableViewCell {
         accessoryType = .none
         selectionStyle = .default
         
-        if #available(iOSApplicationExtension 8.2, *) {
-            nameLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
-        } else {
-            nameLabel.font = UIFont.systemFont(ofSize: 18)
-        }
+        nameLabel.font = .OVLFont(ofSize: 18, weight: .semibold)
         
         counterLabel.layer.cornerRadius = 6
         counterLabel.textAlignment = .center
