@@ -54,7 +54,11 @@ internal final class OverlayViewController: UIViewController {
         panGesture.maximumNumberOfTouches = 1
         overlayView.floatingButton.addGestureRecognizer(panGesture)
     }
-        
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     /// Overrides super method and calls `didPerformShakeEvent` closure when `.motionShake` was recevied. 
     /// Please refer to super method documentation for further information.
     ///
