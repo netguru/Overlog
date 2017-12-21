@@ -68,8 +68,11 @@ extension LogsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: KeyValueEntryCell.self), for: indexPath) as! KeyValueEntryCell
         let log = logs[indexPath.row]
-        cell.keyLabel.text = stringify(date: log.date)
-        cell.valueLabel.text = "\(log.sender) \(log.message)"
+
+        let valueText = stringify(date: log.date)
+        let keyText = "\(log.sender) \(log.message)"
+        cell.keyLabel.attributedText = valueText.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
+        cell.valueLabel.attributedText = keyText.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
         return cell
     }
 

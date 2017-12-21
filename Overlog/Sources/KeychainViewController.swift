@@ -56,8 +56,10 @@ extension KeychainViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: KeyValueEntryCell.self), for: indexPath) as! KeyValueEntryCell
         let item = items[indexPath.row]
         
-        cell.keyLabel.text = "key".localized + ": " + item.key
-        cell.valueLabel.text = "value".localized + ": " + item.value
+        let valueText = "value".localized + ": " + item.value
+        let keyText = "key".localized + ": " + item.key
+        cell.keyLabel.attributedText = valueText.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
+        cell.valueLabel.attributedText = keyText.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
         return cell
     }
 }
