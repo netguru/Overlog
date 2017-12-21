@@ -9,6 +9,15 @@ import UIKit
 
 internal extension UIFont {
     
+    /// Type of the font
+    ///
+    /// - standard: Standard font
+    /// - code: Code font
+    internal enum OVLType {
+        case standard
+        case code
+    }
+    
     /// Weight of the font
     ///
     /// - regular: Regular weight
@@ -26,12 +35,19 @@ internal extension UIFont {
     ///   - size: Size of the font
     ///   - weight: Weight of the font
     /// - Returns: Font to use
-    internal class func OVLFont(ofSize size: CGFloat, weight: OVLWeight) -> UIFont {
-        if #available(iOSApplicationExtension 8.2, *) {
-            return .systemFont(ofSize: size, weight: fontWeight(fromOVLWeight: weight))
-        } else {
-            return UIFont(name: "HelveticaNeue\(rawTextValue(forWeight: weight))", size: size)!
-        }
+    internal class func OVLFont(ofSize size: CGFloat, weight: OVLWeight, type: OVLType = .standard) -> UIFont {
+        let font: UIFont?
+            switch type {
+            case .standard:
+                if #available(iOSApplicationExtension 8.2, *) {
+                    font = .systemFont(ofSize: size, weight: fontWeight(fromOVLWeight: weight))
+                } else {
+                    font = UIFont(name: "HelveticaNeue\(rawTextValue(forWeight: weight))", size: size)!
+                }
+            case .code:
+                font = UIFont(name: "Menlo\(rawTextValue(forWeight: weight))", size: size)!
+            }
+        return font ?? .systemFont(ofSize: size)
     }
     
     /// Helper method for creating Font on iOS >= 8.2
