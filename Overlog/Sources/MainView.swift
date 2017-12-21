@@ -136,13 +136,13 @@ internal final class MainView: View {
         /// Common attributes
         let commonAttributes = [
             NSForegroundColorAttributeName: UIColor.OVLLightGray,
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16)
+            NSFontAttributeName: UIFont.systemFont(ofSize: 16)
         ]
         
         /// Attributes for heart and Netguru text
         let blueBiggerFontAttributes = [
             NSForegroundColorAttributeName: UIColor.OVLLightBlue,
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 17)
+            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16)
         ]
         
         attributedString.addAttributes(
