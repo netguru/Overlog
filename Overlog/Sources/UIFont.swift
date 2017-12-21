@@ -42,10 +42,10 @@ internal extension UIFont {
                 if #available(iOSApplicationExtension 8.2, *) {
                     font = .systemFont(ofSize: size, weight: fontWeight(fromOVLWeight: weight))
                 } else {
-                    font = UIFont(name: "HelveticaNeue\(rawTextValue(forWeight: weight))", size: size)!
+                    font = UIFont(name: "HelveticaNeue\(rawTextValue(forWeight: weight))", size: size)
                 }
             case .code:
-                font = UIFont(name: "Menlo\(rawTextValue(forWeight: weight))", size: size)!
+                font = UIFont(name: "Menlo\(rawTextValue(forWeight: weight))", size: size)
             }
         return font ?? .systemFont(ofSize: size)
     }
