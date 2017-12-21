@@ -35,16 +35,20 @@ final class NetworkTrafficViewController: UIViewController {
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = ""
         configure(tableView: customView.tableView)
     }
 
     internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        navigationItem.title = FeatureType.network.rawValue
         if let indexPath = customView.tableView.indexPathForSelectedRow {
             customView.tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    internal override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = ""
     }
 
     internal override func loadView() {

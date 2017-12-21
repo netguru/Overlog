@@ -55,8 +55,7 @@ internal final class TrafficDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonPressed))
-        self.navigationItem.rightBarButtonItem = shareButton
-
+        navigationItem.rightBarButtonItem = shareButton
         customView.segmentedControl.addTarget(self, action: #selector(didChageSegment(sender:)), for: .valueChanged)
         renderContent()
     }

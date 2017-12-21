@@ -25,6 +25,7 @@ internal final class LogsViewController: UIViewController {
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = FeatureType.systemLogs.rawValue
         configure(tableView: customView.tableView)
     }
 
