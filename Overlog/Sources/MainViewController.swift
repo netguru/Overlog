@@ -91,11 +91,9 @@ internal final class MainViewController: UIViewController {
     ///
     /// - Parameter navigationItem: navigation item to configure
     private func configure(navigationItem: UINavigationItem) {
-        let closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapCloseButton(with:)));
-        let settingsBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(didTapSettingsButton(with:)))
+        let closeBarButtonItem = UIBarButtonItem(image: .init(namedInOverlogBundle: "close"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(didTapCloseButton(with:)))
         
         navigationItem.leftBarButtonItem = closeBarButtonItem
-        navigationItem.rightBarButtonItem = settingsBarButtonItem
         navigationItem.title = ""
     }
     
@@ -165,6 +163,6 @@ extension MainViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64
+        return 62
     }
 }

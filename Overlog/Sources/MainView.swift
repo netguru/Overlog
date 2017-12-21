@@ -128,7 +128,12 @@ internal final class MainView: View {
     }
     
     private lazy var footerAttributedText: NSAttributedString = {
-        let love = "♥"
+        let love: String
+        if #available(iOSApplicationExtension 10.0, *) {
+            love = "♥"
+        } else {
+            love = "💙"
+        }
         let netguru = "Netguru"
         let text = "With \(love) from \(netguru)"
         let attributedString = NSMutableAttributedString(string: text)
@@ -136,13 +141,13 @@ internal final class MainView: View {
         /// Common attributes
         let commonAttributes = [
             NSForegroundColorAttributeName: UIColor.OVLLightGray,
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16)
+            NSFontAttributeName: UIFont.OVLFont(ofSize: 16, weight: .regular)
         ]
         
         /// Attributes for heart and Netguru text
         let blueBiggerFontAttributes = [
             NSForegroundColorAttributeName: UIColor.OVLLightBlue,
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 17)
+            NSFontAttributeName: UIFont.OVLFont(ofSize: 16, weight: .bold)
         ]
         
         attributedString.addAttributes(

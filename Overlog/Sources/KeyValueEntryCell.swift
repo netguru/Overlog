@@ -26,11 +26,7 @@ internal final class KeyValueEntryCell: TableViewCell {
         backgroundColor = .OVLGray
         selectionStyle = .none
         
-        if #available(iOSApplicationExtension 8.2, *) {
-            keyLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)
-        } else {
-            keyLabel.font = UIFont.systemFont(ofSize: 18)
-        }
+        keyLabel.font = .OVLFont(ofSize: 18, weight: .bold)
         
         bottomFill.backgroundColor = .OVLDarkBlue
         bottomFill.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .vertical)

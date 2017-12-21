@@ -13,11 +13,11 @@ public enum FeatureType: String {
     case keychain = "Keychain"
     case userDefaults = "User Defaults"
     case consoleLogs = "Console Logs"
-    case systemLogs = "System Logs"
+    case systemLogs = "Logs"
     case url = "URL Configuration"
     
     /// All available feature types.
-    static public var all: [FeatureType] {
+    static internal var all: [FeatureType] {
         return [.network, .userDefaults, .keychain, .consoleLogs, .systemLogs, .url]
     }
     

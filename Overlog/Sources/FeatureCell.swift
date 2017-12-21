@@ -26,11 +26,7 @@ final class FeatureCell: TableViewCell {
         accessoryType = .none
         selectionStyle = .default
         
-        if #available(iOSApplicationExtension 8.2, *) {
-            nameLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
-        } else {
-            nameLabel.font = UIFont.systemFont(ofSize: 18)
-        }
+        nameLabel.font = .OVLFont(ofSize: 18, weight: .semibold)
         
         counterLabel.layer.cornerRadius = 6
         counterLabel.textAlignment = .center
@@ -51,8 +47,8 @@ final class FeatureCell: TableViewCell {
                 
                 indicatorImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
                 indicatorImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                indicatorImageView.widthAnchor.constraint(equalToConstant: 30),
-                indicatorImageView.heightAnchor.constraint(equalToConstant: 30),
+                indicatorImageView.widthAnchor.constraint(equalToConstant: 24),
+                indicatorImageView.heightAnchor.constraint(equalToConstant: 24),
                 
                 borderView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
                 borderView.trailingAnchor.constraint(equalTo: indicatorImageView.trailingAnchor),
@@ -86,7 +82,7 @@ final class FeatureCell: TableViewCell {
             allConstraints += verticalViewsPositionConstraint
             
             let indicatorImageHorizontalConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "[indicatorImageView(30)]-32-|",
+                withVisualFormat: "[indicatorImageView(24)]-32-|",
                 options: [],
                 metrics: nil,
                 views: views
@@ -94,7 +90,7 @@ final class FeatureCell: TableViewCell {
             allConstraints += indicatorImageHorizontalConstraint
             
             let indicatorImageViewHeightConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "V:[indicatorImageView(30)]",
+                withVisualFormat: "V:[indicatorImageView(24)]",
                 options: [],
                 metrics: nil,
                 views: views
