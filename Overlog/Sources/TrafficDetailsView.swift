@@ -8,7 +8,7 @@
 import UIKit
 
 internal final class TrafficDetailsView: View {
-    internal let segmentedControl = UISegmentedControl(frame: .zero)
+    internal let segmentedControl = OVLSegmentedControl(frame: .zero)
     internal var contentView = UIView(frame: .zero)
 
     override func setupHierarchy() {
@@ -16,27 +16,20 @@ internal final class TrafficDetailsView: View {
     }
 
     override func setupProperties() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
         contentView.backgroundColor = .OVLDarkBlue
         self.backgroundColor = .OVLDarkBlue
-        
-        segmentedControl.tintColor = .OVLWhite
-
-        [contentView, segmentedControl].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
         segmentedControl.insertSegment(withTitle: "Request".localized, at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "Response", at: 1, animated: false)
+        segmentedControl.insertSegment(withTitle: "Response".localized, at: 1, animated: false)
         segmentedControl.selectedSegmentIndex = 0
     }
 
     override func setupConstraints() {
         if #available(iOSApplicationExtension 9.0, *) {
             NSLayoutConstraint.activate([
-                segmentedControl.topAnchor.constraint(equalTo: topAnchor),
-                segmentedControl.widthAnchor.constraint(equalToConstant: 200),
-                segmentedControl.heightAnchor.constraint(equalToConstant: 32),
-                segmentedControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-
-                contentView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16),
+                contentView.topAnchor.constraint(equalTo: topAnchor),
                 contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -45,25 +38,16 @@ internal final class TrafficDetailsView: View {
             var allConstraints = [NSLayoutConstraint]()
             
             let views = [
-                "segmentedControl": segmentedControl,
                 "contentView": contentView
             ]
             
             let verticalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-0-[segmentedControl(32)]-16-[contentView]-0-|",
+                withVisualFormat: "V:|-0-[contentView]-0-|",
                 options: [.alignAllCenterX],
                 metrics: nil,
                 views: views
             )
             allConstraints += verticalPositionConstraint
-            
-            let segmentedControlHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:[segmentedControl(200)]",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += segmentedControlHorizontalPositionConstraint
             
             let contentViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
                 withVisualFormat: "H:|-0-[contentView]-0-|",
