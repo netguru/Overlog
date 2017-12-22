@@ -9,81 +9,101 @@ import UIKit
 
 internal final class NetworkTrafficCell: TableViewCell {
 
-    internal let requestTypeLabel = UILabel(frame: .zero)
-    internal let requestURLLabel = UILabel(frame: .zero)
-    internal let indicatorImageView = UIImageView(image: .init(namedInOverlogBundle: "details-default"))
-    internal let bottomFill = UIView(frame: .zero)
+    internal let requestLabel = UILabel(frame: .zero)
+    internal let requestStatusLabel = UILabel(frame: .zero)
+    internal let indicatorImageView = UIImageView(image: .init(namedInOverlogBundle: "details"))
+    internal let statusCircle = UIView(frame: .zero)
+    internal let bottomBorder = UIView(frame: .zero)
+    
+    /// Setups the cell with given traffic entry
+    ///
+    /// - Parameter entry: Traffic entry to setup the cell
+    internal func setup(withEntry entry: NetworkTrafficEntry) {
+        guard let url = URL(string: entry.request.urlString) else { return }
+        let hostWithPath = (url.host ?? "") + url.path
+        let isInProgress = entry.response == nil
+        let requestStatusText = isInProgress ? "IN PROGRESS" : "200 OK"
+        requestLabel.text = entry.request.method.uppercased() + " " + hostWithPath
+        requestStatusLabel.text = requestStatusText
+    }
 
     internal override func setupHierarchy() {
-        [requestTypeLabel, requestURLLabel, bottomFill, indicatorImageView].forEach { contentView.addSubview($0) }
+        [requestLabel, requestStatusLabel, bottomBorder, indicatorImageView, statusCircle].forEach { contentView.addSubview($0) }
     }
 
     internal override func setupProperties() {
-        [requestTypeLabel, requestURLLabel, bottomFill, indicatorImageView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-
+        [requestLabel, requestStatusLabel, bottomBorder, indicatorImageView, statusCircle].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [requestLabel, requestStatusLabel].forEach { $0.textColor = .OVLWhite}
+        
         accessoryType = .none
         
-        requestTypeLabel.textColor = .OVLWhite
-        requestTypeLabel.layer.cornerRadius = 4
-        requestTypeLabel.clipsToBounds = true
-        requestTypeLabel.textAlignment = .center
-        requestTypeLabel.backgroundColor = .OVLDarkBlue
+        requestLabel.numberOfLines = 0
+        requestLabel.font = UIFont.OVLFont(ofSize: 16, weight: .bold, type: .code)
+        requestStatusLabel.font = UIFont.OVLFont(ofSize: 14, weight: .regular, type: .code)
         
-        requestURLLabel.textColor = .OVLWhite
+        statusCircle.backgroundColor = .white
+        statusCircle.layer.cornerRadius = 4
         
-        bottomFill.backgroundColor = .OVLDarkBlue
-        bottomFill.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .vertical)
+        bottomBorder.backgroundColor = .OVLGray
+        bottomBorder.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .vertical)
     }
 
     internal override func setupConstraints() {
         if #available(iOSApplicationExtension 9.0, *) {
             NSLayoutConstraint.activate([
-                requestTypeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                requestTypeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-                requestTypeLabel.widthAnchor.constraint(equalToConstant: 96),
+                requestLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                requestLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+                requestLabel.trailingAnchor.constraint(equalTo: indicatorImageView.leadingAnchor, constant: -8),
 
-                requestURLLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-                requestURLLabel.topAnchor.constraint(equalTo: requestTypeLabel.bottomAnchor, constant: 16),
-                requestURLLabel.bottomAnchor.constraint(equalTo: bottomFill.topAnchor, constant: -16),
+                statusCircle.centerYAnchor.constraint(equalTo: requestStatusLabel.centerYAnchor, constant: 0),
+                statusCircle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                statusCircle.widthAnchor.constraint(equalToConstant: 8),
+                statusCircle.heightAnchor.constraint(equalToConstant: 8),
                 
-                indicatorImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-                indicatorImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -8),
-                indicatorImageView.widthAnchor.constraint(equalToConstant: 8),
-                indicatorImageView.heightAnchor.constraint(equalToConstant: 13),
+                requestStatusLabel.leadingAnchor.constraint(equalTo: statusCircle.trailingAnchor, constant: 8),
+                requestStatusLabel.topAnchor.constraint(equalTo: requestLabel.bottomAnchor, constant: 8),
+                requestStatusLabel.bottomAnchor.constraint(equalTo: bottomBorder.topAnchor, constant: -16),
+                requestStatusLabel.trailingAnchor.constraint(equalTo: indicatorImageView.leadingAnchor, constant: -8),
                 
-                bottomFill.heightAnchor.constraint(equalToConstant: 16),
-                bottomFill.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                bottomFill.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                bottomFill.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+                indicatorImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                indicatorImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
+                indicatorImageView.widthAnchor.constraint(equalToConstant: 24),
+                indicatorImageView.heightAnchor.constraint(equalToConstant: 24),
+                
+                bottomBorder.heightAnchor.constraint(equalToConstant: 1),
+                bottomBorder.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                bottomBorder.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                bottomBorder.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
         } else {
             var allConstraints = [NSLayoutConstraint]()
             
             let views = [
-                "requestTypeLabel": requestTypeLabel,
-                "requestURLLabel": requestURLLabel,
+                "requestLabel": requestLabel,
+                "requestStatusLabel": requestStatusLabel,
+                "statusCircle": statusCircle,
                 "indicatorImageView": indicatorImageView,
-                "bottomFill": bottomFill
+                "bottomBorder": bottomBorder
             ]
             
-            let requestTypeLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[requestTypeLabel(96)]",
+            let requestLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-16-[requestLabel]-8-[indicatorImageView(24)]-16-|",
                 options: [],
                 metrics: nil,
                 views: views
             )
-            allConstraints += requestTypeLabelHorizontalPositionConstraint
+            allConstraints += requestLabelHorizontalPositionConstraint
             
-            let requestURLLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-16-[requestURLLabel]",
+            let requestStatusLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-16-[statusCircle(8)]-8-[requestStatusLabel]-8-[indicatorImageView]",
                 options: [],
                 metrics: nil,
                 views: views
             )
-            allConstraints += requestURLLabelHorizontalPositionConstraint
+            allConstraints += requestStatusLabelHorizontalPositionConstraint
             
             let bottomFillHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[bottomFill]-0-|",
+                withVisualFormat: "H:|-0-[bottomBorder]-0-|",
                 options: [],
                 metrics: nil,
                 views: views
@@ -91,28 +111,28 @@ internal final class NetworkTrafficCell: TableViewCell {
             allConstraints += bottomFillHorizontalPositionConstraint
             
             let leftViewsVerticalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-16-[requestTypeLabel]-16-[requestURLLabel]-16-[bottomFill(16)]-0-|",
+                withVisualFormat: "V:|-16-[requestLabel]-8-[requestStatusLabel]-16-[bottomBorder(1)]-0-|",
                 options: [],
                 metrics: nil,
                 views: views
             )
             allConstraints += leftViewsVerticalPositionConstraint
             
-            let indicatorHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:[indicatorImageView(8)]-16-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += indicatorHorizontalPositionConstraint
-            
             let indicatorVerticalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "V:[indicatorImageView(13)]",
+                withVisualFormat: "V:[indicatorImageView(24)]",
                 options: [],
                 metrics: nil,
                 views: views
             )
             allConstraints += indicatorVerticalPositionConstraint
+            
+            let statusCircleVerticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:[statusCircle(8)]",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += statusCircleVerticalPositionConstraint
             
             let indicatorCenterConstraint = [
                 NSLayoutConstraint.init(
@@ -122,20 +142,33 @@ internal final class NetworkTrafficCell: TableViewCell {
                     toItem: contentView,
                     attribute: .centerY,
                     multiplier: 1,
-                    constant: -8
+                    constant: 0
                 )
             ]
             allConstraints += indicatorCenterConstraint
+            
+            let statusCircleCenterConstraint = [
+                NSLayoutConstraint.init(
+                    item: statusCircle,
+                    attribute: .centerY,
+                    relatedBy: .equal,
+                    toItem: requestStatusLabel,
+                    attribute: .centerY,
+                    multiplier: 1,
+                    constant: 0
+                )
+            ]
+            allConstraints += statusCircleCenterConstraint
 
             NSLayoutConstraint.activate(allConstraints)
         }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-        backgroundColor = selected ? .OVLLightGray : .OVLGray
+        backgroundColor = selected ? .OVLGray : .OVLDarkBlue
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        backgroundColor = highlighted ? .OVLLightGray : .OVLGray
+        backgroundColor = highlighted ? .OVLGray : .OVLDarkBlue
     }
 }
