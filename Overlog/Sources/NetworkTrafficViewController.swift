@@ -93,12 +93,8 @@ extension NetworkTrafficViewController: UITableViewDelegate {
 extension NetworkTrafficViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NetworkTrafficCell.self), for: indexPath) as! NetworkTrafficCell
-
-        cell.requestTypeLabel.text = "Request".localized
-
-        let currentRequest = networkTrafficEntries[indexPath.row].request
-        cell.requestURLLabel.text = currentRequest.urlString
-
+        let entry = networkTrafficEntries[indexPath.row]
+        cell.setup(withEntry: entry)
         return cell
     }
 
