@@ -19,12 +19,14 @@ internal final class NetworkTrafficCell: TableViewCell {
     ///
     /// - Parameter entry: Traffic entry to setup the cell
     internal func setup(withEntry entry: NetworkTrafficEntry) {
-        guard let url = URL(string: entry.request.urlString) else { return }
-        let hostWithPath = (url.host ?? "") + url.path
-        let isInProgress = entry.response == nil
-        let requestStatusText = isInProgress ? "IN PROGRESS" : "200 OK"
-        requestLabel.text = entry.request.method.uppercased() + " " + hostWithPath
-        requestStatusLabel.text = requestStatusText
+        if entry.isInProgress {
+            requestStatusLabel.text = "IN PROGRESS...".localized
+            statusCircle.backgroundColor = .OVLStatusYellow
+        } else {
+            requestStatusLabel.text = entry.statusCodeWithTextRepresentation.uppercased()
+            statusCircle.backgroundColor = entry.responsedWithSuccess ? .OVLStatusGreen : .OVLStatusRed
+        }
+        requestLabel.text = entry.request.method.uppercased() + " " + entry.hostWithPath
     }
 
     internal override func setupHierarchy() {
