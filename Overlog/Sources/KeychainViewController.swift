@@ -58,8 +58,8 @@ extension KeychainViewController {
         
         let valueText = "value".localized + ": " + item.value
         let keyText = "key".localized + ": " + item.key
-        cell.keyLabel.attributedText = valueText.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
-        cell.valueLabel.attributedText = keyText.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
+        cell.keyLabel.text = valueText
+        cell.valueLabel.text = keyText
         return cell
     }
 }

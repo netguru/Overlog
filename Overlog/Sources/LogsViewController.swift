@@ -71,8 +71,8 @@ extension LogsViewController: UITableViewDataSource {
 
         let valueText = stringify(date: log.date)
         let keyText = "\(log.sender) \(log.message)"
-        cell.keyLabel.attributedText = valueText.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
-        cell.valueLabel.attributedText = keyText.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
+        cell.keyLabel.text = valueText
+        cell.valueLabel.text = keyText
         return cell
     }
 

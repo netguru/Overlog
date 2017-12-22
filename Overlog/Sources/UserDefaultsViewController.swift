@@ -81,8 +81,8 @@ extension UserDefaultsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: KeyValueEntryCell.self), for: indexPath) as! KeyValueEntryCell
         let item = items[indexPath.row]
-        cell.keyLabel.attributedText = item.key.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
-        cell.valueLabel.attributedText = item.value.codeAttributed(forFontSize: cell.keyLabel.font.pointSize)
+        cell.keyLabel.text = item.key
+        cell.valueLabel.text = item.value
         return cell
     }
 
