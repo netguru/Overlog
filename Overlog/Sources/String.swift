@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 internal extension String {
     var localized: String {

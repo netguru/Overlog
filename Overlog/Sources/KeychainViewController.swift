@@ -39,6 +39,7 @@ internal final class KeychainViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.register(KeyValueEntryCell.self, forCellReuseIdentifier: String(describing: KeyValueEntryCell.self))
         tableView.estimatedRowHeight = 44.0
+        navigationItem.title = FeatureType.keychain.rawValue
     }
     
 }
@@ -55,8 +56,10 @@ extension KeychainViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: KeyValueEntryCell.self), for: indexPath) as! KeyValueEntryCell
         let item = items[indexPath.row]
         
-        cell.keyLabel.text = "key".localized + ": " + item.key
-        cell.valueLabel.text = "value".localized + ": " + item.value
+        let valueText = "value".localized + ": " + item.value
+        let keyText = "key".localized + ": " + item.key
+        cell.keyLabel.text = valueText
+        cell.valueLabel.text = keyText
         return cell
     }
 }

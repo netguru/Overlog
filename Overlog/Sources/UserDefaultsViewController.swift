@@ -41,8 +41,8 @@ internal final class UserDefaultsViewController: UIViewController {
     internal override func viewDidLoad() {
         super.viewDidLoad()
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonPressed))
-
-        self.navigationItem.rightBarButtonItem = shareButton
+        navigationItem.rightBarButtonItem = shareButton
+        navigationItem.title = FeatureType.userDefaults.rawValue
         configure(tableView: customView.tableView)
     }
 
