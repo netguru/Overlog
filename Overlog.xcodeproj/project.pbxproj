@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38F40E3D1FED5BA2006D6024 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F40E3C1FED5BA2006D6024 /* UINavigationBar.swift */; };
 		3A2204021ED42F5F0048F6A7 /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
 		3A22043F1ED442990048F6A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2204361ED440590048F6A7 /* Images.xcassets */; };
 		3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
@@ -120,6 +121,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38F40E3C1FED5BA2006D6024 /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 		3A2203EC1ED42EA30048F6A7 /* Overlog Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Overlog Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Demo-Base.xcconfig"; sourceTree = "<group>"; };
 		3A2204231ED43FB90048F6A7 /* Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Base.xcconfig"; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 				7CB305C41FE016080006D1DE /* UIColor.swift */,
 				7C3BCA091FEBC85E0081AA13 /* UIFont.swift */,
 				7CB305C81FE0290C0006D1DE /* UIImage.swift */,
+				38F40E3C1FED5BA2006D6024 /* UINavigationBar.swift */,
 				779A9D631F4C5F2C00CF6310 /* Deserialization */,
 			);
 			name = Extensions;
@@ -765,6 +768,7 @@
 				731A1B7A1F069491008A6164 /* Feature.swift in Sources */,
 				BE80D6111EE0968C009C6716 /* NetworkMonitor.swift in Sources */,
 				5E88AF8B1F616DD700D54712 /* FeatureType.swift in Sources */,
+				38F40E3D1FED5BA2006D6024 /* UINavigationBar.swift in Sources */,
 				7310A4B41F0B480D00945C7E /* NetworkTrafficViewController.swift in Sources */,
 				73EB46461F0E22CA001B7AA1 /* TrafficDetailsView.swift in Sources */,
 				779A9D571F4C448600CF6310 /* DefaultActivityViewController.swift in Sources */,
