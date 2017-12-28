@@ -56,6 +56,9 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
         
         /// Overlay window has to be key window to be able to receive shake gestures
         overlayWindow?.makeKey()
+        
+        /// Replaces the default iOS navigation back button with a custom one
+        setupGeneralNavigationLayout()
     }
 
     // MARK: - Overlay flow delegate
@@ -93,6 +96,12 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
             return getCurrentTopViewController(rootViewController: tabBarController.selectedViewController)
         }
         return getCurrentTopViewController(rootViewController: presented)
+    }
+}
+
+private extension OverlayFlowController {
+    func setupGeneralNavigationLayout() {
+        UINavigationBar.loadBackAppearance()
     }
 }
 
