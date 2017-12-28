@@ -11,7 +11,7 @@ import UIKit.UINavigationBar
 internal extension UINavigationBar {
     
     internal class func loadBackAppearance() {
-        let backImage = UIImage(namedInOverlogBundle: "back")
+        let backImage = UIImage(namedInOverlogBundle: "navigationBackArrow")
         UINavigationBar.appearance().backIndicatorImage = backImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
     }
