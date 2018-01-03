@@ -51,8 +51,8 @@ class StatusView: View {
                 valueBackground.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
                 
                 valueLabel.centerYAnchor.constraint(equalTo: valueBackground.centerYAnchor),
-                valueLabel.leadingAnchor.constraint(equalTo: valueBackground.leadingAnchor, constant: 16),
-                valueLabel.trailingAnchor.constraint(equalTo: valueBackground.trailingAnchor, constant: -16),
+                valueLabel.leadingAnchor.constraint(equalTo: valueBackground.leadingAnchor, constant: 8),
+                valueLabel.trailingAnchor.constraint(equalTo: valueBackground.trailingAnchor, constant: -8),
             ])
         } else {
             var allConstraints = [NSLayoutConstraint]()
@@ -80,7 +80,7 @@ class StatusView: View {
             allConstraints += valueLabelHorizontalPositionConstraint
             
             let valueLabelVerticalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-16-[keyLabel]-8-[valueBackground[26]]-16-|",
+                withVisualFormat: "V:|-16-[keyLabel]-8-[valueBackground(26)]-16-|",
                 options: [],
                 metrics: nil,
                 views: views
@@ -88,7 +88,7 @@ class StatusView: View {
             allConstraints += valueLabelVerticalPositionConstraint
             
             let valueLabelMarginsConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:[valueBackground]-16-[valueLabel]-16-[valueBackground]",
+                withVisualFormat: "H:[valueBackground]-8-[valueLabel]-8-[valueBackground]",
                 options: [],
                 metrics: nil,
                 views: views

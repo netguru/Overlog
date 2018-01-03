@@ -51,115 +51,73 @@ internal final class RequestView: View {
                 bodyView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
             ])
         } else {
-//            var allConstraints = [NSLayoutConstraint]()
-//
-//            let views = [
-//                "scrollView": scrollView,
-//                "methodLabel": methodLabel,
-//                "urlLabel": urlLabel,
-//                "headersLabel": headersLabel,
-//                "deserializedBodyLabel": deserializedBodyLabel
-//            ]
-//
-//            let scrollViewVerticalPosition = NSLayoutConstraint.constraints(
-//                withVisualFormat: "V:|-16-[scrollView]-8-|",
-//                options: [],
-//                metrics: nil,
-//                views: views
-//            )
-//            allConstraints += scrollViewVerticalPosition
-//
-//            let scrollViewHorizontalPosition = NSLayoutConstraint.constraints(
-//                withVisualFormat: "H:|-0-[scrollView]-0-|",
-//                options: [],
-//                metrics: nil,
-//                views: views
-//            )
-//            allConstraints += scrollViewHorizontalPosition
-//
-//            let verticalPositionConstraint = NSLayoutConstraint.constraints(
-//                withVisualFormat: "V:|-16-[methodLabel]-16-[urlLabel]-16-[headersLabel]-16-[deserializedBodyLabel]-0-|",
-//                options: [],
-//                metrics: nil,
-//                views: views
-//            )
-//            allConstraints += verticalPositionConstraint
-//
-//            let methodLabelHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-//                withVisualFormat: "H:|-16-[methodLabel]",
-//                options: [],
-//                metrics: nil,
-//                views: views
-//            )
-//            allConstraints += methodLabelHorizontalPositionConstraint
-//
-//            let urlLabelHorizontalPositionConstraint = [
-//                NSLayoutConstraint.init(
-//                    item: urlLabel,
-//                    attribute: .leading,
-//                    relatedBy: .equal,
-//                    toItem: self,
-//                    attribute: .leading,
-//                    multiplier: 1,
-//                    constant: 16
-//                ),
-//                NSLayoutConstraint.init(
-//                    item: urlLabel,
-//                    attribute: .trailing,
-//                    relatedBy: .equal,
-//                    toItem: self,
-//                    attribute: .trailing,
-//                    multiplier: 1,
-//                    constant: -16
-//                )
-//            ]
-//            allConstraints += urlLabelHorizontalPositionConstraint
-//
-//            let headersLabelHorizontalPositionConstraint = [
-//                NSLayoutConstraint.init(
-//                    item: headersLabel,
-//                    attribute: .leading,
-//                    relatedBy: .equal,
-//                    toItem: self,
-//                    attribute: .leading,
-//                    multiplier: 1,
-//                    constant: 16
-//                ),
-//                NSLayoutConstraint.init(
-//                    item: headersLabel,
-//                    attribute: .trailing,
-//                    relatedBy: .equal,
-//                    toItem: self,
-//                    attribute: .trailing,
-//                    multiplier: 1,
-//                    constant: -16
-//                )
-//            ]
-//            allConstraints += headersLabelHorizontalPositionConstraint
-//
-//            let deserializedBodyLabelHorizontalPositionConstraint = [
-//                NSLayoutConstraint.init(
-//                    item: deserializedBodyLabel,
-//                    attribute: .leading,
-//                    relatedBy: .equal,
-//                    toItem: self,
-//                    attribute: .leading,
-//                    multiplier: 1,
-//                    constant: 16
-//                ),
-//                NSLayoutConstraint.init(
-//                    item: deserializedBodyLabel,
-//                    attribute: .trailing,
-//                    relatedBy: .equal,
-//                    toItem: self,
-//                    attribute: .trailing,
-//                    multiplier: 1,
-//                    constant: -16
-//                )
-//            ]
-//            allConstraints += deserializedBodyLabelHorizontalPositionConstraint
-//
-//            NSLayoutConstraint.activate(allConstraints)
+            var allConstraints = [NSLayoutConstraint]()
+
+            let views = [
+                "scrollView": scrollView,
+                "urlView": urlView,
+                "methodView": methodView,
+                "headersView": headersView,
+                "bodyView": bodyView
+            ]
+
+            let scrollViewVerticalPosition = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[scrollView]-8-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += scrollViewVerticalPosition
+
+            let scrollViewHorizontalPosition = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[scrollView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += scrollViewHorizontalPosition
+
+            let verticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-16-[urlView]-16-[methodView]-16-[headersView]-16-[bodyView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += verticalPositionConstraint
+
+            let urlViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[urlView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += urlViewHorizontalPositionConstraint
+
+            let methodViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[methodView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += methodViewHorizontalPositionConstraint
+            
+            let headersViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[headersView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += headersViewHorizontalPositionConstraint
+            
+            let bodyViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[bodyView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += bodyViewHorizontalPositionConstraint
+
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
 }
