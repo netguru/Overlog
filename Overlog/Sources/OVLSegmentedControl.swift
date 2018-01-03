@@ -30,8 +30,8 @@ class OVLSegmentedControl: UISegmentedControl {
         removeBorders()
         setTitleTextAttributes(
             [
-            NSFontAttributeName: UIFont.OVLFont(ofSize: 14, weight: .semibold),
-            NSForegroundColorAttributeName: UIColor.OVLWhite
+                NSFontAttributeName: UIFont.OVLFont(ofSize: 14, weight: .semibold),
+                NSForegroundColorAttributeName: UIColor.OVLWhite
             ], for: .normal)
         
         setTitleTextAttributes(
