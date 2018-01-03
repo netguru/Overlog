@@ -29,7 +29,7 @@ internal final class TrafficDetailsView: View {
     override func setupConstraints() {
         if #available(iOSApplicationExtension 9.0, *) {
             NSLayoutConstraint.activate([
-                contentView.topAnchor.constraint(equalTo: topAnchor),
+                contentView.topAnchor.constraint(equalTo: topAnchor, constant: -16),
                 contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -42,7 +42,7 @@ internal final class TrafficDetailsView: View {
             ]
             
             let verticalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-0-[contentView]-0-|",
+                withVisualFormat: "V:|-(-16)-[contentView]-0-|",
                 options: [.alignAllCenterX],
                 metrics: nil,
                 views: views

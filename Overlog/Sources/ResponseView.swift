@@ -86,37 +86,46 @@ internal final class ResponseView: View {
             )
             allConstraints += verticalPositionConstraint
 
-            let statusViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[statusView]-0-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += statusViewHorizontalPositionConstraint
+            let statusViewHorizontalConstraints = [
+                NSLayoutConstraint.init(item: statusView, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: statusView, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += statusViewHorizontalConstraints
             
-            let firstRowHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[firstRow]-0-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += firstRowHorizontalPositionConstraint
+            let firstRowHorizontalConstraints = [
+                NSLayoutConstraint.init(item: firstRow, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: firstRow, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += firstRowHorizontalConstraints
             
-            let secondRowHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[secondRow]-0-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += secondRowHorizontalPositionConstraint
             
-            let thirdRowHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[thirdRow]-0-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += thirdRowHorizontalPositionConstraint
+            let secondRowHorizontalConstraints = [
+                NSLayoutConstraint.init(item: secondRow, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: secondRow, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += secondRowHorizontalConstraints
+            
+            let thirdRowHorizontalConstraints = [
+                NSLayoutConstraint.init(item: thirdRow, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: thirdRow, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += thirdRowHorizontalConstraints
 
             NSLayoutConstraint.activate(allConstraints)
         }

@@ -86,37 +86,46 @@ internal final class RequestView: View {
             )
             allConstraints += verticalPositionConstraint
 
-            let urlViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[urlView]-0-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += urlViewHorizontalPositionConstraint
+            let urlViewHorizontalConstraints = [
+                NSLayoutConstraint.init(item: urlView, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: urlView, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += urlViewHorizontalConstraints
 
-            let methodViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[methodView]-0-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += methodViewHorizontalPositionConstraint
+            let methodViewHorizontalConstraints = [
+                NSLayoutConstraint.init(item: methodView, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: methodView, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+                ]
+            allConstraints += methodViewHorizontalConstraints
             
-            let headersViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[headersView]-0-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += headersViewHorizontalPositionConstraint
             
-            let bodyViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[bodyView]-0-|",
-                options: [],
-                metrics: nil,
-                views: views
-            )
-            allConstraints += bodyViewHorizontalPositionConstraint
+            let headersViewHorizontalConstraints = [
+                NSLayoutConstraint.init(item: headersView, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: headersView, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += headersViewHorizontalConstraints
+            
+            let bodyViewHorizontalConstraints = [
+                NSLayoutConstraint.init(item: bodyView, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: bodyView, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += bodyViewHorizontalConstraints
 
             NSLayoutConstraint.activate(allConstraints)
         }
