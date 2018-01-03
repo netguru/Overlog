@@ -8,7 +8,7 @@
 import UIKit
 
 internal final class TrafficDetailsView: View {
-    internal let segmentedControl = OVLSegmentedControl(frame: .zero)
+    internal let segmentedControl = OVLSegmentedControl(frame: .init(x: 0, y: 0, width: 240, height: 30))
     internal var contentView = UIView(frame: .zero)
 
     override func setupHierarchy() {
