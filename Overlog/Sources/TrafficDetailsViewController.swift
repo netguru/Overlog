@@ -81,6 +81,7 @@ internal final class TrafficDetailsViewController: UIViewController {
     internal func renderContent() {
         requestViewController.displayRequest(from: networkTrafficEntry)
         responseViewController.displayResponse(from: networkTrafficEntry)
+        customView.segmentedControl.setEnabled(!networkTrafficEntry.isInProgress, forSegmentAt: 1)
     }
 }
 
