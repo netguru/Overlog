@@ -1,9 +1,8 @@
 //
 //  OVLSegmentedControl.swift
-//  Overlog
 //
-//  Created by Michał Kwiecień on 22/12/2017.
 //  Copyright © 2017 Netguru Sp. z o.o. All rights reserved.
+//  Licensed under the MIT License.
 //
 
 import UIKit
