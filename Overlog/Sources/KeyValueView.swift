@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KeyValueView: View {
+internal final class KeyValueView: View {
     
     internal let keyLabel = UILabel(frame: .zero)
     internal let valueLabel = UILabel(frame: .zero)
@@ -22,13 +22,12 @@ class KeyValueView: View {
     }
     
     override func setupProperties() {
-        [keyLabel, valueLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        [keyLabel, valueLabel].forEach { $0.textColor = .OVLWhite }
-        
-        keyLabel.numberOfLines = 0
-        valueLabel.numberOfLines = 0
+        [keyLabel, valueLabel].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.textColor = .OVLWhite
+            $0.numberOfLines = 0
+        }
         backgroundColor = .OVLGray
-        
         keyLabel.font = .OVLFont(ofSize: 16, weight: .bold, type: .code)
         valueLabel.font = .OVLFont(ofSize: 14, weight: .regular, type: .code)
     }

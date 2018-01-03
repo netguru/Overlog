@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StatusView: View {
+internal final class StatusView: View {
     
     private let keyLabel = UILabel(frame: .zero)
     internal let valueBackground = UILabel(frame: .zero)
