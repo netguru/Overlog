@@ -88,7 +88,7 @@ class StatusView: View {
             allConstraints += valueLabelVerticalPositionConstraint
             
             let valueLabelMarginsConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:[valueBackground]-8-[valueLabel]-8-[valueBackground]",
+                withVisualFormat: "H:|-8-[valueLabel]-8-|",
                 options: [],
                 metrics: nil,
                 views: views
