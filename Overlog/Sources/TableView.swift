@@ -17,9 +17,10 @@ final class TableView: View {
 
     override func setupProperties() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.indicatorStyle = .white
+        tableView.showsVerticalScrollIndicator = true
         tableView.backgroundColor = .OVLDarkBlue
         tableView.separatorStyle = .none
-        tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         /// To hide empty cells
         tableView.tableFooterView = UIView(frame: .zero)
     }
@@ -49,12 +50,11 @@ final class TableView: View {
             allConstraints += tableViewVerticalPositionConstraint
 
             let tableViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-(-8)-[tableView]-(-8)-|",
+                withVisualFormat: "H:|-0-[tableView]-0-|",
                 options: [],
                 metrics: nil,
                 views: views
             )
-            
             allConstraints += tableViewHorizontalPositionConstraint
 
             NSLayoutConstraint.activate(allConstraints)

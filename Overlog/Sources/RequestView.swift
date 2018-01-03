@@ -23,6 +23,7 @@ internal final class RequestView: View {
     internal override func setupProperties() {
         [scrollView, urlView, methodView, headersView, bodyView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         backgroundColor = .OVLDarkBlue
+        scrollView.indicatorStyle = .white
     }
 
     internal override func setupConstraints() {
