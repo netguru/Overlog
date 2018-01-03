@@ -27,7 +27,7 @@ internal class NetworkTrafficEntry {
     
     /// Indicates if entry is currently in progress
     internal var isInProgress: Bool {
-        return response == nil
+        return response == nil && error == nil
     }
     
     /// Indicates if entry has responded with success
@@ -38,7 +38,10 @@ internal class NetworkTrafficEntry {
     
     /// Status code with text representation
     internal var statusCodeWithTextRepresentation: String {
-        guard let response = response else { return "" }
-        return "\(response.statusCode) " + response.statusString
+        if let response = response {
+            return "\(response.statusCode) " + response.statusString
+        } else {
+            return "CONNECTION ERROR".localized
+        }
     }
 }
