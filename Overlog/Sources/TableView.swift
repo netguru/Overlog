@@ -55,7 +55,6 @@ final class TableView: View {
                 metrics: nil,
                 views: views
             )
-            
             allConstraints += tableViewHorizontalPositionConstraint
 
             NSLayoutConstraint.activate(allConstraints)
