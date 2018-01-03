@@ -59,9 +59,12 @@
 		779A9D601F4C5A6600CF6310 /* RequestRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A9D5F1F4C5A6600CF6310 /* RequestRepresentation.swift */; };
 		779A9D621F4C5E0E00CF6310 /* ResponseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A9D611F4C5E0E00CF6310 /* ResponseRepresentation.swift */; };
 		7C3BCA0A1FEBC85E0081AA13 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BCA091FEBC85E0081AA13 /* UIFont.swift */; };
+		7C58BF051FED64EB00F46B5E /* OVLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58BF041FED64EB00F46B5E /* OVLSegmentedControl.swift */; };
 		7CB305C51FE016080006D1DE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB305C41FE016080006D1DE /* UIColor.swift */; };
 		7CB305C71FE025470006D1DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB305C61FE025470006D1DE /* Images.xcassets */; };
 		7CB305C91FE0290C0006D1DE /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB305C81FE0290C0006D1DE /* UIImage.swift */; };
+		7CC975981FFCDF5800635091 /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC975971FFCDF5800635091 /* KeyValueView.swift */; };
+		7CC9759A1FFCE57600635091 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC975991FFCE57600635091 /* StatusView.swift */; };
 		810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D51F05258A00E12159 /* MainViewController.swift */; };
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
@@ -174,9 +177,12 @@
 		779A9D5F1F4C5A6600CF6310 /* RequestRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRepresentation.swift; sourceTree = "<group>"; };
 		779A9D611F4C5E0E00CF6310 /* ResponseRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseRepresentation.swift; sourceTree = "<group>"; };
 		7C3BCA091FEBC85E0081AA13 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		7C58BF041FED64EB00F46B5E /* OVLSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OVLSegmentedControl.swift; sourceTree = "<group>"; };
 		7CB305C41FE016080006D1DE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		7CB305C61FE025470006D1DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7CB305C81FE0290C0006D1DE /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		7CC975971FFCDF5800635091 /* KeyValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
+		7CC975991FFCE57600635091 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		810EF3D51F05258A00E12159 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
@@ -484,6 +490,9 @@
 				73EB46471F0E2712001B7AA1 /* RequestView.swift */,
 				73EB46491F0E274D001B7AA1 /* ResponseView.swift */,
 				5E6E26F51F86B5BA00A1DC4D /* URLConfigurationView.swift */,
+				7C58BF041FED64EB00F46B5E /* OVLSegmentedControl.swift */,
+				7CC975971FFCDF5800635091 /* KeyValueView.swift */,
+				7CC975991FFCE57600635091 /* StatusView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -723,6 +732,7 @@
 				7378713D1F0E451F00AF0724 /* RequestViewController.swift in Sources */,
 				5E6E26FA1F86C96C00A1DC4D /* Scheme.swift in Sources */,
 				EA747B981F0E66AE0048506A /* SystemLogsMonitor.swift in Sources */,
+				7CC975981FFCDF5800635091 /* KeyValueView.swift in Sources */,
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */,
 				5E6E26F81F86C07D00A1DC4D /* URLConfigurationStorage.swift in Sources */,
@@ -734,6 +744,7 @@
 				EA747B991F0F80570048506A /* LogsViewController.swift in Sources */,
 				BF69045B1ED5975D00FF303E /* OverlayView.swift in Sources */,
 				8185ADF81F0D15A700379C39 /* SettingsViewController.swift in Sources */,
+				7C58BF051FED64EB00F46B5E /* OVLSegmentedControl.swift in Sources */,
 				7CB305C51FE016080006D1DE /* UIColor.swift in Sources */,
 				73EB46401F0CD7D3001B7AA1 /* NetworkTrafficEntry.swift in Sources */,
 				779A9D551F4C357800CF6310 /* NetworkTrafficViewFlowController.swift in Sources */,
@@ -744,6 +755,7 @@
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
 				5EEAE8051F604458009B6149 /* Configuration.swift in Sources */,
 				779A9D621F4C5E0E00CF6310 /* ResponseRepresentation.swift in Sources */,
+				7CC9759A1FFCE57600635091 /* StatusView.swift in Sources */,
 				5E6E26F41F86B54600A1DC4D /* URLConfigurationViewController.swift in Sources */,
 				EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */,
 				5EEAE7F81F5F0C45009B6149 /* KeychainMonitor.swift in Sources */,

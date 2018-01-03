@@ -34,15 +34,15 @@ internal extension UIColor {
     }
     
     class var OVLStatusGreen: UIColor {
-        return UIColor(hex: 0x3dc46f)
+        return UIColor(hex: 0x3DC46F)
     }
     
     class var OVLStatusRed: UIColor {
-        return UIColor(hex: 0xbc2f3b)
+        return UIColor(hex: 0xBC2F3B)
     }
     
     class var OVLStatusYellow: UIColor {
-        return UIColor(hex: 0xf1d575)
+        return UIColor(hex: 0xF1D575)
     }
     
     /// Initializes and returns a color object using the specified RGB component values.
