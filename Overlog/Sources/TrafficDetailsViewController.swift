@@ -64,7 +64,7 @@ internal final class TrafficDetailsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        display(viewController: requestViewController)
+        display(viewController: displayedViewController)
     }
 
     override func loadView() {
