@@ -27,7 +27,7 @@ final class TableView: View {
 
     override func setupConstraints() {
 
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 tableView.topAnchor.constraint(equalTo: topAnchor),

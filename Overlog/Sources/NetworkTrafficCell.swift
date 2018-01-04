@@ -51,7 +51,7 @@ internal final class NetworkTrafficCell: TableViewCell {
     }
 
     internal override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 requestLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 requestLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),

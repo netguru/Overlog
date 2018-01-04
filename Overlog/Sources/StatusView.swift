@@ -39,7 +39,7 @@ internal final class StatusView: View {
     }
     
     override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 keyLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
                 keyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

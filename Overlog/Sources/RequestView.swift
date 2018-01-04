@@ -28,7 +28,7 @@ internal final class RequestView: View {
     }
 
     internal override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),

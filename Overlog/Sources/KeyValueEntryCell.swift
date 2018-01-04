@@ -34,7 +34,7 @@ internal final class KeyValueEntryCell: TableViewCell {
     }
 
     override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 keyLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
                 keyLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
@@ -92,6 +92,15 @@ internal final class KeyValueEntryCell: TableViewCell {
             allConstraints += valueLabelVerticalPositionConstraint
             
             NSLayoutConstraint.activate(allConstraints)
+        }
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        /// Workaround for misaligned cells inside TableView on iOS 8
+        if #available(iOS 9.0, *) {} else {
+            layoutIfNeeded()
         }
     }
 }

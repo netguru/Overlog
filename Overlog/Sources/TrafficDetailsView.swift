@@ -27,7 +27,7 @@ internal final class TrafficDetailsView: View {
     }
 
     override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 contentView.topAnchor.constraint(equalTo: topAnchor, constant: -16),
                 contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
