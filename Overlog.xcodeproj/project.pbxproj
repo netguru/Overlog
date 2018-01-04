@@ -59,6 +59,7 @@
 		779A9D601F4C5A6600CF6310 /* RequestRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A9D5F1F4C5A6600CF6310 /* RequestRepresentation.swift */; };
 		779A9D621F4C5E0E00CF6310 /* ResponseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A9D611F4C5E0E00CF6310 /* ResponseRepresentation.swift */; };
 		7C3BCA0A1FEBC85E0081AA13 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BCA091FEBC85E0081AA13 /* UIFont.swift */; };
+		7C5178B51FFE4424003045C8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5178B41FFE4424003045C8 /* Dictionary.swift */; };
 		7C58BF051FED64EB00F46B5E /* OVLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58BF041FED64EB00F46B5E /* OVLSegmentedControl.swift */; };
 		7CB305C51FE016080006D1DE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB305C41FE016080006D1DE /* UIColor.swift */; };
 		7CB305C71FE025470006D1DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB305C61FE025470006D1DE /* Images.xcassets */; };
@@ -177,6 +178,7 @@
 		779A9D5F1F4C5A6600CF6310 /* RequestRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRepresentation.swift; sourceTree = "<group>"; };
 		779A9D611F4C5E0E00CF6310 /* ResponseRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseRepresentation.swift; sourceTree = "<group>"; };
 		7C3BCA091FEBC85E0081AA13 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		7C5178B41FFE4424003045C8 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		7C58BF041FED64EB00F46B5E /* OVLSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OVLSegmentedControl.swift; sourceTree = "<group>"; };
 		7CB305C41FE016080006D1DE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		7CB305C61FE025470006D1DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				7C3BCA091FEBC85E0081AA13 /* UIFont.swift */,
 				7CB305C81FE0290C0006D1DE /* UIImage.swift */,
 				38F40E3C1FED5BA2006D6024 /* UINavigationBar.swift */,
+				7C5178B41FFE4424003045C8 /* Dictionary.swift */,
 				779A9D631F4C5F2C00CF6310 /* Deserialization */,
 			);
 			name = Extensions;
@@ -755,6 +758,7 @@
 				810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */,
 				5EEAE8051F604458009B6149 /* Configuration.swift in Sources */,
 				779A9D621F4C5E0E00CF6310 /* ResponseRepresentation.swift in Sources */,
+				7C5178B51FFE4424003045C8 /* Dictionary.swift in Sources */,
 				7CC9759A1FFCE57600635091 /* StatusView.swift in Sources */,
 				5E6E26F41F86B54600A1DC4D /* URLConfigurationViewController.swift in Sources */,
 				EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */,
