@@ -94,4 +94,13 @@ internal final class KeyValueEntryCell: TableViewCell {
             NSLayoutConstraint.activate(allConstraints)
         }
     }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        /// Workaround for misaligned cells inside TableView on iOS 8
+        if #available(iOS 9.0, *) {} else {
+            layoutIfNeeded()
+        }
+    }
 }
