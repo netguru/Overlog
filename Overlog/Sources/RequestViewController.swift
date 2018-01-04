@@ -13,7 +13,9 @@ internal final class RequestViewController: UIViewController {
     private let customView = RequestView()
 
     internal override func loadView() {
-        view = customView
+        super.loadView()
+        view.addSubview(customView)
+        customView.pinToSuperviewEdges()
     }
 
     init() {

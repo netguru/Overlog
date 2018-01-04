@@ -60,6 +60,7 @@
 		779A9D621F4C5E0E00CF6310 /* ResponseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A9D611F4C5E0E00CF6310 /* ResponseRepresentation.swift */; };
 		7C3BCA0A1FEBC85E0081AA13 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BCA091FEBC85E0081AA13 /* UIFont.swift */; };
 		7C5178B51FFE4424003045C8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5178B41FFE4424003045C8 /* Dictionary.swift */; };
+		7C5178B71FFE6FAF003045C8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5178B61FFE6FAF003045C8 /* UIView.swift */; };
 		7C58BF051FED64EB00F46B5E /* OVLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58BF041FED64EB00F46B5E /* OVLSegmentedControl.swift */; };
 		7CB305C51FE016080006D1DE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB305C41FE016080006D1DE /* UIColor.swift */; };
 		7CB305C71FE025470006D1DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB305C61FE025470006D1DE /* Images.xcassets */; };
@@ -179,6 +180,7 @@
 		779A9D611F4C5E0E00CF6310 /* ResponseRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseRepresentation.swift; sourceTree = "<group>"; };
 		7C3BCA091FEBC85E0081AA13 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		7C5178B41FFE4424003045C8 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		7C5178B61FFE6FAF003045C8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		7C58BF041FED64EB00F46B5E /* OVLSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OVLSegmentedControl.swift; sourceTree = "<group>"; };
 		7CB305C41FE016080006D1DE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		7CB305C61FE025470006D1DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				7C3BCA091FEBC85E0081AA13 /* UIFont.swift */,
 				7CB305C81FE0290C0006D1DE /* UIImage.swift */,
 				38F40E3C1FED5BA2006D6024 /* UINavigationBar.swift */,
+				7C5178B61FFE6FAF003045C8 /* UIView.swift */,
 				7C5178B41FFE4424003045C8 /* Dictionary.swift */,
 				779A9D631F4C5F2C00CF6310 /* Deserialization */,
 			);
@@ -769,6 +772,7 @@
 				8186AA551F0BD702002831E9 /* KeychainViewController.swift in Sources */,
 				81CCC1421F0D02CA0058BEB8 /* String.swift in Sources */,
 				EA747B9B1F0F84DD0048506A /* KeyValueEntryCell.swift in Sources */,
+				7C5178B71FFE6FAF003045C8 /* UIView.swift in Sources */,
 				73EB46441F0E1E0B001B7AA1 /* TrafficDetailsViewController.swift in Sources */,
 				BF6904561ED49B9600FF303E /* Overlog.swift in Sources */,
 				731A1B801F06961E008A6164 /* FeatureCell.swift in Sources */,

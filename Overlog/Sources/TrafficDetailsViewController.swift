@@ -69,8 +69,8 @@ internal final class TrafficDetailsViewController: UIViewController {
 
     override func loadView() {
         super.loadView()
-
-        view = customView
+        view.addSubview(customView)
+        customView.pinToSuperviewEdges()
     }
 
     internal func renderContent() {
