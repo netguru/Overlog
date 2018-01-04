@@ -9,7 +9,7 @@ import UIKit
 
 internal extension UIView {
     
-    /// Disables translating autoresazing mask into constrains and pins the view edges to its superview edges using AutoLayout
+    /// Disables translating autoresazing mask into constraints and pins the view edges to its superview edges using AutoLayout
     internal func pinToSuperviewEdges() {
         translatesAutoresizingMaskIntoConstraints = false
         guard let superview = superview else { return }
