@@ -72,6 +72,11 @@ internal final class TrafficDetailsViewController: UIViewController {
         view.addSubview(customView)
         customView.pinToSuperviewEdges()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        customView.segmentedControl.frame.size = .init(width: 240, height: 30)
+    }
 
     internal func renderContent() {
         requestViewController.displayRequest(from: networkTrafficEntry)
