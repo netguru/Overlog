@@ -10,7 +10,7 @@ import UIKit
 internal final class OverlayView: View {
     
     internal let floatingButton = UIButton(type: .system)
-    private var floatingButtonTilteChangeTask: DispatchWorkItem?
+    private var floatingButtonTitleChangeTask: DispatchWorkItem?
     private let defaultFloatingButtonIcon = UIImage(namedInOverlogBundle: "bug")
 
     override func setupHierarchy() {
@@ -43,20 +43,20 @@ internal final class OverlayView: View {
     ///   - fromTitle: Title of the button which appear on the animation's beginning.
     ///   - numberOfSeconds: duration of animation in seconds.
     internal func animateTitleChange(to toTitle: String, duration numberOfSeconds: Int) {
-        if let task = self.floatingButtonTilteChangeTask {
+        if let task = self.floatingButtonTitleChangeTask {
             task.cancel()
         }
-        floatingButtonTilteChangeTask = nil
+        floatingButtonTitleChangeTask = nil
         animateFloatingButtonImage(toVisible: false)
         floatingButton.setTitle(toTitle, for: .normal)
 
         let task = DispatchWorkItem { [weak self] in
             self?.animateFloatingButtonImage(toVisible: true)
             self?.floatingButton.setTitle(" ", for: .normal)
-            self?.floatingButtonTilteChangeTask = nil
+            self?.floatingButtonTitleChangeTask = nil
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(numberOfSeconds), execute: task)
-        self.floatingButtonTilteChangeTask = task
+        self.floatingButtonTitleChangeTask = task
     }
     
     /// Animates button image change.
