@@ -24,6 +24,7 @@ internal final class ResponseView: View {
         [scrollView, statusView, firstRow, secondRow, thirdRow].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         backgroundColor = .OVLDarkBlue
         scrollView.indicatorStyle = .white
+        scrollView.alwaysBounceVertical = true
     }
 
     internal override func setupConstraints() {

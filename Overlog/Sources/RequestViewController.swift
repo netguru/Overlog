@@ -28,7 +28,7 @@ internal final class RequestViewController: UIViewController {
     internal func displayRequest(from entry: NetworkTrafficEntry) {
         customView.urlView.valueLabel.text = entry.request.urlString
         customView.methodView.valueLabel.text = entry.request.method
-        customView.headersView.valueLabel.text = String(describing: entry.request.headers)
+        customView.headersView.valueLabel.text = entry.request.headers.keyValueString ?? "<empty>"
         customView.bodyView.valueLabel.text = entry.request.deserializedBody ?? "<empty>"
     }
 }

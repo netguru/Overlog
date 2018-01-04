@@ -31,7 +31,7 @@ internal final class ResponseViewController: UIViewController {
             customView.statusView.valueBackground.backgroundColor = entry.responsedWithSuccess ? .OVLStatusGreen : .OVLStatusRed
             
             customView.firstRow.keyLabel.text = "Headers".localized
-            customView.firstRow.valueLabel.text = String(describing: response.headers)
+            customView.firstRow.valueLabel.text = response.headers.keyValueString ?? "<empty>"
             
             customView.secondRow.keyLabel.text = "Body".localized
             customView.secondRow.valueLabel.text = response.deserializedBody ?? "<empty>"
@@ -49,7 +49,7 @@ internal final class ResponseViewController: UIViewController {
             
             customView.thirdRow.isHidden = false
             customView.thirdRow.keyLabel.text = "User Info".localized
-            customView.thirdRow.valueLabel.text = String(describing: error.userInfo)
+            customView.thirdRow.valueLabel.text = error.userInfo.keyValueString ?? "<empty>"
         }
     }
 }
