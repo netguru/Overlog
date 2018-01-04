@@ -110,7 +110,7 @@ extension OverlayFlowController: MainViewFlowControllerDelegate {
     func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: FeatureType) {
         let featureEnabled = configuration.enabledFeatures().filter { $0.type == eventType }.first != nil
         if featureEnabled {
-            rootViewController?.overlayView.animateTitleChange(from: eventType.icon, duration: 1)
+            rootViewController?.overlayView.animateTitleChange(to: eventType.icon, duration: 1)
         }
     }
     

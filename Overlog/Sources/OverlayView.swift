@@ -10,7 +10,7 @@ import UIKit
 internal final class OverlayView: View {
     
     internal let floatingButton = UIButton(type: .system)
-    private var floatingButtonTilteChangeTask: DispatchWorkItem?
+    private var floatingButtonTitleChangeTask: DispatchWorkItem?
     private let defaultFloatingButtonIcon = UIImage(namedInOverlogBundle: "bug")
 
     override func setupHierarchy() {
@@ -42,21 +42,34 @@ internal final class OverlayView: View {
     /// - Parameters:
     ///   - fromTitle: Title of the button which appear on the animation's beginning.
     ///   - numberOfSeconds: duration of animation in seconds.
-    internal func animateTitleChange(from fromTitle: String, duration numberOfSeconds: Int) {
-        if let task = self.floatingButtonTilteChangeTask {
+    internal func animateTitleChange(to toTitle: String, duration numberOfSeconds: Int) {
+        if let task = self.floatingButtonTitleChangeTask {
             task.cancel()
         }
-        floatingButtonTilteChangeTask = nil
-        floatingButton.setImage(nil, for: .normal)
-        floatingButton.setTitle(fromTitle, for: .normal)
+        floatingButtonTitleChangeTask = nil
+        animateFloatingButtonImage(toVisible: false)
+        floatingButton.setTitle(toTitle, for: .normal)
 
         let task = DispatchWorkItem { [weak self] in
-            self?.floatingButton.setImage(self?.defaultFloatingButtonIcon, for: .normal)
-            self?.floatingButton.setTitle(nil, for: .normal)
-            self?.floatingButtonTilteChangeTask = nil
+            self?.animateFloatingButtonImage(toVisible: true)
+            self?.floatingButton.setTitle(" ", for: .normal)
+            self?.floatingButtonTitleChangeTask = nil
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(numberOfSeconds), execute: task)
-        self.floatingButtonTilteChangeTask = task
+        self.floatingButtonTitleChangeTask = task
+    }
+    
+    /// Animates button image change.
+    /// By default UIButton only animates when changing titles, not images
+    ///
+    /// - Parameters:
+    ///    - visible: indicates if image of the button should be visible
+    private func animateFloatingButtonImage(toVisible visible: Bool) {
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.floatingButton.imageView?.alpha = visible ? 1 : 0
+        }, completion: { [weak self] _ in
+            self?.floatingButton.setImage(visible ? self?.defaultFloatingButtonIcon : nil, for: .normal)
+        })
     }
 
     /// Calculates floating button's frame after device's rotation.
