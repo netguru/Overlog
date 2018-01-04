@@ -31,7 +31,7 @@ internal final class URLConfigurationView: View {
     }
     
     internal override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 segmentedControl.centerXAnchor.constraint(equalTo: centerXAnchor),
                 segmentedControl.topAnchor.constraint(equalTo: topAnchor, constant: 72),

@@ -39,7 +39,7 @@ internal extension UIFont {
         let font: UIFont?
             switch type {
             case .standard:
-                if #available(iOSApplicationExtension 8.2, *) {
+                if #available(iOS 8.2, *) {
                     font = .systemFont(ofSize: size, weight: fontWeight(fromOVLWeight: weight))
                 } else {
                     font = UIFont(name: "HelveticaNeue\(rawTextValue(forWeight: weight))", size: size)
@@ -55,7 +55,7 @@ internal extension UIFont {
     /// - Parameter weight: Weight of the font
     /// - Returns: System weight value
     private class func fontWeight(fromOVLWeight weight: OVLWeight) -> UIFontWeight {
-        if #available(iOSApplicationExtension 8.2, *) {
+        if #available(iOS 8.2, *) {
             switch weight {
             case .regular:
                 return UIFontWeightRegular

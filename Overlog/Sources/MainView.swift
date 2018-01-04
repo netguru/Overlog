@@ -41,7 +41,7 @@ internal final class MainView: View {
 
     override func setupConstraints() {
         tableView.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .vertical)
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 tableView.topAnchor.constraint(equalTo: topAnchor),
@@ -129,7 +129,7 @@ internal final class MainView: View {
     
     private lazy var footerAttributedText: NSAttributedString = {
         let love: String
-        if #available(iOSApplicationExtension 10.0, *) {
+        if #available(iOS 10.0, *) {
             love = "♥"
         } else {
             love = "💙"

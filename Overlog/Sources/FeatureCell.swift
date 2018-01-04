@@ -36,7 +36,7 @@ final class FeatureCell: TableViewCell {
     }
 
     override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
                 nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
