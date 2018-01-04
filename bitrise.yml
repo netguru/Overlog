@@ -90,7 +90,7 @@ workflows:
             - scheme: $XCODEBUILD_SCHEME
             - xcodebuild_test_options: $XCODEBUILD_OPTIONS
             - generate_code_coverage_files: 'yes'
-            - should_build_before_test: 'yes'
+            - should_build_before_test: 'no'
 
   # Build and archive the application.
 
