@@ -64,13 +64,18 @@ internal final class TrafficDetailsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        display(viewController: requestViewController)
+        display(viewController: displayedViewController)
     }
 
     override func loadView() {
         super.loadView()
-
-        view = customView
+        view.addSubview(customView)
+        customView.pinToSuperviewEdges()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        customView.segmentedControl.frame.size = .init(width: 240, height: 30)
     }
 
     internal func renderContent() {

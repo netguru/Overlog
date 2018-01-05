@@ -22,7 +22,9 @@ internal final class ResponseViewController: UIViewController {
     }
 
     internal override func loadView() {
-        view = customView
+        super.loadView()
+        view.addSubview(customView)
+        customView.pinToSuperviewEdges()
     }
 
     internal func displayResponse(from entry: NetworkTrafficEntry) {
