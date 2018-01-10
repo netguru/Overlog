@@ -12,12 +12,8 @@
 		3A22043F1ED442990048F6A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2204361ED440590048F6A7 /* Images.xcassets */; };
 		3A5B67EE1ED4923300A1822B /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2204381ED440590048F6A7 /* ApplicationDelegate.swift */; };
 		3A88CEBC1ED32D4D00557CFA /* Overlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88CEB21ED32D4D00557CFA /* Overlog.framework */; };
-		5E6E26F41F86B54600A1DC4D /* URLConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F31F86B54600A1DC4D /* URLConfigurationViewController.swift */; };
-		5E6E26F61F86B5BA00A1DC4D /* URLConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F51F86B5BA00A1DC4D /* URLConfigurationView.swift */; };
-		5E6E26F81F86C07D00A1DC4D /* URLConfigurationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F71F86C07D00A1DC4D /* URLConfigurationStorage.swift */; };
 		5E6E26FA1F86C96C00A1DC4D /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F91F86C96C00A1DC4D /* Scheme.swift */; };
 		5E6E26FC1F86DB0700A1DC4D /* URLConfigurationStorageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26FB1F86DB0700A1DC4D /* URLConfigurationStorageSpec.swift */; };
-		5E6E26FD1F86DB9C00A1DC4D /* URLConfigurationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F71F86C07D00A1DC4D /* URLConfigurationStorage.swift */; };
 		5E6E26FE1F86DBAA00A1DC4D /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E26F91F86C96C00A1DC4D /* Scheme.swift */; };
 		5E88AF8B1F616DD700D54712 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88AF8A1F616DD700D54712 /* FeatureType.swift */; };
 		5E88AF8C1F6178EF00D54712 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88AF8A1F616DD700D54712 /* FeatureType.swift */; };
@@ -141,9 +137,6 @@
 		3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Debug.xcconfig"; sourceTree = "<group>"; };
 		3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Release.xcconfig"; sourceTree = "<group>"; };
 		3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Base.xcconfig"; sourceTree = "<group>"; };
-		5E6E26F31F86B54600A1DC4D /* URLConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfigurationViewController.swift; sourceTree = "<group>"; };
-		5E6E26F51F86B5BA00A1DC4D /* URLConfigurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfigurationView.swift; sourceTree = "<group>"; };
-		5E6E26F71F86C07D00A1DC4D /* URLConfigurationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfigurationStorage.swift; sourceTree = "<group>"; };
 		5E6E26F91F86C96C00A1DC4D /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		5E6E26FB1F86DB0700A1DC4D /* URLConfigurationStorageSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfigurationStorageSpec.swift; sourceTree = "<group>"; };
 		5E88AF8A1F616DD700D54712 /* FeatureType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureType.swift; sourceTree = "<group>"; };
@@ -403,7 +396,6 @@
 				779A9D561F4C448600CF6310 /* DefaultActivityViewController.swift */,
 				5EEAE7F71F5F0C45009B6149 /* KeychainMonitor.swift */,
 				5E88AF921F62BD0400D54712 /* UserDefaultsMonitor.swift */,
-				5E6E26F71F86C07D00A1DC4D /* URLConfigurationStorage.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -478,7 +470,6 @@
 				7378713C1F0E451F00AF0724 /* RequestViewController.swift */,
 				7378713E1F0E466100AF0724 /* ResponseViewController.swift */,
 				EAFAE2781F0BCC780017380B /* LogsViewController.swift */,
-				5E6E26F31F86B54600A1DC4D /* URLConfigurationViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -493,7 +484,6 @@
 				73EB46451F0E22CA001B7AA1 /* TrafficDetailsView.swift */,
 				73EB46471F0E2712001B7AA1 /* RequestView.swift */,
 				73EB46491F0E274D001B7AA1 /* ResponseView.swift */,
-				5E6E26F51F86B5BA00A1DC4D /* URLConfigurationView.swift */,
 				7C58BF041FED64EB00F46B5E /* OVLSegmentedControl.swift */,
 				7CC975971FFCDF5800635091 /* KeyValueView.swift */,
 				7CC975991FFCE57600635091 /* StatusView.swift */,
@@ -741,10 +731,8 @@
 				7CC975981FFCDF5800635091 /* KeyValueView.swift in Sources */,
 				BF6904591ED58EB500FF303E /* OverlayViewController.swift in Sources */,
 				7310A4B81F0B4A5700945C7E /* NetworkTrafficCell.swift in Sources */,
-				5E6E26F81F86C07D00A1DC4D /* URLConfigurationStorage.swift in Sources */,
 				731A1B821F06CB67008A6164 /* UserDefaultsViewController.swift in Sources */,
 				5EEAE7F61F5F0AF5009B6149 /* KeychainItem.swift in Sources */,
-				5E6E26F61F86B5BA00A1DC4D /* URLConfigurationView.swift in Sources */,
 				EAFAE2771F0B88EF0017380B /* LogsMonitor.swift in Sources */,
 				810EF3DE1F05950300E12159 /* FlowController.swift in Sources */,
 				EA747B991F0F80570048506A /* LogsViewController.swift in Sources */,
@@ -763,7 +751,6 @@
 				779A9D621F4C5E0E00CF6310 /* ResponseRepresentation.swift in Sources */,
 				7C5178B51FFE4424003045C8 /* Dictionary.swift in Sources */,
 				7CC9759A1FFCE57600635091 /* StatusView.swift in Sources */,
-				5E6E26F41F86B54600A1DC4D /* URLConfigurationViewController.swift in Sources */,
 				7CE1EAB62006411600A34163 /* BaseNavigationController.swift in Sources */,
 				EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */,
 				5EEAE7F81F5F0C45009B6149 /* KeychainMonitor.swift in Sources */,
@@ -802,7 +789,6 @@
 				5EEAE7FD1F5FFB36009B6149 /* KeychainMonitorSpec.swift in Sources */,
 				5EEAE7FB1F5FF9F1009B6149 /* KeychainItem.swift in Sources */,
 				81B15FC91F1D411200C9BDA2 /* Feature.swift in Sources */,
-				5E6E26FD1F86DB9C00A1DC4D /* URLConfigurationStorage.swift in Sources */,
 				5EEAE7FE1F5FFB3A009B6149 /* KeychainMonitor.swift in Sources */,
 				5E88AF901F627C8700D54712 /* ConfigurationSpec.swift in Sources */,
 				5E88AF981F62D15700D54712 /* UserDefaultsMonitor.swift in Sources */,

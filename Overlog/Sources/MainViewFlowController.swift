@@ -121,8 +121,6 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
             case .systemLogs:
                 viewControllerToPush = systemLogsViewController
                 systemLogsMonitor?.subscribeForLogs()
-            case .url:
-                viewControllerToPush = URLConfigurationViewController()
         }
 
         if let viewController = viewControllerToPush {
