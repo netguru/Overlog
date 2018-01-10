@@ -54,18 +54,18 @@ internal extension UIFont {
     ///
     /// - Parameter weight: Weight of the font
     /// - Returns: System weight value
-    private class func fontWeight(fromOVLWeight weight: OVLWeight) -> UIFontWeight {
+    private class func fontWeight(fromOVLWeight weight: OVLWeight) -> UIFont.Weight {
         if #available(iOS 8.2, *) {
             switch weight {
             case .regular:
-                return UIFontWeightRegular
+                return UIFont.Weight.regular
             case .semibold:
-                return UIFontWeightSemibold
+                return UIFont.Weight.semibold
             case .bold:
-                return UIFontWeightBold
+                return UIFont.Weight.bold
             }
         }
-        return 0
+        return UIFont.Weight(rawValue: 0)
     }
     
     /// Helper method for creating Font on iOS < 8.2

@@ -40,7 +40,7 @@ internal final class MainView: View {
     }
 
     override func setupConstraints() {
-        tableView.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .vertical)
+        tableView.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .vertical)
         if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -140,14 +140,14 @@ internal final class MainView: View {
         
         /// Common attributes
         let commonAttributes = [
-            NSForegroundColorAttributeName: UIColor.OVLLightGray,
-            NSFontAttributeName: UIFont.OVLFont(ofSize: 16, weight: .regular)
+            NSAttributedStringKey.foregroundColor: UIColor.OVLLightGray,
+            NSAttributedStringKey.font: UIFont.OVLFont(ofSize: 16, weight: .regular)
         ]
         
         /// Attributes for heart and Netguru text
         let blueBiggerFontAttributes = [
-            NSForegroundColorAttributeName: UIColor.OVLLightBlue,
-            NSFontAttributeName: UIFont.OVLFont(ofSize: 16, weight: .bold)
+            NSAttributedStringKey.foregroundColor: UIColor.OVLLightBlue,
+            NSAttributedStringKey.font: UIFont.OVLFont(ofSize: 16, weight: .bold)
         ]
         
         attributedString.addAttributes(

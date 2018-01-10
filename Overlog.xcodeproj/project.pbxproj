@@ -607,12 +607,12 @@
 				TargetAttributes = {
 					3A2203EB1ED42EA30048F6A7 = {
 						CreatedOnToolsVersion = 8.3.2;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 					};
 					3A88CEB11ED32D4D00557CFA = {
 						CreatedOnToolsVersion = 8.3.2;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 					};
 					3A88CEBA1ED32D4D00557CFA = {
@@ -844,6 +844,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */;
 			buildSettings = {
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -851,6 +853,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A2203FF1ED42EDC0048F6A7 /* Demo-Base.xcconfig */;
 			buildSettings = {
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -874,6 +878,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
 			buildSettings = {
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -881,6 +887,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED71ED32F9700557CFA /* Framework-Base.xcconfig */;
 			buildSettings = {
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

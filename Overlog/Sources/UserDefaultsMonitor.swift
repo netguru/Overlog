@@ -28,7 +28,7 @@ final internal class UserDefaultsMonitor {
     /// Performs a one-time scan for all items stored in the user defaults.
     internal func subscribeForItems() {
         
-        let dictionary = dataSource.dictionaryRepresentation().sorted(by: { $0.0.key < $0.1.key })
+        let dictionary = dataSource.dictionaryRepresentation().sorted(by: { $0.key < $1.key })
         let items = dictionary.map { UserDefaultsItem(key: $0, value: String(describing: $1)) }
         delegate?.monitor(self, didGet: items)
     }
