@@ -24,7 +24,7 @@ internal final class OverlayView: View {
         floatingButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         floatingButton.layer.shadowRadius = 7.0
         floatingButton.layer.shadowOpacity = 0.2
-        floatingButton.imageEdgeInsets = .init(top: 15, left: 15, bottom: 15, right: 15)
+        floatingButton.imageEdgeInsets = .init(top: 0, left: 4, bottom: 0, right: 0)
         floatingButton.tintColor = UIColor.OVLWhite
         floatingButton.backgroundColor = UIColor.OVLBlue
         floatingButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
