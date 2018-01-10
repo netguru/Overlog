@@ -20,7 +20,6 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     fileprivate let networkTrafficViewFlowController: NetworkTrafficViewFlowController
 
     /// Logs monitors for reading and notifying about logs
-    fileprivate var consoleLogsMonitor: ConsoleLogsMonitor?
     fileprivate var systemLogsMonitor: SystemLogsMonitor?
 
     /// Items monitor for reading and notifying about keychain's content.
@@ -48,11 +47,6 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// View controller for displaying keychain items.
     fileprivate lazy var keychainViewController: KeychainViewController? = {
         return self.keychainMonitor != nil ? KeychainViewController() : nil
-    }()
-
-    /// View controller for displaying console logs.
-    fileprivate lazy var consoleLogsViewController: LogsViewController? = {
-        return self.consoleLogsMonitor != nil ? LogsViewController() : nil
     }()
 
     /// View controller for displaying system logs.
@@ -124,8 +118,6 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
                 keychainMonitor?.subscribeForItems()
             case .network:
                 networkTrafficViewFlowController.push(with: networkTrafficEntries)
-            case .consoleLogs:
-                viewControllerToPush = consoleLogsViewController
             case .systemLogs:
                 viewControllerToPush = systemLogsViewController
                 systemLogsMonitor?.subscribeForLogs()
@@ -172,13 +164,8 @@ extension MainViewFlowController: NetworkMonitorDelegate {
 
 extension MainViewFlowController: LogsMonitorDelegate {
     func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry]) {
-        if monitor is ConsoleLogsMonitor {
-            consoleLogsViewController?.reload(with: logs)
-            delegate?.controller(self, didGetEventOfType: .consoleLogs)
-        } else {
-            systemLogsViewController?.reload(with: logs)
-            delegate?.controller(self, didGetEventOfType: .systemLogs)
-        }
+        systemLogsViewController?.reload(with: logs)
+        delegate?.controller(self, didGetEventOfType: .systemLogs)
     }
 }
 
@@ -215,18 +202,6 @@ fileprivate extension MainViewFlowController {
         if configuration.containsFeature(ofType: .userDefaults) {
             userDefaultsMonitor = UserDefaultsMonitor(dataSource: UserDefaults.standard)
             userDefaultsMonitor?.delegate = self
-        }
-        if configuration.containsFeature(ofType: .consoleLogs) {
-            print("***\n"
-                + "\n"
-                + "Overlog has been configured to gather console logs which won't be visible in a console window anymore.\n"
-                + "It is a workaround for a fact that stdout and stderr outputs can be redirected only to a one handle.\n"
-                + "\n"
-                + "***"
-            )
-            consoleLogsMonitor = ConsoleLogsMonitor()
-            consoleLogsMonitor?.delegate = self
-            consoleLogsMonitor?.subscribeForLogs()
         }
         if configuration.containsFeature(ofType: .systemLogs) {
             systemLogsMonitor = SystemLogsMonitor()

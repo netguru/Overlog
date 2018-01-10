@@ -12,18 +12,12 @@ public enum FeatureType: String {
     case network = "HTTP Traffic"
     case keychain = "Keychain"
     case userDefaults = "User Defaults"
-    case consoleLogs = "Console Logs"
     case systemLogs = "Logs"
     case url = "URL Configuration"
     
     /// All available feature types.
-    static internal var all: [FeatureType] {
-        return [.network, .userDefaults, .keychain, .consoleLogs, .systemLogs, .url]
-    }
-    
-    /// Default feature types.
-    static public var `default`: [FeatureType] {
-        return [.network, .userDefaults, .keychain, .systemLogs]
+    static public var all: [FeatureType] {
+        return [.network, .userDefaults, .keychain, .systemLogs, .url]
     }
     
     /// User defaults key for corresponding feature type.
@@ -36,8 +30,6 @@ public enum FeatureType: String {
         switch self {
         case .network:
             return "\u{1F30D}"
-        case .consoleLogs:
-            return "\u{1F916}"
         case .keychain:
             return "\u{1F510}"
         default:
