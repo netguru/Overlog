@@ -51,7 +51,7 @@ internal final class ResponseViewController: UIViewController {
             
             customView.thirdRow.isHidden = false
             customView.thirdRow.keyLabel.text = "User Info".localized
-            customView.thirdRow.valueLabel.text = error.userInfo.keyValueString ?? "<empty>"
+            customView.thirdRow.valueLabel.text = error.userInfo.isEmpty ? "<empty>" : String(describing: error.userInfo)
         }
     }
 }
