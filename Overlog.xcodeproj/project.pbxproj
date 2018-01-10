@@ -67,6 +67,7 @@
 		7CB305C91FE0290C0006D1DE /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB305C81FE0290C0006D1DE /* UIImage.swift */; };
 		7CC975981FFCDF5800635091 /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC975971FFCDF5800635091 /* KeyValueView.swift */; };
 		7CC9759A1FFCE57600635091 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC975991FFCE57600635091 /* StatusView.swift */; };
+		7CE1EAB62006411600A34163 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE1EAB52006411600A34163 /* BaseNavigationController.swift */; };
 		810EF3D61F05258A00E12159 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D51F05258A00E12159 /* MainViewController.swift */; };
 		810EF3DA1F0593F300E12159 /* OverlayFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3D91F0593F300E12159 /* OverlayFlowController.swift */; };
 		810EF3DC1F05940100E12159 /* MainViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EF3DB1F05940100E12159 /* MainViewFlowController.swift */; };
@@ -187,6 +188,7 @@
 		7CB305C81FE0290C0006D1DE /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		7CC975971FFCDF5800635091 /* KeyValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		7CC975991FFCE57600635091 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		7CE1EAB52006411600A34163 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		810EF3D51F05258A00E12159 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		810EF3D91F0593F300E12159 /* OverlayFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayFlowController.swift; sourceTree = "<group>"; };
 		810EF3DB1F05940100E12159 /* MainViewFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewFlowController.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 		810EF3E11F05952B00E12159 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7CE1EAB52006411600A34163 /* BaseNavigationController.swift */,
 				810EF3D51F05258A00E12159 /* MainViewController.swift */,
 				7310A4B31F0B480D00945C7E /* NetworkTrafficViewController.swift */,
 				BF6904581ED58EB500FF303E /* OverlayViewController.swift */,
@@ -764,6 +767,7 @@
 				7C5178B51FFE4424003045C8 /* Dictionary.swift in Sources */,
 				7CC9759A1FFCE57600635091 /* StatusView.swift in Sources */,
 				5E6E26F41F86B54600A1DC4D /* URLConfigurationViewController.swift in Sources */,
+				7CE1EAB62006411600A34163 /* BaseNavigationController.swift in Sources */,
 				EAFAE27D1F0CD70F0017380B /* LogEntry.swift in Sources */,
 				5EEAE7F81F5F0C45009B6149 /* KeychainMonitor.swift in Sources */,
 				731A1B6F1F06753D008A6164 /* MainView.swift in Sources */,

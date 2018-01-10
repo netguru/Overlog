@@ -41,7 +41,7 @@ internal final class OverlayFlowController: FlowController, OverlayViewControlle
 
         /// Create and configure child flow controller
         mainViewController = MainViewController(featuresDataSource: configuration)
-        mainFlowController = MainViewFlowController(with: UINavigationController(rootViewController: mainViewController), configuration: configuration)
+        mainFlowController = MainViewFlowController(with: BaseNavigationController(rootViewController: mainViewController), configuration: configuration)
 
         /// Extract the root controller from optional and set self as flow delegate
         guard let rootViewController = rootViewController else { return }
