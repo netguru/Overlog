@@ -116,9 +116,9 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
             case .keychain:
                 viewControllerToPush = keychainViewController
                 keychainMonitor?.subscribeForItems()
-            case .network:
+            case .httpTraffic:
                 networkTrafficViewFlowController.push(with: networkTrafficEntries)
-            case .systemLogs:
+            case .logs:
                 viewControllerToPush = systemLogsViewController
                 systemLogsMonitor?.subscribeForLogs()
         }
@@ -140,7 +140,7 @@ extension MainViewFlowController: NetworkMonitorDelegate {
         let networkTrafficEntry = NetworkTrafficEntry(request: request)
         networkTrafficEntries.insert(networkTrafficEntry, at: 0)
         networkTrafficViewFlowController.reload(with: networkTrafficEntry)
-        delegate?.controller(self, didGetEventOfType: .network)
+        delegate?.controller(self, didGetEventOfType: .httpTraffic)
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation) {
@@ -148,7 +148,7 @@ extension MainViewFlowController: NetworkMonitorDelegate {
             currentItem.error = error
             networkTrafficViewFlowController.reload(with: currentItem)
         }
-        delegate?.controller(self, didGetEventOfType: .network)
+        delegate?.controller(self, didGetEventOfType: .httpTraffic)
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation) {
@@ -156,14 +156,14 @@ extension MainViewFlowController: NetworkMonitorDelegate {
             currentItem.response = response
             networkTrafficViewFlowController.reload(with: currentItem)
         }
-        delegate?.controller(self, didGetEventOfType: .network)
+        delegate?.controller(self, didGetEventOfType: .httpTraffic)
     }
 }
 
 extension MainViewFlowController: LogsMonitorDelegate {
     func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry]) {
         systemLogsViewController?.reload(with: logs)
-        delegate?.controller(self, didGetEventOfType: .systemLogs)
+        delegate?.controller(self, didGetEventOfType: .logs)
     }
 }
 
@@ -183,7 +183,7 @@ extension MainViewFlowController: UserDefaultsMonitorDelegate {
 
 fileprivate extension MainViewFlowController {
     func createMonitors() {
-        if configuration.containsFeature(ofType: .network) {
+        if configuration.containsFeature(ofType: .httpTraffic) {
             networkMonitor = NetworkMonitor.shared
             networkMonitor?.delegate = self
         }
@@ -201,7 +201,7 @@ fileprivate extension MainViewFlowController {
             userDefaultsMonitor = UserDefaultsMonitor(dataSource: UserDefaults.standard)
             userDefaultsMonitor?.delegate = self
         }
-        if configuration.containsFeature(ofType: .systemLogs) {
+        if configuration.containsFeature(ofType: .logs) {
             systemLogsMonitor = SystemLogsMonitor()
             systemLogsMonitor?.delegate = self
         }

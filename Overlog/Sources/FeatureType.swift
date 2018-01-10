@@ -9,14 +9,14 @@ import Foundation
 
 /// Feature types to configure Overlog behvavior.
 public enum FeatureType: String {
-    case network = "HTTP Traffic"
+    case httpTraffic = "HTTP Traffic"
     case keychain = "Keychain"
     case userDefaults = "User Defaults"
-    case systemLogs = "Logs"
+    case logs = "Logs"
     
     /// All available feature types.
     static public var all: [FeatureType] {
-        return [.network, .userDefaults, .keychain, .systemLogs]
+        return [.httpTraffic, .userDefaults, .keychain, .logs]
     }
     
     /// User defaults key for corresponding feature type.
@@ -27,7 +27,7 @@ public enum FeatureType: String {
     /// An icon of feature type.
     internal var icon: String {
         switch self {
-        case .network:
+        case .httpTraffic:
             return "\u{1F30D}"
         case .keychain:
             return "\u{1F510}"
