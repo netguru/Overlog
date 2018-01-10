@@ -58,11 +58,11 @@ internal extension UIFont {
         if #available(iOS 8.2, *) {
             switch weight {
             case .regular:
-                return UIFont.Weight.regular
+                return .regular
             case .semibold:
-                return UIFont.Weight.semibold
+                return .semibold
             case .bold:
-                return UIFont.Weight.bold
+                return .bold
             }
         }
         return UIFont.Weight(rawValue: 0)
