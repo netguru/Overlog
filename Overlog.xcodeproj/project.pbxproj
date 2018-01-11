@@ -830,7 +830,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED51ED32F6D00557CFA /* Common-Debug.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -838,7 +837,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A88CED61ED32F8300557CFA /* Common-Release.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
