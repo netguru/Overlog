@@ -30,7 +30,7 @@ internal final class KeyValueEntryCell: TableViewCell {
         valueLabel.font = .OVLFont(ofSize: 14, weight: .regular, type: .code)
         
         bottomFill.backgroundColor = .OVLDarkBlue
-        bottomFill.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .vertical)
+        bottomFill.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .vertical)
     }
 
     override func setupConstraints() {

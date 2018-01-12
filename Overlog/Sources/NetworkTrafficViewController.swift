@@ -40,7 +40,7 @@ final class NetworkTrafficViewController: UIViewController {
 
     internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = FeatureType.network.rawValue
+        navigationItem.title = FeatureType.httpTraffic.rawValue
         if let indexPath = customView.tableView.indexPathForSelectedRow {
             customView.tableView.deselectRow(at: indexPath, animated: true)
         }

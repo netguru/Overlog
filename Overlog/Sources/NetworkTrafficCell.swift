@@ -47,7 +47,7 @@ internal final class NetworkTrafficCell: TableViewCell {
         statusCircle.layer.cornerRadius = 4
         
         bottomBorder.backgroundColor = .OVLGray
-        bottomBorder.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .vertical)
+        bottomBorder.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .vertical)
     }
 
     internal override func setupConstraints() {

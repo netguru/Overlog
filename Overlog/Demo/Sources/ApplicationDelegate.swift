@@ -27,7 +27,7 @@ import Overlog
 		window?.makeKeyAndVisible()
 
 		overlog = Overlog.shared
-		overlog?.configuration.features = FeatureType.default
+		overlog?.configuration.features = FeatureType.all
 		overlog?.configuration.keychainIdentifier = "com.name.overlog.keychain"
 		overlog?.show(in: window!)
 

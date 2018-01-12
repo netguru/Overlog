@@ -30,20 +30,20 @@ internal final class OVLSegmentedControl: UISegmentedControl {
         removeBorders()
         setTitleTextAttributes(
             [
-                NSFontAttributeName: UIFont.OVLFont(ofSize: 14, weight: .semibold),
-                NSForegroundColorAttributeName: UIColor.OVLWhite
+                NSAttributedStringKey.font: UIFont.OVLFont(ofSize: 14, weight: .semibold),
+                NSAttributedStringKey.foregroundColor: UIColor.OVLWhite
             ], for: .normal)
         
         setTitleTextAttributes(
             [
-                NSFontAttributeName: UIFont.OVLFont(ofSize: 14, weight: .semibold),
-                NSForegroundColorAttributeName: UIColor.OVLWhite
+                NSAttributedStringKey.font: UIFont.OVLFont(ofSize: 14, weight: .semibold),
+                NSAttributedStringKey.foregroundColor: UIColor.OVLWhite
             ], for: .selected)
         
         setTitleTextAttributes(
             [
-                NSFontAttributeName: UIFont.OVLFont(ofSize: 14, weight: .semibold),
-                NSForegroundColorAttributeName: UIColor.OVLWhite.withAlphaComponent(0.25)
+                NSAttributedStringKey.font: UIFont.OVLFont(ofSize: 14, weight: .semibold),
+                NSAttributedStringKey.foregroundColor: UIColor.OVLWhite.withAlphaComponent(0.25)
             ], for: .disabled)
     }
     
