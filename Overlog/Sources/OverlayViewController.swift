@@ -28,6 +28,9 @@ internal final class OverlayViewController: UIViewController {
     
     /// Handler of `.motionShake` motion event
     internal var didPerformShakeEvent: ((UIEvent?) -> Void)? = nil
+    
+    /// Indicates if overlay should autorotate (prevents from rotating notification bar when Overlog is visible)
+    internal var shouldAllowAutorotation: Bool = true
 
     /// The initial center value of `OverlayView.floatingButton` during a drag gesture
     fileprivate var initialFloatingButtonCenter: CGPoint = .zero
@@ -57,6 +60,10 @@ internal final class OverlayViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return false
+    }
+    
+    override var shouldAutorotate: Bool {
+        return shouldAllowAutorotation
     }
     
     /// Overrides super method and calls `didPerformShakeEvent` closure when `.motionShake` was recevied. 
