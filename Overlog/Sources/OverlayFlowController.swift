@@ -120,5 +120,8 @@ extension OverlayFlowController: MainViewFlowControllerDelegate {
         if !visible {
             overlayWindow?.makeKey()
         }
+        
+        /// Prevents from rotating notification bar when Overlog is visible
+        rootViewController?.shouldAllowAutorotation = !visible
     }
 }
