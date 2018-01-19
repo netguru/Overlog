@@ -10,23 +10,8 @@ import UIKit
 /// An Overlog abstraction
 public final class Overlog {
     
-    /// Name of the notification to register if any object wants to be notified about any changes in url configuration.
-    public static let URLConfigurationDidChangeNotificationKey = Notification.Name(rawValue: "OVLURLConfigurationDidChange")
-    
     /// Overlog configuration.
     public let configuration = Configuration()
-    
-    /// Overlog customized url.
-    ///
-    /// - Note: Available only when feature type .url is enabled.
-    public var url: (scheme: String, host: String)? {
-        guard
-            configuration.containsFeature(ofType: .url),
-            let host = URLConfigurationStorage.host else {
-                return nil
-        }
-        return (URLConfigurationStorage.scheme.rawValue, host)
-    }
     
     /// A Boolean value that determines whether the overlog floating button is hidden.
     /// - Discussion:
@@ -51,9 +36,8 @@ public final class Overlog {
     ///
     /// - Parameters:
     ///   - window: application's main window
-    ///   - viewController: the main window's root view controller
-    public func show(in window: UIWindow, rootViewController viewController: UIViewController) {
-        flowController = OverlayFlowController(with: viewController, window: window, configuration: configuration)
+    public func show(in window: UIWindow) {
+        flowController = OverlayFlowController(with: window, configuration: configuration)
 
         /// Extract the root view controller and configure the events
         guard let rootViewController = flowController?.rootViewController else { return }

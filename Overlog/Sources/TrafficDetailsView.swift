@@ -8,7 +8,7 @@
 import UIKit
 
 internal final class TrafficDetailsView: View {
-    internal let segmentedControl = UISegmentedControl(frame: .zero)
+    internal let segmentedControl = OVLSegmentedControl(frame: .init(x: 0, y: 0, width: 240, height: 30))
     internal var contentView = UIView(frame: .zero)
 
     override func setupHierarchy() {
@@ -16,31 +16,48 @@ internal final class TrafficDetailsView: View {
     }
 
     override func setupProperties() {
-        contentView.backgroundColor = .white
-        self.backgroundColor = .white
-
-        [contentView, segmentedControl].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.backgroundColor = .OVLDarkBlue
+        self.backgroundColor = .OVLDarkBlue
 
         segmentedControl.insertSegment(withTitle: "Request".localized, at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "Response", at: 1, animated: false)
+        segmentedControl.insertSegment(withTitle: "Response".localized, at: 1, animated: false)
         segmentedControl.selectedSegmentIndex = 0
     }
 
     override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
-
-                segmentedControl.topAnchor.constraint(equalTo: topAnchor, constant: 72),
-                segmentedControl.widthAnchor.constraint(equalToConstant: 200),
-                segmentedControl.heightAnchor.constraint(equalToConstant: 32),
-                segmentedControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-
-                contentView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 8),
+                contentView.topAnchor.constraint(equalTo: topAnchor, constant: -16),
                 contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
-
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+            
+            let views = [
+                "contentView": contentView
+            ]
+            
+            let verticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-(-16)-[contentView]-0-|",
+                options: [.alignAllCenterX],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += verticalPositionConstraint
+            
+            let contentViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[contentView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += contentViewHorizontalPositionConstraint
+            
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
 

@@ -40,9 +40,9 @@ internal final class UserDefaultsViewController: UIViewController {
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonPressed))
-
-        self.navigationItem.rightBarButtonItem = shareButton
+        let shareButton = UIBarButtonItem(image: UIImage(namedInOverlogBundle: "share"), style: .plain, target: self, action: #selector(shareButtonPressed))
+        navigationItem.rightBarButtonItem = shareButton
+        navigationItem.title = FeatureType.userDefaults.rawValue
         configure(tableView: customView.tableView)
     }
 
@@ -61,7 +61,7 @@ extension UserDefaultsViewController {
     fileprivate func configure(tableView: UITableView) {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UserDefaultsCell.self, forCellReuseIdentifier: String(describing: UserDefaultsCell.self))
+        tableView.register(KeyValueEntryCell.self, forCellReuseIdentifier: String(describing: KeyValueEntryCell.self))
         tableView.estimatedRowHeight = 44.0
     }
 
@@ -79,8 +79,7 @@ extension UserDefaultsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UserDefaultsCell.self), for: indexPath) as! UserDefaultsCell
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: KeyValueEntryCell.self), for: indexPath) as! KeyValueEntryCell
         let item = items[indexPath.row]
         cell.keyLabel.text = item.key
         cell.valueLabel.text = item.value
@@ -103,13 +102,9 @@ extension UserDefaultsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
         if action == #selector(copy(_:)) {
-            if let cell = tableView.cellForRow(at: indexPath) as? UserDefaultsCell {
-                guard let keyString = cell.keyLabel.text else {
-                    return
-                }
-
+            if let cell = tableView.cellForRow(at: indexPath) as? KeyValueEntryCell {
                 let pasteboard = UIPasteboard.general
-                pasteboard.string = "\(keyString): \(cell.valueLabel.text ?? "")"
+                pasteboard.string = "\(cell.keyLabel.text ?? ""): \(cell.valueLabel.text ?? "")"
             }
         }
     }

@@ -47,19 +47,19 @@ class ConfigurationSpec: QuickSpec {
         
         describe("when setting network feature") {
             beforeEach {
-                sut.features = [.network]
+                sut.features = [.httpTraffic]
             }
             
             it("feature type should be properly set") {
-                expect(sut.features).to(equal([.network]))
+                expect(sut.features).to(equal([.httpTraffic]))
             }
             
             it("network feature should be available") {
-                expect(sut.availableFeatures().filter { $0.type == .network }.first).toNot(beNil())
+                expect(sut.availableFeatures().filter { $0.type == .httpTraffic }.first).toNot(beNil())
             }
             
             it("feature should be enabled by default") {
-                expect(sut.availableFeatures().filter { $0.type == .network }.first!.enabled).to(beTruthy())
+                expect(sut.availableFeatures().filter { $0.type == .httpTraffic }.first!.enabled).to(beTruthy())
             }
             
             it("should be exact 1 available feature") {
@@ -67,7 +67,7 @@ class ConfigurationSpec: QuickSpec {
             }
             
             it("network feature should be enabeld") {
-                expect(sut.enabledFeatures().filter { $0.type == .network }.first).toNot(beNil())
+                expect(sut.enabledFeatures().filter { $0.type == .httpTraffic }.first).toNot(beNil())
             }
             
             it("should be exact 1 enabled feature") {
@@ -75,7 +75,7 @@ class ConfigurationSpec: QuickSpec {
             }
             
             it("configuration should contain this feature type") {
-                expect(sut.containsFeature(ofType: .network)).to(beTruthy())
+                expect(sut.containsFeature(ofType: .httpTraffic)).to(beTruthy())
             }
         }
         
@@ -88,16 +88,16 @@ class ConfigurationSpec: QuickSpec {
             
             context("which exists") {
                 beforeEach {
-                    sut.features = [.network]
-                    statusChangeSucceded = sut.feature(.network, didEnable: false)
+                    sut.features = [.httpTraffic]
+                    statusChangeSucceded = sut.feature(.httpTraffic, didEnable: false)
                 }
                 
                 it("network feature should be available") {
-                    expect(sut.availableFeatures().filter { $0.type == .network }.first).toNot(beNil())
+                    expect(sut.availableFeatures().filter { $0.type == .httpTraffic }.first).toNot(beNil())
                 }
                 
                 it("network feature should be disabled") {
-                    expect(sut.enabledFeatures().filter { $0.type == .network }.first).to(beNil())
+                    expect(sut.enabledFeatures().filter { $0.type == .httpTraffic }.first).to(beNil())
                 }
                 
                 it("status change should succeded") {
@@ -105,17 +105,17 @@ class ConfigurationSpec: QuickSpec {
                 }
                 
                 it("configuration should contain disabled feature type") {
-                    expect(sut.containsFeature(ofType: .network)).to(beTruthy())
+                    expect(sut.containsFeature(ofType: .httpTraffic)).to(beTruthy())
                 }
             }
             
             context("which does not exist") {
                 beforeEach {
-                    statusChangeSucceded = sut.feature(.network, didEnable: false)
+                    statusChangeSucceded = sut.feature(.httpTraffic, didEnable: false)
                 }
                 
                 it("feature should not be available") {
-                    expect(sut.availableFeatures().filter { $0.type == .network }.first).to(beNil())
+                    expect(sut.availableFeatures().filter { $0.type == .httpTraffic }.first).to(beNil())
                 }
                 
                 it("status change should failed") {
@@ -123,7 +123,7 @@ class ConfigurationSpec: QuickSpec {
                 }
                 
                 it("configuration should not contain feature type") {
-                    expect(sut.containsFeature(ofType: .network)).to(beFalsy())
+                    expect(sut.containsFeature(ofType: .httpTraffic)).to(beFalsy())
                 }
             }
         }
@@ -141,12 +141,12 @@ class ConfigurationSpec: QuickSpec {
             
             context("changing existing feature") {
                 beforeEach {
-                    sut.features = [.systemLogs]
+                    sut.features = [.logs]
                 }
                 
                 it("notification should be posted") {
                     expect {
-                        return sut.feature(.systemLogs, didEnable: false)
+                        return sut.feature(.logs, didEnable: false)
                     }.to(postNotifications(contain(notification)))
                 }
             }
@@ -154,7 +154,7 @@ class ConfigurationSpec: QuickSpec {
             context("changing non-existing feature") {
                 it("notification should not be posted") {
                     expect {
-                        return sut.feature(.consoleLogs, didEnable: false)
+                        return sut.feature(.logs, didEnable: false)
                     }.toNot(postNotifications(contain(notification)))
                 }
             }

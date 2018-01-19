@@ -54,9 +54,9 @@ internal final class TrafficDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonPressed))
-        self.navigationItem.rightBarButtonItem = shareButton
-
+        let shareButton = UIBarButtonItem(image: UIImage(namedInOverlogBundle: "share"), style: .plain, target: self, action: #selector(shareButtonPressed))
+        navigationItem.rightBarButtonItem = shareButton
+        navigationItem.titleView = customView.segmentedControl
         customView.segmentedControl.addTarget(self, action: #selector(didChageSegment(sender:)), for: .valueChanged)
         renderContent()
     }
@@ -64,18 +64,24 @@ internal final class TrafficDetailsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        display(viewController: requestViewController)
+        display(viewController: displayedViewController)
     }
 
     override func loadView() {
         super.loadView()
-
-        view = customView
+        view.addSubview(customView)
+        customView.pinToSuperviewEdges()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        customView.segmentedControl.frame.size = .init(width: 240, height: 30)
     }
 
     internal func renderContent() {
         requestViewController.displayRequest(from: networkTrafficEntry)
         responseViewController.displayResponse(from: networkTrafficEntry)
+        customView.segmentedControl.setEnabled(!networkTrafficEntry.isInProgress, forSegmentAt: 1)
     }
 }
 

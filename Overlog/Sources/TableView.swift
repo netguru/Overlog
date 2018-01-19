@@ -17,22 +17,23 @@ final class TableView: View {
 
     override func setupProperties() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-
-        tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        tableView.indicatorStyle = .white
+        tableView.showsVerticalScrollIndicator = true
+        tableView.backgroundColor = .OVLDarkBlue
+        tableView.separatorStyle = .none
         /// To hide empty cells
         tableView.tableFooterView = UIView(frame: .zero)
     }
 
     override func setupConstraints() {
 
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 tableView.topAnchor.constraint(equalTo: topAnchor),
                 tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
-
         } else {
             var allConstraints = [NSLayoutConstraint]()
 
@@ -49,12 +50,11 @@ final class TableView: View {
             allConstraints += tableViewVerticalPositionConstraint
 
             let tableViewHorizontalPositionConstraint = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-(-8)-[tableView]-(-8)-|",
+                withVisualFormat: "H:|-0-[tableView]-0-|",
                 options: [],
                 metrics: nil,
                 views: views
             )
-            
             allConstraints += tableViewHorizontalPositionConstraint
 
             NSLayoutConstraint.activate(allConstraints)

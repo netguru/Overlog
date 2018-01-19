@@ -40,10 +40,15 @@ final class NetworkTrafficViewController: UIViewController {
 
     internal override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        navigationItem.title = FeatureType.httpTraffic.rawValue
         if let indexPath = customView.tableView.indexPathForSelectedRow {
             customView.tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    internal override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = ""
     }
 
     internal override func loadView() {
@@ -88,12 +93,8 @@ extension NetworkTrafficViewController: UITableViewDelegate {
 extension NetworkTrafficViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NetworkTrafficCell.self), for: indexPath) as! NetworkTrafficCell
-
-        cell.requestTypeLabel.text = "Request".localized
-
-        let currentRequest = networkTrafficEntries[indexPath.row].request
-        cell.requestURLLabel.text = currentRequest.urlString
-
+        let entry = networkTrafficEntries[indexPath.row]
+        cell.setup(withEntry: entry)
         return cell
     }
 

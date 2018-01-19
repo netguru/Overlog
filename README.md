@@ -10,7 +10,7 @@
 
 ## Installation Requirements
 
-Overlog requires **Xcode 9.1 or higher** and supports **iOS 8.0 or higher**.
+Overlog requires **Xcode 9.1 or higher** and supports **iOS 8.4 or higher**.
 
 ## Installation
 
