@@ -11,7 +11,7 @@ final class FeatureCell: TableViewCell {
 
     internal let nameLabel = UILabel(frame: .zero)
     internal let counterLabel = UILabel(frame: .zero)
-    internal let indicatorImageView = UIImageView(image: .init(namedInOverlogBundle: "details"))
+    internal let indicatorImageView = UIImageView(image: .init(namedInOverlogBundle: "button-details"))
     internal let borderView = UILabel(frame: .zero)
 
     override func setupHierarchy() {

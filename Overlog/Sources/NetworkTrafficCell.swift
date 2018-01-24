@@ -11,7 +11,7 @@ internal final class NetworkTrafficCell: TableViewCell {
 
     internal let requestLabel = UILabel(frame: .zero)
     internal let requestStatusLabel = UILabel(frame: .zero)
-    internal let indicatorImageView = UIImageView(image: .init(namedInOverlogBundle: "details"))
+    internal let indicatorImageView = UIImageView(image: .init(namedInOverlogBundle: "button-details"))
     internal let statusCircle = UIView(frame: .zero)
     internal let bottomBorder = UIView(frame: .zero)
     

@@ -11,7 +11,7 @@ internal final class OverlayView: View {
     
     internal let floatingButton = UIButton(type: .system)
     private var floatingButtonTitleChangeTask: DispatchWorkItem?
-    private let defaultFloatingButtonIcon = UIImage(namedInOverlogBundle: "bug")
+    private let defaultFloatingButtonIcon = UIImage(namedInOverlogBundle: "overlog-bug")
 
     override func setupHierarchy() {
         addSubview(floatingButton)
