@@ -58,7 +58,7 @@ final class NetworkTrafficViewController: UIViewController {
     /// Reloads view controller content with received entry.
     ///
     /// - Parameter entry: Network entry which should be displayed by the view controller.
-    public func reload(with entry: NetworkTrafficEntry) {
+    internal func reload(with entry: NetworkTrafficEntry) {
         if let index = networkTrafficEntries.index(where: { $0 === entry }) {
             let indexPath = IndexPath(row: index, section: 0)
             customView.tableView.reloadRows(at: [indexPath], with: .automatic)
