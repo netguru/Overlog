@@ -7,7 +7,7 @@
 
 import Quick
 import Nimble
-import Overlog
+@testable import Overlog
 
 class UserDefaultsMonitorSpec: QuickSpec {
     

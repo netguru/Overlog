@@ -15,4 +15,4 @@
 _BUNDLE_NAME = Overlog
 _BUNDLE_IDENTIFIER = co.netguru.lib.overlog
 _BUNDLE_INFOPLIST_PATH = $(PROJECT_DIR)/$(PROJECT_NAME)/Resources/Framework-Info.plist
-_BUNDLE_TESTABLE = NO
+_BUNDLE_TESTABLE = YES
