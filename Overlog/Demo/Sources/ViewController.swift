@@ -20,7 +20,7 @@ internal final class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: nil, action: nil)
 
         let configuration = URLSessionConfiguration.default
-        Overlog.shared.enableNetworkDebugging(inConfiguration: configuration)
+        Overlog.shared.enableHTTPTrafficDebugging(in: configuration)
 
         let session = URLSession(configuration: configuration)
 

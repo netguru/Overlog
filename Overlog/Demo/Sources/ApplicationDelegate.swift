@@ -24,9 +24,8 @@ import Overlog
 		window!.rootViewController = UINavigationController(rootViewController: ViewController())
 		window!.makeKeyAndVisible()
 
-		Overlog.shared.configuration.features = FeatureType.all
 		Overlog.shared.configuration.keychainIdentifier = "com.name.overlog.keychain"
-		Overlog.shared.show(in: window!)
+		Overlog.shared.attach(to: window!)
 
 		return true
 
