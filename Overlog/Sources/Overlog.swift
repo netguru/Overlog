@@ -59,9 +59,6 @@ public final class Overlog {
         /// A custom keychain service identifier used by Overlog.
         public var keychainIdentifier = String?.none
 
-        /// A custom user defaults suite used by Overlog.
-        public var userDefaultsSuite = String?.none
-
     }
 
     // MARK: Initializers
