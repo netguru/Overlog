@@ -88,21 +88,6 @@ internal final class MainViewFlowController: MainViewControllerFlowDelegate {
         rootViewController?.dismiss(animated: true, completion: nil)
         delegate?.controller(self, toggleOverlogVisibilityToState: false)
     }
-    
-    /// Action performed after tapping settings button
-    ///
-    /// - Parameter sender: settings button
-    func didTapSettingsButton(with sender: UIBarButtonItem) {
-        let viewController = SettingsViewController(featuresDataSource: configuration)
-        viewController.modalPresentationStyle = .popover
-        guard let popoverPresentationController = viewController.popoverPresentationController else {
-            return
-        }
-        popoverPresentationController.permittedArrowDirections = .up
-        popoverPresentationController.barButtonItem = sender
-        popoverPresentationController.delegate = viewController
-        rootViewController?.present(viewController, animated: true, completion: nil)
-    }
 
     /// Tells the flow delegate that some feature was clicked.
     ///

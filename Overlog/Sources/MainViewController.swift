@@ -14,12 +14,6 @@ internal protocol MainViewControllerFlowDelegate: class {
     /// - Parameters:
     ///   - sender: a button responsible for sending the action
     func didTapCloseButton(with sender: UIBarButtonItem)
-    
-    /// Tells the flow delegate that settings button has been tapped.
-    ///
-    /// - Parameters:
-    ///   - sender: a button responsible for sending the action
-    func didTapSettingsButton(with sender: UIBarButtonItem)
 
     /// Tells the flow delegate that some feature was clicked.
     ///
@@ -116,14 +110,6 @@ fileprivate extension MainViewController {
     ///   - sender: a button responsible for sending the action
     @objc fileprivate func didTapCloseButton(with sender: UIBarButtonItem) {
         flowDelegate?.didTapCloseButton(with: sender)
-    }
-    
-    /// Sends the settings action from bar button item to flow delegate.
-    ///
-    /// - Parameters:
-    ///   - sender: a button responsible for sending the action
-    @objc fileprivate func didTapSettingsButton(with sender: UIBarButtonItem) {
-        flowDelegate?.didTapSettingsButton(with: sender)
     }
     
 }
