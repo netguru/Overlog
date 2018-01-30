@@ -33,7 +33,7 @@ internal final class LogsViewController: UIViewController {
         view = customView
     }
 
-    public func reload(with newLogs: [LogEntry]) {
+    internal func reload(with newLogs: [LogEntry]) {
         logs = newLogs
         customView.tableView.reloadData()
     }
