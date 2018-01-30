@@ -1,9 +1,8 @@
 //
-//  Keychain.swift
-//  KeychainAccess
+// Keychain.swift
+// KeychainAccess
 //
-//  Created by kishikawa katsumi on 2014/12/24.
-//  Copyright (c) 2014 kishikawa katsumi. All rights reserved.
+// Copyright (c) 2014 kishikawa katsumi. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +21,12 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+//
+// This Keychain wrapper dependency has been added explicitly as a source of
+// Overlog and all declarations were made `internal` so that Overlog does not
+// expose an unneeded dependency to its clients. In the future, this dependency
+// might be replaced by a Overlog's own light-weight solution.
+//
 
 import Foundation
 import Security
