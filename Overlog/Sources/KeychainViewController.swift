@@ -39,7 +39,7 @@ internal final class KeychainViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.register(KeyValueEntryCell.self, forCellReuseIdentifier: String(describing: KeyValueEntryCell.self))
         tableView.estimatedRowHeight = 44.0
-        navigationItem.title = FeatureType.keychain.rawValue
+        navigationItem.title = Overlog.Feature.keychain.localizedTitle
     }
     
 }

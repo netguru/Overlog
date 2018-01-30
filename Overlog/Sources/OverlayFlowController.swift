@@ -19,7 +19,7 @@ internal final class OverlayFlowController: OverlayViewControllerFlowDelegate {
     fileprivate let mainViewController: MainViewController
 
     /// Overlog configuration.
-    fileprivate let configuration: Configuration
+    fileprivate let configuration: Overlog.Configuration
     
     /// Default window of application, passed at init
     fileprivate weak var applicationWindow: UIWindow?
@@ -32,7 +32,7 @@ internal final class OverlayFlowController: OverlayViewControllerFlowDelegate {
     /// - Parameters:
     ///   - window: Application's main window
     ///   - configuration: Overlog configuration
-    init(with window: UIWindow, configuration: Configuration) {
+    init(with window: UIWindow, configuration: Overlog.Configuration) {
         self.applicationWindow = window
         self.configuration = configuration
 
@@ -40,7 +40,7 @@ internal final class OverlayFlowController: OverlayViewControllerFlowDelegate {
         rootViewController = OverlayViewController()
 
         /// Create and configure child flow controller
-        mainViewController = MainViewController(featuresDataSource: configuration)
+        mainViewController = MainViewController(configuration: configuration)
         mainFlowController = MainViewFlowController(with: BaseNavigationController(rootViewController: mainViewController), configuration: configuration)
 
         /// Extract the root controller from optional and set self as flow delegate
@@ -107,10 +107,9 @@ private extension OverlayFlowController {
 
 extension OverlayFlowController: MainViewFlowControllerDelegate {
 
-    func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: FeatureType) {
-        let featureEnabled = configuration.enabledFeatures().filter { $0.type == eventType }.first != nil
-        if featureEnabled {
-            rootViewController?.overlayView.animateTitleChange(to: eventType.icon, duration: 1)
+    func controller(_ controller: MainViewFlowController, didGetEventOfType feature: Overlog.Feature) {
+        if configuration.enabledFeatures.contains(feature), let emojiTitle = feature.emojiTitle {
+            rootViewController?.overlayView.animateTitleChange(to: emojiTitle, duration: 1)
         }
     }
     
