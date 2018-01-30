@@ -26,7 +26,7 @@ internal final class KeychainViewController: UITableViewController {
     /// Reloads view controller content with received items.
     ///
     /// - Parameter newItems: Keychain items which should be displayed by view controller.
-    public func reload(with newItems: [KeychainItem]) {
+    internal func reload(with newItems: [KeychainItem]) {
         items = newItems
         tableView.reloadData()
     }
