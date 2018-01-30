@@ -14,7 +14,7 @@
 
 _BUNDLE_NAME = Overlog Demo
 _BUNDLE_IDENTIFIER = co.netguru.lib.overlog.demo
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Demo/Resources/Demo-Info.plist
+_BUNDLE_INFOPLIST_PATH = $(PROJECT_DIR)/$(PROJECT_NAME)/Demo/Resources/Demo-Info.plist
 _BUNDLE_TESTABLE = NO
 
 // MARK: Assets
