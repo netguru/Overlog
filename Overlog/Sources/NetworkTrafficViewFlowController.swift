@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class NetworkTrafficViewFlowController: FlowController {
+internal final class NetworkTrafficViewFlowController {
 
     typealias ViewController = UINavigationController
     internal var rootViewController: UINavigationController?

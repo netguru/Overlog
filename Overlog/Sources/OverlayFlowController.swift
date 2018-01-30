@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class OverlayFlowController: FlowController, OverlayViewControllerFlowDelegate {
+internal final class OverlayFlowController: OverlayViewControllerFlowDelegate {
     
     typealias ViewController = OverlayViewController
     internal var rootViewController: OverlayViewController?

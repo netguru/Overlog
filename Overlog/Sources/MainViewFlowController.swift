@@ -8,7 +8,7 @@
 import UIKit
 import ResponseDetective
 
-internal final class MainViewFlowController: FlowController, MainViewControllerFlowDelegate {
+internal final class MainViewFlowController: MainViewControllerFlowDelegate {
 
     /// A delegate for receiving new events occurences
     internal weak var delegate: MainViewFlowControllerDelegate?
