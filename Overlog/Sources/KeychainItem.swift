@@ -12,7 +12,7 @@ private enum Keys: String {
 }
 
 /// Overlog keychain model
-public struct KeychainItem {
+internal struct KeychainItem {
     
     let key: String
     let value: String

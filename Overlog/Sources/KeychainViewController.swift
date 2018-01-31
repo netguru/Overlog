@@ -26,7 +26,7 @@ internal final class KeychainViewController: UITableViewController {
     /// Reloads view controller content with received items.
     ///
     /// - Parameter newItems: Keychain items which should be displayed by view controller.
-    public func reload(with newItems: [KeychainItem]) {
+    internal func reload(with newItems: [KeychainItem]) {
         items = newItems
         tableView.reloadData()
     }
@@ -39,7 +39,7 @@ internal final class KeychainViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.register(KeyValueEntryCell.self, forCellReuseIdentifier: String(describing: KeyValueEntryCell.self))
         tableView.estimatedRowHeight = 44.0
-        navigationItem.title = FeatureType.keychain.rawValue
+        navigationItem.title = Overlog.Feature.keychain.localizedTitle
     }
     
 }

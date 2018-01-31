@@ -1,8 +1,5 @@
 github "AliSoftware/OHHTTPStubs" "6.1.0"
 github "Quick/Nimble" "v7.0.3"
 github "Quick/Quick" "v1.2.0"
-github "akashivskyy/QuickSwiftCheck" "1.2.0"
-github "antitypical/Result" "3.2.4"
 github "netguru/ResponseDetective" "1.2.2"
 github "netguru/xcconfigs" "0.4"
-github "typelift/SwiftCheck" "0.8.1"

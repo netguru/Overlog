@@ -16,22 +16,19 @@ import Overlog
 	/// - SeeAlso: UIApplicationDelegate.window
 	@objc(window) fileprivate lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
 
-	var overlog: Overlog?
-
 	// MARK: UIApplicationDelegate
 
 	/// - SeeAlso: UIApplicationDelegate.application(_:didFinishLaunchingWithOptions:)
 	fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		let navigationController = UINavigationController(rootViewController: ViewController())
-		window?.rootViewController = navigationController
-		window?.makeKeyAndVisible()
 
-		overlog = Overlog.shared
-		overlog?.configuration.features = FeatureType.all
-		overlog?.configuration.keychainIdentifier = "com.name.overlog.keychain"
-		overlog?.show(in: window!)
+		window!.rootViewController = UINavigationController(rootViewController: ViewController())
+		window!.makeKeyAndVisible()
+
+		Overlog.shared.configuration.keychainIdentifier = "com.name.overlog.keychain"
+		Overlog.shared.attach(to: window!)
 
 		return true
+
 	}
 
 }

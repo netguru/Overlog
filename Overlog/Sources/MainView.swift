@@ -11,7 +11,7 @@ internal final class MainView: View {
 
     internal let tableView = UITableView(frame: .zero)
     internal let headerView = UIView(frame: .init(x: 0, y: 0, width: 0, height: 220))
-    internal let logoImageView = UIImageView(image: .init(namedInOverlogBundle: "logo"))
+    internal let logoImageView = UIImageView(image: .init(namedInOverlogBundle: "overlog-logo"))
     internal let footerLabel = UILabel(frame: .zero)
 
     override func setupHierarchy() {

@@ -8,7 +8,7 @@
 import UIKit
 import ResponseDetective
 
-internal final class MainViewFlowController: FlowController, MainViewControllerFlowDelegate {
+internal final class MainViewFlowController: MainViewControllerFlowDelegate {
 
     /// A delegate for receiving new events occurences
     internal weak var delegate: MainViewFlowControllerDelegate?
@@ -32,7 +32,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     fileprivate var userDefaultsMonitor: UserDefaultsMonitor?
 
     /// Configuration to apply.
-    fileprivate let configuration: Configuration
+    fileprivate let configuration: Overlog.Configuration
 
     /// View controller for displaying user defaults items.
     fileprivate lazy var userDefaultsViewController: UserDefaultsViewController? = {
@@ -60,7 +60,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// Initializes settings flow controller
     ///
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
-    init(with navigationController: UINavigationController, configuration: Configuration) {
+    init(with navigationController: UINavigationController, configuration: Overlog.Configuration) {
         self.configuration = configuration
         rootViewController = navigationController
         networkTrafficViewFlowController = NetworkTrafficViewFlowController(with: navigationController)
@@ -88,26 +88,11 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         rootViewController?.dismiss(animated: true, completion: nil)
         delegate?.controller(self, toggleOverlogVisibilityToState: false)
     }
-    
-    /// Action performed after tapping settings button
-    ///
-    /// - Parameter sender: settings button
-    func didTapSettingsButton(with sender: UIBarButtonItem) {
-        let viewController = SettingsViewController(featuresDataSource: configuration)
-        viewController.modalPresentationStyle = .popover
-        guard let popoverPresentationController = viewController.popoverPresentationController else {
-            return
-        }
-        popoverPresentationController.permittedArrowDirections = .up
-        popoverPresentationController.barButtonItem = sender
-        popoverPresentationController.delegate = viewController
-        rootViewController?.present(viewController, animated: true, completion: nil)
-    }
 
     /// Tells the flow delegate that some feature was clicked.
     ///
     /// - Parameter feature: selected feature.
-    func didSelect(feature: FeatureType) {
+    func didSelect(feature: Overlog.Feature) {
         var viewControllerToPush: UIViewController?
         switch feature {
             case .userDefaults:
@@ -183,11 +168,11 @@ extension MainViewFlowController: UserDefaultsMonitorDelegate {
 
 fileprivate extension MainViewFlowController {
     func createMonitors() {
-        if configuration.containsFeature(ofType: .httpTraffic) {
+        if configuration.enabledFeatures.contains(.httpTraffic) {
             networkMonitor = NetworkMonitor.shared
             networkMonitor?.delegate = self
         }
-        if configuration.containsFeature(ofType: .keychain) {
+        if configuration.enabledFeatures.contains(.keychain) {
             let keychain: KeychainMonitorDataSource
             if let serviceIdentifier = configuration.keychainIdentifier {
                 keychain = Keychain(service: serviceIdentifier)
@@ -197,11 +182,11 @@ fileprivate extension MainViewFlowController {
             keychainMonitor = KeychainMonitor(dataSource: keychain)
             keychainMonitor?.delegate = self
         }
-        if configuration.containsFeature(ofType: .userDefaults) {
+        if configuration.enabledFeatures.contains(.userDefaults) {
             userDefaultsMonitor = UserDefaultsMonitor(dataSource: UserDefaults.standard)
             userDefaultsMonitor?.delegate = self
         }
-        if configuration.containsFeature(ofType: .logs) {
+        if configuration.enabledFeatures.contains(.logs) {
             systemLogsMonitor = SystemLogsMonitor()
             systemLogsMonitor?.delegate = self
         }
@@ -214,7 +199,7 @@ internal protocol MainViewFlowControllerDelegate: class {
     ///
     /// - parameter controller: A view flow controller receiving events from monitors
     /// - parameter eventType: Type of an event declared as FeatureType
-    func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: FeatureType)
+    func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: Overlog.Feature)
     
     /// Triggered when main view controller is presenting or dismissing
     ///

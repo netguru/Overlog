@@ -40,9 +40,9 @@ internal final class UserDefaultsViewController: UIViewController {
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        let shareButton = UIBarButtonItem(image: UIImage(namedInOverlogBundle: "share"), style: .plain, target: self, action: #selector(shareButtonPressed))
+        let shareButton = UIBarButtonItem(image: UIImage(namedInOverlogBundle: "button-share"), style: .plain, target: self, action: #selector(shareButtonPressed))
         navigationItem.rightBarButtonItem = shareButton
-        navigationItem.title = FeatureType.userDefaults.rawValue
+        navigationItem.title = Overlog.Feature.userDefaults.localizedTitle
         configure(tableView: customView.tableView)
     }
 

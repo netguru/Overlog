@@ -14,17 +14,11 @@ internal protocol MainViewControllerFlowDelegate: class {
     /// - Parameters:
     ///   - sender: a button responsible for sending the action
     func didTapCloseButton(with sender: UIBarButtonItem)
-    
-    /// Tells the flow delegate that settings button has been tapped.
-    ///
-    /// - Parameters:
-    ///   - sender: a button responsible for sending the action
-    func didTapSettingsButton(with sender: UIBarButtonItem)
 
     /// Tells the flow delegate that some feature was clicked.
     ///
     /// - Parameter feature: selected feature.
-    func didSelect(feature: FeatureType)
+    func didSelect(feature: Overlog.Feature)
 }
 
 internal final class MainViewController: UIViewController {
@@ -34,18 +28,14 @@ internal final class MainViewController: UIViewController {
 
     /// Custom view to be displayed
     internal let customView = MainView()
-
-    /// Data source of available features
-    fileprivate let featuresDataSource: FeaturesDataSource
     
     /// Cached enabled features taken from its data source.
-    fileprivate var features: [Feature]
+    fileprivate var configuration: Overlog.Configuration
     
     // MARK: - View controller lifecycle
     
-    init(featuresDataSource: FeaturesDataSource) {
-        self.featuresDataSource = featuresDataSource;
-        self.features = featuresDataSource.enabledFeatures()
+    init(configuration: Overlog.Configuration) {
+        self.configuration = configuration;
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -70,8 +60,7 @@ internal final class MainViewController: UIViewController {
         configure(navigationBar: navigationController?.navigationBar)
         
         /// Add notification handling for changes in enabled features data source
-        NotificationCenter.default.addObserver(forName: featuresDataSource.enabledFeaturesDidChangeNotificationKey, object: nil, queue: OperationQueue.main) { [unowned self] (notification: Notification) in
-            self.features = self.featuresDataSource.enabledFeatures()
+        NotificationCenter.default.addObserver(forName: .overlogEnabledFeaturesDidChange, object: nil, queue: .main) { [unowned self] _ in
             self.customView.tableView.reloadData()
         }
     }
@@ -91,7 +80,7 @@ internal final class MainViewController: UIViewController {
     ///
     /// - Parameter navigationItem: navigation item to configure
     private func configure(navigationItem: UINavigationItem) {
-        let closeBarButtonItem = UIBarButtonItem(image: .init(namedInOverlogBundle: "close"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(didTapCloseButton(with:)))
+        let closeBarButtonItem = UIBarButtonItem(image: .init(namedInOverlogBundle: "button-close"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(didTapCloseButton(with:)))
         
         navigationItem.leftBarButtonItem = closeBarButtonItem
         navigationItem.title = ""
@@ -123,28 +112,16 @@ fileprivate extension MainViewController {
         flowDelegate?.didTapCloseButton(with: sender)
     }
     
-    /// Sends the settings action from bar button item to flow delegate.
-    ///
-    /// - Parameters:
-    ///   - sender: a button responsible for sending the action
-    @objc fileprivate func didTapSettingsButton(with sender: UIBarButtonItem) {
-        flowDelegate?.didTapSettingsButton(with: sender)
-    }
-    
 }
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeatureCell.self), for: indexPath) as! FeatureCell
 
-        let feature = features[indexPath.row]
-        cell.nameLabel.text = feature.description
-        if feature.counter > 0 {
-            cell.counterLabel.text = String(feature.counter)
-        }
+        cell.nameLabel.text = configuration.sortedEnabledFeatures[indexPath.row].localizedTitle
         
         /// Hide bottom border in last cell
-        if indexPath.row + 1 == features.count {
+        if indexPath.row == configuration.sortedEnabledFeatures.count - 1 {
             cell.hideBorder()
         }
 
@@ -152,14 +129,14 @@ extension MainViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return features.count
+        return configuration.sortedEnabledFeatures.count
     }
 }
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.flowDelegate?.didSelect(feature: features[indexPath.row].type)
+        self.flowDelegate?.didSelect(feature: configuration.sortedEnabledFeatures[indexPath.row])
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

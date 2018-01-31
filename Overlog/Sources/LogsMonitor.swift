@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol LogsMonitor {
+internal protocol LogsMonitor {
 
     weak var delegate: LogsMonitorDelegate? { get set }
     
@@ -18,7 +18,7 @@ public protocol LogsMonitor {
 }
 
 /// A LogsMonitorDelegate delegate protocol for notifying about new logs available.
-public protocol LogsMonitorDelegate: class {
+internal protocol LogsMonitorDelegate: class {
 
     /// Triggered when Monitor gets system logs
     ///

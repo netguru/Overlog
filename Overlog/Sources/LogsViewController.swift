@@ -25,7 +25,7 @@ internal final class LogsViewController: UIViewController {
 
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = FeatureType.logs.rawValue
+        navigationItem.title = Overlog.Feature.logs.localizedTitle
         configure(tableView: customView.tableView)
     }
 
@@ -33,7 +33,7 @@ internal final class LogsViewController: UIViewController {
         view = customView
     }
 
-    public func reload(with newLogs: [LogEntry]) {
+    internal func reload(with newLogs: [LogEntry]) {
         logs = newLogs
         customView.tableView.reloadData()
     }
