@@ -1,6 +1,6 @@
-**MIT License**
+MIT License
 
-Copyright (c) 2017 Netguru Sp. z o.o.
+Copyright © 2018 Netguru Sp. z o.o.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
