@@ -26,7 +26,7 @@ app:
   envs:
     - XCODEBUILD_PROJECT: ./Overlog.xcodeproj
     - XCODEBUILD_OPTIONS: _BUILD_NUMBER=$BITRISE_BUILD_NUMBER
-    - XCODEBUILD_SCHEME: Framework
+    - XCODEBUILD_SCHEME: Overlog-iOS
 
 # Workflow declarations.
 
