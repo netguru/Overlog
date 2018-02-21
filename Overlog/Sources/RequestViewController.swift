@@ -13,7 +13,9 @@ internal final class RequestViewController: UIViewController {
     private let customView = RequestView()
 
     internal override func loadView() {
-        view = customView
+        super.loadView()
+        view.addSubview(customView)
+        customView.pinToSuperviewEdges()
     }
 
     init() {
@@ -26,9 +28,9 @@ internal final class RequestViewController: UIViewController {
     }
 
     internal func displayRequest(from entry: NetworkTrafficEntry) {
-        customView.deserializedBodyLabel.text = "Body:\n\(entry.request.deserializedBody ?? "Empty")"
-        customView.headersLabel.text = "Headers:\n\(String(describing: entry.request.headers))"
-        customView.methodLabel.text = "  Method: \(entry.request.method)  "
-        customView.urlLabel.text = "URL: \(entry.request.urlString)"
+        customView.urlView.valueLabel.text = entry.request.urlString
+        customView.methodView.valueLabel.text = entry.request.method
+        customView.headersView.valueLabel.text = entry.request.headers.keyValueString ?? "<empty>"
+        customView.bodyView.valueLabel.text = entry.request.deserializedBody ?? "<empty>"
     }
 }

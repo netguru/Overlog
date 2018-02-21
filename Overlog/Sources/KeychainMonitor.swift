@@ -8,10 +8,10 @@
 extension Keychain: KeychainMonitorDataSource {}
 
 /// A class to monitor the keychain items
-final public class KeychainMonitor {
+final internal class KeychainMonitor {
 
     /// A delegate for notifying about new keychain items available.
-    public var delegate: KeychainMonitorDelegate?
+    internal var delegate: KeychainMonitorDelegate?
 
     /// A keychain data source associated with the host application.
     fileprivate let dataSource: KeychainMonitorDataSource
@@ -24,7 +24,7 @@ final public class KeychainMonitor {
     }
 
     /// Performs a one-time scan for all keychain items stored by the host app.
-    public func subscribeForItems() {
+    internal func subscribeForItems() {
         
         let items = dataSource.allItems().map(KeychainItem.init(raw:))
         delegate?.monitor(self, didGet: items)
@@ -32,7 +32,7 @@ final public class KeychainMonitor {
 }
 
 /// A KeychainMonitorDelegate delegate protocol for notifying about received keychain items.
-public protocol KeychainMonitorDelegate: class {
+internal protocol KeychainMonitorDelegate: class {
 
     /// Triggered when Monitor receives keychain items
     ///
@@ -42,7 +42,7 @@ public protocol KeychainMonitorDelegate: class {
 }
 
 /// A data source for keychain monitor.
-public protocol KeychainMonitorDataSource: class {
+internal protocol KeychainMonitorDataSource: class {
 
     /// Obtains all items stored in the keychain.
     ///

@@ -8,7 +8,7 @@
 import UIKit
 import ResponseDetective
 
-internal final class MainViewFlowController: FlowController, MainViewControllerFlowDelegate {
+internal final class MainViewFlowController: MainViewControllerFlowDelegate {
 
     /// A delegate for receiving new events occurences
     internal weak var delegate: MainViewFlowControllerDelegate?
@@ -20,7 +20,6 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     fileprivate let networkTrafficViewFlowController: NetworkTrafficViewFlowController
 
     /// Logs monitors for reading and notifying about logs
-    fileprivate var consoleLogsMonitor: ConsoleLogsMonitor?
     fileprivate var systemLogsMonitor: SystemLogsMonitor?
 
     /// Items monitor for reading and notifying about keychain's content.
@@ -33,11 +32,11 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     fileprivate var userDefaultsMonitor: UserDefaultsMonitor?
 
     /// Configuration to apply.
-    fileprivate let configuration: Configuration
+    fileprivate let configuration: Overlog.Configuration
 
     /// View controller for displaying user defaults items.
     fileprivate lazy var userDefaultsViewController: UserDefaultsViewController? = {
-        return self.keychainMonitor != nil ? {
+        return self.userDefaultsMonitor != nil ? {
             let controller = UserDefaultsViewController()
             controller.flowDelegate = self
             
@@ -48,11 +47,6 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// View controller for displaying keychain items.
     fileprivate lazy var keychainViewController: KeychainViewController? = {
         return self.keychainMonitor != nil ? KeychainViewController() : nil
-    }()
-
-    /// View controller for displaying console logs.
-    fileprivate lazy var consoleLogsViewController: LogsViewController? = {
-        return self.consoleLogsMonitor != nil ? LogsViewController() : nil
     }()
 
     /// View controller for displaying system logs.
@@ -66,7 +60,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     /// Initializes settings flow controller
     ///
     /// - Parameter navigationController: A navigation controller responsible for controlling the flow
-    init(with navigationController: UINavigationController, configuration: Configuration) {
+    init(with navigationController: UINavigationController, configuration: Overlog.Configuration) {
         self.configuration = configuration
         rootViewController = navigationController
         networkTrafficViewFlowController = NetworkTrafficViewFlowController(with: navigationController)
@@ -81,6 +75,7 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
         /// Present the settings navigation controller on overlay controler
         guard let navigationController = rootViewController else { return }
         viewController.present(navigationController, animated: true, completion: nil)
+        delegate?.controller(self, toggleOverlogVisibilityToState: true)
     }
     
     // MARK: - MainView flow delegate
@@ -91,27 +86,13 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
     func didTapCloseButton(with sender: UIBarButtonItem) {
         /// Dismiss modally presented settings navigation controller
         rootViewController?.dismiss(animated: true, completion: nil)
-    }
-    
-    /// Action performed after tapping settings button
-    ///
-    /// - Parameter sender: settings button
-    func didTapSettingsButton(with sender: UIBarButtonItem) {
-        let viewController = SettingsViewController(featuresDataSource: configuration)
-        viewController.modalPresentationStyle = .popover
-        guard let popoverPresentationController = viewController.popoverPresentationController else {
-            return
-        }
-        popoverPresentationController.permittedArrowDirections = .up
-        popoverPresentationController.barButtonItem = sender
-        popoverPresentationController.delegate = viewController
-        rootViewController?.present(viewController, animated: true, completion: nil)
+        delegate?.controller(self, toggleOverlogVisibilityToState: false)
     }
 
     /// Tells the flow delegate that some feature was clicked.
     ///
     /// - Parameter feature: selected feature.
-    func didSelect(feature: FeatureType) {
+    func didSelect(feature: Overlog.Feature) {
         var viewControllerToPush: UIViewController?
         switch feature {
             case .userDefaults:
@@ -120,15 +101,11 @@ internal final class MainViewFlowController: FlowController, MainViewControllerF
             case .keychain:
                 viewControllerToPush = keychainViewController
                 keychainMonitor?.subscribeForItems()
-            case .network:
+            case .httpTraffic:
                 networkTrafficViewFlowController.push(with: networkTrafficEntries)
-            case .consoleLogs:
-                viewControllerToPush = consoleLogsViewController
-            case .systemLogs:
+            case .logs:
                 viewControllerToPush = systemLogsViewController
                 systemLogsMonitor?.subscribeForLogs()
-            case .url:
-                viewControllerToPush = URLConfigurationViewController()
         }
 
         if let viewController = viewControllerToPush {
@@ -146,9 +123,9 @@ extension MainViewFlowController: UserDefaultsViewControllerFlowDelegate {
 extension MainViewFlowController: NetworkMonitorDelegate {
     func monitor(_ monitor: NetworkMonitor, didGet request: RequestRepresentation) {
         let networkTrafficEntry = NetworkTrafficEntry(request: request)
-        networkTrafficEntries.append(networkTrafficEntry)
+        networkTrafficEntries.insert(networkTrafficEntry, at: 0)
         networkTrafficViewFlowController.reload(with: networkTrafficEntry)
-        delegate?.controller(self, didGetEventOfType: .network)
+        delegate?.controller(self, didGetEventOfType: .httpTraffic)
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet error: ErrorRepresentation) {
@@ -156,7 +133,7 @@ extension MainViewFlowController: NetworkMonitorDelegate {
             currentItem.error = error
             networkTrafficViewFlowController.reload(with: currentItem)
         }
-        delegate?.controller(self, didGetEventOfType: .network)
+        delegate?.controller(self, didGetEventOfType: .httpTraffic)
     }
 
     func monitor(_ monitor: NetworkMonitor, didGet response: ResponseRepresentation) {
@@ -164,19 +141,14 @@ extension MainViewFlowController: NetworkMonitorDelegate {
             currentItem.response = response
             networkTrafficViewFlowController.reload(with: currentItem)
         }
-        delegate?.controller(self, didGetEventOfType: .network)
+        delegate?.controller(self, didGetEventOfType: .httpTraffic)
     }
 }
 
 extension MainViewFlowController: LogsMonitorDelegate {
     func monitor(_ monitor: LogsMonitor, didGet logs: [LogEntry]) {
-        if monitor is ConsoleLogsMonitor {
-            consoleLogsViewController?.reload(with: logs)
-            delegate?.controller(self, didGetEventOfType: .consoleLogs)
-        } else {
-            systemLogsViewController?.reload(with: logs)
-            delegate?.controller(self, didGetEventOfType: .systemLogs)
-        }
+        systemLogsViewController?.reload(with: logs)
+        delegate?.controller(self, didGetEventOfType: .logs)
     }
 }
 
@@ -196,31 +168,25 @@ extension MainViewFlowController: UserDefaultsMonitorDelegate {
 
 fileprivate extension MainViewFlowController {
     func createMonitors() {
-        if configuration.containsFeature(ofType: .network) {
+        if configuration.enabledFeatures.contains(.httpTraffic) {
             networkMonitor = NetworkMonitor.shared
             networkMonitor?.delegate = self
         }
-        if configuration.containsFeature(ofType: .keychain) {
-            keychainMonitor = KeychainMonitor(dataSource: Keychain())
+        if configuration.enabledFeatures.contains(.keychain) {
+            let keychain: KeychainMonitorDataSource
+            if let serviceIdentifier = configuration.keychainIdentifier {
+                keychain = Keychain(service: serviceIdentifier)
+            } else {
+                keychain = Keychain()
+            }
+            keychainMonitor = KeychainMonitor(dataSource: keychain)
             keychainMonitor?.delegate = self
         }
-        if configuration.containsFeature(ofType: .userDefaults) {
+        if configuration.enabledFeatures.contains(.userDefaults) {
             userDefaultsMonitor = UserDefaultsMonitor(dataSource: UserDefaults.standard)
             userDefaultsMonitor?.delegate = self
         }
-        if configuration.containsFeature(ofType: .consoleLogs) {
-            print("***\n"
-                + "\n"
-                + "Overlog has been configured to gather console logs which won't be visible in a console window anymore.\n"
-                + "It is a workaround for a fact that stdout and stderr outputs can be redirected only to a one handle.\n"
-                + "\n"
-                + "***"
-            )
-            consoleLogsMonitor = ConsoleLogsMonitor()
-            consoleLogsMonitor?.delegate = self
-            consoleLogsMonitor?.subscribeForLogs()
-        }
-        if configuration.containsFeature(ofType: .systemLogs) {
+        if configuration.enabledFeatures.contains(.logs) {
             systemLogsMonitor = SystemLogsMonitor()
             systemLogsMonitor?.delegate = self
         }
@@ -233,6 +199,13 @@ internal protocol MainViewFlowControllerDelegate: class {
     ///
     /// - parameter controller: A view flow controller receiving events from monitors
     /// - parameter eventType: Type of an event declared as FeatureType
-    func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: FeatureType)
+    func controller(_ controller: MainViewFlowController, didGetEventOfType eventType: Overlog.Feature)
+    
+    /// Triggered when main view controller is presenting or dismissing
+    ///
+    /// - Parameters:
+    ///   - controller: A view flow controller receiving event
+    ///   - visible: state of the view controller
+    func controller(_ controller: MainViewFlowController, toggleOverlogVisibilityToState visible: Bool)
 
 }

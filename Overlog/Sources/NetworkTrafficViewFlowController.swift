@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class NetworkTrafficViewFlowController: FlowController {
+internal final class NetworkTrafficViewFlowController {
 
     typealias ViewController = UINavigationController
     internal var rootViewController: UINavigationController?
@@ -31,7 +31,7 @@ internal final class NetworkTrafficViewFlowController: FlowController {
     /// Reloads view controller content with received entry.
     ///
     /// - Parameter entry: A traffic entry to be added to current displaying entries.
-    public func reload(with entry: NetworkTrafficEntry) {
+    internal func reload(with entry: NetworkTrafficEntry) {
         rootViewController?.viewControllers.forEach {
             ($0 as? NetworkTrafficViewController)?.reload(with: entry)
             if let viewController = $0 as? TrafficDetailsViewController, viewController.networkTrafficEntry === entry {

@@ -22,7 +22,7 @@ private enum Keys: String {
 }
 
 /// Overlog log model
-public struct LogEntry {
+internal struct LogEntry {
 
     let date: Date?
     let sender: String

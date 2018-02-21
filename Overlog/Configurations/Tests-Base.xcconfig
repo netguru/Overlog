@@ -14,4 +14,4 @@
 
 _BUNDLE_NAME = Overlog Tests
 _BUNDLE_IDENTIFIER = co.netguru.lib.overlog.tests
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Overlog/Resources/Tests-Info.plist
+_BUNDLE_INFOPLIST_PATH = $(PROJECT_DIR)/$(PROJECT_NAME)/Resources/Tests-Info.plist

@@ -9,55 +9,126 @@ import UIKit
 
 internal final class RequestView: View {
 
-    fileprivate let scrollView = UIScrollView(frame: .zero)
-    internal let methodLabel = UILabel(frame: .zero)
-    internal let urlLabel = UILabel(frame: .zero)
-    internal let headersLabel = UILabel(frame: .zero)
-    internal let deserializedBodyLabel = UILabel(frame: .zero)
+    private let scrollView = UIScrollView(frame: .zero)
+    internal let urlView = KeyValueView(title: "URL".localized)
+    internal let methodView = KeyValueView(title: "Method".localized)
+    internal let headersView = KeyValueView(title: "Headers".localized)
+    internal let bodyView = KeyValueView(title: "Body".localized)
 
     internal override func setupHierarchy() {
         addSubview(scrollView)
-        [methodLabel, urlLabel, headersLabel, deserializedBodyLabel].forEach { scrollView.addSubview($0) }
+        [urlView, methodView, headersView, bodyView].forEach { scrollView.addSubview($0) }
     }
 
     internal override func setupProperties() {
-        [scrollView, methodLabel, urlLabel, headersLabel, deserializedBodyLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-
-
-        methodLabel.textColor = .white
-        methodLabel.layer.cornerRadius = 4
-        methodLabel.clipsToBounds = true
-        methodLabel.textAlignment = .center
-
-        methodLabel.backgroundColor = UIColor.blue
-
-        urlLabel.numberOfLines = 0
-        headersLabel.numberOfLines = 0
-        deserializedBodyLabel.numberOfLines = 0
+        [scrollView, urlView, methodView, headersView, bodyView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        backgroundColor = .OVLDarkBlue
+        scrollView.indicatorStyle = .white
+        scrollView.alwaysBounceVertical = true
     }
 
     internal override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
+        if #available(iOS 9.0, *) {
             NSLayoutConstraint.activate([
                 scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                scrollView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+                scrollView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
                 scrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
 
-                methodLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-                methodLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16),
+                urlView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+                urlView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+                urlView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16),
 
-                urlLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-                urlLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 4),
-                urlLabel.topAnchor.constraint(equalTo: methodLabel.bottomAnchor, constant: 16),
+                methodView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+                methodView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+                methodView.topAnchor.constraint(equalTo: urlView.bottomAnchor, constant: 16),
+                
+                headersView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+                headersView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+                headersView.topAnchor.constraint(equalTo: methodView.bottomAnchor, constant: 16),
 
-                headersLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-                headersLabel.topAnchor.constraint(equalTo: urlLabel.bottomAnchor, constant: 16),
-
-                deserializedBodyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-                deserializedBodyLabel.topAnchor.constraint(equalTo: headersLabel.bottomAnchor, constant: 16),
-                deserializedBodyLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+                bodyView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+                bodyView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+                bodyView.topAnchor.constraint(equalTo: headersView.bottomAnchor, constant: 16),
+                bodyView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
             ])
+        } else {
+            var allConstraints = [NSLayoutConstraint]()
+
+            let views = [
+                "scrollView": scrollView,
+                "urlView": urlView,
+                "methodView": methodView,
+                "headersView": headersView,
+                "bodyView": bodyView
+            ]
+
+            let scrollViewVerticalPosition = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[scrollView]-8-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += scrollViewVerticalPosition
+
+            let scrollViewHorizontalPosition = NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[scrollView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += scrollViewHorizontalPosition
+
+            let verticalPositionConstraint = NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-16-[urlView]-16-[methodView]-16-[headersView]-16-[bodyView]-0-|",
+                options: [],
+                metrics: nil,
+                views: views
+            )
+            allConstraints += verticalPositionConstraint
+
+            let urlViewHorizontalConstraints = [
+                NSLayoutConstraint.init(item: urlView, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: urlView, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += urlViewHorizontalConstraints
+
+            let methodViewHorizontalConstraints = [
+                NSLayoutConstraint.init(item: methodView, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: methodView, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+                ]
+            allConstraints += methodViewHorizontalConstraints
+            
+            
+            let headersViewHorizontalConstraints = [
+                NSLayoutConstraint.init(item: headersView, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: headersView, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += headersViewHorizontalConstraints
+            
+            let bodyViewHorizontalConstraints = [
+                NSLayoutConstraint.init(item: bodyView, attribute: .leading, relatedBy: .equal,
+                                        toItem: self, attribute: .leading,
+                                        multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: bodyView, attribute: .trailing, relatedBy: .equal,
+                                        toItem: self, attribute: .trailing,
+                                        multiplier: 1, constant: 0)
+            ]
+            allConstraints += bodyViewHorizontalConstraints
+
+            NSLayoutConstraint.activate(allConstraints)
         }
     }
 }

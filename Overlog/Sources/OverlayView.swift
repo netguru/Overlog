@@ -9,26 +9,25 @@ import UIKit
 
 internal final class OverlayView: View {
     
-    internal let containerView = UIView()
     internal let floatingButton = UIButton(type: .system)
-    private var floatingButtonTilteChangeTask: DispatchWorkItem?
+    private var floatingButtonTitleChangeTask: DispatchWorkItem?
+    private let defaultFloatingButtonIcon = UIImage(namedInOverlogBundle: "overlog-bug")
 
     override func setupHierarchy() {
-        [containerView, floatingButton].forEach { addSubview($0) }
+        addSubview(floatingButton)
     }
 
     override func setupProperties() {
-        floatingButton.setTitle("Overlog", for: .normal)
-        floatingButton.setTitleColor(.white, for: .normal)
+        floatingButton.setImage(defaultFloatingButtonIcon, for: .normal)
         floatingButton.layer.cornerRadius = 30.0
         floatingButton.layer.shadowColor = UIColor.black.cgColor
         floatingButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         floatingButton.layer.shadowRadius = 7.0
         floatingButton.layer.shadowOpacity = 0.2
-        floatingButton.backgroundColor = UIColor(red: 66/255.0, green: 146/255.0, blue: 244/255.0, alpha: 1.0)
+        floatingButton.imageEdgeInsets = .init(top: 15, left: 15, bottom: 15, right: 15)
+        floatingButton.tintColor = UIColor.OVLWhite
+        floatingButton.backgroundColor = UIColor.OVLBlue
         floatingButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
-
-        containerView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func layoutSubviews() {
@@ -38,38 +37,39 @@ internal final class OverlayView: View {
         floatingButton.frame = framePreventingFloatingButtonToMoveOutOfScreen()
     }
 
-    override func setupConstraints() {
-        if #available(iOSApplicationExtension 9.0, *) {
-            NSLayoutConstraint.activate([
-                containerView.topAnchor.constraint(equalTo: bottomAnchor),
-                containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                containerView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-
     /// Animates floating button's title.
     ///
     /// - Parameters:
     ///   - fromTitle: Title of the button which appear on the animation's beginning.
-    ///   - toTitle: Title of the button to show when animation ends.
     ///   - numberOfSeconds: duration of animation in seconds.
-    internal func animateTitleChange(from fromTitle: String, to toTitle: String = "Overlog", duration numberOfSeconds: Int) {
-        if let task = self.floatingButtonTilteChangeTask {
+    internal func animateTitleChange(to toTitle: String, duration numberOfSeconds: Int) {
+        if let task = self.floatingButtonTitleChangeTask {
             task.cancel()
         }
-        floatingButtonTilteChangeTask = nil
-        floatingButton.setTitle(fromTitle, for: .normal)
+        floatingButtonTitleChangeTask = nil
+        animateFloatingButtonImage(toVisible: false)
+        floatingButton.setTitle(toTitle, for: .normal)
 
         let task = DispatchWorkItem { [weak self] in
-            self?.floatingButton.setTitle(toTitle, for: .normal)
-            self?.floatingButtonTilteChangeTask = nil
+            self?.animateFloatingButtonImage(toVisible: true)
+            self?.floatingButton.setTitle(" ", for: .normal)
+            self?.floatingButtonTitleChangeTask = nil
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(numberOfSeconds), execute: task)
-        self.floatingButtonTilteChangeTask = task
+        self.floatingButtonTitleChangeTask = task
+    }
+    
+    /// Animates button image change.
+    /// By default UIButton only animates when changing titles, not images
+    ///
+    /// - Parameters:
+    ///    - visible: indicates if image of the button should be visible
+    private func animateFloatingButtonImage(toVisible visible: Bool) {
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.floatingButton.imageView?.alpha = visible ? 1 : 0
+        }, completion: { [weak self] _ in
+            self?.floatingButton.setImage(visible ? self?.defaultFloatingButtonIcon : nil, for: .normal)
+        })
     }
 
     /// Calculates floating button's frame after device's rotation.

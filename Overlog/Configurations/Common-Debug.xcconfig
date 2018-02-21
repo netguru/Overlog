@@ -9,7 +9,3 @@
 
 #include "Common-Base.xcconfig"
 #include "../../Carthage/Checkouts/xcconfigs/Configurations/Debug.xcconfig"
-
-// MARK: Build
-
-_SWIFT_OPTIMIZATION_LEVEL = -Onone
