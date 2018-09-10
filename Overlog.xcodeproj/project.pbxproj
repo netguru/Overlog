@@ -590,7 +590,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
 				"$(_CARTHAGE_BUILD_PATH)/ResponseDetective.framework",
 			);
 			name = "Carthage Copy Frameworks";
@@ -608,8 +607,6 @@
 			inputPaths = (
 				"$(_CARTHAGE_BUILD_PATH)/Nimble.framework",
 				"$(_CARTHAGE_BUILD_PATH)/Quick.framework",
-				"$(_CARTHAGE_BUILD_PATH)/Result.framework",
-				"$(_CARTHAGE_BUILD_PATH)/SwiftCheck.framework",
 				"$(_CARTHAGE_BUILD_PATH)/OHHTTPStubs.framework",
 				"$(_CARTHAGE_BUILD_PATH)/ResponseDetective.framework",
 			);

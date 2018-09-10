@@ -2,7 +2,7 @@
 
 ![](https://www.bitrise.io/app/a30519b090279206/status.svg?token=IqUL6pahZ_BKcwqjzfV0dg&branch=develop)
 ![](https://img.shields.io/github/release/netguru/Overlog.svg)
-![](https://img.shields.io/badge/swift-4.0-orange.svg)
+![](https://img.shields.io/badge/swift-4.1-orange.svg)
 ![](https://img.shields.io/badge/carthage-compatible-green.svg)
 ![](https://img.shields.io/badge/cocoapods-compatible-green.svg)
 
@@ -125,7 +125,7 @@ let session = URLSession(configuration: configuration)
 
 ## Requirements
 
-Overlog requires **Xcode 9.2 or higher** and supports **iOS 8.4 or higher**.
+Overlog requires **Xcode 9.3 or higher** and supports **iOS 8.0 or higher**.
 
 ## Installation
 
@@ -160,7 +160,7 @@ Pull Requests from you (yes, you!) are always appreciated – no matter the size
 
 Development requires the following tools to be installed:
 
-- **[Xcode](https://github.com/KrauseFx/xcode-install) 9.2** using the latest **iOS 11.2 SDK**,
+- **[Xcode](https://github.com/KrauseFx/xcode-install) 9.3** using the latest **iOS 11.4 SDK**,
 - **[Carthage](https://github.com/Carthage/Carthage) 0.28** or higher.
 
 Assuming the above tools are present, clone the repository and install the project's dependencies using Carthage:

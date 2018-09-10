@@ -764,7 +764,7 @@ internal final class Keychain {
     }
 
     internal func allKeys() -> [String] {
-        return type(of: self).prettify(itemClass: itemClass, items: items()).flatMap { $0["key"] as? String }
+        return type(of: self).prettify(itemClass: itemClass, items: items()).compactMap { $0["key"] as? String }
     }
 
     internal class func allItems(_ itemClass: ItemClass) -> [[String: Any]] {
