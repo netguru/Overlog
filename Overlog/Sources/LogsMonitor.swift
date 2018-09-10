@@ -9,7 +9,7 @@ import Foundation
 
 internal protocol LogsMonitor {
 
-    weak var delegate: LogsMonitorDelegate? { get set }
+    var delegate: LogsMonitorDelegate? { get set }
     
     // MARK: Abstract
 
