@@ -1,5 +1,5 @@
 github "AliSoftware/OHHTTPStubs" "6.1.0"
-github "Quick/Nimble" "v7.0.3"
-github "Quick/Quick" "v1.2.0"
-github "netguru/ResponseDetective" "1.2.2"
+github "Quick/Nimble" "v7.3.1"
+github "Quick/Quick" "v1.3.2"
+github "netguru/ResponseDetective" "1.2.4"
 github "netguru/xcconfigs" "0.4"

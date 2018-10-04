@@ -5,4 +5,4 @@
 
 # Architecture dependencies
 
-github "netguru/ResponseDetective" ~> 1.2.2
+github "netguru/ResponseDetective" ~> 1.2.4
