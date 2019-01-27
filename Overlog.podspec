@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   # Metadata
 
   spec.name = 'Overlog'
-  spec.version = '1.0.0'
+  spec.version = '1.0.1'
   spec.summary = 'Overlay for iOS apps for easier testing and debugging.'
   spec.homepage = 'https://netguru.co/overlog'
 
