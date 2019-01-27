@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
 
   # Settings
 
-  spec.swift_version = '4.1'
+  spec.swift_version = '4.2'
 
   spec.requires_arc = true
   spec.ios.deployment_target = '8.0'

@@ -80,7 +80,7 @@ internal final class MainViewController: UIViewController {
     ///
     /// - Parameter navigationItem: navigation item to configure
     private func configure(navigationItem: UINavigationItem) {
-        let closeBarButtonItem = UIBarButtonItem(image: .init(namedInOverlogBundle: "button-close"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(didTapCloseButton(with:)))
+        let closeBarButtonItem = UIBarButtonItem(image: .init(namedInOverlogBundle: "button-close"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(didTapCloseButton(with:)))
         
         navigationItem.leftBarButtonItem = closeBarButtonItem
         navigationItem.title = ""

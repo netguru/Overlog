@@ -19,7 +19,7 @@ import Overlog
 	// MARK: UIApplicationDelegate
 
 	/// - SeeAlso: UIApplicationDelegate.application(_:didFinishLaunchingWithOptions:)
-	fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
 		window!.rootViewController = UINavigationController(rootViewController: ViewController())
 		window!.makeKeyAndVisible()

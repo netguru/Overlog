@@ -15,7 +15,7 @@ internal class TableViewCell: UITableViewCell {
     /// - Parameters:
     ///   - style: UITableViewCellStyle
     ///   - reuseIdentifier: reuseIdentifier
-    internal override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    internal override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         setupProperties()

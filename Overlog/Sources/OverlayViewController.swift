@@ -72,7 +72,7 @@ internal final class OverlayViewController: UIViewController {
     /// - Parameters:
     ///   - motion: `UIEventSubtype`
     ///   - event: `UIEvent`
-    internal override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    internal override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             didPerformShakeEvent?(event)
         }

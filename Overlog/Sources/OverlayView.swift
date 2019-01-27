@@ -93,7 +93,7 @@ internal final class OverlayView: View {
     /// Moves button to the front in the view hierarchy.
     fileprivate func bringFloatingButtonToFrontIfNeeded() {
         if subviews.last !== floatingButton {
-            bringSubview(toFront: floatingButton)
+            bringSubviewToFront(floatingButton)
         }
     }
 }

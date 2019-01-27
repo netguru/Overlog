@@ -120,15 +120,15 @@ fileprivate extension TrafficDetailsViewController {
     /// - Parameter viewController: View Controller to be displayed
     func display(viewController: UIViewController) {
         displayedViewController.view.removeFromSuperview()
-        displayedViewController.removeFromParentViewController()
+        displayedViewController.removeFromParent()
 
         viewController.view.frame = customView.contentView.bounds
         customView.contentView.addSubview(viewController.view)
 
-        viewController.willMove(toParentViewController: self)
-        addChildViewController(viewController)
+        viewController.willMove(toParent: self)
+        addChild(viewController)
 
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
         displayedViewController = viewController
     }
 

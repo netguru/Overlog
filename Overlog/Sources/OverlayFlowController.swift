@@ -50,7 +50,7 @@ internal final class OverlayFlowController: OverlayViewControllerFlowDelegate {
         
         /// Init separate window for overlay view controller and set it as root
         overlayWindow = UIWindow(frame: rootViewController.overlayView.floatingButton.frame)
-        overlayWindow?.windowLevel = UIWindowLevelAlert
+        overlayWindow?.windowLevel = UIWindow.Level.alert
         overlayWindow?.rootViewController = rootViewController
         overlayWindow?.isHidden = false
         
